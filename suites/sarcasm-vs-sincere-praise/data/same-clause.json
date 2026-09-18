@@ -1,0 +1,14 @@
+[
+  {"id": "S1", "state": "This is exactly the fix we needed — clean, well-tested, and it shipped a day early. Great work.", "expected": "sincere"},
+  {"id": "S2", "state": "Thank you for staying late to help debug this. I really appreciate the effort you put in.", "expected": "sincere"},
+  {"id": "S3", "state": "The presentation was excellent. You explained a complex topic in a way everyone in the room understood.", "expected": "sincere"},
+  {"id": "I1", "state": "Oh fantastic, the server crashed right before the client demo.", "expected": "sarcastic"},
+  {"id": "I2", "state": "Wonderful, my flight got cancelled for the third time this month.", "expected": "sarcastic"},
+  {"id": "I3", "state": "Great, the printer is out of toner again on the one day I actually need it.", "expected": "sarcastic"},
+  {"id": "B1", "state": "Nice job deleting the production database right before the launch, real MVP move.", "expected": "sarcastic"},
+  {"id": "B2", "state": "Amazing work spending three weeks on a feature nobody asked for.", "expected": "sarcastic"},
+  {"id": "D1", "state": "Sure, because waiting four hours on hold really made my day.", "expected": "sarcastic"},
+  {"id": "D2", "state": "I love how the meeting that was supposed to take fifteen minutes ran for two hours.", "expected": "sarcastic"},
+  {"id": "T1", "state": "I appreciate you telling me directly that the design isn't working instead of letting me find out later. That's the kind of honesty I need on this team.", "expected": "sincere"},
+  {"id": "T2", "state": "Thanks for flagging the bug before we shipped it, even though it meant delaying the release. That was the right call.", "expected": "sincere"}
+]

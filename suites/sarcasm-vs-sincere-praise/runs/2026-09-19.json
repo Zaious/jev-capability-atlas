@@ -1,0 +1,344 @@
+{
+  "suite": "sarcasm-vs-sincere-praise",
+  "model": "jev-latest",
+  "same_clause": [
+    {
+      "id": "S1",
+      "expected": "sincere",
+      "choice": "sincere",
+      "confidence": 0.87,
+      "probabilities": {
+        "sarcastic": 0.07,
+        "sincere": 0.93
+      },
+      "usage": {
+        "input_tokens": 368,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "S2",
+      "expected": "sincere",
+      "choice": "sincere",
+      "confidence": 0.99,
+      "probabilities": {
+        "sincere": 1.0,
+        "sarcastic": 0.0
+      },
+      "usage": {
+        "input_tokens": 364,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "S3",
+      "expected": "sincere",
+      "choice": "sincere",
+      "confidence": 0.99,
+      "probabilities": {
+        "sincere": 0.99,
+        "sarcastic": 0.01
+      },
+      "usage": {
+        "input_tokens": 364,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "I1",
+      "expected": "sarcastic",
+      "choice": "sarcastic",
+      "confidence": 1.0,
+      "probabilities": {
+        "sincere": 0.0,
+        "sarcastic": 1.0
+      },
+      "usage": {
+        "input_tokens": 357,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "I2",
+      "expected": "sarcastic",
+      "choice": "sarcastic",
+      "confidence": 1.0,
+      "probabilities": {
+        "sincere": 0.0,
+        "sarcastic": 1.0
+      },
+      "usage": {
+        "input_tokens": 360,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "I3",
+      "expected": "sarcastic",
+      "choice": "sarcastic",
+      "confidence": 1.0,
+      "probabilities": {
+        "sincere": 0.0,
+        "sarcastic": 1.0
+      },
+      "usage": {
+        "input_tokens": 363,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "B1",
+      "expected": "sarcastic",
+      "choice": "sarcastic",
+      "confidence": 1.0,
+      "probabilities": {
+        "sarcastic": 1.0,
+        "sincere": 0.0
+      },
+      "usage": {
+        "input_tokens": 360,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "B2",
+      "expected": "sarcastic",
+      "choice": "sarcastic",
+      "confidence": 1.0,
+      "probabilities": {
+        "sincere": 0.0,
+        "sarcastic": 1.0
+      },
+      "usage": {
+        "input_tokens": 357,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "D1",
+      "expected": "sarcastic",
+      "choice": "sarcastic",
+      "confidence": 1.0,
+      "probabilities": {
+        "sarcastic": 1.0,
+        "sincere": 0.0
+      },
+      "usage": {
+        "input_tokens": 358,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "D2",
+      "expected": "sarcastic",
+      "choice": "sarcastic",
+      "confidence": 1.0,
+      "probabilities": {
+        "sincere": 0.0,
+        "sarcastic": 1.0
+      },
+      "usage": {
+        "input_tokens": 362,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "T1",
+      "expected": "sincere",
+      "choice": "sincere",
+      "confidence": 0.8,
+      "probabilities": {
+        "sincere": 0.9,
+        "sarcastic": 0.1
+      },
+      "usage": {
+        "input_tokens": 377,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "T2",
+      "expected": "sincere",
+      "choice": "sincere",
+      "confidence": 0.9,
+      "probabilities": {
+        "sarcastic": 0.05,
+        "sincere": 0.95
+      },
+      "usage": {
+        "input_tokens": 371,
+        "output_tokens": 37
+      }
+    }
+  ],
+  "cross_turn": [
+    {
+      "id": "MS1",
+      "expected": "sarcastic",
+      "choice": "sarcastic",
+      "confidence": 1.0,
+      "probabilities": {
+        "sarcastic": 1.0,
+        "sincere": 0.0
+      },
+      "usage": {
+        "input_tokens": 396,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "MS2",
+      "expected": "sarcastic",
+      "choice": "sarcastic",
+      "confidence": 1.0,
+      "probabilities": {
+        "sincere": 0.0,
+        "sarcastic": 1.0
+      },
+      "usage": {
+        "input_tokens": 402,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "MS3",
+      "expected": "sarcastic",
+      "choice": "sarcastic",
+      "confidence": 1.0,
+      "probabilities": {
+        "sarcastic": 1.0,
+        "sincere": 0.0
+      },
+      "usage": {
+        "input_tokens": 404,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "MS4",
+      "expected": "sarcastic",
+      "choice": "sarcastic",
+      "confidence": 1.0,
+      "probabilities": {
+        "sincere": 0.0,
+        "sarcastic": 1.0
+      },
+      "usage": {
+        "input_tokens": 393,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "MS5",
+      "expected": "sarcastic",
+      "choice": "sarcastic",
+      "confidence": 1.0,
+      "probabilities": {
+        "sarcastic": 1.0,
+        "sincere": 0.0
+      },
+      "usage": {
+        "input_tokens": 396,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "SC1",
+      "expected": "sincere",
+      "choice": "sincere",
+      "confidence": 0.87,
+      "probabilities": {
+        "sincere": 0.93,
+        "sarcastic": 0.07
+      },
+      "usage": {
+        "input_tokens": 405,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "SC2",
+      "expected": "sincere",
+      "choice": "sincere",
+      "confidence": 0.81,
+      "probabilities": {
+        "sarcastic": 0.1,
+        "sincere": 0.9
+      },
+      "usage": {
+        "input_tokens": 402,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "SC3",
+      "expected": "sincere",
+      "choice": "sincere",
+      "confidence": 0.96,
+      "probabilities": {
+        "sincere": 0.98,
+        "sarcastic": 0.02
+      },
+      "usage": {
+        "input_tokens": 396,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "SC4",
+      "expected": "sincere",
+      "choice": "sincere",
+      "confidence": 0.97,
+      "probabilities": {
+        "sincere": 0.99,
+        "sarcastic": 0.01
+      },
+      "usage": {
+        "input_tokens": 402,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "SC5",
+      "expected": "sincere",
+      "choice": "sincere",
+      "confidence": 0.85,
+      "probabilities": {
+        "sincere": 0.93,
+        "sarcastic": 0.07
+      },
+      "usage": {
+        "input_tokens": 408,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "AMB1",
+      "expected": null,
+      "choice": "sarcastic",
+      "confidence": 0.19,
+      "probabilities": {
+        "sarcastic": 0.59,
+        "sincere": 0.41
+      },
+      "usage": {
+        "input_tokens": 388,
+        "output_tokens": 37
+      }
+    },
+    {
+      "id": "AMB2",
+      "expected": null,
+      "choice": "sarcastic",
+      "confidence": 1.0,
+      "probabilities": {
+        "sincere": 0.0,
+        "sarcastic": 1.0
+      },
+      "usage": {
+        "input_tokens": 394,
+        "output_tokens": 37
+      }
+    }
+  ]
+}

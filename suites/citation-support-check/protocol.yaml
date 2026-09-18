@@ -1,0 +1,10 @@
+model: jev-latest
+auto_accept_threshold: 0.8
+sample_size: 5
+annotators: 1
+run_date: "2026-09-19"
+notes: >
+  Synthetic data. Methodology separately cross-validated against 16 real
+  citations from an unpublished manuscript -- see the evaluation report
+  linked from the repo README for that run's aggregate numbers (not
+  reproducible here since the source text is unpublished).

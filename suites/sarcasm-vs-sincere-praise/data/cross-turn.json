@@ -1,0 +1,14 @@
+[
+  {"id": "MS1", "context": "The server went down for six hours during the product launch.", "statement": "Great job on the launch, team.", "expected": "sarcastic"},
+  {"id": "MS2", "context": "I just found out we lost the client because nobody followed up for three weeks.", "statement": "Really appreciate everyone's hard work on this account.", "expected": "sarcastic"},
+  {"id": "MS3", "context": "The report had our revenue numbers backwards — we told the board we lost money when we made money.", "statement": "Nice attention to detail on that one.", "expected": "sarcastic"},
+  {"id": "MS4", "context": "He proposed in front of her whole family and she said no.", "statement": "That went well.", "expected": "sarcastic"},
+  {"id": "MS5", "context": "The client said the deliverable was exactly what they didn't ask for.", "statement": "Nailed it.", "expected": "sarcastic"},
+  {"id": "SC1", "context": "I completely missed the deadline because I was out sick for a week.", "statement": "That's totally understandable, don't worry about it — get some rest.", "expected": "sincere"},
+  {"id": "SC2", "context": "I had to tell the board the project is behind schedule.", "statement": "That took guts. Thank you for being upfront instead of hiding it.", "expected": "sincere"},
+  {"id": "SC3", "context": "We hit every milestone a week ahead of schedule.", "statement": "Fantastic work, the whole team should be proud.", "expected": "sincere"},
+  {"id": "SC4", "context": "I finally fixed the bug that's been blocking the release for two weeks.", "statement": "That's great, thank you for sticking with it.", "expected": "sincere"},
+  {"id": "SC5", "context": "I had to work through the weekend to get this fixed.", "statement": "I know, and I want you to know it didn't go unnoticed. Really, thank you.", "expected": "sincere"},
+  {"id": "AMB1", "context": "We shipped a day late but everything works.", "statement": "Good enough.", "expected": null},
+  {"id": "AMB2", "context": "I rewrote the whole module without telling anyone and now nothing else works.", "statement": "Bold move.", "expected": null}
+]

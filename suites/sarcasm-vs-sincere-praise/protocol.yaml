@@ -1,0 +1,5 @@
+model: jev-latest
+auto_accept_threshold: 0.8
+sample_size: 24 # 12 same-clause + 12 cross-turn (2 of the latter unscored)
+annotators: 1
+run_date: "2026-09-19"

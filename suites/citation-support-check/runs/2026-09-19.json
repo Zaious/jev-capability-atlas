@@ -1,0 +1,81 @@
+{
+  "suite": "citation-support-check",
+  "model": "jev-latest",
+  "results": [
+    {
+      "id": "clear_contradiction",
+      "expected": "contradicts",
+      "choice": "contradicts",
+      "confidence": 1.0,
+      "probabilities": {
+        "supports": 0.0,
+        "says_nothing": 0.0,
+        "contradicts": 1.0
+      },
+      "usage": {
+        "input_tokens": 403,
+        "output_tokens": 46
+      }
+    },
+    {
+      "id": "irrelevant",
+      "expected": "says_nothing",
+      "choice": "says_nothing",
+      "confidence": 1.0,
+      "probabilities": {
+        "says_nothing": 1.0,
+        "contradicts": 0.0,
+        "supports": 0.0
+      },
+      "usage": {
+        "input_tokens": 406,
+        "output_tokens": 48
+      }
+    },
+    {
+      "id": "subtle_thin_support",
+      "expected": "says_nothing",
+      "choice": "says_nothing",
+      "confidence": 0.45,
+      "probabilities": {
+        "supports": 0.37,
+        "contradicts": 0.0,
+        "says_nothing": 0.63
+      },
+      "usage": {
+        "input_tokens": 429,
+        "output_tokens": 48
+      }
+    },
+    {
+      "id": "paraphrase_support",
+      "expected": "supports",
+      "choice": "supports",
+      "confidence": 1.0,
+      "probabilities": {
+        "says_nothing": 0.0,
+        "contradicts": 0.0,
+        "supports": 1.0
+      },
+      "usage": {
+        "input_tokens": 417,
+        "output_tokens": 44
+      }
+    },
+    {
+      "id": "reversed_meaning_high_overlap",
+      "expected": "contradicts",
+      "choice": "contradicts",
+      "confidence": 1.0,
+      "probabilities": {
+        "says_nothing": 0.0,
+        "contradicts": 1.0,
+        "supports": 0.0
+      },
+      "usage": {
+        "input_tokens": 414,
+        "output_tokens": 46
+      }
+    }
+  ]
+}

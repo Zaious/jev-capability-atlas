@@ -1,0 +1,8 @@
+# 金住用的參數，跡測性需要——以這份為準，不要另写在 report.md 裡一次。
+# Pin these for reproducibility -- treat this file as authoritative,
+# don't re-state values in report.md that could drift out of sync.
+model: jev-latest        # 或金住版號，例如 jev-1.13.0 / or a pinned build
+auto_accept_threshold: 0.8
+sample_size: 0            # 填實际題數 / fill in the real item count
+annotators: 1              # 標答案的人數，誠實填 / how many people labeled ground truth
+run_date: ""               # YYYY-MM-DD，真正執行那天

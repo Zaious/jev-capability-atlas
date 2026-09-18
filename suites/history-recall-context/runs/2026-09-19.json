@@ -1,0 +1,54 @@
+{
+  "suite": "history-recall-context",
+  "model": "jev-latest",
+  "results": [
+    {
+      "id": "A_bare_common",
+      "expected": "1",
+      "note": "單純純回憶，無上下文。標準答案本身有算法爭議，見 README。",
+      "choice": "2",
+      "confidence": 0.9,
+      "probabilities": {
+        "1": 0.04,
+        "3": 0.03,
+        "2": 0.9299999999999999
+      },
+      "usage": {
+        "input_tokens": 361,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "B_bare_obscure",
+      "expected": "3",
+      "note": "更冷門的純回憶，無上下文",
+      "choice": "3",
+      "confidence": 0.07,
+      "probabilities": {
+        "3": 0.38,
+        "2": 0.37,
+        "1": 0.25
+      },
+      "usage": {
+        "input_tokens": 363,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "C_with_context",
+      "expected": "3",
+      "note": "同樣問題，但這次在 state 裡附上背景段落",
+      "choice": "3",
+      "confidence": 0.97,
+      "probabilities": {
+        "3": 0.98,
+        "2": 0.02,
+        "1": 0.0
+      },
+      "usage": {
+        "input_tokens": 415,
+        "output_tokens": 38
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "clear_contradiction",
+    "claim": "The policy requires manual review of every single transaction before approval.",
+    "quote": "Transactions under the threshold are approved automatically without manual review.",
+    "expected": "contradicts",
+    "note": "Direct opposite claim, easy case."
+  },
+  {
+    "id": "irrelevant",
+    "claim": "The authors show that reinforcement learning outperforms supervised baselines on this benchmark.",
+    "quote": "Participants were recruited from three universities across two countries.",
+    "expected": "says_nothing",
+    "note": "Completely unrelated content, easy case."
+  },
+  {
+    "id": "subtle_thin_support",
+    "claim": "Dewey argues that an experience is educative only when it connects meaningfully to what came before and what follows.",
+    "quote": "The belief that all genuine education comes about through experience does not mean that all experiences are genuinely or equally educative.",
+    "expected": "says_nothing",
+    "note": "Same topic and vocabulary, but the quote does not itself establish the specific continuity claim being made — a genuinely hard case, not a clean supports/says-nothing line."
+  },
+  {
+    "id": "paraphrase_support",
+    "claim": "The intervention led to a meaningful drop in reported anxiety levels among participants.",
+    "quote": "Scores on the standardized anxiety inventory decreased significantly following the program, an effect that persisted at the six-week follow-up.",
+    "expected": "supports",
+    "note": "Low literal word overlap (intervention/program, drop/decreased) — a bag-of-words check would likely score this low or zero despite it being a clean paraphrase match. This is the case a keyword-overlap gate misses."
+  },
+  {
+    "id": "reversed_meaning_high_overlap",
+    "claim": "Response times increased significantly under the new caching strategy.",
+    "quote": "Response times decreased significantly under the new caching strategy, from 340ms to 90ms on average.",
+    "expected": "contradicts",
+    "note": "Near-total literal word overlap with the quote, but the one word that matters (increased vs. decreased) flips the meaning. This is the case a keyword-overlap gate would falsely pass."
+  }
+]

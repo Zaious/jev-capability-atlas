@@ -1,0 +1,8 @@
+model: jev-latest
+auto_accept_threshold: 0.8
+sample_size: 3
+annotators: 1
+run_date: "2026-09-19"
+notes: >
+  Case A ground truth is historically contested; see README for both counting
+  conventions. Not a validated general benchmark -- a targeted counter-example.

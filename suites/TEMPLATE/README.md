@@ -1,0 +1,47 @@
+🇹🇼 中文｜🇬🇧 English below
+
+# 測試組範本
+
+複製整個 `TEMPLATE/` 資料夾,改名成你的 suite slug,填以下區塊:
+
+## 這組測什麼
+
+(一句話)
+
+## 為什麼測這個
+
+(它對應能力地圖那條軸的哪一邊?你預期會強還是弱,為什麼?)
+
+## 方法論
+
+(題目怎麼設計的、樣本數、誰標的答案——誠實講清楚是不是單一標註者)
+
+## 結果
+
+(貼真實數字,對應 `runs/` 裡的 log 檔名)
+
+## 限制
+
+(樣本數小、單一標註者、只測了一種語言……不要省略)
+
+## 標籤
+
+🔬 / 📚 / 📖 / 💭 (通常新測試組是 🔬)
+
+---
+
+# Suite template (English)
+
+Copy this whole folder, rename it to your suite's slug, fill in:
+
+## What this tests
+## Why this task
+(Which side of the capability-map axis? What did you expect, and why?)
+## Methodology
+(How items were designed, sample size, who labeled the answers — say plainly if it was a single annotator)
+## Results
+(Real numbers, matched to filenames in `runs/`)
+## Limitations
+(Small N, single annotator, one language only — don't omit these)
+## Tag
+🔬 / 📚 / 📖 / 💭 (a new suite is usually 🔬)
