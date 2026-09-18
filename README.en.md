@@ -10,7 +10,32 @@ This is not a leaderboard (that's already well covered by [jev-benchmarks](https
 
 Jev is fast and cheap, but limited to narrow judgments — pick one option, rate on a scale, answer yes/no — and it never writes prose explaining itself. **It's accurate on tasks where the answer is written directly in the text you hand it** (classification, judging whether two passages relate, catching semantic-level contradictions). **It breaks — often confidently — on tasks needing knowledge you didn't supply.** The clearest example: the same history multiple-choice question answered wrong at 0.90 confidence with no supporting passage, then correctly at 0.97 confidence once that passage was included (see [`suites/history-recall-context/`](suites/history-recall-context/), real API receipts). This repo exists to help you tell which kind of task you have, and to keep accumulating real cases.
 
-> ⚠️ **"Narrow judgments, no explanation" is not the same as "it's a state machine / lookup table" or "it's just guessing" — neither is accurate.** The actual distinction is laid out in **[`MECHANISM.md`](MECHANISM.md)** — required reading, not optional, especially if you're going to relay this repo's conclusions to someone else.
+---
+
+## Not a state machine, not blind guessing — but also not a "thinking" reasoning model
+
+"Narrow judgments, no explanation" is easy to round down to "it's a state machine / lookup table" or "it's just guessing" — neither is accurate, and they're wrong in different directions. This section lives right here, not tucked behind a link in a separate file, because it's required, not background.
+
+**Why it's not a state machine**: a state machine's core is finite discrete states plus hand-written transition rules. Under the hood, Jev is a trained language model doing distributed language understanding, not rule matching — evidence in [`suites/citation-support-check/`](suites/citation-support-check/)'s two contrast cases: `paraphrase_support` (claim and quote share almost no literal words, but genuinely support each other — correctly judged) and `reversed_meaning_high_overlap` (near-word-for-word overlap except one word that flips the meaning — also correctly judged). 🔬 A pure rule/keyword system can't do either.
+
+But the "state machine" metaphor gets one thing right — not the internals, the intended *position* in a system. TypeSafe's own framing: "code needs a narrow decision it can inspect and act on," "99% machine-to-machine interactions." 📖 It should be used as a component embedded in your own program logic, not an autonomous conversational partner. "A node in your state machine" is the right architectural instinct; "its internals are a state machine" is not.
+
+**Why it's not blind guessing**: `confidence` isn't a separate "how sure am I" faculty — it's a statistic **computed from** the probability distribution it already produced. 📖 That number is trustworthy because the training objective targets it directly: TypeSafe splits post-training into three paths — RLHF (chatbots, trained for what people like), RLVR (reasoning models, trained to derive correctly), and **RLCD** (what Jev uses, explicitly trained so "higher probability should correspond to a greater chance the answer is correct"). 📖 We've repeatedly seen this number track real difficulty: the cross-turn sarcasm suite's two deliberately ambiguous controls split — one dropped to 0.19 confidence (near a coin flip), the other stayed at 1.00; 🔬 the pure-recall history suite is even more direct — the same question came back near-flat across three options (0.25/0.37/0.38) with no context, concentrated to 0.98 once context was supplied. 🔬
+
+The honest caveat: calibration is a **population-level** property, not a guarantee about any single answer — TypeSafe says so themselves. 📖 A third-party benchmark we found shows exactly where it breaks: on the DAIR Emotion task, Jev's mean confidence was 0.819 while actual accuracy was 48%, and on 16% of items it assigned the correct answer a probability of exactly zero. 📚 **This is where the "blind guessing" concern actually lands** — not that it guesses everywhere, but that its confidence mechanism can fail on certain tasks (genuinely overlapping, blurred categories), in the most dangerous direction: appearing more certain than it has any right to be.
+
+**So what is it**: a model trained for genuine language understanding, deliberately constrained to typed answers only, with a training objective aimed at making its probability numbers trustworthy. It differs from a state machine in having real language understanding; from blind guessing in that its confidence carries empirical signal (with the caveat above); from current "reasoning models" (o1/DeepSeek-R1-class) in not doing extended, multi-step, self-conditioning derivation — TypeSafe places it in a genuinely third category. All three negations together are more honest than reaching for any single label.
+
+### A worked example: why browser automation benchmarks so well
+
+A third-party case (`jev-ultrafast`, integrating Jev into the open-source Browser Use agent framework): a Google Flights search dropped from 9.5s to 7.1s (25% faster); a 12-task benchmark against Playwright MCP showed 1.5× faster, 1.6× cheaper, comparable accuracy; the standalone Jev loop ran ~1.8s and $0.0005 per task at 97% success. 📚
+
+This isn't "Jev is good at browsing" — it currently accepts text only, no screenshots, per its own docs. What's actually happening is this integration hits both principles above precisely:
+
+1. **Trading "look at the screen" for "read given text"**: instead of a screenshot, it uses a structured DOM-snapshot as `state` — a task that used to need visual understanding gets translated into a purely textual, self-contained judgment, landing squarely in its strong zone.
+2. **Trading "one step at a time" for "one batch"**: instead of asking a slow model "what do I click next" at every step, it asks about every candidate element in parallel in one call (TypeSafe's own term: "speculative fan-out") — exactly its strength: high-volume, narrow, parallel judgments.
+
+In other words, what's strong here isn't the model's own browsing savvy — it's that someone placed it correctly. This is a worked example of the "component, not agent" framing above, not an exception to it.
 
 ---
 
@@ -48,8 +73,7 @@ Three kinds of contributions welcome: ① a new test suite ② a translated fore
 ## Layout
 
 ```
-README.md / README.en.md   this page, bilingual
-MECHANISM.md                required reading: not a state machine, not guessing, not a reasoning model either
+README.md / README.en.md   this page, bilingual (mechanism explained here, not a separate file)
 AGENTS.md                  scanning checklist for agents
 capability-map.md          the axis, kept up to date
 CONTRIBUTING.md            contribution rules

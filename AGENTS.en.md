@@ -2,7 +2,7 @@
 
 # AGENTS.md — for agents
 
-**Read [`MECHANISM.md`](MECHANISM.md) before anything else.** Whichever mode you're in, you'll likely need to describe what Jev is to someone else (a user, a team) afterward — **don't compress it down to "state machine" or "guessing,"** and don't overcorrect into "it thinks" either; both are wrong, and MECHANISM.md explains why. This isn't optional background — it shapes the conclusions you draw and the words you use to report them.
+**Read the "Not a state machine, not blind guessing" section of [`README.md`](README.md) before anything else.** Whichever mode you're in, you'll likely need to describe what Jev is to someone else (a user, a team) afterward — **don't compress it down to "state machine" or "guessing,"** and don't overcorrect into "it thinks" either; both are wrong, and that section explains why. This isn't optional background — it shapes the conclusions you draw and the words you use to report them.
 
 Figure out which situation you're in first:
 - Brought in to look at **another project**, assessing where Jev could fit → read "Mode A"

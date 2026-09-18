@@ -14,13 +14,14 @@ description: >
 
 # Jev fit-check
 
-**Before using this checklist, read `MECHANISM.md` in the
+**Before using this checklist, read the "Not a state machine, not blind
+guessing" section of `README.md` in the
 [Jev Capability Atlas](https://github.com/Zaious/jev-capability-atlas) repo.**
 It explains why Jev is neither a state machine nor a blind guesser, and
 neither a chain-of-thought reasoning model — a distinction you will likely
 need to get right when reporting your conclusions to whoever asked you to
-evaluate this. Don't simplify it yourself; point to that page or restate its
-three negations.
+evaluate this. Don't simplify it yourself; point to that section or restate
+its three negations.
 
 This skill answers one question: **where in this codebase could Jev fit, and where shouldn't it?**
 It does not cover how to call the API — read TypeSafe's own skill
