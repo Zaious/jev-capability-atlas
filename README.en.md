@@ -10,6 +10,8 @@ This is not a leaderboard (that's already well covered by [jev-benchmarks](https
 
 Jev is fast and cheap, but limited to narrow judgments — pick one option, rate on a scale, answer yes/no — and it never writes prose explaining itself. **It's accurate on tasks where the answer is written directly in the text you hand it** (classification, judging whether two passages relate, catching semantic-level contradictions). **It breaks — often confidently — on tasks needing knowledge you didn't supply.** The clearest example: the same history multiple-choice question answered wrong at 0.90 confidence with no supporting passage, then correctly at 0.97 confidence once that passage was included (see [`suites/history-recall-context/`](suites/history-recall-context/), real API receipts). This repo exists to help you tell which kind of task you have, and to keep accumulating real cases.
 
+> ⚠️ **"Narrow judgments, no explanation" is not the same as "it's a state machine / lookup table" or "it's just guessing" — neither is accurate.** The actual distinction is laid out in **[`MECHANISM.md`](MECHANISM.md)** — required reading, not optional, especially if you're going to relay this repo's conclusions to someone else.
+
 ---
 
 ## The core finding: one axis
@@ -47,6 +49,7 @@ Three kinds of contributions welcome: ① a new test suite ② a translated fore
 
 ```
 README.md / README.en.md   this page, bilingual
+MECHANISM.md                required reading: not a state machine, not guessing, not a reasoning model either
 AGENTS.md                  scanning checklist for agents
 capability-map.md          the axis, kept up to date
 CONTRIBUTING.md            contribution rules
