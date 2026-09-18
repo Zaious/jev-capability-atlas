@@ -6,6 +6,10 @@
 
 This is not a leaderboard (that's already well covered by [jev-benchmarks](https://github.com/AbdelStark/jev-benchmarks) and [thaiexam-jev-charts](https://github.com/vehas/thaiexam-jev-charts) — we cite them, we don't redo them). This answers a more basic question: **when is it strong, when is it weak, and why.**
 
+## The 30-second version
+
+Jev is fast and cheap, but limited to narrow judgments — pick one option, rate on a scale, answer yes/no — and it never writes prose explaining itself. **It's accurate on tasks where the answer is written directly in the text you hand it** (classification, judging whether two passages relate, catching semantic-level contradictions). **It breaks — often confidently — on tasks needing knowledge you didn't supply.** The clearest example: the same history multiple-choice question answered wrong at 0.90 confidence with no supporting passage, then correctly at 0.97 confidence once that passage was included (see [`suites/history-recall-context/`](suites/history-recall-context/), real API receipts). This repo exists to help you tell which kind of task you have, and to keep accumulating real cases.
+
 ---
 
 ## The core finding: one axis
@@ -31,9 +35,9 @@ Full methodology, source-provenance tagging (🔬 our own tests / 📚 third-par
 3. **Validate your own confidence thresholds on your own data.** Don't copy a number from any report, including this one — TypeSafe's own docs say the same. A reasonable starting pattern: high confidence → act automatically; medium → confirm first; low → escalate to a person or a full reasoning-capable model.
 4. **For tasks that require *knowing* something rather than *judging* something, retrieve first and put it in `state`.** Don't rely on its bare memory — see [`suites/history-recall-context/`](suites/history-recall-context/) for a concrete counter-example.
 
-## Where can I try swapping in Jev? (for agents)
+## For agents: where to try Jev, and how to report back
 
-If you're an agent asked to evaluate a codebase for "where could this save a slow model call," **read [`AGENTS.md`](AGENTS.md) directly** — it's a scanning checklist written for agents, not prose for people. A proper Claude Skill package of the same content lives at [`skill/jev-fit-check/`](skill/jev-fit-check/SKILL.md), installable via `claude plugin install`.
+**Read [`AGENTS.md`](AGENTS.md) directly** rather than inferring from this page — it covers two situations: being asked to evaluate **another project** for where Jev could fit (a scanning checklist), or being brought into **this repo itself** to run or add suites (commands for running existing suites, steps for adding one, and a **concrete protocol for reporting results** — what to do with vs. without push access, and exactly what a report must include). A proper Claude Skill package of the "evaluate another project" half lives at [`skill/jev-fit-check/`](skill/jev-fit-check/SKILL.md), installable via `claude plugin install`.
 
 ## Contribute real experiment results
 

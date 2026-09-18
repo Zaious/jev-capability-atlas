@@ -80,6 +80,16 @@ don't force it.
 5. Consider contributing the result, positive or negative, back to the Jev
    Capability Atlas project's `suites/` directory.
 
+## Contributing a result back
+
+If you're working directly inside the Jev Capability Atlas repo (not just
+using this skill from another project), the fuller workflow — running an
+existing suite, adding a new one, and the exact protocol for reporting
+results depending on whether you have push access — lives in that repo's
+`AGENTS.md`, under "Mode B." This skill only covers Mode A (finding a fit in
+someone else's codebase); read `AGENTS.md` directly for Mode B rather than
+relying on this file, since it may drift out of sync.
+
 ## Known evidence (as of this skill's last update)
 
 Self-contained classification and relation-judgment tasks (topic

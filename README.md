@@ -6,6 +6,10 @@
 
 不是排行榜(市面上已經有 [jev-benchmarks](https://github.com/AbdelStark/jev-benchmarks)、[thaiexam-jev-charts](https://github.com/vehas/thaiexam-jev-charts) 在做這件事,做得很紮實,我們引用它們、不重做)。這裡要回答的是更根本的問題:**什麼情況下它強,什麼情況下它弱,為什麼**。
 
+## 30 秒版
+
+Jev 很快、很便宜,但只能做「選一個選項/打個分/回答是非」這種窄判斷,不會寫文字解釋自己在想什麼。**它在「答案就寫在你餵給它的文字裡」的任務上很準**(分類、判斷兩段文字關不關聯、抓語意層的矛盾),**在「需要你沒給它的知識」的任務上會出包,而且往往包得很有自信**。最直接的例子:同一道歷史選擇題,不給背景資料時它以 0.90 的信心給錯答案,把背景段落餵給它以後,同一題以 0.97 的信心答對(見 [`suites/history-recall-context/`](suites/history-recall-context/),真實 API 收據)。這個 repo 存在的目的,就是幫你分辨你手上的任務屬於哪一種,並且持續累積更多真實案例。
+
 ---
 
 ## 核心發現:一條軸
@@ -31,9 +35,9 @@
 3. **信心閾值自己在你的資料上驗**,不要照抄任何一份報告(包括這份)裡的數字——TypeSafe 自己的文件也這樣講。三段式起點:高信心→自動執行;中信心→先確認;低信心→升級給人或給完整推理能力的模型。
 4. **遇到需要「知道什麼」而不是「判斷什麼」的任務,先做檢索、把資料放進 `state`**,不要指望它自己「記得」——見 [`suites/history-recall-context/`](suites/history-recall-context/) 那組活生生的反例。
 
-## 哪邊能嘗試改用 Jev?(給 Agent)
+## 給 Agent:哪邊能嘗試改用 Jev、怎麼回報結果
 
-如果你是被叫進某個專案來評估「這裡能不能省一顆快模型呼叫」的 agent,**直接讀 [`AGENTS.md`](AGENTS.md)**——裡面是給 agent 用的掃描判準與檢查清單,不是給人看的散文。也有正式打包成 Claude Skill 的版本,見 [`skill/jev-fit-check/`](skill/jev-fit-check/SKILL.md),可以用 `claude plugin install` 直接裝。
+**直接讀 [`AGENTS.md`](AGENTS.md)**,不要從這頁散文推——那份文件分兩種情境:被叫去評估**別的專案**哪裡適合換 Jev(掃描判準+檢查清單),或被叫進**這個 repo 本身**跑測試/加測試(含跑既有 suite 的指令、新增 suite 的步驟、以及**回報結果的具體協定**——有沒有 push 權限分別該怎麼做、回報裡一定要包含什麼)。也有正式打包成 Claude Skill 的版本,見 [`skill/jev-fit-check/`](skill/jev-fit-check/SKILL.md),可以用 `claude plugin install` 直接裝(僅涵蓋「評估別的專案」那部分)。
 
 ## 貢獻真實實驗結果
 
