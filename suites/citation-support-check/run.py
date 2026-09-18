@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""claim vs quote 關係判讀，合成資料(非真實論文)。存真實 log 進 runs/。
+"""claim vs quote 關係判讀，合成資料（非真實論文）。存真實 log 進 runs/。
 Claim-vs-quote relation judgment on synthetic (not a real manuscript's) data.
 The real 16/12-citation methodology validation ran against an actual
 in-progress academic paper -- see the linked evaluation report in the repo

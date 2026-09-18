@@ -14,7 +14,7 @@ Jev is fast and cheap, but limited to narrow judgments — pick one option, rate
 
 ## Not a state machine, not blind guessing — but also not a "thinking" reasoning model
 
-"Narrow judgments, no explanation" is easy to round down to "it's a state machine / lookup table" or "it's just guessing" — neither is accurate, and they're wrong in different directions. This section lives right here, not tucked behind a link in a separate file, because it's required, not background.
+"Narrow judgments, no explanation" is easy to round down to "it's a state machine / lookup table" or "it's just guessing" — neither is accurate, and they're wrong in different directions.
 
 **Why it's not a state machine**: a state machine's core is finite discrete states plus hand-written transition rules. Under the hood, Jev is a trained language model doing distributed language understanding, not rule matching — evidence in [`suites/citation-support-check/`](suites/citation-support-check/)'s two contrast cases: `paraphrase_support` (claim and quote share almost no literal words, but genuinely support each other — correctly judged) and `reversed_meaning_high_overlap` (near-word-for-word overlap except one word that flips the meaning — also correctly judged). 🔬 A pure rule/keyword system can't do either.
 
