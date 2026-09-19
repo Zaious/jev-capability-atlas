@@ -88,6 +88,7 @@ CONTRIBUTING.md            contribution rules
 skill/jev-fit-check/       AGENTS.md packaged as a Claude Skill
 suites/                    each real test (methodology + protocol + raw logs + report)
 translations/              foreign benchmarks, translated and organized (results only, not test items)
+analysis/                  pure analysis with no single existing entry to attach to (cross-entry observations, critiques of the axis itself)
 scripts/common/            shared API-calling boilerplate
 ```
 

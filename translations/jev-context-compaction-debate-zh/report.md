@@ -38,9 +38,11 @@
 
 **給任何想拿 Jev 做類似用途的人的具體建議**（直接對應到 [`AGENTS.md`](../../AGENTS.md) 新增的警語）：失敗的指令、還沒被取代的計算結果、以及任何「重新執行拿到的答案可能跟原本不一樣」的工具輸出，應該用規則先保護起來，不要交給打分決定；打分用的問題要讓 Jev 看得到內容本身，不能只看到長度；如果快取成本是考量，重寫的前綴要盡量維持逐字不變，不要每次請求都重新打分。
 
+**💭 我們自己的判斷**：現在的預設設定，答案很清楚——不行，前面的數字已經證明它幾乎等於「砍光一切、然後祈禱沒事」。就算套用社群後來抓出的修法（改問法、讓 Jev 看得到內容、規則保護不可復原的結果），我們仍然不會說它已經安全，因為兩件事校準再準也解不掉：一是「判斷錯了但沒聲音」——分類判斷錯了通常馬上看得出來，刪除判斷錯了是幾輪後才隱約浮現，而那時候能解釋原因的證據已經不在了；二是「相關≠可復原」本身就不是信心值能代表的風險類型，再高的信心值都不保證重新執行拿得回原本的答案。我們的立場：可以當成一個你自己選擇性打開、有規則守著、旁邊有人或 fallback 檢查的成本優化選項，用在低風險場景；不建議做成預設開啟、無人監督的正式生產行為——不管以後校準數字進步到什麼程度都一樣。
+
 ## 標籤
 
-📚（第三方公開辯論＋第三方專案 issue tracker 裡的真實複現數據；我們沒有自己重跑，但逐條核對過原始英文推文與 issue 全文，且對轉貼內容做了兩處更正，見 `SOURCE.md`）
+📚（第三方公開辯論＋第三方專案 issue tracker 裡的真實複現數據；我們沒有自己重跑，但逐條核對過原始英文推文與 issue 全文，且對轉貼內容做了兩處更正，見 `SOURCE.md`。上面「💭 我們自己的判斷」那段是我們自己疊加的綜合結論，不是轉述任何一方的說法）
 
 ---
 
@@ -82,6 +84,8 @@ Comparison method: not picking a side by feel, but reading the project's own iss
 
 **Concrete guidance for anyone considering Jev for a similar use** (mirrored directly into the new caution added to [`AGENTS.md`](../../AGENTS.md)): failed commands, not-yet-superseded computed results, and any tool output where "just re-run it" might not reproduce the original should be protected by a rule before scoring, not left to a probability threshold; the scoring questions need to show Jev the actual content, not just its length; and if cache cost matters, keep the rewritten prefix as close to byte-identical as possible instead of re-scoring on every request.
 
+**💭 Our own verdict**: with today's default settings, the answer is clear — no. The numbers above already show it's close to "delete almost everything and hope for the best." Even with the community's fixes applied (reworded questions, giving Jev visibility into content, rule-based protection for irreproducible results), we still wouldn't call it safe, because two things don't go away no matter how good the calibration gets: first, a bad deletion fails silently — a wrong classification usually surfaces immediately, a wrong deletion surfaces vaguely several turns later, by which point the evidence that would explain it is already gone; second, "relevance ≠ reproducibility" isn't a risk category confidence values can represent at all — no confidence number guarantees re-running will recover the original answer. Our position: fine as an opt-in, rule-guarded, human-or-fallback-checked cost optimization for low-stakes work; not something we'd recommend running as a default-on, unsupervised production behavior, regardless of how much the calibration numbers improve later.
+
 ## Tag
 
-📚 (a third-party public debate plus real reproduction data from a third-party project's issue tracker; we did not re-run this ourselves, but verified every claim against the original English tweets and full issue text, and made two corrections to the pasted content — see `SOURCE.md`)
+📚 (a third-party public debate plus real reproduction data from a third-party project's issue tracker; we did not re-run this ourselves, but verified every claim against the original English tweets and full issue text, and made two corrections to the pasted content — see `SOURCE.md`. The "💭 Our own verdict" paragraph above is our own synthesis layered on top, not a relay of either side's position)

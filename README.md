@@ -88,6 +88,7 @@ CONTRIBUTING.md            貢獻規則
 skill/jev-fit-check/       打包成 Claude Skill 的 AGENTS.md
 suites/                    每組實測（方法論＋協定＋真實 log＋報告）
 translations/              國外跑分的翻譯與整理（只翻結果，不翻題目）
+analysis/                  沒有單一既有條目可掛的純分析（跨條目觀察、判準軸本身的批評）
 scripts/common/            共用的 API 呼叫樣板，不用各自重寫
 ```
 

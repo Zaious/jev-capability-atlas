@@ -31,7 +31,9 @@
 
 ### ③ 純分析/心得
 
-不一定要有新資料，也歡迎讀完現有 suite 後寫的綜合分析、批判、或指出我們判準軸的漏洞。放進 `suites/<slug>/report.md`，標 💭，說明是分析既有資料還是有新跑分佐證。
+不一定要有新資料，也歡迎讀完現有內容後寫的綜合分析、批判、或指出我們判準軸的漏洞。**優先併入你分析的對象本身**：批評/延伸某個測試組，寫進 `suites/<slug>/report.md`；批評/延伸某個翻譯整理條目，寫進 `translations/<slug>/report.md`——都標 💭，說明是分析既有資料還是有新跑分佐證。
+
+如果你的分析沒有單一對應的既有條目可以掛（例如直接評論核心判準軸本身、或跨多個條目的整體觀察），才新開 `analysis/<slug>.md`（單一雙語檔案：中文區塊＋`---`＋英文區塊，比照 `CONTRIBUTING.md` 自己的排版；樣板見 [`analysis/TEMPLATE.md`](analysis/TEMPLATE.md)），一樣標 💭。
 
 ## PR checklist
 
@@ -78,7 +80,9 @@ The goal is to keep surfacing foreign benchmarks we haven't found yet, brought i
 
 ### ③ Pure analysis or write-ups
 
-Doesn't require new data — critiques of existing suites or of our axis framework are welcome too. Goes in `suites/<slug>/report.md`, tagged 💭, noting whether it's analysis of existing data or backed by a new run.
+Doesn't require new data — critiques of existing content or of our axis framework are welcome too. **Attach it to whatever it's analyzing first**: a critique/extension of a specific suite goes in `suites/<slug>/report.md`; a critique/extension of a specific translated entry goes in `translations/<slug>/report.md` — both tagged 💭, noting whether it's analysis of existing data or backed by a new run.
+
+Only open a new `analysis/<slug>.md` (a single bilingual file — Chinese block, `---`, English block, following `CONTRIBUTING.md`'s own layout; template at [`analysis/TEMPLATE.md`](analysis/TEMPLATE.md)) when your analysis has no single existing entry to attach to — e.g. a direct critique of the core axis itself, or an observation spanning multiple entries. Also tagged 💭.
 
 ## PR checklist
 
