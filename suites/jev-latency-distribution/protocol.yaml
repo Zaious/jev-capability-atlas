@@ -1,0 +1,11 @@
+# 釘住用的參數，跡測性需要——以這份為準，不要另寫在 README.md 裡一次。
+# Pin these for reproducibility -- treat this file as authoritative,
+# don't re-state values in the README that could drift out of sync.
+model: jev-latest
+question_type: noul
+sample_size: 30
+annotators: 1              # single annotator wrote the 30 items; this suite does not score correctness
+run_date: "2026-09-19"
+purpose: "cross-check the 'no long tail' latency finding in
+  translations/jev-benchmark-article-huangserva-zh/ from a different
+  network environment"

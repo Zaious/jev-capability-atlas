@@ -27,10 +27,12 @@ Split into two sections: **public benchmarks** are results published by others t
 | [Content moderation in production (mastra-jev-moderation)](#content-moderation-in-production-mastra-jev-moderation) | Self-contained | 9/9 hostile messages blocked, 0/49 real messages false-flagged | 📚 |
 | [A real production Simplified-Chinese classification task: does this news article involve Hubei?](#a-real-production-simplified-chinese-classification-task-does-this-news-article-involve-hubei) | Mixed (mostly self-contained, disagreements cluster where not) | ~85% agreement with Flash Lite; disagreements mostly named-entity cases needing outside knowledge | 📚 |
 | [The viral ad-breakdown tweet: can Jev read a Gemini embedding?](#the-viral-ad-breakdown-tweet-can-jev-actually-read-color-and-style-from-a-gemini-embedding) | — | Performance numbers plausible; the "embedding carries visual semantics to Jev" explanation doesn't hold up | 📚 |
+| [You got Jev, now what? A hype-free landing list](#you-got-jev-now-what-a-hype-free-landing-list) | — | Only 15 of 217 projects usable today; the author's own 4 integration attempts all failed, with specific root causes | 📚 |
 | Praise vs. sarcasm (dedicated public benchmark) | — | None found as of this writing — an open slot you could fill | — |
 | [Citation support-checking](#citation-support-checking) | Self-contained | 9/12 supports, 0 contradicts, low confidence correctly tracked hard cases | 🔬 |
 | [Sarcasm detection, same-clause/cross-turn](#sarcasm-detection) | Self-contained | 12/12, 10/10 correct, including a correctly-low-confidence case | 🔬 |
 | [Pure-recall trivia vs. supplied context](#pure-recall-trivia-vs-supplied-context) | Not self-contained → self-contained | Confidently wrong on a common-knowledge question with no context; confidence and accuracy both recover once context is supplied | 🔬 |
+| [Latency distribution: median vs. tail](#latency-distribution-median-vs-tail) | — | Median 250ms, p95 299ms; only 1 outlier in 30 calls, likely connection cold-start | 🔬 |
 | [ICU alarm classification: testing a viral tweet](#icu-arrhythmia-alarm-classification-a-viral-tweet-tested-against-a-public-dataset) | Mixed (physiological signal needs converting to text features) | Official score 0.271, worse than "let every alarm through"; 0% sensitivity on asystole/V-tach | 🔬 |
 
 ---
@@ -205,6 +207,16 @@ Source: [libukai's post on X](https://x.com/libukai/status/2100984923926728920)
 
 Source: [Matthew Berman's post](https://x.com/TheMattBerman/status/2100654891756589230), [Nishfleet/0509's internal tickets](https://github.com/Nishfleet/0509/issues/3606)
 
+### You got Jev, now what? A hype-free landing list
+
+**What was done**: a Chinese-language article with unusually high methodological discipline — explicitly excluding Jev-imitating alternative models and ideas with no running evidence, organizing what actually shipped by use case; the author also personally tried wiring Jev into daily tools, four attempts, four honestly-reported failures; then ran two formal tests: having Jev self-assess 217 Jev-related projects' real usability, and validating confidence calibration across 300 judgments.
+
+**Results**: all four failures (a context-compaction plugin, model routing to save quota, "AI flavor" detection, deciding which videos to delete) came with honestly reported root causes — including "the compaction plugin stripped all content to fit the 32K limit, leaving Jev only tool names and lengths," which **independently converges on the exact same conclusion** we dug out of a GitHub issue in `translations/jev-context-compaction-debate-zh/`. Self-assessing 217 projects, only 15 were judged genuinely usable today, 14 of them framework-level integrations, not applications. Of 300 judgments, the 255 made at 90%+ confidence were **all correct**; real Shanghai-measured median latency was 0.7s but the worst case only 1.5s, against a lightweight LLM control (Qwen 3.8 Flash) with a similar median but a 32-second worst case — "Jev's win is the absence of a long tail, not raw speed."
+
+**What this means**: three specific numbers in this article (the official 68% accuracy figure, jev-ultrafast's 9.5→7.1s, and the compaction plugin's root cause) each independently match entries already collected in this repo — the highest convergence of any source we've verified. We re-tested the "no long tail" finding ourselves at small scale, see [`Latency distribution`](#latency-distribution-median-vs-tail) below. Two genuinely new findings were folded directly into `README.md`'s practical guidance: **under subscription pricing, the marginal cost is already zero, so adding Jev only adds latency without saving money**; and "fast" really means **no long tail, not a leading median**. Full write-up: [`translations/jev-benchmark-article-huangserva-zh/`](translations/jev-benchmark-article-huangserva-zh/) (Chinese, with an English section below the divider).
+
+Source: [huangserva's post on X](https://x.com/servasyy_ai/status/2101132667056185544)
+
 ### Praise vs. sarcasm (dedicated public benchmark)
 
 No one appears to have published a dedicated public benchmark for Jev's sarcasm/irony detection specifically — we tested this ourselves (see below), but that's our own small test, not an independent third-party benchmark. This is an open slot you could fill: find or publish one, then translate/organize it into [`translations/`](translations/).
@@ -250,6 +262,16 @@ Source: [`suites/history-recall-context/`](suites/history-recall-context/)
 **What this means**: the failure maps precisely onto what the feature set is missing, not random degradation — asystole's criterion is "no heartbeat for ≥4s," which a 30-second-window median heart rate averages into invisibility; V-tach's criterion is fundamentally about QRS morphology, not rate, and this feature set carries no morphological information at all. The three better-performing types are exactly the ones where the numeric value of heart rate itself is the diagnostic signal — again, this repo's core axis: when `state` lacks what a judgment needs, Jev can't conjure it. Confidence on the wrong answers stayed in the 0.14-0.51 range, with no "confidently wrong" pattern. **The conclusion isn't "Jev can't be used for physiological signal classification" — it's that the tweet's claim doesn't survive an honest reconstruction, and the reason is traceable specifically to naive feature extraction, not the model.** Full methodology, the NeillWhite baseline citation, and honestly stated limitations are in the suite itself.
 
 Source: [`suites/icu-alarm-classification/`](suites/icu-alarm-classification/) (original claim: [@roiyaruRIZ's post](https://x.com/roiyaruRIZ); comparison baseline: [NeillWhite/icu-false-alarm-reduction](https://github.com/NeillWhite/icu-false-alarm-reduction))
+
+### Latency distribution: median vs. tail
+
+**What was done**: verifying the finding in [the article entry above](#you-got-jev-now-what-a-hype-free-landing-list) that "Jev's real win isn't median speed, it's the absence of a long tail" — 30 short Chinese sentences, the same Noul question each time, recording each real call's wall-clock time.
+
+**Results**: median 250.4ms (within the official 0.07-0.5s spec), p95 only 298.5ms, max 667.9ms. **The only outlier among 30 calls was the very first one**; all 29 subsequent calls landed in a tight 202-298ms band.
+
+**What this means**: an independent replication of "no long tail" from our own network environment — the slow first call is most plausibly connection-setup overhead, not a randomly occurring hidden slow mode. **Honest limitation**: N=30 is far smaller than the original article's 300, and we ran no side-by-side comparison against another cheap LLM, so this only verifies "Jev itself is stable," not the other half of the claim. Full write-up: [`suites/jev-latency-distribution/`](suites/jev-latency-distribution/).
+
+Source: [`suites/jev-latency-distribution/`](suites/jev-latency-distribution/)
 
 ---
 
