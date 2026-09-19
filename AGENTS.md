@@ -35,6 +35,7 @@
 - **需要它自己解釋理由的地方**——它結構上做不到，見官方文件：不產生文字、不產生程式碼、不解釋推理過程。
 - **需要跟整個領域/市場比較的評分**（新穎性、重要性、「這個好不好」）——除非你先做檢索、把要比較的對象也放進 state，不然文字本身沒有答案。
 - **已經有一個跑得好的零成本確定性腳本在做同一件事**——沒有失敗案例就別加模型進去，這違反「同一種失敗兩次才建閘」的一般紀律，加模型也一樣適用反過來的版本：沒有問題就別加。
+- **用 Jev 決定要不要刪掉 Agent 自己過去的執行紀錄（工具呼叫/結果）**——這不是「回答一個判斷」，是「做一個可能不可逆的刪除決策」，性質不同，真實案例見 [`translations/jev-context-compaction-debate-zh/`](translations/jev-context-compaction-debate-zh/)。至少要做到三件事才考慮：①打分用的 state 要包含輸出內容本身，不能只給長度佔位字串（否則是在看不到內容的情況下判斷，見 [issue #26](https://github.com/tamaratran/fast-jev-compaction/issues/26)：256 筆真實工具結果裡 0 筆保留信心值超過 0.3）②失敗的指令、還沒被取代的計算結果、任何「重新執行不保證拿到同一個答案」的輸出，先用規則保護起來，不要交給機率門檻（見 [issue #25](https://github.com/tamaratran/fast-jev-compaction/issues/25) 的「相關性≠可復原性」）③如果快取成本是考量，重寫的前綴要盡量逐字不變，不要每次請求都重新打分（見 [issue #1 sticky reduction](https://github.com/jerryfane/omp-jev-compaction/issues/1)）。
 
 ### 驗證候選的最小流程（照抄我們自己的做法，不要跳過）
 

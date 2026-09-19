@@ -19,6 +19,7 @@
 | [TypeSafe 首發評測：Vercel 獨立驗證與方法論批評](#typesafe-首發評測vercel-獨立驗證與方法論批評) | — | 67.8% acc／$0.0004／0.4 秒，但參考答案是兩個 LLM 平均、非人工標註 | 📚 |
 | [工具呼叫風險分級（jev-benchmark）](#工具呼叫風險分級jev-benchmark) | 訊號自足 | 91.7% acc，答錯時信心值誠實下修，無「自信答錯」案例 | 📚 |
 | [信心門檻棄權（jev-dspy-lab）](#信心門檻棄權jev-dspy-lab) | 訊號自足 | 信心門檻 0.7：覆蓋率 95.8%、準確率 91.3%、ECE 0.0583 | 📚 |
+| [用 Jev 砍 Agent 自己的執行紀錄：一場公開辯論](#用-jev-砍-agent-自己的執行紀錄一場公開辯論) | — | 排序對、門檻沒對齊；真實複現 0/256 結果評分超過 0.3 | 📚 |
 | 稱讚 vs 諷刺（公開專門跑分） | — | 目前查無，這是你可以貢獻的空白 | — |
 | [引用支持度判讀](#引用支持度判讀) | 訊號自足 | 9/12 支持、0 反駁，低信心正確對應難例 | 🔬 |
 | [反諷偵測·同句／跨句](#反諷偵測) | 訊號自足 | 12/12、10/10 全對，含正確示範低信心 | 🔬 |
@@ -115,6 +116,16 @@
 **這代表什麼**：這是本 repo 收集到的第一個示範「棄權機制」而非單純對錯的案例——把 README「實務建議」提到的「低信心升級給人」這條路徑，量成了具體的覆蓋率／準確率數字。但樣本數只有 24 題（棄權僅 1 題），規模小到任何一題都會大幅影響數字，這條的價值在於**示範一套可以套用在任何任務上的量測方法**，不是可以直接引用的跑分結果。完整整理見 [`translations/jev-dspy-lab-zh/`](translations/jev-dspy-lab-zh/)。
 
 來源：[jmanhype/jev-dspy-lab](https://github.com/jmanhype/jev-dspy-lab)
+
+### 用 Jev 砍 Agent 自己的執行紀錄：一場公開辯論
+
+**做了什麼**：跟以上所有條目都不同的用法——不是「給 Jev 一段內容問一題」，是「讓 Jev 決定 Agent 自己的工具呼叫紀錄哪些可以整條刪掉」。`fast-jev-compaction`（真實開源專案，3,482 星）取代 Claude Code 內建的摘要式壓縮，改成對每筆工具呼叫問 Jev 兩題：這筆呼叫該不該留、它的結果該不該逐字留。開發者 Tamara Tran 發布後，TypeSafe 共同創辦人 Diogo Almeida（`@CompleteSkeptic`）回覆表示認同；獨立開發者 Theo（t3.gg）公開反駁「這是一個從根本上不理解壓縮原理的糟糕策略」，點出快取經濟學（cache write 比 read 貴很多，中途刪歷史會讓後面全部用最貴的價格重寫）跟前沿模型推理 payload 遺失兩個風險。
+
+**結果**：比雙方推特發言更有份量的，是這個專案自己 issue tracker 裡其他使用者拿真實對話重播出來的數字——[issue #26](https://github.com/tamaratran/fast-jev-compaction/issues/26)：8 個真實 session、256 筆工具結果，預設設定下 **0 筆的保留信心值超過 0.3**，因為 state 只給 Jev 看長度佔位字串，從沒讓它看過內容本身；[issue #56](https://github.com/tamaratran/fast-jev-compaction/issues/56)：合成重現顯示修 bug 所需的錯誤訊息被判定可刪，但**排序完全正確**，問題出在兩題分數落在不同量尺、同一門檻沒法比較；[issue #52](https://github.com/tamaratran/fast-jev-compaction/issues/52)：改問法後，同一組資料從全部砍光變成合理留下 40%；[issue #25](https://github.com/tamaratran/fast-jev-compaction/issues/25)：發現「相關性≠可復原性」——刪掉的舊估值重新計算只會得到今天的新值，但下游模型選擇拒答而不是編造，是一個誠實的正面訊號。針對快取批評，另一個 fork 實作了「sticky reduction」，真實測量：有幫助（省一到兩成），但還沒打平理論上的損益兩平點。
+
+**這代表什麼**：兩造的推特發言都只對一半，issue tracker 給出的答案更細——訊號不自足（看不到內容）判斷就會失準，這跟本 repo 核心那條軸完全對得上；信心值的相對排序有真實訊號，出錯的是門檻校準這種工程串接問題，不是模型在瞎猜；而「刪除決策」本身還有一種本 repo 目前沒收錄過的新風險：有些內容一旦刪掉，重新執行不保證能復原原本的答案。完整整理（含對轉貼內容的兩處更正）見 [`translations/jev-context-compaction-debate-zh/`](translations/jev-context-compaction-debate-zh/)；對應到 [`AGENTS.md`](AGENTS.md) 新增的具體警語。
+
+來源：[tamaratran/fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction)、[Theo 的反駁串](https://x.com/theo/status/2100762304862384257)、[jerryfane/omp-jev-compaction](https://github.com/jerryfane/omp-jev-compaction/issues/1)
 
 ### 稱讚 vs 諷刺（公開專門跑分）
 
