@@ -24,6 +24,7 @@ Split into two sections: **public benchmarks** are results published by others t
 | [Reranking for LlamaIndex with Jev](#reranking-for-llamaindex-with-jev) | Self-contained (narrow passage-level relevance) | nDCG@5 significantly improved on both datasets (+0.056 / +0.086) | 📚 |
 | [The cost of decomposing a judgment](#the-cost-of-decomposing-a-judgment) | — | Accuracy up on 3 tasks, but false positives on hard benign cases up 25x | 📚 |
 | [Content moderation in production (mastra-jev-moderation)](#content-moderation-in-production-mastra-jev-moderation) | Self-contained | 9/9 hostile messages blocked, 0/49 real messages false-flagged | 📚 |
+| [A real production Simplified-Chinese classification task: does this news article involve Hubei?](#a-real-production-simplified-chinese-classification-task-does-this-news-article-involve-hubei) | Mixed (mostly self-contained, disagreements cluster where not) | ~85% agreement with Flash Lite; disagreements mostly named-entity cases needing outside knowledge | 📚 |
 | Praise vs. sarcasm (dedicated public benchmark) | — | None found as of this writing — an open slot you could fill | — |
 | [Citation support-checking](#citation-support-checking) | Self-contained | 9/12 supports, 0 contradicts, low confidence correctly tracked hard cases | 🔬 |
 | [Sarcasm detection, same-clause/cross-turn](#sarcasm-detection) | Self-contained | 12/12, 10/10 correct, including a correctly-low-confidence case | 🔬 |
@@ -170,6 +171,16 @@ Source: [Jev judge call vs dimension scores (agentjournal.dev)](https://agentjou
 **What this means**: typed output structurally eliminates the entire "couldn't produce a parsable answer" failure class, not a claim of better judgment — the flip side of the type-guarantee-vs-correctness-guarantee distinction in README's "not blind guessing" section: the type guarantee here solves one specific failure mode, not a promise of always being right. **Take the sample size honestly**: 58 cases, 0/49 false positives, and the author states plainly "your domain is not ours — measure on your own messages" — don't treat these numbers as universal. Full write-up: [`translations/mastra-jev-moderation-zh/`](translations/mastra-jev-moderation-zh/) (Chinese, with an English section below the divider).
 
 Source: [CodeAlive-AI/mastra-jev-moderation](https://github.com/CodeAlive-AI/mastra-jev-moderation)
+
+### A real production Simplified-Chinese classification task: does this news article involve Hubei?
+
+**What was done**: a real personal project running for a year, classifying each day's People's Daily news articles for whether they involve Hubei; previously run on Gemini Flash Lite, compared against Jev the day it launched on OpenRouter using the same prompt — nearly 24,000 real accumulated items, with 1,000 sampled as a test set (500 "included" / 500 "not included").
+
+**Results**: speed went from Flash Lite's 3s/article to Jev's 0.35s/article, nearly 10x faster; cost was about $1 for 5,000 items; agreement with Flash Lite was about 85%, with disagreements mostly on articles naming an official who once served in Hubei — Flash Lite's larger world knowledge recognizes the connection, Jev marks it "not included."
+
+**What this means**: the most intuitive live demonstration of the core axis in this collection — the two models agree where the answer is written in the text, and disagree only where it needs outside world knowledge (a person-to-place historical connection the article never states) — the real-production version of the same failure mode already documented in `suites/history-recall-context/`, except this time it's an ordinary user who hit it and correctly diagnosed it themselves. The 0.35s/item figure happens to exactly match ThaiExam's, an unplanned cross-validation. **Take honestly that this isn't a formal benchmark**: no ground truth, the comparison baseline is another LLM, and 15% disagreement isn't the same as a 15% error rate. Also the first Simplified-Chinese, real production-scale case in this collection. Full write-up: [`translations/libukai-hubei-news-classification-zh/`](translations/libukai-hubei-news-classification-zh/) (Chinese, with an English section below the divider).
+
+Source: [libukai's post on X](https://x.com/libukai/status/2100984923926728920)
 
 ### Praise vs. sarcasm (dedicated public benchmark)
 
