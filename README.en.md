@@ -34,14 +34,14 @@ The honest caveat: calibration is a **population-level** property, not a guarant
 
 ### A worked example: why browser automation benchmarks so well
 
-A third-party case (`jev-ultrafast`, integrating Jev into the open-source Browser Use agent framework): a Google Flights search dropped from 9.5s to 7.1s (25% faster); a 12-task benchmark against Playwright MCP showed 1.5× faster, 1.6× cheaper, comparable accuracy; the standalone Jev loop ran ~1.8s and $0.0005 per task at 97% success. 📚
+Two independent third-party projects wired Jev into browser automation, with consistent results: `jev-browser` (an independent developer's MCP server, 1.5× faster and 1.6× cheaper than Playwright MCP at tied accuracy) and `jev-ultrafast` (Browser Use's own official integration, 25% faster median task time, 91% fewer browser protocol calls). 📚 Full methodology, numbers, and honest caveats for both, kept separate, are in [`capability-map.md`](capability-map.en.md) — not repeated here; this section is about the mechanism.
 
-This isn't "Jev is good at browsing" — it currently accepts text only, no screenshots, per its own docs. What's actually happening is this integration hits both principles above precisely:
+This isn't "Jev is good at browsing" — it currently accepts text only, no screenshots, per its own docs. What's actually happening is that both integrations hit the same two principles precisely:
 
 1. **Trading "look at the screen" for "read given text"**: instead of a screenshot, it uses a structured DOM-snapshot as `state` — a task that used to need visual understanding gets translated into a purely textual, self-contained judgment, landing squarely in its strong zone.
 2. **Trading "one step at a time" for "one batch"**: instead of asking a slow model "what do I click next" at every step, it asks about every candidate element in parallel in one call (TypeSafe's own term: "speculative fan-out") — exactly its strength: high-volume, narrow, parallel judgments.
 
-In other words, what's strong here isn't the model's own browsing savvy — it's that someone placed it correctly. This is a worked example of the "component, not agent" framing above, not an exception to it.
+In other words, what's strong here isn't the model's own browsing savvy — it's that someone placed it correctly. This is a worked example of the "component, not agent" framing above, not an exception to it. **But the same data also shows this principle's edge**: in the `jev-browser` results, a pure text-extraction task (no actions involved) ran slower and more expensive with Jev than with an LLM alone — the self-contained advantage only holds for *acting* on a page, not *reading* one. Details in `capability-map.md` as well.
 
 ---
 
@@ -64,7 +64,7 @@ Full methodology, source-provenance tagging (🔬 our own tests / 📚 third-par
 ## How can I use Jev? (for people)
 
 1. **Read TypeSafe's own [skill](https://github.com/typesafe-ai/skills) first** for how to call the API and design Choice/Score/Noul questions — they cover that well, we don't repeat it.
-2. **Read [`capability-map.md`](capability-map.md)** and place your task on the self-contained vs. needs-outside-knowledge axis to calibrate your expectations.
+2. **Read [`capability-map.en.md`](capability-map.en.md)** (or the [Chinese original](capability-map.md)) and place your task on the self-contained vs. needs-outside-knowledge axis to calibrate your expectations.
 3. **Validate your own confidence thresholds on your own data.** Don't copy a number from any report, including this one — TypeSafe's own docs say the same. A reasonable starting pattern: high confidence → act automatically; medium → confirm first; low → escalate to a person or a full reasoning-capable model.
 4. **For tasks that require *knowing* something rather than *judging* something, retrieve first and put it in `state`.** Don't rely on its bare memory — see [`suites/history-recall-context/`](suites/history-recall-context/) for a concrete counter-example.
 
@@ -81,7 +81,7 @@ Three kinds of contributions welcome: ① a new test suite ② translating and o
 ```
 README.md / README.en.md   this page, bilingual (mechanism explained here, not a separate file)
 AGENTS.md                  scanning checklist for agents
-capability-map.md          the axis, kept up to date
+capability-map.md / .en.md the axis, kept up to date
 CONTRIBUTING.md            contribution rules
 skill/jev-fit-check/       AGENTS.md packaged as a Claude Skill
 suites/                    each real test (methodology + protocol + raw logs + report)

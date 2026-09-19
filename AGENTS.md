@@ -12,7 +12,7 @@
 
 ## 模式 A：評估別的專案哪裡適合換 Jev
 
-你被叫進來，是因為有人想知道現有專案裡有沒有地方適合把一顆慢/貴的 LLM 呼叫，換成 TypeSafe 的 Jev（快、便宜、但只能做窄範圍型別化判斷）。這份文件是判準與掃描清單，不是背景知識讀物——先讀完整的能力地圖（[`capability-map.md`](capability-map.md)）再開始掃。
+你被叫進來，是因為有人想知道現有專案裡有沒有地方適合把一顆慢/貴的 LLM 呼叫，換成 TypeSafe 的 Jev（快、便宜、但只能做窄範圍型別化判斷）。這份文件是判準與掃描清單，不是背景知識讀物——先讀完整的能力地圖（[`capability-map.md`](capability-map.md)，[English](capability-map.en.md)）再開始掃。
 
 ### 唯一的判準
 

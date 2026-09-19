@@ -12,7 +12,7 @@ Figure out which situation you're in first:
 
 ## Mode A: assessing another codebase for Jev-fit
 
-You're here because someone wants to know if any part of an existing codebase is a good candidate for swapping a slow/expensive LLM call for TypeSafe's Jev (fast, cheap, but limited to narrow typed judgments). This is a checklist, not background reading — read the full [`capability-map.md`](capability-map.md) first, then scan.
+You're here because someone wants to know if any part of an existing codebase is a good candidate for swapping a slow/expensive LLM call for TypeSafe's Jev (fast, cheap, but limited to narrow typed judgments). This is a checklist, not background reading — read the full [`capability-map.en.md`](capability-map.en.md) (or the [Chinese original](capability-map.md)) first, then scan.
 
 ### The one test
 
