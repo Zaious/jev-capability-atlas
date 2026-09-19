@@ -74,7 +74,7 @@ Jev 很快、很便宜，只能做「選一個選項/打個分/回答是非」�
 
 ## 貢獻真實實驗結果
 
-歡迎三種貢獻：①新的測試組 ②把國外跑分翻譯進來 ③純分析/心得。**收據優先，不收手打數字**——每組貢獻都要附真實 API 回應的原始 log。完整規則見 [`CONTRIBUTING.md`](CONTRIBUTING.md)。
+歡迎三種貢獻：①新的測試組 ②翻譯與整理國外的跑分結果 ③純分析/心得。**收據優先，不收手打數字**——①要附真實 API 回應的原始 log，②要附可查證的原始出處連結。完整規則見 [`CONTRIBUTING.md`](CONTRIBUTING.md)。
 
 ## 目錄結構
 
@@ -85,7 +85,7 @@ capability-map.md          那條軸的彙整表，持續更新
 CONTRIBUTING.md            貢獻規則
 skill/jev-fit-check/       打包成 Claude Skill 的 AGENTS.md
 suites/                    每組實測（方法論＋協定＋真實 log＋報告）
-translations/              國外跑分的翻譯貢獻
+translations/              國外跑分的翻譯與整理（只翻結果，不翻題目）
 scripts/common/            共用的 API 呼叫樣板，不用各自重寫
 ```
 

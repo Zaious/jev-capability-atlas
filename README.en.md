@@ -74,7 +74,7 @@ Full methodology, source-provenance tagging (🔬 our own tests / 📚 third-par
 
 ## Contribute real experiment results
 
-Three kinds of contributions welcome: ① a new test suite ② a translated foreign benchmark ③ pure analysis/write-up. **Receipts first — no hand-typed numbers.** Every contribution needs the raw API response logs attached. Full rules in [`CONTRIBUTING.md`](CONTRIBUTING.md).
+Three kinds of contributions welcome: ① a new test suite ② translating and organizing a foreign benchmark's results ③ pure analysis/write-up. **Receipts first — no hand-typed numbers.** ① needs the raw API response log attached; ② needs a verifiable source link. Full rules in [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Layout
 
@@ -85,7 +85,7 @@ capability-map.md          the axis, kept up to date
 CONTRIBUTING.md            contribution rules
 skill/jev-fit-check/       AGENTS.md packaged as a Claude Skill
 suites/                    each real test (methodology + protocol + raw logs + report)
-translations/              translated foreign benchmarks
+translations/              foreign benchmarks, translated and organized (results only, not test items)
 scripts/common/            shared API-calling boilerplate
 ```
 
