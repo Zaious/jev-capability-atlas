@@ -57,6 +57,8 @@ Jev 很快、很便宜，只能做「選一個選項/打個分/回答是非」�
 | ✅ 引用支持度判讀（claim+quote 都給齊——見 [`suites/citation-support-check/`](suites/citation-support-check/)） | ⚠️ 需要跟整個領域比較的評分（論文新穎性、专案重要性） |
 | ✅ 反諷/諷刺偵測（觸發線索在給定文字裡，即使跨對話回合——見 [`suites/sarcasm-vs-sincere-praise/`](suites/sarcasm-vs-sincere-praise/)） | ⚠️ 類別本身就重疊、糊在一起的分類（DAIR Emotion 48%，而且信心值同時失準——[jev-benchmarks](https://github.com/AbdelStark/jev-benchmarks)） |
 
+這條軸還有一種更隱蔽的違反方式：不是任務需要外部知識，是呼叫方自己沒把該給的內容放進 `state`。真實案例：有人試著用 Jev 判斷該不該砍掉 Agent 自己過去的工具呼叫紀錄（context 壓縮）——真實測試中，預設設定下打分看不到輸出內容本身，256 筆結果裡 0 筆保留信心值超過 0.3，等於幾乎每次都判定「可以刪」。**這裡的判斷失敗好修，但「砍掉的內容不一定能復原」這個風險改不掉**——這正是 AGENTS.md 已經講的「不可逆動作不該交給機率模型」原則，只是它藏在「內部清理」裡不容易被認出來。**我們不建議把它做成無人監督、預設自動開啟的東西**。完整追蹤見 [`translations/jev-context-compaction-debate-zh/`](translations/jev-context-compaction-debate-zh/)。
+
 完整方法論、來源分級（🔬 我們自己測的 / 📚 第三方跑分 / 📖 TypeSafe 官方文件 / 💭 我們的綜合分析）、逐項數據，見完整評測報告：**[Jev Evaluation Report](https://claude.ai/code/artifact/286d1a05-f51e-4e18-aba2-234bc0ceb29b)**（中英雙語）。
 
 ---
