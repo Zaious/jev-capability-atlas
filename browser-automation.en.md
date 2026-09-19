@@ -46,6 +46,12 @@ This project's value is its head-to-head Jev-vs-Playwright-MCP benchmark (see [`
 
 **An important clarification to avoid confusion from the name collision**: this project and `jkudish/jev-browser` above are **two entirely independent, unrelated projects** that happened to pick the same name on the same day (2026-09-17). When referring to "jev-browser," always include the author's account name — don't cite the project name alone.
 
+## An honest caveat: a narrower specialist model can beat Jev
+
+Form-filling has one real head-to-head number: a small model trained specifically for form-filling, `CUA-S1-FORMS` (706K parameters, 2.8MB), scored 99.7% on its own form-filling eval, where Jev scored 83.6% on the same task. This isn't evidence against Jev itself — it's a reminder that **the "typed, single-forward-pass, choice-among-options" interface shape isn't Jev's alone**; a model narrow and specialized enough can beat it on its own turf. Before wiring up your own system, check whether your task is narrow enough to justify training a dedicated specialist; if not, Jev's "no training, just call the API" generality is usually still the better starting point.
+
+The honest caveat goes both ways: a third party reported that `CUA-S1-FORMS` itself, faced with a field label outside its trained 55-concept vocabulary, answers "skip" with a mean confidence of 0.974 — accuracy drops from 97.5% in-vocabulary to 29.3% held-out. That's exactly the "confidently wrong" risk this repo keeps returning to, just with a different model in the lead role this time. The accuracy a specialist buys usually comes with less predictable behavior outside its training distribution — not a free win.
+
 ## A checklist for wiring this into your own system
 
 1. First use the core axis in [`capability-map.en.md`](capability-map.en.md) to classify your task: **acting** (clicking, filling forms, navigating — a candidate) versus **pure reading** (just extracting page content — `MahmoudAdelbghany/jev-browser`'s own benchmark shows Jev is slower and more expensive here; don't misapply it).

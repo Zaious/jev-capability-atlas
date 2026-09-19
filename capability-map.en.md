@@ -20,6 +20,10 @@ Split into two sections: **public benchmarks** are results published by others t
 | [Tool-call risk classification (jev-benchmark)](#tool-call-risk-classification-jev-benchmark) | Self-contained | 91.7% acc, confidence honestly drops on wrong answers — no confidently-wrong cases | 📚 |
 | [Confidence-gated abstention (jev-dspy-lab)](#confidence-gated-abstention-jev-dspy-lab) | Self-contained | At a 0.7 confidence gate: 95.8% coverage, 91.3% accuracy, ECE 0.0583 | 📚 |
 | [Pruning an agent's own execution history with Jev: a public debate](#pruning-an-agents-own-execution-history-with-jev-a-public-debate) | — | Ranking correct, threshold miscalibrated; real replay: 0/256 results scored above 0.3 | 📚 |
+| [Does sorting by a Jev probability via SQL ORDER BY hold up?](#does-sorting-by-a-jev-probability-via-sql-order-by-hold-up) | Mixed (easy passes, hard fails) | 20 Newsgroups passes all 6 gates; Amazon ESCI fails 4 of 6 | 📚 |
+| [Reranking for LlamaIndex with Jev](#reranking-for-llamaindex-with-jev) | Self-contained (narrow passage-level relevance) | nDCG@5 significantly improved on both datasets (+0.056 / +0.086) | 📚 |
+| [The cost of decomposing a judgment](#the-cost-of-decomposing-a-judgment) | — | Accuracy up on 3 tasks, but false positives on hard benign cases up 25x | 📚 |
+| [Content moderation in production (mastra-jev-moderation)](#content-moderation-in-production-mastra-jev-moderation) | Self-contained | 9/9 hostile messages blocked, 0/49 real messages false-flagged | 📚 |
 | Praise vs. sarcasm (dedicated public benchmark) | — | None found as of this writing — an open slot you could fill | — |
 | [Citation support-checking](#citation-support-checking) | Self-contained | 9/12 supports, 0 contradicts, low confidence correctly tracked hard cases | 🔬 |
 | [Sarcasm detection, same-clause/cross-turn](#sarcasm-detection) | Self-contained | 12/12, 10/10 correct, including a correctly-low-confidence case | 🔬 |
@@ -126,6 +130,46 @@ Source: [jmanhype/jev-dspy-lab](https://github.com/jmanhype/jev-dspy-lab)
 **What this means**: both sides' tweets were half right; the issue tracker gives a more careful answer — when the signal isn't self-contained (Jev can't see the content), judgment degrades, exactly this repo's core axis; confidence carries real relative-ranking signal, and what broke was threshold engineering, not the model guessing blindly; and deletion decisions carry a risk this repo hadn't recorded before — some content, once deleted, can't be recovered by simply re-running the tool. Full write-up (including two corrections to the originally-pasted social posts) at [`translations/jev-context-compaction-debate-zh/`](translations/jev-context-compaction-debate-zh/); mirrored into a new caution in [`AGENTS.en.md`](AGENTS.en.md).
 
 Source: [tamaratran/fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction), [Theo's rebuttal thread](https://x.com/theo/status/2100762304862384257), [jerryfane/omp-jev-compaction](https://github.com/jerryfane/omp-jev-compaction/issues/1)
+
+### Does sorting by a Jev probability via SQL ORDER BY hold up?
+
+**What was done**: three DuckDB extensions and one Postgres extension all let you write `ORDER BY jev_prob(...)`, but none ships a measurement of whether that order is defensible. This independent benchmark fills that gap — gate thresholds fixed before any results were seen, using 20 Newsgroups (human-labeled, unrelated to this project) to measure calibration and ranking, then a hard probe on Amazon ESCI's human-graded product relevance, plus a separate measurement of how batch size affects the numbers.
+
+**Results**: the easy task (20 Newsgroups, topic classification) passes all six gate conditions; the hard task (ESCI, graded product relevance) fails four of six (`jev_bool` ECE worsens from 0.045 to 0.242, inversion rate from 0.143 to 0.254). Separately: packing 40 rows into one state in a single call breaks the ranking gate outright (inversion rate worsens from 0.038 to 0.171); one row per request passes — not a wording issue, a position effect, with rows later in the batch pulled closer to 0.5.
+
+**What this means**: a good result on an easy task is an upper bound, not a floor — exactly this repo's core axis: topic classification's answer is nearly written into the text; product relevance requires judging which facet of the query a product matches and how well, landing on the "not self-contained" side. The batch-size finding is another facet of the same phenomenon already found in `translations/jev-context-compaction-debate-zh/`'s batching/visibility issue: Jev's quality depends not just on question design but on what — and how much — goes into one request, and it fails quietly — sorting doesn't error, it's just wrong. Full write-up: [`translations/jev-orderby-bench-zh/`](translations/jev-orderby-bench-zh/) (Chinese, with an English section below the divider).
+
+Source: [yodablocks/jev-orderby-bench](https://github.com/yodablocks/jev-orderby-bench)
+
+### Reranking for LlamaIndex with Jev
+
+**What was done**: LlamaIndex's Jev reranker asks, per passage, "how relevant is this to the query" (a 0-3 score), compared against plain vector retrieval (MiniLM) on the standard BEIR `nfcorpus`/`SciFact` evaluation sets, with confidence intervals.
+
+**Results**: `nfcorpus`: MiniLM 0.340 → MiniLM+Jev 0.396 nDCG@5, +0.056 (95% CI 0.042–0.072, excludes zero), about $0.0003/query; `SciFact`: 0.629 → 0.715, +0.086 (95% CI 0.059–0.113).
+
+**What this means**: read alongside `jev-orderby-bench` above, this draws a sharp line — that entry's hard probe asks "which facets of the query does this product match," not self-contained; this reranker's question is "how relevant is this one passage to this query," with the answer fully in the given state, self-contained. Together they map this axis's boundary within search/ranking more precisely than either alone: narrow, passage-level relevance wins; graded, multi-facet product relevance loses. Asking one question per passage instead of batching also happens to avoid the batch effect `jev-orderby-bench` measured. Full write-up: [`translations/llama-index-jev-zh/`](translations/llama-index-jev-zh/) (Chinese, with an English section below the divider).
+
+Source: [WiktorB2004/llama-index-jev](https://github.com/WiktorB2004/llama-index-jev)
+
+### The cost of decomposing a judgment
+
+**What was done**: we've recommended decomposing a judgment into atomic questions throughout this repo — this benchmark tests that recommendation directly, across four classification tasks, comparing "one question straight to the conclusion" against "12-14 narrow questions with locally fitted weights," measuring not just accuracy and cost but the false-positive rate on a deliberately chosen set of "hard benign" cases (security documentation that reads as dangerous but isn't).
+
+**Results**: the decomposed version scored higher accuracy on three tasks (Japanese NLI's +7.03 points is the cleanest), but on hard benign cases, the false-positive rate worsened from 1.5% single-question to 37.2% decomposed — **roughly 25x** — because sub-questions like "is this obfuscated encoding" scored equally high for malicious text and legitimate security documentation, unable to distinguish intent. Cost was also 1.6-2.3x higher.
+
+**What this means**: the decomposition recommendation isn't wrong, but "decomposition is always more accurate" is — whether it wins depends on whether the single-question judgment is genuinely weak. The original author's priority order is worth carrying directly into [`README.en.md`](README.en.md#how-can-i-use-jev-for-people): try a free baseline first, stop if a single question is already strong, decompose only where it's genuinely weak, and never let a decomposed result be the sole gate for a guardrail — treat it as a secondary opinion. Don't ask one question with many options for multi-class problems either — the bookkeeping task's 12-option single call scored only 0.3998, the worst result of any task here. Full write-up: [`translations/jev-decomposition-tradeoff-zh/`](translations/jev-decomposition-tradeoff-zh/) (Chinese, with an English section below the divider).
+
+Source: [Jev judge call vs dimension scores (agentjournal.dev)](https://agentjournal.dev/blog/llm-judge-vs-feature-extraction/)
+
+### Content moderation in production (mastra-jev-moderation)
+
+**What was done**: Mastra's built-in moderation processor parses a verdict out of an LLM's free text, and fails open when the model can't produce a parsable answer; this project replaces that step with Jev (one yes/no question, one classification question, typed output, nothing to parse), compared against the built-in version (`gpt-oss-120b`) on the same batch of real production data.
+
+**Results**: 58 real support messages (9 hostile + 49 real questions): Jev version blocked 9/9 hostile messages, 0 of 49 real questions false-flagged, median latency 0.39-0.44s; the built-in version caught 8-9/9, also 0/49 false-flagged, latency 1.97s, roughly 4x the price.
+
+**What this means**: typed output structurally eliminates the entire "couldn't produce a parsable answer" failure class, not a claim of better judgment — the flip side of the type-guarantee-vs-correctness-guarantee distinction in README's "not blind guessing" section: the type guarantee here solves one specific failure mode, not a promise of always being right. **Take the sample size honestly**: 58 cases, 0/49 false positives, and the author states plainly "your domain is not ours — measure on your own messages" — don't treat these numbers as universal. Full write-up: [`translations/mastra-jev-moderation-zh/`](translations/mastra-jev-moderation-zh/) (Chinese, with an English section below the divider).
+
+Source: [CodeAlive-AI/mastra-jev-moderation](https://github.com/CodeAlive-AI/mastra-jev-moderation)
 
 ### Praise vs. sarcasm (dedicated public benchmark)
 

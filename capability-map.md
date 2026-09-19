@@ -20,6 +20,10 @@
 | [工具呼叫風險分級（jev-benchmark）](#工具呼叫風險分級jev-benchmark) | 訊號自足 | 91.7% acc，答錯時信心值誠實下修，無「自信答錯」案例 | 📚 |
 | [信心門檻棄權（jev-dspy-lab）](#信心門檻棄權jev-dspy-lab) | 訊號自足 | 信心門檻 0.7：覆蓋率 95.8%、準確率 91.3%、ECE 0.0583 | 📚 |
 | [用 Jev 砍 Agent 自己的執行紀錄：一場公開辯論](#用-jev-砍-agent-自己的執行紀錄一場公開辯論) | — | 排序對、門檻沒對齊；真實複現 0/256 結果評分超過 0.3 | 📚 |
+| [拿 Jev 的機率做 SQL ORDER BY 排序，站不站得住腳](#拿-jev-的機率做-sql-order-by-排序站不站得住腳) | 混合（簡單過關、困難不過） | 20 Newsgroups 六項判準全過；Amazon ESCI 四項不過 | 📚 |
+| [用 Jev 幫 LlamaIndex 做重排序](#用-jev-幫-llamaindex-做重排序) | 訊號自足（段落級窄相關性） | nDCG@5 兩個資料集都顯著進步（+0.056／+0.086） | 📚 |
+| [拆解判斷的代價](#拆解判斷的代價) | — | 三任務準確率↑，但困難良性案例誤判率暴增 25 倍 | 📚 |
+| [生產環境的內容審核（mastra-jev-moderation）](#生產環境的內容審核mastra-jev-moderation) | 訊號自足 | 9/9 惡意訊息擋下、49 則真實訊息 0 誤判 | 📚 |
 | 稱讚 vs 諷刺（公開專門跑分） | — | 目前查無，這是你可以貢獻的空白 | — |
 | [引用支持度判讀](#引用支持度判讀) | 訊號自足 | 9/12 支持、0 反駁，低信心正確對應難例 | 🔬 |
 | [反諷偵測·同句／跨句](#反諷偵測) | 訊號自足 | 12/12、10/10 全對，含正確示範低信心 | 🔬 |
@@ -126,6 +130,46 @@
 **這代表什麼**：兩造的推特發言都只對一半，issue tracker 給出的答案更細——訊號不自足（看不到內容）判斷就會失準，這跟本 repo 核心那條軸完全對得上；信心值的相對排序有真實訊號，出錯的是門檻校準這種工程串接問題，不是模型在瞎猜；而「刪除決策」本身還有一種本 repo 目前沒收錄過的新風險：有些內容一旦刪掉，重新執行不保證能復原原本的答案。完整整理（含對轉貼內容的兩處更正）見 [`translations/jev-context-compaction-debate-zh/`](translations/jev-context-compaction-debate-zh/)；對應到 [`AGENTS.md`](AGENTS.md) 新增的具體警語。
 
 來源：[tamaratran/fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction)、[Theo 的反駁串](https://x.com/theo/status/2100762304862384257)、[jerryfane/omp-jev-compaction](https://github.com/jerryfane/omp-jev-compaction/issues/1)
+
+### 拿 Jev 的機率做 SQL ORDER BY 排序，站不站得住腳
+
+**做了什麼**：三個 DuckDB 擴充套件跟一個 Postgres 擴充套件都讓你寫 `ORDER BY jev_prob(...)`，但沒有一個附上「這個順序可信嗎」的量測。這份獨立跑分補上——判準門檻跑之前就定死（pre-registered gate），用 20 Newsgroups（人工標註、跟本專案無關）測校準跟排序，再用 Amazon ESCI 真人分級商品相關性做困難探針，額外測了批次大小對數字的影響。
+
+**結果**：簡單任務（20 Newsgroups，主題分類）六項判準全過；困難任務（ESCI，商品相關性分級）六項裡四項不過（`jev_bool` ECE 從 0.045 惡化到 0.242，逆序率從 0.143 惡化到 0.254）。另外測出：把 40 列塞進同一個 state 一次問，直接讓排序判準不過關（逆序率從 0.038 惡化到 0.171），一列一列問則過關——不是文字寫法的問題，是位置效應，批次裡越後面的列分數被拉得越靠近 0.5。
+
+**這代表什麼**：簡單任務的好結果是能力的上限，不是下限——這跟本 repo 核心那條軸完全吻合：主題分類答案幾乎寫在文字裡，商品相關性要比對查詢的哪個面向、比對到什麼程度，落在「不自足」那一側。批次大小這個發現，跟 `translations/jev-context-compaction-debate-zh/` 的批次/內容可見度問題是同一種現象的另一面：Jev 的品質不只取決於問題設計，也取決於一次請求裡放了什麼、放了多少——而且垮的方式很安靜，排序不會報錯，只是排得不對。完整整理見 [`translations/jev-orderby-bench-zh/`](translations/jev-orderby-bench-zh/)。
+
+來源：[yodablocks/jev-orderby-bench](https://github.com/yodablocks/jev-orderby-bench)
+
+### 用 Jev 幫 LlamaIndex 做重排序
+
+**做了什麼**：LlamaIndex 的 Jev 重排序器，一段一段問「這段跟查詢的相關程度」（0-3 分），跟純向量檢索（MiniLM）在 BEIR 標準評測集 `nfcorpus`／`SciFact` 上對照，附信賴區間。
+
+**結果**：`nfcorpus`：MiniLM 0.340 → MiniLM+Jev 0.396 的 nDCG@5，進步 +0.056（95% 信賴區間 0.042–0.072，不含零），每查詢約 $0.0003；`SciFact`：0.629 → 0.715，進步 +0.086（95% 信賴區間 0.059–0.113）。
+
+**這代表什麼**：跟上面 `jev-orderby-bench` 放在一起看特別清楚——那組的困難探針是「商品符不符合查詢的哪些面向」，不自足；這裡的重排序題目是「這一段文字跟這個查詢的相關程度」，答案完全在給定的 state 裡，自足。兩組合起來，比單看任何一組都更精確地畫出這條軸在「排序/檢索」領域的邊界：段落級窄相關性判斷能贏，商品/多面向分級相關性判斷會輸。一段一問、不批次處理的設計，也剛好避開了 `jev-orderby-bench` 測出的批次效應。完整整理見 [`translations/llama-index-jev-zh/`](translations/llama-index-jev-zh/)。
+
+來源：[WiktorB2004/llama-index-jev](https://github.com/WiktorB2004/llama-index-jev)
+
+### 拆解判斷的代價
+
+**做了什麼**：我們一路建議「把判斷拆成原子化問題」，這份跑分直接測這個建議——四組分類任務，對照「一題問到底」跟「拆成 12-14 個窄問題、本地擬合權重」，除了準確率跟成本，還測了一組刻意找出來的「困難良性案例」（看起來像攻擊、其實無害的安全文件）的誤判率。
+
+**結果**：拆解版本三個任務準確率較高（日文 NLI +7.03 個百分點最乾淨），但在困難良性案例上，誤判率從單題的 1.5% 惡化到拆解版本的 37.2%，**約 25 倍**——原因是拆出來的子問題（「是否混淆編碼」之類）對惡意文字跟合法安全文件給出同樣高的分數，分不清意圖。成本也貴 1.6-2.3 倍。
+
+**這代表什麼**：拆解這個建議沒有錯，但「拆解一定比較準」這句話錯了——對不對取決於單題判斷是不是真的弱。原作者的優先順序值得直接搬進 [`README.md`](README.md#我能怎麼用-jev給人看)：先試免費基準線、單題夠強就停、只在真的弱的地方拆解、拆解結果只能當第二意見不能單獨扛安全把關。多分類問題也別一題問到底——記帳分類那組 12 選項單題只有 0.3998，是全部任務裡最差的結果。完整整理見 [`translations/jev-decomposition-tradeoff-zh/`](translations/jev-decomposition-tradeoff-zh/)。
+
+來源：[Jev judge call vs dimension scores（agentjournal.dev）](https://agentjournal.dev/blog/llm-judge-vs-feature-extraction/)
+
+### 生產環境的內容審核（mastra-jev-moderation）
+
+**做了什麼**：Mastra agent 框架內建的審核處理器靠解析大模型的自由文字判斷該不該擋，遇到模型答不出能解析的格式時只能放行；這個專案拿 Jev 換掉這一段（一題是非、一題分類，型別化輸出、沒有文字要解析），跟內建版本（`gpt-oss-120b`）在同一批真實生產資料上對照。
+
+**結果**：58 筆真實客服訊息（9 筆惡意＋49 筆真實問題）：Jev 版本 9/9 惡意訊息全擋下、49 則真實問題 0 誤判、中位數延遲 0.39-0.44 秒；內建版本 8-9/9、同樣 0 誤判、延遲 1.97 秒、價格約 4 倍。
+
+**這代表什麼**：型別化輸出讓「答不出能解析的格式」這整類失效模式從架構上直接消失，不是判斷力比較強——這是我們在 README「不是瞎猜」那節「型別保證≠正確性保證」區分的另一面：這裡型別保證解決的是一種特定失效模式，不是保證永遠判斷正確。**要誠實看待樣本數**：58 筆、0/49 誤判，作者自己講「你的資料不是我們的資料，自己量」，別把這組數字當成普適結論。完整整理見 [`translations/mastra-jev-moderation-zh/`](translations/mastra-jev-moderation-zh/)。
+
+來源：[CodeAlive-AI/mastra-jev-moderation](https://github.com/CodeAlive-AI/mastra-jev-moderation)
 
 ### 稱讚 vs 諷刺（公開專門跑分）
 
