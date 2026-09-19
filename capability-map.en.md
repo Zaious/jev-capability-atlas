@@ -16,6 +16,9 @@ Split into two sections: **public benchmarks** are results published by others t
 | [jev-benchmarks: DAIR Emotion](#jev-benchmarks-ag-newsbanking77dair-emotion) | Overlapping categories (edge case) | 48.0% acc tied, but confidence miscalibrated | 📚 |
 | [jev-browser vs Playwright MCP](#jev-browser-vs-playwright-mcp) | Mixed (strong at acting, weak at pure reading) | Hybrid: 1.5x faster / 1.6x cheaper; but pure text-extraction tasks are slower and more expensive | 📚 |
 | [jev-ultrafast (Browser Use official)](#jev-ultrafast-browser-use-official-integration) | Self-contained | Median task time 25% faster, 91% fewer browser protocol calls | 📚 |
+| [TypeSafe's launch evals: Vercel + methodology critique](#typesafes-launch-evals-vercels-independent-validation-and-methodology-critique) | — | 67.8% acc / $0.0004 / 0.4s, but reference labels are an average of two LLMs, not human-labeled | 📚 |
+| [Tool-call risk classification (jev-benchmark)](#tool-call-risk-classification-jev-benchmark) | Self-contained | 91.7% acc, confidence honestly drops on wrong answers — no confidently-wrong cases | 📚 |
+| [Confidence-gated abstention (jev-dspy-lab)](#confidence-gated-abstention-jev-dspy-lab) | Self-contained | At a 0.7 confidence gate: 95.8% coverage, 91.3% accuracy, ECE 0.0583 | 📚 |
 | Praise vs. sarcasm (dedicated public benchmark) | — | None found as of this writing — an open slot you could fill | — |
 | [Citation support-checking](#citation-support-checking) | Self-contained | 9/12 supports, 0 contradicts, low confidence correctly tracked hard cases | 🔬 |
 | [Sarcasm detection, same-clause/cross-turn](#sarcasm-detection) | Self-contained | 12/12, 10/10 correct, including a correctly-low-confidence case | 🔬 |
@@ -82,6 +85,36 @@ Source: [jev-browser](https://github.com/MahmoudAdelbghany/jev-browser) ([README
 **Honest caveats, from the source itself**: "this is three repeats of one task on one browser profile, not a general reliability benchmark"; the DOM reader currently doesn't support shadow DOM, iframes, canvas, file uploads, pop-up tabs, or nested scrolling — explicitly out of scope for this MVP.
 
 Source: [jev-ultrafast](https://github.com/browser-use/jev-ultrafast) ([README](https://github.com/browser-use/jev-ultrafast/blob/main/README.md)), [LavX News coverage](https://news.lavx.hu/article/jev-ultrafast-cuts-browser-agent-time-by-25-with-typesafe-action-space)
+
+### TypeSafe's launch evals: Vercel's independent validation and methodology critique
+
+**What was done**: TypeSafe's own "workflow evals" published at Jev's launch — nine models scored across four workflows (customer service, agent-trace observability, security incidents, invoice processing). Independent blogger Anthony Maio wrote a methodology critique of these evals. Separately, Vercel's CEO Guillermo Rauch and engineer Pranit Kumar posted on X about swapping Jev in for GPT-5.6 Luna as their `fx` tool's command safety reviewer, in production. A dev.to article ties all three threads together with a critical read.
+
+**Results**: Jev scored 67.8% accuracy overall across the nine models, at $0.0004/case and 0.4s/case — 6.3 points behind the best model (GPT-5.6 Sol, 74.1%), but 209x cheaper and 58x faster. At the workflow level, the gap ranges from 2.3 points (customer service) to 17.3 (invoice processing). Vercel reported "5-18x faster and more accurate," but without a published dataset or case count.
+
+**What this means**: **the reference labels in this eval are themselves an average of GPT-6 Astra and Claude Fable 5.1's responses, not human-labeled** — it measures closeness to these two frontier models' consensus, not closeness to human judgment; a model that's actually right where both frontier models share a blind spot gets marked down for it. Maio quotes TypeSafe's own launch post directly: "Our number is not empirical. Schema matching is guaranteed" — nearly identical to the type-guarantee-vs-correctness-guarantee distinction this repo's README draws in "not blind guessing," stated by the vendor itself in almost the same words. Maio also raises a layer this repo hadn't covered before: "individually calibrated judgments do not automatically compose into a calibrated workflow once you run them through thresholds, weights, and branches" — a real caveat for the composite-scoring guidance in the README's practical-guidance section. Full write-up: [`translations/typesafe-launch-evals-zh/`](translations/typesafe-launch-evals-zh/) (Chinese, with an English section below the divider).
+
+Source: [Jev Beat GPT Luna by 1 Point (dev.to)](https://dev.to/gabrielanhaia/jev-beat-gpt-luna-by-1-point-gpt-6-and-claude-wrote-the-answer-key-314k), [Jev: The Language Model That Won't Talk (Anthony Maio)](https://anthonymaio.substack.com/p/jev-the-language-model-that-wont)
+
+### Tool-call risk classification (jev-benchmark)
+
+**What was done**: 60 tool-call cases, hand-labeled with a four-tier risk classification (readonly/destructive/privileged/exfiltration), split by difficulty into clear/ambiguous/adversarial groups; Jev classified each case with confidence recorded per case.
+
+**Results**: 91.7% accuracy overall (55/60). The interesting part isn't the accuracy — it's the confidence behavior: "every incorrect answer came with hedged confidence; the model never returned 1.000 and was wrong."
+
+**What this means**: this is the cleanest positive counter-example to calibration failure collected so far — the mirror image of jev-benchmarks' DAIR Emotion result (0.819 mean confidence against 48% actual accuracy), showing calibration working as intended. The likely difference is task type: tool-call risk classification is a self-contained task where the answer lives almost entirely in the call content itself, unlike DAIR Emotion's genuinely blurred categories — supporting this repo's core axis: how self-contained a task is affects not just accuracy but whether its confidence can be trusted. Full write-up: [`translations/jev-benchmark-toolcall-risk-zh/`](translations/jev-benchmark-toolcall-risk-zh/) (Chinese, with an English section below the divider).
+
+Source: [themsquared/jev-benchmark](https://github.com/themsquared/jev-benchmark)
+
+### Confidence-gated abstention (jev-dspy-lab)
+
+**What was done**: measurement infrastructure (built on the DSPy framework) for confidence-gated abstention behavior; the repo includes one real recorded run using `jev-latest` — 24 support-ticket-routing cases, confidence threshold set at 0.7.
+
+**Results**: 95.8% coverage (roughly 1 case abstained), 91.3% accuracy among answered cases, Brier score 0.1546, ECE 0.0583.
+
+**What this means**: the first case in this repo's collection demonstrating an abstention mechanism rather than plain right/wrong — it turns the "low confidence → escalate to a human" leg of the README's practical-guidance routing pattern into an actual measured coverage/accuracy number. But the sample is only 24 cases (roughly 1 abstention), small enough that any single case swings the numbers substantially — this entry's value is **demonstrating a measurement methodology applicable to any task**, not a citable benchmark result. Full write-up: [`translations/jev-dspy-lab-zh/`](translations/jev-dspy-lab-zh/) (Chinese, with an English section below the divider).
+
+Source: [jmanhype/jev-dspy-lab](https://github.com/jmanhype/jev-dspy-lab)
 
 ### Praise vs. sarcasm (dedicated public benchmark)
 

@@ -16,6 +16,9 @@
 | [jev-benchmarks：DAIR Emotion](#jev-benchmarksag-newsbanking77dair-emotion) | 類別重疊（邊界案例） | 48.0% acc 打平，但信心值失準 | 📚 |
 | [jev-browser vs Playwright MCP](#jev-browservs-playwright-mcp) | 混合（操作強，純讀取不強） | 混合驅動快 1.5x／便宜 1.6x；但純文字擷取任務反而更慢更貴 | 📚 |
 | [jev-ultrafast（Browser Use 官方）](#jev-ultrafastbrowser-use-官方整合) | 訊號自足 | 單一任務中位數快 25%，瀏覽器協定呼叫少 91% | 📚 |
+| [TypeSafe 首發評測：Vercel 獨立驗證與方法論批評](#typesafe-首發評測vercel-獨立驗證與方法論批評) | — | 67.8% acc／$0.0004／0.4 秒，但參考答案是兩個 LLM 平均、非人工標註 | 📚 |
+| [工具呼叫風險分級（jev-benchmark）](#工具呼叫風險分級jev-benchmark) | 訊號自足 | 91.7% acc，答錯時信心值誠實下修，無「自信答錯」案例 | 📚 |
+| [信心門檻棄權（jev-dspy-lab）](#信心門檻棄權jev-dspy-lab) | 訊號自足 | 信心門檻 0.7：覆蓋率 95.8%、準確率 91.3%、ECE 0.0583 | 📚 |
 | 稱讚 vs 諷刺（公開專門跑分） | — | 目前查無，這是你可以貢獻的空白 | — |
 | [引用支持度判讀](#引用支持度判讀) | 訊號自足 | 9/12 支持、0 反駁，低信心正確對應難例 | 🔬 |
 | [反諷偵測·同句／跨句](#反諷偵測) | 訊號自足 | 12/12、10/10 全對，含正確示範低信心 | 🔬 |
@@ -82,6 +85,36 @@
 **誠實的但書，官方自己寫的**：「這是同一個任務、同一個瀏覽器設定檔的三次重複，不是通用的可靠性基準」；DOM 讀取器目前不支援 shadow DOM、iframe、canvas、檔案上傳、彈出分頁、巢狀捲動——這些明確排除在這個 MVP 之外。
 
 來源：[jev-ultrafast](https://github.com/browser-use/jev-ultrafast)（[README](https://github.com/browser-use/jev-ultrafast/blob/main/README.md)）、[LavX News 報導](https://news.lavx.hu/article/jev-ultrafast-cuts-browser-agent-time-by-25-with-typesafe-action-space)
+
+### TypeSafe 首發評測：Vercel 獨立驗證與方法論批評
+
+**做了什麼**：TypeSafe 自己在發表 Jev 時公布的「workflow evals」——九個模型對四個工作流（客服、agent trace 可觀測性、資安事件、發票處理）打分；獨立部落客 Anthony Maio 對這組評測的方法論做了批評；同時 Vercel 的 CEO Guillermo Rauch 與工程師 Pranit Kumar 在 X 上貼出把自家 `fx` 工具的指令安全審查器從 GPT-5.6 Luna 換成 Jev 後的獨立生產環境結果。三條線被 dev.to 一篇文章整理在一起、逐條質疑。
+
+**結果**：Jev 在九個模型裡整體 67.8% 準確率、$0.0004/題、0.4 秒/題——準確率跟最強的 GPT-5.6 Sol（74.1%）差 6.3 分，但成本差 209 倍、延遲差 58 倍。拆到工作流層級，差距從 2.3 分（客服）到 17.3 分（發票處理）不等。Vercel 回報「快 5-18 倍、更準確」，但沒有附公開資料集或案例數。
+
+**這代表什麼**：**這組評測的參考答案是 GPT-6 Astra 與 Claude Fable 5.1 兩個模型回答的平均值，不是人工標註**——量的是「跟這兩個前沿模型的共識有多接近」，不是「跟人類判斷有多接近」；兩個前沿模型共同的盲點，答對的模型反而會被扣分。Maio 引用 TypeSafe 官方原話——「我們的數字不是實證出來的。型別匹配是有保證的」——這跟本 repo「不是瞎猜」那節做的型別保證≠正確性保證的區分幾乎一模一樣，連廠商自己都這樣講。Maio 還指出一個本 repo 原本沒講到的層次：「個別校準過的判斷，串進 threshold/weight/分支之後，不會自動組成一個校準過的工作流」——這是 README「實務建議」那節複合評分建議的一條重要但書。完整整理見 [`translations/typesafe-launch-evals-zh/`](translations/typesafe-launch-evals-zh/)。
+
+來源：[Jev Beat GPT Luna by 1 Point（dev.to）](https://dev.to/gabrielanhaia/jev-beat-gpt-luna-by-1-point-gpt-6-and-claude-wrote-the-answer-key-314k)、[Jev: The Language Model That Won't Talk（Anthony Maio）](https://anthonymaio.substack.com/p/jev-the-language-model-that-wont)
+
+### 工具呼叫風險分級（jev-benchmark）
+
+**做了什麼**：60 個工具呼叫案例，人工標註風險等級（readonly/destructive/privileged/exfiltration 四級），依難度分 clear／ambiguous／adversarial 三組，用 Jev 逐題分類並記錄信心值分布。
+
+**結果**：整體 91.7% 準確率（55/60）。關鍵不是準確率，是信心值的行為：「每一個答錯的案例都伴隨著保守的信心值；模型從來沒有在答錯的時候給出 1.000」。
+
+**這代表什麼**：這是目前收集到的資料裡，信心值行為最漂亮的一個反例——跟 jev-benchmarks 的 DAIR Emotion 案例（平均信心 0.819、實際準確率只有 48%）恰好相反，這裡展示的是校準機制正常運作的樣子。差別可能在於任務性質：工具呼叫風險分級是答案幾乎完全寫在呼叫內容本身裡的自足型任務，跟 DAIR Emotion 那種類別本身就會混淆的任務不同——支持本 repo 那條核心軸：訊號自足程度不只影響準確率，也影響信心值可不可信。完整整理見 [`translations/jev-benchmark-toolcall-risk-zh/`](translations/jev-benchmark-toolcall-risk-zh/)。
+
+來源：[themsquared/jev-benchmark](https://github.com/themsquared/jev-benchmark)
+
+### 信心門檻棄權（jev-dspy-lab）
+
+**做了什麼**：用 DSPy 框架量測「信心門檻棄權」（confidence-gated abstention）行為的基礎設施，repo 附了一組用 `jev-latest` 真實跑出來的記錄——24 題客服工單分派，信心門檻設在 0.7。
+
+**結果**：覆蓋率 95.8%（僅約 1 題被棄權），願意回答的題目中準確率 91.3%，Brier score 0.1546，ECE 0.0583。
+
+**這代表什麼**：這是本 repo 收集到的第一個示範「棄權機制」而非單純對錯的案例——把 README「實務建議」提到的「低信心升級給人」這條路徑，量成了具體的覆蓋率／準確率數字。但樣本數只有 24 題（棄權僅 1 題），規模小到任何一題都會大幅影響數字，這條的價值在於**示範一套可以套用在任何任務上的量測方法**，不是可以直接引用的跑分結果。完整整理見 [`translations/jev-dspy-lab-zh/`](translations/jev-dspy-lab-zh/)。
+
+來源：[jmanhype/jev-dspy-lab](https://github.com/jmanhype/jev-dspy-lab)
 
 ### 稱讚 vs 諷刺（公開專門跑分）
 
