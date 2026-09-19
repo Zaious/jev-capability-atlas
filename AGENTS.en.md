@@ -45,6 +45,8 @@ Once you've found a candidate, don't act on the checklist alone — verify:
 4. Only integrate once real data supports it, and **layer it as a second opinion first, not a replacement** — same as our own pilots: run it for a while before promoting it.
 5. Contribute the result — good or bad — back to [`suites/`](suites/). This is the entire reason this repo exists.
 
+**If the candidate is browser automation** (clicking, filling forms, navigating), don't design the architecture from scratch — read [`browser-automation.en.md`](browser-automation.en.md): the reference architecture three real open-source implementations converged on (one call, three questions), how the typing problem gets solved, and a checklist for before you touch your own system.
+
 ### Where to find API mechanics
 
 For how to call the API and design Choice/Score/Noul questions, read TypeSafe's own [skill](https://github.com/typesafe-ai/skills) — it's covered thoroughly there, we don't repeat it here.

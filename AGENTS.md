@@ -47,6 +47,8 @@
 4. 只有在真實數據支持時才動手整合，而且**先當第二意見疊加，不要直接取代**——跟我們的 pilot 一樣，先跑幾輪確認再考慮扶正。
 5. 把結果（不管好壞）貢獻回 [`suites/`](suites/)——這正是這個 repo 存在的理由。
 
+**如果候選是瀏覽器自動化**（點擊、填表、導覽這類操作型任務），別從零設計架構——讀 [`browser-automation.md`](browser-automation.md)：三個真實開源實作收斂出的參考架構（一次呼叫問三題）、打字問題怎麼解、以及接自己系統前的檢查清單。
+
 ### API 機制去哪查
 
 呼叫方式、Choice/Score/Noul 怎麼設計、confidence 怎麼用——去讀 TypeSafe 官方的 [skill](https://github.com/typesafe-ai/skills)，那裡寫得很完整，這裡不重複。

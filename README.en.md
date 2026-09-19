@@ -43,6 +43,8 @@ This isn't "Jev is good at browsing" — it currently accepts text only, no scre
 
 In other words, what's strong here isn't the model's own browsing savvy — it's that someone placed it correctly. This is a worked example of the "component, not agent" framing above, not an exception to it. **But the same data also shows this principle's edge**: in the `jev-browser` results, a pure text-extraction task (no actions involved) ran slower and more expensive with Jev than with an LLM alone — the self-contained advantage only holds for *acting* on a page, not *reading* one. Details in `capability-map.md` as well.
 
+**If you've seen this evidence and decided to wire your own system up to it, read [`browser-automation.en.md`](browser-automation.en.md)** — the reference architecture (one call, three questions), how to solve the typing problem, three real implementations to reference, and a checklist for before you touch your own system. Not repeated here.
+
 ---
 
 ## The core finding: one axis
@@ -84,6 +86,7 @@ Three kinds of contributions welcome: ① a new test suite ② translating and o
 README.md / README.en.md   this page, bilingual (mechanism explained here, not a separate file)
 AGENTS.md                  scanning checklist for agents
 capability-map.md / .en.md the axis, kept up to date
+browser-automation.md / .en.md  implementation guide for browser automation (architecture, typing problem, real implementations)
 CONTRIBUTING.md            contribution rules
 skill/jev-fit-check/       AGENTS.md packaged as a Claude Skill
 suites/                    each real test (methodology + protocol + raw logs + report)

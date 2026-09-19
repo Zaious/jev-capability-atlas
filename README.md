@@ -43,6 +43,8 @@ Jev 很快、很便宜，只能做「選一個選項/打個分/回答是非」�
 
 換句話說，強的不是模型本身多會逛網頁，是有人把它放對了位置——這正是上面「元件定位」那句話的活教材，不是例外。**但這條原則的邊界也被同一組跑分抓到了**：`jev-browser` 那組資料裡，一個純文字擷取（沒有操作動作）的任務，Jev 反而比單獨用 LLM 更慢更貴——訊號自足的優勢只在「要對頁面採取行動」時成立，「純閱讀理解」不是它的地盤，細節同樣見 `capability-map.md`。
 
+**已經看完這些證據、決定要把自己的系統接上去的人或 agent，讀 [`browser-automation.md`](browser-automation.md)**——參考架構（一次呼叫問三題）、打字問題怎麼解、三個真實實作可以參考、接自己系統前的檢查清單，這裡不重複。
+
 ---
 
 ## 核心發現：一條軸
@@ -84,6 +86,7 @@ Jev 很快、很便宜，只能做「選一個選項/打個分/回答是非」�
 README.md / README.en.md   本頁雙語（含機制說明，不是另開檔案）
 AGENTS.md                  給 agent 讀的掃描判準
 capability-map.md / .en.md 那條軸的彙整表，持續更新
+browser-automation.md / .en.md  瀏覽器操作的實作指南（架構、打字問題、真實實作）
 CONTRIBUTING.md            貢獻規則
 skill/jev-fit-check/       打包成 Claude Skill 的 AGENTS.md
 suites/                    每組實測（方法論＋協定＋真實 log＋報告）
