@@ -1,0 +1,15 @@
+# 釘住用的參數，跡測性需要——以這份為準，不要另寫在 README.md 裡一次。
+# Pin these for reproducibility -- treat this file as authoritative,
+# don't re-state values in the README that could drift out of sync.
+model: jev-latest
+question_type: noul       # single yes/no probability question, not decomposed
+auto_accept_threshold: 0.5
+sample_size: 30
+annotators: 0              # ground truth is PhysioNet/CinC Challenge 2015's own expert
+                            # annotator labels (>=2 annotators per alarm, 2/3 majority),
+                            # not ours -- see data/sample.csv and the dataset's own docs
+run_date: "2026-09-19"
+source_dataset: "PhysioNet/CinC Challenge 2015 (challenge-2015/1.0.0), training split"
+source_dataset_license: "Open Data Commons Attribution License v1.0 (ODC-By)"
+feature_extraction: "data/extract_features.py -- independently written against
+  MIT-licensed wfdb/neurokit2, not copied from any other project (see README)"

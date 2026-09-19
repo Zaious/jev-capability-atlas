@@ -30,6 +30,7 @@ Split into two sections: **public benchmarks** are results published by others t
 | [Citation support-checking](#citation-support-checking) | Self-contained | 9/12 supports, 0 contradicts, low confidence correctly tracked hard cases | 🔬 |
 | [Sarcasm detection, same-clause/cross-turn](#sarcasm-detection) | Self-contained | 12/12, 10/10 correct, including a correctly-low-confidence case | 🔬 |
 | [Pure-recall trivia vs. supplied context](#pure-recall-trivia-vs-supplied-context) | Not self-contained → self-contained | Confidently wrong on a common-knowledge question with no context; confidence and accuracy both recover once context is supplied | 🔬 |
+| [ICU alarm classification: testing a viral tweet](#icu-arrhythmia-alarm-classification-a-viral-tweet-tested-against-a-public-dataset) | Mixed (physiological signal needs converting to text features) | Official score 0.271, worse than "let every alarm through"; 0% sensitivity on asystole/V-tach | 🔬 |
 
 ---
 
@@ -226,6 +227,18 @@ Source: [`suites/sarcasm-vs-sincere-praise/`](suites/sarcasm-vs-sincere-praise/)
 **Results**: case (1) was answered wrong at 0.90 confidence on what's generally considered common knowledge, with no context given; case (2)'s confidence sat honestly near a coin flip (probabilities 0.25/0.37/0.38 across the three options); case (3) — the same obscure question with a passage supplied — concentrated to 0.98 confidence and was answered correctly. **Confidently wrong on a common-knowledge question is the single most important counter-example in this whole repo** — with no context, Jev is drawing purely on opaque pretraining memory, the same risk profile as asking any LLM a bare trivia question.
 
 Source: [`suites/history-recall-context/`](suites/history-recall-context/)
+
+### ICU arrhythmia alarm classification: a viral tweet, tested against a public dataset
+
+> ⚠️ This is a classification exercise on a public academic dataset, not clinical validation, and not recommended for any real patient-care decision — full disclaimer in the suite's README.
+
+**What was done**: a viral Japanese tweet claimed Jev could judge acute vital-sign deterioration more reliably than hospital monitor alarms, with no code or data attached. We reconstructed a simplified, honest version of that claim on a recognized, authoritative public dataset — PhysioNet/CinC Challenge 2015 (750 ICU alarm recordings, 5 arrhythmia types including extreme bradycardia) — stratified-sampling 30 records. Feature extraction was deliberately kept naive (heart-rate median/IQR plus a crude noise flag, no signal-quality gating or morphology features), independently written using only MIT-licensed `wfdb`/`neurokit2`.
+
+**Results**: the official score (a suppressed true alarm costs 5x) was **0.271** — worse than the do-nothing "treat every alarm as real" baseline (0.39), and far behind a published open-source baseline's naive ML model (0.65) and full pipeline (0.73-0.81). Broken down: **sensitivity was 0% on both life-critical categories, asystole and ventricular tachycardia**; bradycardia/tachycardia/fibrillation did comparatively better (33-67%).
+
+**What this means**: the failure maps precisely onto what the feature set is missing, not random degradation — asystole's criterion is "no heartbeat for ≥4s," which a 30-second-window median heart rate averages into invisibility; V-tach's criterion is fundamentally about QRS morphology, not rate, and this feature set carries no morphological information at all. The three better-performing types are exactly the ones where the numeric value of heart rate itself is the diagnostic signal — again, this repo's core axis: when `state` lacks what a judgment needs, Jev can't conjure it. Confidence on the wrong answers stayed in the 0.14-0.51 range, with no "confidently wrong" pattern. **The conclusion isn't "Jev can't be used for physiological signal classification" — it's that the tweet's claim doesn't survive an honest reconstruction, and the reason is traceable specifically to naive feature extraction, not the model.** Full methodology, the NeillWhite baseline citation, and honestly stated limitations are in the suite itself.
+
+Source: [`suites/icu-alarm-classification/`](suites/icu-alarm-classification/) (original claim: [@roiyaruRIZ's post](https://x.com/roiyaruRIZ); comparison baseline: [NeillWhite/icu-false-alarm-reduction](https://github.com/NeillWhite/icu-false-alarm-reduction))
 
 ---
 
