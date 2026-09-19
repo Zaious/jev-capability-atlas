@@ -20,6 +20,16 @@ You're here because someone wants to know if any part of an existing codebase is
 
 Yes → a candidate. No (needs an external knowledge base, needs comparison against an entire field, or is pure fact recall with no supporting passage given) → not a candidate, don't force it — see [`suites/history-recall-context/`](suites/history-recall-context/) for a real counter-example.
 
+### When the candidate signal isn't text to begin with (image/audio/sensor), ask this first
+
+**Has the system already computed this signal internally, just without exposing it?** Usually the answer is yes — some internal algorithm or data structure already derived that signal, it just was never surfaced as text. Checking for and exposing that existing computation is close to free, and its fidelity is structurally higher than re-deriving it by bolting on a new "perception" model:
+
+- Both real integrations in [`browser-automation.md`](browser-automation.md) read the browser's own existing DOM instead of taking a screenshot — not because a vision model can't read the screen, but because the browser system had already turned screen state into structured data.
+- [`translations/jev-context-compaction-debate-zh/`](translations/jev-context-compaction-debate-zh/) failed at default settings because the state only showed Jev a length placeholder — the content was right there, just never exposed, not genuinely unreachable.
+- The two failing categories in [`suites/icu-alarm-classification/`](suites/icu-alarm-classification/) come down to us crudely re-deriving waveform features from scratch, worse than the algorithms the monitor's own internals already run.
+
+**Only when no existing system has ever computed that signal at all** (a camera judging whether real-world fruit is ripe, whether a wall has a structural crack) does a separate perception/conversion model become genuinely necessary — there, it's a required step, not a shortcut for insufficient logging. Work out which case your candidate is before deciding whether to wire one in.
+
 ### What to grep for, ranked by signal strength
 
 1. **An existing LLM call whose prompt asks for classification/rating/yes-no, and whose response is parsed down to a single label** — look for prompts with "classify," "categorize," "rate 1-10," "which of the following," followed by regex extraction or `if response ==` parsing where the free text itself is never used. Strongest signal: you're paying for a whole model's output and keeping only one narrow value.
