@@ -1,0 +1,149 @@
+{
+  "watch_reasons": {
+    "upstream-dep-a": "Watched because this library is an upstream dependency of a project the operator maintains. Only genuinely actionable items -- breaking changes, deprecations, new capabilities worth adopting -- matter here. A generic marketing page, a bare list of past release dates with no specifics, or legal/licensing terms are NOT actionable, even though the library itself is relevant.",
+    "upstream-dep-b": "Watched because this service is an upstream dependency of the operator's own stack. Only genuinely actionable items -- breaking changes, deprecations, new capabilities worth adopting -- matter here. General API reference documentation the operator could look up any time they actually need it is NOT actionable on its own.",
+    "upstream-dep-c": "Watched because this SDK is an upstream dependency of the operator's own stack. Only genuinely actionable items -- breaking changes, deprecations, new capabilities worth adopting -- matter here. Generic how-to documentation the operator could look up any time they actually need it is NOT actionable on its own, even if well-written and legitimate.",
+    "upstream-dep-d": "Watched because this platform is an upstream dependency of the operator's own stack. Only genuinely actionable items -- breaking changes, deprecations, new capabilities worth adopting -- matter here.",
+    "vendor-announcements": "Watched for general awareness of official model/agent-ecosystem announcements (new models, API changes, deprecations) from major AI vendors. A wider bar than the upstream-dep-* topics -- a major official announcement from a frontier lab is relevant even without an immediate action item, since it shapes the operator's overall strategy.",
+    "ecosystem-awareness": "Watched for major releases in the agent-framework and protocol-SDK ecosystem generally. This is ecosystem awareness, not a tracked dependency -- a well-known, actively maintained project or SDK release is NOT automatically high-value just for being legitimate and popular. It should only score high if it represents a genuinely major shift (e.g. a breaking protocol version change) as opposed to routine incremental development.",
+    "conference-activity": "Watched for research-conference activity (deadlines, accepted papers, agenda highlights) at top venues. Routine conference-logistics pages (submission portals, call-for-papers boilerplate, generic navigation hubs) are NOT actionable -- only genuinely notable content (a highlighted paper, a deadline change, a notable trend) is."
+  },
+  "roster_note": "This personal knowledge system already has specialist personas covering: AI safety/architecture, software engineering practice, product/business strategy, visual design, linguistics, and general technology commentary. It has no dedicated video-production or academic-conference-logistics specialist.",
+  "cases": [
+    {
+      "id": "case-32",
+      "topic": "vendor-announcements",
+      "title": "How Claude's text watermarking works",
+      "url": "https://www.anthropic.com/news/claude-text-watermark",
+      "content": "Explains Anthropic's text watermarking in Claude to comply with the EU AI Act. Works by subtly altering the source of randomness when Claude selects among equally viable word choices, creating an undetectable pattern verifiable with a special key. No quality impact, no added cost/latency. Based on Google DeepMind's SynthID-Text method; less effective on factual/heavily-edited content where word choices are limited.",
+      "historical_label": "active",
+      "historical_score": 76
+    },
+    {
+      "id": "case-28",
+      "topic": "upstream-dep-c",
+      "title": "Changelog — Expo",
+      "url": "https://expo.dev/changelog",
+      "content": "Expo's product changelog, recent updates from September 2026 backward. Covers major releases (Expo SDK 58 Beta, SDK 57), feature announcements (PostHog analytics integration, EAS Observe availability). Each entry has date, description, author.",
+      "historical_label": "active",
+      "historical_score": 76
+    },
+    {
+      "id": "case-51",
+      "topic": "upstream-dep-b",
+      "title": "API overview - Docs - PostHog",
+      "url": "https://posthog.com/docs/api",
+      "content": "PostHog's API docs. Two endpoint categories: public POST-only (event capture, feature flags, no auth) and private (data management, API key auth). Covers auth methods (personal keys, project secret keys, OAuth), rate limits, response codes, pagination, security practices (GitHub secret scanning).",
+      "historical_label": "frozen",
+      "historical_score": 40
+    },
+    {
+      "id": "case-47",
+      "topic": "upstream-dep-b",
+      "title": "RFC: deprecate built-in replay console log capture",
+      "url": "https://github.com/PostHog/posthog/issues/99252",
+      "content": "GitHub RFC issue proposing to deprecate PostHog's built-in console log capture in session replay in favor of the dedicated logs product. Currently two capture paths exist (legacy log_entries table vs newer logs product); proposal is a four-phase migration to remove the legacy path.",
+      "historical_label": "frozen",
+      "historical_score": 53
+    },
+    {
+      "id": "case-44",
+      "topic": "ecosystem-awareness",
+      "title": "GitHub - microsoft/agent-framework",
+      "url": "https://github.com/microsoft/agent-framework",
+      "content": "A framework for building, orchestrating and deploying AI agents and multi-agent workflows, supporting Python and .NET. 13,595 GitHub stars, actively maintained (pushed within the last day).",
+      "historical_label": "frozen",
+      "historical_score": 49
+    },
+    {
+      "id": "case-30",
+      "topic": "vendor-announcements",
+      "title": "Google DeepMind",
+      "url": "https://deepmind.google/",
+      "content": "Google DeepMind's homepage. Presents frontier models (Gemini, Gemini Omni) and scientific projects (AlphaFold for protein prediction, AlphaGenome for genetics, WeatherNext for climate forecasting). Emphasizes responsible AI development.",
+      "historical_label": "frozen",
+      "historical_score": 42
+    },
+    {
+      "id": "case-20",
+      "topic": "ecosystem-awareness",
+      "title": "GitHub - modelcontextprotocol/python-sdk",
+      "url": "https://github.com/modelcontextprotocol/python-sdk",
+      "content": "The official Python SDK for Model Context Protocol servers and clients. 24,341 GitHub stars, actively maintained (pushed today).",
+      "historical_label": "frozen",
+      "historical_score": 52
+    },
+    {
+      "id": "case-13",
+      "topic": "ecosystem-awareness",
+      "title": "The 2026-07-28 Specification",
+      "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28/",
+      "content": "MCP released version 2026-07-28, a fundamental shift from stateful bidirectional protocol to stateless request/response. Removes session handshakes, adds Multi Round-Trip Requests, header-based routing, cacheable list responses, RFC 9207 auth compliance, formal extensions support. All four Tier-1 SDKs (TypeScript/Python/Go/C#) updated; 12-month deprecation window for legacy features.",
+      "historical_label": "frozen",
+      "historical_score": 69
+    },
+    {
+      "id": "case-15",
+      "topic": "upstream-dep-a",
+      "title": "Remotion | Make videos programmatically",
+      "url": "https://www.remotion.dev/",
+      "content": "Remotion homepage: create videos and motion graphics with React. Three workflows: agentic video creation via AI coding agents, interactive visual studio editing, programmatic code-based development. Batch rendering, data-driven parameterization, Remotion Player for web. 5M+ monthly installs.",
+      "historical_label": "frozen",
+      "historical_score": 52
+    },
+    {
+      "id": "case-50",
+      "topic": "conference-activity",
+      "title": "ICML 2026 Papers",
+      "url": "https://icml.cc/virtual/2026/papers.html",
+      "content": "ICML 2026 proceedings hub page. Navigation to papers, oral presentations, tutorials, workshops. Browse/filter accepted papers, bookmark favorites, account management features.",
+      "historical_label": "rejected",
+      "historical_score": 32
+    },
+    {
+      "id": "case-49",
+      "topic": "upstream-dep-d",
+      "title": "Workers Changelog",
+      "url": "https://developers.cloudflare.com/changelog/product/workers/3/",
+      "content": "Cloudflare Workers changelog, April-June 2026. GLM-5.2 on Workers AI for agentic coding, custom tracing spans, Durable Objects metrics filtering, bulk secrets management, OAuth credential storage, Workflows scheduling, WebSocket standards compliance, Agents SDK skills/messengers, Local Explorer dev tool.",
+      "historical_label": "rejected",
+      "historical_score": 35
+    },
+    {
+      "id": "case-48",
+      "topic": "upstream-dep-c",
+      "title": "Get started with EAS Update",
+      "url": "https://docs.expo.dev/eas-update/getting-started/",
+      "content": "Walkthrough for setting up EAS Update in Expo projects: installing/configuring EAS CLI, authenticating, running eas update:configure, native config for Android/iOS, setting up update channels, publishing/testing updates.",
+      "historical_label": "rejected",
+      "historical_score": 34
+    },
+    {
+      "id": "case-46",
+      "topic": "upstream-dep-a",
+      "title": "Terms and Conditions of Remotion",
+      "url": "https://www.remotion.dev/docs/terms",
+      "content": "Remotion's legal terms. Three licensing models (Free/Company/Enterprise). Usage restrictions, payment structure, IP rights. Clarifies Remotion does not offer hosted rendering (users render on own infra); self-reporting usage for licensing compliance.",
+      "historical_label": "rejected",
+      "historical_score": 24
+    },
+    {
+      "id": "case-08",
+      "topic": "upstream-dep-c",
+      "title": "Upgrade Expo SDK",
+      "url": "https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/",
+      "content": "Guide to upgrading Expo SDK version. Two approaches: AI coding agent with Expo Skills, or manual upgrade (install new SDK package, update dependencies, update native projects, review release notes). Links to changelogs for SDK 35-57.",
+      "historical_label": "rejected",
+      "historical_score": 37
+    },
+    {
+      "id": "case-43",
+      "topic": "conference-activity",
+      "title": "Call For Position Papers 2026",
+      "url": "https://neurips.cc/Conferences/2026/CallForPositionPapers",
+      "content": "NeurIPS 2026 call for position papers -- arguing what should be done rather than reporting completed advances. Evaluated on novelty/rigor/significance, wider range of accepted methods. Submissions open April 15 2026, deadline May 6.",
+      "historical_label": "rejected",
+      "historical_score": 38
+    }
+  ]
+}

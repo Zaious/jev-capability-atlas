@@ -1,0 +1,217 @@
+{
+  "suite": "stage1-triage-filter",
+  "model": "jev-latest",
+  "threshold": 0.75,
+  "results": [
+    {
+      "id": "case-32",
+      "topic": "vendor-announcements",
+      "title": "How Claude's text watermarking works",
+      "historical_label": "active",
+      "historical_score": 76,
+      "p_active": 0.51,
+      "p_reject": 0.02,
+      "routed": "batch_review",
+      "usage": {
+        "input_tokens": 730,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "case-28",
+      "topic": "upstream-dep-c",
+      "title": "Changelog — Expo",
+      "historical_label": "active",
+      "historical_score": 76,
+      "p_active": 0.6,
+      "p_reject": 0.04,
+      "routed": "batch_review",
+      "usage": {
+        "input_tokens": 677,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "case-51",
+      "topic": "upstream-dep-b",
+      "title": "API overview - Docs - PostHog",
+      "historical_label": "frozen",
+      "historical_score": 40,
+      "p_active": 0.05,
+      "p_reject": 0.08,
+      "routed": "batch_review",
+      "usage": {
+        "input_tokens": 679,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "case-47",
+      "topic": "upstream-dep-b",
+      "title": "RFC: deprecate built-in replay console log capture",
+      "historical_label": "frozen",
+      "historical_score": 53,
+      "p_active": 0.85,
+      "p_reject": 0.04,
+      "routed": "active",
+      "usage": {
+        "input_tokens": 686,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "case-44",
+      "topic": "ecosystem-awareness",
+      "title": "GitHub - microsoft/agent-framework",
+      "historical_label": "frozen",
+      "historical_score": 49,
+      "p_active": 0.14,
+      "p_reject": 0.05,
+      "routed": "batch_review",
+      "usage": {
+        "input_tokens": 682,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "case-30",
+      "topic": "vendor-announcements",
+      "title": "Google DeepMind",
+      "historical_label": "frozen",
+      "historical_score": 42,
+      "p_active": 0.2,
+      "p_reject": 0.06,
+      "routed": "batch_review",
+      "usage": {
+        "input_tokens": 671,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "case-20",
+      "topic": "ecosystem-awareness",
+      "title": "GitHub - modelcontextprotocol/python-sdk",
+      "historical_label": "frozen",
+      "historical_score": 52,
+      "p_active": 0.14,
+      "p_reject": 0.06,
+      "routed": "batch_review",
+      "usage": {
+        "input_tokens": 672,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "case-13",
+      "topic": "ecosystem-awareness",
+      "title": "The 2026-07-28 Specification",
+      "historical_label": "frozen",
+      "historical_score": 69,
+      "p_active": 0.92,
+      "p_reject": 0.03,
+      "routed": "active",
+      "usage": {
+        "input_tokens": 756,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "case-15",
+      "topic": "upstream-dep-a",
+      "title": "Remotion | Make videos programmatically",
+      "historical_label": "frozen",
+      "historical_score": 52,
+      "p_active": 0.09,
+      "p_reject": 0.12,
+      "routed": "batch_review",
+      "usage": {
+        "input_tokens": 692,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "case-50",
+      "topic": "conference-activity",
+      "title": "ICML 2026 Papers",
+      "historical_label": "rejected",
+      "historical_score": 32,
+      "p_active": 0.1,
+      "p_reject": 0.48,
+      "routed": "batch_review",
+      "usage": {
+        "input_tokens": 667,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "case-49",
+      "topic": "upstream-dep-d",
+      "title": "Workers Changelog",
+      "historical_label": "rejected",
+      "historical_score": 35,
+      "p_active": 0.63,
+      "p_reject": 0.04,
+      "routed": "batch_review",
+      "usage": {
+        "input_tokens": 670,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "case-48",
+      "topic": "upstream-dep-c",
+      "title": "Get started with EAS Update",
+      "historical_label": "rejected",
+      "historical_score": 34,
+      "p_active": 0.05,
+      "p_reject": 0.05,
+      "routed": "batch_review",
+      "usage": {
+        "input_tokens": 679,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "case-46",
+      "topic": "upstream-dep-a",
+      "title": "Terms and Conditions of Remotion",
+      "historical_label": "rejected",
+      "historical_score": 24,
+      "p_active": 0.03,
+      "p_reject": 0.9,
+      "routed": "rejected",
+      "usage": {
+        "input_tokens": 685,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "case-08",
+      "topic": "upstream-dep-c",
+      "title": "Upgrade Expo SDK",
+      "historical_label": "rejected",
+      "historical_score": 37,
+      "p_active": 0.1,
+      "p_reject": 0.06,
+      "routed": "batch_review",
+      "usage": {
+        "input_tokens": 682,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "case-43",
+      "topic": "conference-activity",
+      "title": "Call For Position Papers 2026",
+      "historical_label": "rejected",
+      "historical_score": 38,
+      "p_active": 0.12,
+      "p_reject": 0.3,
+      "routed": "batch_review",
+      "usage": {
+        "input_tokens": 702,
+        "output_tokens": 38
+      }
+    }
+  ]
+}

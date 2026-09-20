@@ -1,0 +1,11 @@
+# 釘住用的參數，跡測性需要——以這份為準，不要另寫在 README.md 裡一次。
+# Pin these for reproducibility -- treat this file as authoritative,
+# don't re-state values in the README that could drift out of sync.
+model: jev-latest
+question_type: noul        # two independent Noul questions, not one three-way Choice
+trigger_threshold: 0.75    # below this on both questions -> route to human batch review
+sample_size: 15
+annotators: 0              # labels are an existing pipeline's own historical dispositions,
+                           # not independent annotation -- see README limitations
+run_date: "2026-09-20"
+state_source: "fresh re-fetch of the same public URLs, NOT the original capture snapshots"

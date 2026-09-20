@@ -33,6 +33,7 @@ Split into two sections: **public benchmarks** are results published by others t
 | [Sarcasm detection, same-clause/cross-turn](#sarcasm-detection) | Self-contained | 12/12, 10/10 correct, including a correctly-low-confidence case | 🔬 |
 | [Pure-recall trivia vs. supplied context](#pure-recall-trivia-vs-supplied-context) | Not self-contained → self-contained | Confidently wrong on a common-knowledge question with no context; confidence and accuracy both recover once context is supplied | 🔬 |
 | [Latency distribution: median vs. tail](#latency-distribution-median-vs-tail) | — | Median 250ms, p95 299ms; only 1 outlier in 30 calls, likely connection cold-start | 🔬 |
+| [A stage-one filter: which half of a two-stage pipeline should Jev own](#a-stage-one-filter-which-half-of-a-two-stage-pipeline-should-jev-own) | Self-contained (content + the watch reason both supplied) | Three rounds of question-design iteration; none of the three failures was about judgment | 🔬 |
 | [ICU alarm classification: testing a viral tweet](#icu-arrhythmia-alarm-classification-a-viral-tweet-tested-against-a-public-dataset) | Mixed (physiological signal needs converting to text features) | Official score 0.271, worse than "let every alarm through"; 0% sensitivity on asystole/V-tach | 🔬 |
 
 ---
@@ -272,6 +273,16 @@ Source: [`suites/icu-alarm-classification/`](suites/icu-alarm-classification/) (
 **What this means**: an independent replication of "no long tail" from our own network environment — the slow first call is most plausibly connection-setup overhead, not a randomly occurring hidden slow mode. **Honest limitation**: N=30 is far smaller than the original article's 300, and we ran no side-by-side comparison against another cheap LLM, so this only verifies "Jev itself is stable," not the other half of the claim. Full write-up: [`suites/jev-latency-distribution/`](suites/jev-latency-distribution/).
 
 Source: [`suites/jev-latency-distribution/`](suites/jev-latency-distribution/)
+
+### A stage-one filter: which half of a two-stage pipeline should Jev own
+
+**What was done**: a real, running personal knowledge pipeline captures a batch of content nightly; stage one decides per item whether to hand it to an LLM agent for deep processing, discard it, or park it — and stage one is currently an agent reading every item, which is where the cost and latency sit. Using 15 real historical cases from the pipeline's own registry (real titles/URLs/dispositions), we tested what happens with Jev in that slot.
+
+**Results**: the real output isn't a hit rate — it's **three rounds of question-design iteration where none of the three failures was about the model's judgment**. (1) One three-way Choice with criteria written from the documented rules: Jev chose "handle immediately" 47% of the time against a real base rate of 4.3% — the question never conveyed the base rate. (2) Adding the real per-topic "why is this watched at all" reason to `state`: both ends improved sharply (both genuine "immediate" cases correct, 5 of 6 discards correct), but the middle option was chosen 0 times out of 15 — two concrete option descriptions squeeze out a vague third. (3) Replaced with two independent Noul questions guarding the two expensive extremes (threshold 0.75), everything else routed to a bounded human batch review: 2 immediate triggers, 1 discard trigger, 12 to review; re-running a day later reproduced identical routing (probabilities within ±0.03).
+
+**What this means**: **asymmetric cost belongs in the routing design, not in the criteria prose** — a wrong "handle immediately" burns human attention, a wrong "discard" loses content permanently, a wrong "park" costs almost nothing; packing three differently-priced decisions into one three-way question asks the model to dodge three kinds of error at once. Separately, both "false" immediate-triggers (an upstream deprecation RFC, and a major protocol revision historically scored 69 against a 70 threshold) look more like catching the old policy's conservative blind spots — **historical labels are one policy's output and shouldn't be treated as ground truth**. That question design outweighs model choice is the same lesson as the third-party issue #52 recorded in `translations/jev-context-compaction-debate-zh/`. Full methodology and limitations: [`suites/stage1-triage-filter/`](suites/stage1-triage-filter/).
+
+Source: [`suites/stage1-triage-filter/`](suites/stage1-triage-filter/)
 
 ---
 
