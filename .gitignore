@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 .env.local
 .DS_Store
+
+# per-record intermediates from suites/icu-alarm-classification/data/extract_features.py
+# (regenerable, and not part of a case)
+suites/*/data/cases.debug.json

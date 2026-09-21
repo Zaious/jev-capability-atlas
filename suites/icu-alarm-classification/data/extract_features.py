@@ -20,6 +20,7 @@ import wfdb
 RAW_DIR = Path("data/raw/training")
 SAMPLE_CSV = Path("data/raw/sample.csv")
 OUT_JSON = Path("data/cases.json")
+OUT_DEBUG_JSON = Path("data/cases.debug.json")
 
 ALARM_TYPE_LABELS = {
     "Asystole": "Asystole (ASY) -- no discernible heartbeat for >=4s",
@@ -148,6 +149,7 @@ def build_state(rec_name: str, alarm_type: str) -> tuple[str, dict]:
 def main():
     sample = pd.read_csv(SAMPLE_CSV)
     cases = []
+    debug_records = []
     for _, row in sample.iterrows():
         rec_name, alarm_type, true_alarm = row["record"], row["type"], int(row["true_alarm"])
         try:
@@ -155,21 +157,27 @@ def main():
         except Exception as exc:  # noqa: BLE001
             print(f"!! {rec_name}: FAILED to build state: {exc}", file=sys.stderr)
             continue
+        # `expected_true_alarm` is the name run.py reads; keep the two in step or a
+        # regenerate silently produces cases the runner cannot score.
         cases.append(
             {
                 "id": rec_name,
                 "alarm_type": alarm_type,
-                "true_alarm": true_alarm,
+                "expected_true_alarm": true_alarm,
                 "state": state,
-                "_debug": debug,
             }
         )
+        # The per-record intermediates go to a sidecar rather than into cases.json:
+        # they are useful when a state looks wrong, and they are not part of the case.
+        debug_records.append({"id": rec_name, "alarm_type": alarm_type, "_debug": debug})
         print(f"-- {rec_name} ({alarm_type}, true_alarm={true_alarm}) --")
         print(state)
         print()
 
     OUT_JSON.write_text(json.dumps(cases, indent=2), encoding="utf-8")
+    OUT_DEBUG_JSON.write_text(json.dumps(debug_records, indent=2), encoding="utf-8")
     print(f"Wrote {len(cases)}/{len(sample)} cases to {OUT_JSON}")
+    print(f"Wrote per-record intermediates to {OUT_DEBUG_JSON}")
 
 
 if __name__ == "__main__":

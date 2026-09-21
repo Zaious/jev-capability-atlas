@@ -75,8 +75,12 @@ def main():
     act_hit = sum(1 for r in act if r["historical_label"] == "active")
     rej_hit = sum(1 for r in rej if r["historical_label"] == "rejected")
     tokens = sum(r["usage"]["input_tokens"] for r in results)
-    print(f"\nactive triggered {len(act)}/{n} (agreed with historical label {act_hit}/{len(act) or 1})")
-    print(f"reject triggered {len(rej)}/{n} (agreed with historical label {rej_hit}/{len(rej) or 1})")
+    def agreement(hits: int, routed: list) -> str:
+        """`0/1` would read as "one attempt, none right"; nothing triggered is not that."""
+        return f"{hits}/{len(routed)}" if routed else "n/a (nothing triggered)"
+
+    print(f"\nactive triggered {len(act)}/{n} (agreed with historical label {agreement(act_hit, act)})")
+    print(f"reject triggered {len(rej)}/{n} (agreed with historical label {agreement(rej_hit, rej)})")
     print(f"batch_review     {len(bat)}/{n}")
     print(f"input tokens {tokens}, est. cost ${tokens/1e6*0.042:.4f}")
 

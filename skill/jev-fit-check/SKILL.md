@@ -26,7 +26,7 @@ its three negations.
 This skill answers one question: **where in this codebase could Jev fit, and where shouldn't it?**
 It does not cover how to call the API — read TypeSafe's own skill
 (`typesafe-ai/skills`) for that. This skill is the independent, evidence-based
-layer on top: the [Jev Capability Atlas](https://github.com/REPLACE_WITH_REPO_URL)
+layer on top: the [Jev Capability Atlas](https://github.com/Zaious/jev-capability-atlas)
 project's findings, condensed into a checklist.
 
 ## The one test

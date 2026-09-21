@@ -8,8 +8,13 @@ of re-implementing key loading.
 存取順序 / lookup order:
   1. 環境變數 TYPESAFE_API_KEY（此处是主要路徑——貢獻者不會有我們自己的私人保管庫）
      env var TYPESAFE_API_KEY (the primary path for external contributors)
-  2. 專案本地 .env.local（gitignored，方便本地開發）
-     a local, gitignored .env.local file, for local dev convenience
+  2. 本 repo 根目錄的 .env.local（gitignored，方便本地開發）
+     a gitignored .env.local **at this repository's root**, for local dev convenience
+
+     路徑是從本檔案推出來的，不是 cwd：在別的專案目錄下跑 suite 時，
+     不應該讀到那個專案的 .env.local。
+     The path is derived from this file, not from the working directory: running a
+     suite from inside another project must not pick up that project's .env.local.
 
 不支援任何特定保管庫機制（那是每個人自己環境的事）。
 This does not support any specific secret-vault mechanism — that's each
@@ -23,7 +28,8 @@ def load_key() -> str | None:
     key = os.environ.get("TYPESAFE_API_KEY")
     if key:
         return key
-    env_local = os.path.join(os.getcwd(), ".env.local")
+    repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    env_local = os.path.join(repo_root, ".env.local")
     if os.path.isfile(env_local):
         for line in open(env_local, encoding="utf-8"):
             line = line.strip()
