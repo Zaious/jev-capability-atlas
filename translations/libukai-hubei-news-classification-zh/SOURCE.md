@@ -11,6 +11,10 @@
 
 X 平台的內容目前沒有工具能直接自動抓取核對（同樣的限制在本 repo 處理 Theo／Diogo Almeida 的推文時就遇過），這條的原文是由 repo 維護者本人在對話中親自轉貼、逐字提供，不是我們自己爬到的——記錄在這裡是為了保留可追溯性，往回查證請直接看上面連結的貼文本身。
 
+## 轉載範圍
+
+未轉載原文全文或整段翻譯。本條是我們自己撰寫的摘要與查證：引用具體數字與方法論事實，並附原始連結；直接引述僅限標明出處的短句。原作者若認為超出合理引用範圍，請開 issue，我們會修改或移除。本條文字依 repo 的 MIT 授權釋出，被引用內容的權利仍屬原作者，見 [`NOTICE`](../../NOTICE)。
+
 ---
 
 # Source record (English)
@@ -23,3 +27,7 @@ X 平台的內容目前沒有工具能直接自動抓取核對（同樣的限制
 ## License / verification note
 
 No tool currently available to us can fetch and independently verify X/Twitter content directly (the same limitation hit when handling Theo's and Diogo Almeida's tweets elsewhere in this repo). This entry's source text was pasted in verbatim by the repo's maintainer during conversation, not scraped by us — recorded here for traceability; verify by reading the linked post directly.
+
+## Reproduction scope
+
+No full text or paragraph-level translation of the original is reproduced here. This entry is our own summary and verification: it cites specific figures and methodological facts with a link to the original, and any direct quotation is limited to short, attributed phrases. If the original author considers this beyond fair quotation, please open an issue and we'll revise or remove it. Our text is released under the repo's MIT license; rights in the quoted material stay with its authors — see [`NOTICE`](../../NOTICE).

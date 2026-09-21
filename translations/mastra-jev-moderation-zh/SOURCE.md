@@ -7,6 +7,10 @@
 - **整理者**：本 repo 維護者
 - **整理方式**：讀原始 README 的設計動機、行為表、跟「測量」那節的生產環境數字
 
+## 轉載範圍
+
+未轉載原文全文或整段翻譯。本條是我們自己撰寫的摘要與查證：引用具體數字與方法論事實，並附原始連結；直接引述僅限標明出處的短句。原作者若認為超出合理引用範圍，請開 issue，我們會修改或移除。本條文字依 repo 的 MIT 授權釋出，被引用內容的權利仍屬原作者，見 [`NOTICE`](../../NOTICE)。
+
 ---
 
 # Source record (English)
@@ -15,3 +19,7 @@
 - **Original link**: [CodeAlive-AI/mastra-jev-moderation](https://github.com/CodeAlive-AI/mastra-jev-moderation) (GitHub README)
 - **Compiled by**: this repo's maintainer
 - **Method**: read the original README's design rationale, behavior table, and the production-data numbers in its "Measured" section
+
+## Reproduction scope
+
+No full text or paragraph-level translation of the original is reproduced here. This entry is our own summary and verification: it cites specific figures and methodological facts with a link to the original, and any direct quotation is limited to short, attributed phrases. If the original author considers this beyond fair quotation, please open an issue and we'll revise or remove it. Our text is released under the repo's MIT license; rights in the quoted material stay with its authors — see [`NOTICE`](../../NOTICE).

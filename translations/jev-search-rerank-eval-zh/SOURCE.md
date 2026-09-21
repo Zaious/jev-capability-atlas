@@ -13,6 +13,10 @@
 
 跟 `jev-orderby-bench` 同一等級的方法論紀律，而且多做了一件事我們還沒在其他條目看過的：**裁判循環偏誤是直接量出來的，不是用嘴巴提醒**。Jev 本身參與了資料標註（當第一個裁判），同時 Jev 重排序又是被評測的對象——這是自證循環的典型設置。作者用第二個獨立裁判（Claude Haiku）重新標註同一批資料，逐一比較「只用 Jev 標籤」「兩個裁判合併」「只用 Haiku 標籤」三種情況下同一個比較的數字，任何牽涉到 Jev 的結論只採信 Haiku 那一欄。另外還有 30 組人工逐一複核歧異超過一個等級的標註（由另一個模型讀同樣的中繼資料手動評分，18 次站 Jev、2 次站 Haiku、10 次介於兩者之間），跟 `jev-orderby-bench` 的 pre-registered gate 是同一種「先把可能的偏誤量出來，再下結論」的紀律。
 
+## 轉載範圍
+
+未轉載原文全文或整段翻譯。本條是我們自己撰寫的摘要與查證：引用具體數字與方法論事實，並附原始連結；直接引述僅限標明出處的短句。原作者若認為超出合理引用範圍，請開 issue，我們會修改或移除。本條文字依 repo 的 MIT 授權釋出，被引用內容的權利仍屬原作者，見 [`NOTICE`](../../NOTICE)。
+
 ---
 
 # Source record (English)
@@ -27,3 +31,7 @@
 ## Why this one earns extra trust
 
 The same methodological caliber as `jev-orderby-bench`, plus something we hadn't seen in another entry yet: **judge circularity is directly measured, not just flagged verbally.** Jev itself participated in labeling the data (as one judge) while Jev's own reranking is simultaneously the thing being evaluated — a textbook self-grading setup. The author re-labeled the same data with an independent second judge (Claude Haiku), and reports every comparison under three conditions — Jev-only labels, merged labels, Haiku-only labels — trusting only the Haiku column for any claim involving Jev. There's also a 30-pair hand adjudication of disagreements exceeding one level (scored by a different model reading the same metadata: sided with Jev 18 times, Haiku twice, in between 10 times) — the same "measure the possible bias before drawing a conclusion" discipline as `jev-orderby-bench`'s pre-registered gate.
+
+## Reproduction scope
+
+No full text or paragraph-level translation of the original is reproduced here. This entry is our own summary and verification: it cites specific figures and methodological facts with a link to the original, and any direct quotation is limited to short, attributed phrases. If the original author considers this beyond fair quotation, please open an issue and we'll revise or remove it. Our text is released under the repo's MIT license; rights in the quoted material stay with its authors — see [`NOTICE`](../../NOTICE).

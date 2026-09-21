@@ -101,6 +101,6 @@ scripts/common/            共用的 API 呼叫樣板，不用各自重寫
 
 ## 授權
 
-程式碼與原創內容 MIT。貢獻翻譯內容前**請先確認原始資料集的授權條款**，細節見 `CONTRIBUTING.md`——這不是形式，是真的法律風險。
+程式碼與原創內容 MIT（見 [`LICENSE`](LICENSE)）。`translations/` 裡是我們自己寫的摘要與查證，不是原文翻譯稿；被引用內容的權利仍屬原作者，詳見 [`NOTICE`](NOTICE)。貢獻條目前請先讀 `CONTRIBUTING.md`——要轉載超過短句的原文，得先確認原始授權，這不是形式，是真的法律風險。
 
 本專案與 TypeSafe 無關，未受其委託或贊助。「Jev」「TypeSafe」為其各自所有者之商標，此處僅作指涉之用。

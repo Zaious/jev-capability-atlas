@@ -101,6 +101,6 @@ scripts/common/            shared API-calling boilerplate
 
 ## License
 
-Code and original content: MIT. Before contributing a translation, **check the source dataset's license first** — details in CONTRIBUTING.md. This is a real legal question, not a formality.
+Code and original content: MIT (see [`LICENSE`](LICENSE)). `translations/` holds our own summaries and verification, not translations of the originals; rights in quoted material stay with their authors — details in [`NOTICE`](NOTICE). Read `CONTRIBUTING.md` before contributing an entry: reproducing more than short phrases of an original requires checking its license first. This is a real legal question, not a formality.
 
 Not affiliated with, endorsed by, or sponsored by TypeSafe. "Jev" and "TypeSafe" are trademarks of their respective owners, referenced here only to identify the subject.

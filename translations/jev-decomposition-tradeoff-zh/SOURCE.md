@@ -11,6 +11,10 @@
 
 我們自己在 README「實務建議」跟其他多處都建議「把判斷拆成獨立的原子化問題」，這條是第一個**測出這個建議有真實代價**的來源——拆解在三個任務上確實拉高了準確率，但在「困難的良性案例」（看起來像攻擊、其實無害的安全文件/紅隊筆記）上，誤判率從單題的 1.5% 惡化到拆解版本的 37.2%，差了約 25 倍。這條但書值得跟原本的建議放在一起看，不是要推翻它。
 
+## 轉載範圍
+
+未轉載原文全文或整段翻譯。本條是我們自己撰寫的摘要與查證：引用具體數字與方法論事實，並附原始連結；直接引述僅限標明出處的短句。原作者若認為超出合理引用範圍，請開 issue，我們會修改或移除。本條文字依 repo 的 MIT 授權釋出，被引用內容的權利仍屬原作者，見 [`NOTICE`](../../NOTICE)。
+
 ---
 
 # Source record (English)
@@ -23,3 +27,7 @@
 ## Why this one earned its own entry
 
 Our own README's practical-guidance section (and elsewhere) recommends decomposing a judgment into independent, atomic questions. This is the first source we've found that **measures a real cost of that recommendation**: decomposition did raise accuracy on three of the four tasks, but on "hard benign" cases (security documentation or red-team notes that look like attacks but aren't), the false-positive rate worsened from 1.5% with a single question to 37.2% with the decomposed version — roughly 25x worse. This caveat is worth reading alongside the original recommendation, not as a reason to abandon it.
+
+## Reproduction scope
+
+No full text or paragraph-level translation of the original is reproduced here. This entry is our own summary and verification: it cites specific figures and methodological facts with a link to the original, and any direct quotation is limited to short, attributed phrases. If the original author considers this beyond fair quotation, please open an issue and we'll revise or remove it. Our text is released under the repo's MIT license; rights in the quoted material stay with its authors — see [`NOTICE`](../../NOTICE).

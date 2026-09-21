@@ -15,6 +15,10 @@ X 平台內容同樣沒有工具能直接自動抓取核對——原文由 repo 
 
 這篇文章本身的方法論紀律，在我們查證過的所有第三方來源裡數一數二：明確排除「純觀點、教程、上架公告、沒有運行證據的構想」；誠實列出四次失敗案例（不是只報喜不報憂）；兩輪自製測試各自附上樣本數限制與可信度但書；文中引用的每一個具體數字，我們核對後都跟自己獨立查出來的結果一致——這種跨來源收斂程度，在這整批收錄裡是最高的一次。
 
+## 轉載範圍
+
+未轉載原文全文或整段翻譯。本條是我們自己撰寫的摘要與查證：引用具體數字與方法論事實，並附原始連結；直接引述僅限標明出處的短句。原作者若認為超出合理引用範圍，請開 issue，我們會修改或移除。本條文字依 repo 的 MIT 授權釋出，被引用內容的權利仍屬原作者，見 [`NOTICE`](../../NOTICE)。
+
 ---
 
 # Source record (English)
@@ -31,3 +35,7 @@ No tool currently available to us can fetch and independently verify X/Twitter c
 ## Why this one earns extra trust
 
 This article's own methodological discipline is among the best of any third-party source we've verified: it explicitly excludes "pure opinion, tutorials, launch announcements, and ideas with no running evidence"; it honestly reports four failed attempts, not just successes; both self-run tests state their own sample-size limits and confidence caveats; and every specific number it cites, once we checked it, matched what we'd independently found ourselves. That level of cross-source convergence is the highest of anything collected in this repo so far.
+
+## Reproduction scope
+
+No full text or paragraph-level translation of the original is reproduced here. This entry is our own summary and verification: it cites specific figures and methodological facts with a link to the original, and any direct quotation is limited to short, attributed phrases. If the original author considers this beyond fair quotation, please open an issue and we'll revise or remove it. Our text is released under the repo's MIT license; rights in the quoted material stay with its authors — see [`NOTICE`](../../NOTICE).

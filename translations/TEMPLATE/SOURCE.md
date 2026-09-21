@@ -8,6 +8,7 @@
 - **原始連結**：（這是你的「收據」——沒有可查證的連結，這筆貢獻不成立）
 - **整理者**：
 - **整理方式**：（通篇讀過原文自己寫，還是工具輔助翻譯+人工校對——誠實講）
+- **轉載範圍**：（必填。一般條目寫：未轉載原文全文或整段翻譯，直接引述僅限標明出處的短句——見 repo 根目錄 `NOTICE`；有搬題目全文的話，另填下方授權欄位）
 
 **只有在你要把題目全文（不只是結果/結論）搬進本資料夾時，才需要填以下欄位：**
 - **原始授權條款**：（逐字引用或連結到條款本身，不要用你自己的話轉述）
@@ -24,6 +25,7 @@ This file only records where the result came from, who compiled it, and how to v
 - **Original link**: (this is your "receipt" — no verifiable link, no valid contribution)
 - **Compiled by**:
 - **Method**: (read the original and wrote it up yourself, or tool-assisted translation + human review — be honest)
+- **Reproduction scope**: (required. For a typical entry: no full text or paragraph-level translation reproduced; direct quotes limited to short attributed phrases — see the repo-root `NOTICE`. If you bring in full test items, also fill the license fields below)
 
 **Only fill the following if you're bringing in the full test items (not just results/conclusions) into this folder:**
 - **Original license**: (quote it verbatim or link to it, don't paraphrase)

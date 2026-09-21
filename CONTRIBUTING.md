@@ -19,7 +19,7 @@
 
 ### ② 翻譯與整理國外的跑分結果（`translations/<原始跑分>-<語言>/`）
 
-**這條處理的是結果與論述的翻譯整理，不是題目逐字翻譯。** 如果你想把題目翻成中文、真的重新對 Jev 跑一次拿新資料——那是①新測試組（在 `report.md` 標明靈感來源是哪個外部跑分），不是這條；這條没有 `data/`、没有 `runs/`，因為沒有新的 API 呼叫。
+**這條處理的是結果與論述的翻譯整理，不是題目逐字翻譯。** 如果你想把題目翻成中文、真的重新對 Jev 跑一次拿新資料——那是①新測試組（在 `report.md` 標明靈感來源是哪個外部跑分），不是這條；這條沒有 `data/`、沒有 `runs/`，因為沒有新的 API 呼叫。
 
 複製 [`translations/TEMPLATE/`](translations/TEMPLATE/)，填兩個檔案：
 - `SOURCE.md`——原始跑分在哪、誰做的、方法論摘要一句話、連結（引用別人已發表的結論、附上出處，通常不算衍生作品，不需要處理授權；但如果你想把**題目全文**搬進來就要先查授權，見 SOURCE.md 裡的欄位）
@@ -39,6 +39,7 @@
 
 - [ ] ①新測試組:每個數字都對應 `runs/` 裡的一筆真實 log；②翻譯整理:每個數字都對應 `SOURCE.md` 裡可查證的出處連結
 - [ ] 每個 finding 標了 🔬/📚/📖/💭 之一
+- [ ] ②翻譯整理：`SOURCE.md` 寫了「轉載範圍」（見 [`NOTICE`](NOTICE)）
 - [ ] 如果搬了題目全文（不只是結果），確認過原始授權，寫進 `SOURCE.md`
 - [ ] 強宣稱（「完全失效」「完美」）附了對照組，不是單一模型單次結果
 - [ ] `report.md` 老實列出樣本數、標註者數量等限制，不誇大
@@ -88,6 +89,7 @@ Only open a new `analysis/<slug>.md` (a single bilingual file — Chinese block,
 
 - [ ] ① new suites: every number traces to a real log in `runs/`; ② translations: every number traces to a verifiable source link in `SOURCE.md`
 - [ ] Every finding is tagged 🔬/📚/📖/💭
+- [ ] ② translations: `SOURCE.md` states its reproduction scope (see [`NOTICE`](NOTICE))
 - [ ] If you brought in full test items (not just results), the original license was checked and is cited in `SOURCE.md`
 - [ ] Strong claims ("completely fails," "perfect") have a control comparison, not a single unreplicated run
 - [ ] `report.md` states sample size and annotator-count limitations honestly

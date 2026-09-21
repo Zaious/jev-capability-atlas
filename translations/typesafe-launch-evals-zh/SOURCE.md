@@ -12,6 +12,10 @@
 
 這條特殊：核心數字是 **TypeSafe 自己發布的**（📖 性質），不是獨立第三方重跑；但 dev.to 這篇文章本身是獨立第三方對這些數字做的批判性分析＋額外找到 Vercel 的獨立生產驗證，所以整條在 `capability-map.md` 標 📚（因為讀者要看的是這篇文章的批判性整理，不是隻字未改照抄 TypeSafe 的行銷數字）。
 
+## 轉載範圍
+
+未轉載原文全文或整段翻譯。本條是我們自己撰寫的摘要與查證：引用具體數字與方法論事實，並附原始連結；直接引述僅限標明出處的短句。原作者若認為超出合理引用範圍，請開 issue，我們會修改或移除。本條文字依 repo 的 MIT 授權釋出，被引用內容的權利仍屬原作者，見 [`NOTICE`](../../NOTICE)。
+
 ---
 
 # Source record (English)
@@ -25,3 +29,7 @@
 - **Method**: read the full dev.to article, cross-checked its quoted TypeSafe figures and Maio's critique against their own text
 
 This one is unusual: the headline numbers are **TypeSafe's own self-reported figures** (📖 in nature), not an independent re-run; but the dev.to article itself is independent third-party critical analysis of those numbers, plus it surfaces Vercel's independent production validation — so the entry is tagged 📚 in `capability-map.md`, since what a reader is getting is that critical synthesis, not TypeSafe's marketing numbers verbatim.
+
+## Reproduction scope
+
+No full text or paragraph-level translation of the original is reproduced here. This entry is our own summary and verification: it cites specific figures and methodological facts with a link to the original, and any direct quotation is limited to short, attributed phrases. If the original author considers this beyond fair quotation, please open an issue and we'll revise or remove it. Our text is released under the repo's MIT license; rights in the quoted material stay with its authors — see [`NOTICE`](../../NOTICE).
