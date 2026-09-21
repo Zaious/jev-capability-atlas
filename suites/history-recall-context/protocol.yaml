@@ -1,8 +1,16 @@
 model: jev-latest
 auto_accept_threshold: 0.8
-sample_size: 3
+sample_size: 5            # 3 scored (A/B/C) + 2 unscored diagnostics (D/E)
+repeats: 3                # each item asked 3 times; all repeats stored in the receipt
 annotators: 1
-run_date: "2026-09-19"
+run_date: "2026-09-21"
+design_rules:
+  - exactly one defensible answer under any counting or naming convention
+  - every option is a real person of the same category
+  - context passage (C) mentions all three options, not just the answer
+  - proofread sent states with `run.py --dry-run`; receipts store each sent state
 notes: >
-  Case A ground truth is historically contested; see README for both counting
-  conventions. Not a validated general benchmark -- a targeted counter-example.
+  2026-09-19 version withdrawn (typos in sent prompts, counting-convention
+  ambiguity, README mis-pairing; see README "Correction record"). D and E
+  re-ask the withdrawn A and B with typos fixed, as diagnostics only.
+  Not a validated general benchmark -- a targeted example.

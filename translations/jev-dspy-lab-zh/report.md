@@ -16,7 +16,7 @@
 
 ## 這代表什麼
 
-**這是目前收集到的資料裡，第一個示範「棄權機制」而不是單純「回答對不對」的案例**：跟我們自己在 README「實務建議」提到的「高信心自動執行／中信心先確認／低信心升級給人」的分流模式，這裡等於是把「低信心」那一段直接量出覆蓋率跟準確率的數字，而不是憑空建議。ECE 0.0583 這個數字本身不算差（越接近 0 代表信心值跟實際正確率越吻合），跟我們自己在 `suites/history-recall-context/` 觀察到的「信心值會隨著給不給上下文大幅變動」的現象方向一致——都在說信心值是有實際訊號量的統計量，不是裝飾。
+**這是目前收集到的資料裡，第一個示範「棄權機制」而不是單純「回答對不對」的案例**：跟我們自己在 README「實務建議」提到的「高信心自動執行／中信心先確認／低信心升級給人」的分流模式，這裡等於是把「低信心」那一段直接量出覆蓋率跟準確率的數字，而不是憑空建議。ECE 0.0583 這個數字本身不算差（越接近 0 代表信心值跟實際正確率越吻合），跟我們自己在 `suites/history-recall-context/` 觀察到的「題目有唯一答案時信心 0.87–1.00、沒有唯一答案時只剩 0.07–0.13」方向一致——都在說信心值是有實際訊號量的統計量，不是裝飾。
 
 **但誠實地看樣本數**：24 題、棄權約 1 題，這個規模小到任何一題的結果都會大幅影響覆蓋率跟準確率的數字，Brier/ECE 這種統計量在樣本這麼小的情況下也不穩定。這條的價值不在「證明了 Jev 在客服工單分派上準確率 91.3%」，而在**它示範了一套可以套用在任何任務上的量測方法**——如果你要決定信心門檻該設在哪裡，這是一個具體可以照抄的量測框架，而不是一份可以直接引用的跑分結果。
 
@@ -44,7 +44,7 @@ Of 24 cases, 95.8% had confidence ≥ 0.7 (coverage) — roughly 1 case abstaine
 
 ## What this means
 
-**This is the first case we've collected that demonstrates an abstention mechanism rather than plain right/wrong accuracy**: it turns the "low confidence → escalate to a human" leg of our own README's practical-guidance routing pattern into an actual measured coverage/accuracy number, instead of a suggestion made on faith. The ECE of 0.0583 isn't bad on its own (closer to 0 means confidence tracks actual correctness more closely), and points in the same direction as what we saw in [`suites/history-recall-context/`](../../suites/history-recall-context/) — confidence swinging sharply based on whether context was supplied — both cases showing confidence carries real statistical signal, not decoration.
+**This is the first case we've collected that demonstrates an abstention mechanism rather than plain right/wrong accuracy**: it turns the "low confidence → escalate to a human" leg of our own README's practical-guidance routing pattern into an actual measured coverage/accuracy number, instead of a suggestion made on faith. The ECE of 0.0583 isn't bad on its own (closer to 0 means confidence tracks actual correctness more closely), and points in the same direction as what we saw in [`suites/history-recall-context/`](../../suites/history-recall-context/) — confidence at 0.87–1.00 on questions with a single answer, down to 0.07–0.13 on one without — both cases showing confidence carries real statistical signal, not decoration.
 
 **But honestly, the sample size**: 24 cases with roughly 1 abstention is small enough that any single case swings the coverage/accuracy numbers substantially, and Brier/ECE are unstable at this scale. The value here isn't "proving 91.3% accuracy on support-ticket routing" — it's that **it demonstrates a measurement methodology applicable to any task**. If you're deciding where to set your own confidence threshold, this is a concrete framework to copy, not a benchmark result to cite directly.
 

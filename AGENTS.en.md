@@ -18,7 +18,7 @@ You're here because someone wants to know if any part of an existing codebase is
 
 > **Is the correct answer for this judgment fully recoverable from the content you're already about to hand it, with no outside knowledge or field comparison needed?**
 
-Yes → a candidate. No (needs an external knowledge base, needs comparison against an entire field, or is pure fact recall with no supporting passage given) → not a candidate, don't force it — see [`suites/history-recall-context/`](suites/history-recall-context/) for a real counter-example.
+Yes → a candidate. No (needs an external knowledge base, needs comparison against an entire field, or is pure fact recall with no supporting passage given) → not a candidate, don't force it — see the real third-party case [Hubei news classification](translations/libukai-hubei-news-classification-zh/) (it's weaker than a large model on background connections the article never states). It doesn't necessarily not know — it answered the obscure history question in [`suites/history-recall-context/`](suites/history-recall-context/) with no passage — but you can't tell in advance, so it still isn't a candidate unless you put the facts in `state` first.
 
 ### When the candidate signal isn't text to begin with (image/audio/sensor), ask this first
 

@@ -16,7 +16,7 @@
 
 ## 這個數字代表什麼、可信到什麼程度
 
-**這是我們目前收錄裡，最直覺易懂的一次核心軸現場示範**——文章本身要不要判定包含湖北元素，大部分情況下答案就寫在文字裡（提到湖北的地名、機構、事件），這種情況兩個模型判斷一致；分歧出在需要**外部世界知識**才能判斷的案例（「這個人名曾經在湖北任職過」這件事，文章正文沒寫，得靠模型自己的預訓練記憶回憶）——這跟本 repo 用合成中文歷史選擇題測出的 `suites/history-recall-context/` 反例，是同一種失效模式的真實生產版本：只是這次不是我們自己設計出來的測試案例，是一個素人在真實應用裡自己撞到、自己正確歸因出原因的。
+**這是我們目前收錄裡，最直覺易懂的一次核心軸現場示範**——文章本身要不要判定包含湖北元素，大部分情況下答案就寫在文字裡（提到湖北的地名、機構、事件），這種情況兩個模型判斷一致；分歧出在需要**外部世界知識**才能判斷的案例（「這個人名曾經在湖北任職過」這件事，文章正文沒寫，得靠模型自己的預訓練記憶回憶）——這是本 repo 目前「需要外部知識」這種失效模式最直接的證據：不是我們自己設計出來的測試案例，是一個素人在真實應用裡自己撞到、自己正確歸因出原因的。我們自己的合成中文歷史選擇題（[`suites/history-recall-context/`](../../suites/history-recall-context/)）修正錯字、去除算法歧義後反而沒重現這個失效——乾淨的冷門史實題它不給背景也答對了。兩者合起來看：它不是什麼都不知道，但知不知道事前看不出來。
 
 **兩個獨立來源，同一個速度數字**：0.35 秒／篇，剛好跟本 repo 收錄的 ThaiExam 跑分（0.35 秒／題）完全一樣——不同任務、不同語言、完全不相關的兩個來源，量出同一個數字，是一次意外但紮實的交叉驗證。
 
@@ -46,7 +46,7 @@ A year's worth of real accumulated data, nearly 24,000 articles, about 1,800 lab
 
 ## What this means, and how much to trust it
 
-**This is the most intuitive live demonstration of the core axis in this collection so far** — whether an article should be marked as involving Hubei is, in most cases, answerable directly from the text itself (a place name, an institution, an event); the two models agree there. The disagreements come from cases requiring **external world knowledge** that isn't in the article's own text (that a named person once served in Hubei is something the article doesn't state — a model has to recall it from pretraining) — the same failure mode already documented in this repo's `suites/history-recall-context/` counter-example, except this is its real-production version: not a test case we designed, but something an ordinary user hit in a real application and correctly diagnosed themselves.
+**This is the most intuitive live demonstration of the core axis in this collection so far** — whether an article should be marked as involving Hubei is, in most cases, answerable directly from the text itself (a place name, an institution, an event); the two models agree there. The disagreements come from cases requiring **external world knowledge** that isn't in the article's own text (that a named person once served in Hubei is something the article doesn't state — a model has to recall it from pretraining) — currently this repo's most direct evidence for the outside-knowledge failure mode: not a test case we designed, but something an ordinary user hit in a real application and correctly diagnosed themselves. Our own synthetic Chinese history suite ([`suites/history-recall-context/`](../../suites/history-recall-context/)) didn't reproduce this failure once its typos and counting ambiguity were fixed — it answered the clean obscure question correctly with no passage. Read together: it isn't ignorant, but you can't tell in advance what it knows.
 
 **Two independent sources, the same speed number**: 0.35 seconds per item exactly matches this repo's ThaiExam entry (0.35 seconds per question) — two unrelated sources, different tasks, different languages, landing on the identical figure — an unplanned but solid cross-validation.
 

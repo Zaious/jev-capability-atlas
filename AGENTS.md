@@ -18,7 +18,7 @@
 
 > **這個判斷的正確答案，能不能完全從你已經準備好要餵給它的內容裡讀出來，不需要另外的世界知識或跟其他東西比較？**
 
-能 → 候選。不能（需要外部知識庫、需要跟整個領域比較、需要純粹的事實回憶且沒有給支撐段落）→ 不是候選，別硬套，見 [`suites/history-recall-context/`](suites/history-recall-context/) 的真實反例。
+能 → 候選。不能（需要外部知識庫、需要跟整個領域比較、需要純粹的事實回憶且沒有給支撐段落）→ 不是候選，別硬套，見第三方真實案例 [湖北新聞分類](translations/libukai-hubei-news-classification-zh/)（文章沒寫的背景關聯，它比大模型弱）。它不一定不知道——[`suites/history-recall-context/`](suites/history-recall-context/) 的冷門史實題它不給背景也答對了——但知不知道事前看不出來，所以一樣不算候選，除非你先把資料放進 `state`。
 
 ### 候選訊號本來就不是文字（畫面/聲音/感測器）時，先問這句
 
