@@ -14,7 +14,7 @@
 | [jev-benchmarks：AG News](#jev-benchmarksag-newsbanking77dair-emotion) | 訊號自足 | 91.0% acc，明顯贏過專門小型分類器 | 📚 |
 | [jev-benchmarks：Banking77](#jev-benchmarksag-newsbanking77dair-emotion) | 訊號自足 | 87.0% acc，同上，且延遲也贏 | 📚 |
 | [jev-benchmarks：DAIR Emotion](#jev-benchmarksag-newsbanking77dair-emotion) | 類別重疊（邊界案例） | 48.0% acc 打平，但信心值失準 | 📚 |
-| [jev-browser vs Playwright MCP](#jev-browservs-playwright-mcp) | 混合（操作強，純讀取不強） | 混合驅動快 1.5x／便宜 1.6x；但純文字擷取任務反而更慢更貴 | 📚 |
+| [jev-browser vs Playwright MCP](#jev-browser-vs-playwright-mcp) | 混合（操作強，純讀取不強） | 混合驅動快 1.5x／便宜 1.6x；但純文字擷取任務反而更慢更貴 | 📚 |
 | [jev-ultrafast（Browser Use 官方）](#jev-ultrafastbrowser-use-官方整合) | 訊號自足 | 單一任務中位數快 25%，瀏覽器協定呼叫少 91% | 📚 |
 | [TypeSafe 首發評測：Vercel 獨立驗證與方法論批評](#typesafe-首發評測vercel-獨立驗證與方法論批評) | — | 67.8% acc／$0.0004／0.4 秒，但參考答案是兩個 LLM 平均、非人工標註 | 📚 |
 | [工具呼叫風險分級（jev-benchmark）](#工具呼叫風險分級jev-benchmark) | 訊號自足 | 91.7% acc，答錯時信心值誠實下修，無「自信答錯」案例 | 📚 |
@@ -35,6 +35,7 @@
 | [ICU 心律警報分類：驗證一則爆紅推文](#icu-心律警報分類拿公開資料集驗證一則爆紅推文) | 混合（生理訊號需轉成文字特徵） | 官方評分 0.271，輸給「全放行」基準線；心搏停止/心室頻脈敏感度 0% | 🔬 |
 | [延遲分布：中位數 vs 尾端](#延遲分布中位數-vs-尾端) | — | 中位數 250ms、p95 299ms；30 筆僅 1 個離群值，疑為連線冷啟動 | 🔬 |
 | [第一關過濾器：兩階段管線裡 Jev 該扛哪一段](#第一關過濾器兩階段管線裡-jev-該扛哪一段) | 訊號自足（內容＋監看理由都給齊） | 三輪問題設計迭代，三次失敗都不是判斷力；不對稱代價要寫進分流不是判準 | 🔬 |
+| [Jev vs Laya：同一組輸入的正面對照](#jev-vs-laya同一組輸入的正面對照) | 訊號自足（兩邊拿到一模一樣的輸入） | 通用模式 Jev 0.736、Laya 0.36（低於不看輸入的基準線）；Laya 專用版小贏 3 點但校準差五倍；繁中意圖分類 0.93 vs 0.61 | 🔬 |
 
 ---
 
@@ -284,6 +285,16 @@
 
 來源：[`suites/stage1-triage-filter/`](suites/stage1-triage-filter/)
 
+### Jev vs Laya：同一組輸入的正面對照
+
+**做了什麼**：開源的 Laya（Apache 2.0，BERT 類編碼器加決策輸出層）發布後以「比 Jev 準、校準好三倍、快 7 倍」爆紅，但它表上的 Jev 數字是引用來的——它自己沒有 Jev API。我們把同樣的 `state` 和題目同時送給 Jev 和本機 Laya，跑兩組：typed-decisions 測試集（400 案／2,000 個判斷，Laya 主打勝場的那份資料）和 MASSIVE 意圖分類（繁中、簡中、英文各 100 句，人工標註，照 Laya 自己的組題方式）。評分定義照抄 Laya 自己的評測程式；Laya 自己公布的數字我們都重現得出來。
+
+**結果**：typed-decisions 上，Jev（沒看過這些工作流程）0.736；Laya 通用版 0.35–0.36，**低於不看輸入的 0.484 基準線**；只有在這份資料訓練集上微調過的專用版 0.766 贏 Jev 3 個百分點（95% 信賴區間 1 至 5），但它的校準誤差 0.213 是 Jev 0.041 的五倍。MASSIVE 上 Jev 繁中 0.93、簡中 0.94、英文 0.92；Laya 最好的版本分別是 0.61、0.65、0.82。Laya 英文版拿到繁中時，準確率 0.46、平均信心 0.98。
+
+**這代表什麼**：「Laya 贏 Jev」只在「固定工作流程、有訓練資料、在自己的分布上比」這個條件下成立，而且贏的是準確率、輸的是校準。任務是新的、沒有訓練資料、或是中文，目前的 Laya 不是 Jev 的替代品；它真正的價值是自架、資料不出機器、可以微調。速度這組沒測（Laya 跑在有其他負載的 CPU 上）；出題老師是未公開的模型，無法排除它跟 Jev 有血緣——限制完整列在測試組 README。
+
+來源：[`suites/laya-head-to-head/`](suites/laya-head-to-head/)
+
 ---
 
-**還沒有人測過、歡迎貢獻的方向**：多模態（Jev 目前只吃文字，官方文件如此記載）、多維度複合評分在真實產品場景的表現、非英語語系（除泰文外）的表現、跨句以上（三輪＋）脈絡的反諷/隱含意圖偵測、稱讚 vs 諷刺的獨立第三方跑分、**用結構化行為事件（不是原始滑鼠座標）即時判斷使用者猶豫/意圖並決定介入方式**（構想見一則未附 repo 的推文——[@tsuyoshi_osiire](https://x.com/tsuyoshi_osiire)；PostHog 自己的 Replay Vision 功能做過相近的偵測，但靠多模態影片理解達成，不是純文字，接手前先讀清楚這個技術落差在哪）。
+**還沒有人測過、歡迎貢獻的方向**：多模態（Jev 目前只吃文字，官方文件如此記載）、多維度複合評分在真實產品場景的表現、非英語語系（除泰文、中文意圖分類外）的表現、跨句以上（三輪＋）脈絡的反諷/隱含意圖偵測、稱讚 vs 諷刺的獨立第三方跑分、**用結構化行為事件（不是原始滑鼠座標）即時判斷使用者猶豫/意圖並決定介入方式**（構想見一則未附 repo 的推文——[@tsuyoshi_osiire](https://x.com/tsuyoshi_osiire)；PostHog 自己的 Replay Vision 功能做過相近的偵測，但靠多模態影片理解達成，不是純文字，接手前先讀清楚這個技術落差在哪）。

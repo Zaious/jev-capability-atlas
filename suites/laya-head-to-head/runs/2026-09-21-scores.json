@@ -1,0 +1,581 @@
+{
+ "inputs": {
+  "jev": "2026-09-21-jev.json",
+  "laya": "2026-09-22-laya.json"
+ },
+ "jev_models": [
+  "jev-1.13.0"
+ ],
+ "laya_version": "0.3.4",
+ "typed_decisions": {
+  "jev": {
+   "n": 2000,
+   "dropped": 0,
+   "accuracy": 0.736,
+   "accuracy_counting_dropped": 0.736,
+   "ece": 0.0409,
+   "brier": 0.3658,
+   "nll": 0.7183,
+   "mean_confidence": 0.7562,
+   "soft_accuracy": 0.538,
+   "brier_vs_soft": 0.1485,
+   "score_mae": 0.3897,
+   "within_1_level": 0.9513,
+   "median_ms_per_case": 249.9,
+   "mode": "generalist (zero-shot)",
+   "by_workflow": {
+    "agent_trace_observability": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.634,
+     "accuracy_counting_dropped": 0.634,
+     "ece": 0.0999,
+     "brier": 0.5081,
+     "nll": 1.0704,
+     "mean_confidence": 0.7244
+    },
+    "customer_service": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.788,
+     "accuracy_counting_dropped": 0.788,
+     "ece": 0.0318,
+     "brier": 0.2704,
+     "nll": 0.434,
+     "mean_confidence": 0.7877
+    },
+    "invoice_processing": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.778,
+     "accuracy_counting_dropped": 0.778,
+     "ece": 0.0816,
+     "brier": 0.2986,
+     "nll": 0.5237,
+     "mean_confidence": 0.7624
+    },
+    "security_incidents": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.744,
+     "accuracy_counting_dropped": 0.744,
+     "ece": 0.0868,
+     "brier": 0.3861,
+     "nll": 0.845,
+     "mean_confidence": 0.7504
+    }
+   },
+   "by_question_type": {
+    "choice": {
+     "n": 600,
+     "dropped": 0,
+     "accuracy": 0.735,
+     "accuracy_counting_dropped": 0.735,
+     "ece": 0.0364,
+     "brier": 0.3593,
+     "nll": 0.6633,
+     "mean_confidence": 0.7263
+    },
+    "noul": {
+     "n": 600,
+     "dropped": 0,
+     "accuracy": 0.7883,
+     "accuracy_counting_dropped": 0.7883,
+     "ece": 0.0908,
+     "brier": 0.2787,
+     "nll": 0.4363,
+     "mean_confidence": 0.7279
+    },
+    "score": {
+     "n": 800,
+     "dropped": 0,
+     "accuracy": 0.6975,
+     "accuracy_counting_dropped": 0.6975,
+     "ece": 0.1074,
+     "brier": 0.4359,
+     "nll": 0.9709,
+     "mean_confidence": 0.7999
+    }
+   }
+  },
+  "laya": {
+   "n": 2000,
+   "dropped": 0,
+   "accuracy": 0.3615,
+   "accuracy_counting_dropped": 0.3615,
+   "ece": 0.1747,
+   "brier": 0.7497,
+   "nll": 1.3311,
+   "mean_confidence": 0.5362,
+   "soft_accuracy": 0.3315,
+   "brier_vs_soft": 0.3155,
+   "score_mae": 0.6937,
+   "within_1_level": 0.7525,
+   "median_ms_per_case": 5248.0,
+   "mode": "generalist (zero-shot)",
+   "by_workflow": {
+    "agent_trace_observability": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.388,
+     "accuracy_counting_dropped": 0.388,
+     "ece": 0.1999,
+     "brier": 0.7477,
+     "nll": 1.3386,
+     "mean_confidence": 0.576
+    },
+    "customer_service": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.382,
+     "accuracy_counting_dropped": 0.382,
+     "ece": 0.1067,
+     "brier": 0.7051,
+     "nll": 1.295,
+     "mean_confidence": 0.4783
+    },
+    "invoice_processing": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.36,
+     "accuracy_counting_dropped": 0.36,
+     "ece": 0.2281,
+     "brier": 0.7889,
+     "nll": 1.3615,
+     "mean_confidence": 0.5458
+    },
+    "security_incidents": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.316,
+     "accuracy_counting_dropped": 0.316,
+     "ece": 0.2287,
+     "brier": 0.757,
+     "nll": 1.3292,
+     "mean_confidence": 0.5445
+    }
+   },
+   "by_question_type": {
+    "choice": {
+     "n": 600,
+     "dropped": 0,
+     "accuracy": 0.2883,
+     "accuracy_counting_dropped": 0.2883,
+     "ece": 0.1681,
+     "brier": 0.8079,
+     "nll": 1.5603,
+     "mean_confidence": 0.4527
+    },
+    "noul": {
+     "n": 600,
+     "dropped": 0,
+     "accuracy": 0.4867,
+     "accuracy_counting_dropped": 0.4867,
+     "ece": 0.1747,
+     "brier": 0.6068,
+     "nll": 0.8751,
+     "mean_confidence": 0.6454
+    },
+    "score": {
+     "n": 800,
+     "dropped": 0,
+     "accuracy": 0.3225,
+     "accuracy_counting_dropped": 0.3225,
+     "ece": 0.2065,
+     "brier": 0.8131,
+     "nll": 1.5011,
+     "mean_confidence": 0.5168
+    }
+   }
+  },
+  "laya-multilingual": {
+   "n": 2000,
+   "dropped": 0,
+   "accuracy": 0.352,
+   "accuracy_counting_dropped": 0.352,
+   "ece": 0.3139,
+   "brier": 0.8904,
+   "nll": 1.8615,
+   "mean_confidence": 0.6629,
+   "soft_accuracy": 0.328,
+   "brier_vs_soft": 0.4626,
+   "score_mae": 0.7604,
+   "within_1_level": 0.7,
+   "median_ms_per_case": 1953.4,
+   "mode": "generalist (zero-shot)",
+   "by_workflow": {
+    "agent_trace_observability": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.286,
+     "accuracy_counting_dropped": 0.286,
+     "ece": 0.3612,
+     "brier": 0.9596,
+     "nll": 1.9693,
+     "mean_confidence": 0.6335
+    },
+    "customer_service": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.42,
+     "accuracy_counting_dropped": 0.42,
+     "ece": 0.27,
+     "brier": 0.7843,
+     "nll": 1.9113,
+     "mean_confidence": 0.69
+    },
+    "invoice_processing": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.308,
+     "accuracy_counting_dropped": 0.308,
+     "ece": 0.3958,
+     "brier": 1.0477,
+     "nll": 2.0899,
+     "mean_confidence": 0.6985
+    },
+    "security_incidents": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.394,
+     "accuracy_counting_dropped": 0.394,
+     "ece": 0.2365,
+     "brier": 0.77,
+     "nll": 1.4754,
+     "mean_confidence": 0.6295
+    }
+   },
+   "by_question_type": {
+    "choice": {
+     "n": 600,
+     "dropped": 0,
+     "accuracy": 0.295,
+     "accuracy_counting_dropped": 0.295,
+     "ece": 0.3623,
+     "brier": 0.9885,
+     "nll": 2.5096,
+     "mean_confidence": 0.6559
+    },
+    "noul": {
+     "n": 600,
+     "dropped": 0,
+     "accuracy": 0.4967,
+     "accuracy_counting_dropped": 0.4967,
+     "ece": 0.3757,
+     "brier": 0.8233,
+     "nll": 1.4206,
+     "mean_confidence": 0.8723
+    },
+    "score": {
+     "n": 800,
+     "dropped": 0,
+     "accuracy": 0.2863,
+     "accuracy_counting_dropped": 0.2863,
+     "ece": 0.2313,
+     "brier": 0.8672,
+     "nll": 1.706,
+     "mean_confidence": 0.511
+    }
+   }
+  },
+  "laya-typed-decisions": {
+   "n": 2000,
+   "dropped": 0,
+   "accuracy": 0.766,
+   "accuracy_counting_dropped": 0.766,
+   "ece": 0.2132,
+   "brier": 0.3996,
+   "nll": 0.7069,
+   "mean_confidence": 0.5528,
+   "soft_accuracy": 0.4707,
+   "brier_vs_soft": 0.0615,
+   "score_mae": 0.2424,
+   "within_1_level": 0.995,
+   "median_ms_per_case": 4454.2,
+   "mode": "specialist (fine-tuned on this benchmark's train split)",
+   "by_workflow": {
+    "agent_trace_observability": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.73,
+     "accuracy_counting_dropped": 0.73,
+     "ece": 0.2293,
+     "brier": 0.4612,
+     "nll": 0.8008,
+     "mean_confidence": 0.5007
+    },
+    "customer_service": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.764,
+     "accuracy_counting_dropped": 0.764,
+     "ece": 0.2128,
+     "brier": 0.3956,
+     "nll": 0.7122,
+     "mean_confidence": 0.5542
+    },
+    "invoice_processing": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.804,
+     "accuracy_counting_dropped": 0.804,
+     "ece": 0.1649,
+     "brier": 0.3024,
+     "nll": 0.5564,
+     "mean_confidence": 0.6391
+    },
+    "security_incidents": {
+     "n": 500,
+     "dropped": 0,
+     "accuracy": 0.766,
+     "accuracy_counting_dropped": 0.766,
+     "ece": 0.2489,
+     "brier": 0.4391,
+     "nll": 0.7582,
+     "mean_confidence": 0.5171
+    }
+   },
+   "by_question_type": {
+    "choice": {
+     "n": 600,
+     "dropped": 0,
+     "accuracy": 0.7333,
+     "accuracy_counting_dropped": 0.7333,
+     "ece": 0.2548,
+     "brier": 0.4651,
+     "nll": 0.865,
+     "mean_confidence": 0.4785
+    },
+    "noul": {
+     "n": 600,
+     "dropped": 0,
+     "accuracy": 0.8567,
+     "accuracy_counting_dropped": 0.8567,
+     "ece": 0.1921,
+     "brier": 0.2872,
+     "nll": 0.4561,
+     "mean_confidence": 0.6646
+    },
+    "score": {
+     "n": 800,
+     "dropped": 0,
+     "accuracy": 0.7225,
+     "accuracy_counting_dropped": 0.7225,
+     "ece": 0.1987,
+     "brier": 0.4347,
+     "nll": 0.7764,
+     "mean_confidence": 0.5246
+    }
+   }
+  },
+  "_baseline_train_majority": {
+   "accuracy": 0.4835,
+   "note": "per (workflow, question) majority label from the train split; ignores the input"
+  },
+  "_jev_minus": {
+   "laya": {
+    "diff": 0.3745,
+    "ci95": [
+     0.342,
+     0.4105
+    ]
+   },
+   "laya-multilingual": {
+    "diff": 0.384,
+    "ci95": [
+     0.354,
+     0.414
+    ]
+   },
+   "laya-typed-decisions": {
+    "diff": -0.03,
+    "ci95": [
+     -0.052,
+     -0.0095
+    ]
+   }
+  },
+  "_reference_published": {
+   "laya_repo_table": {
+    "jev_1.13.0": 0.727,
+    "laya": 0.362,
+    "laya-multilingual": 0.342,
+    "laya-typed-decisions": 0.766,
+    "jev_source": "quoted in Laya's repo; Laya states it did not measure Jev"
+   },
+   "dataset_card": {
+    "majority_baseline": 0.52,
+    "teacher_self_agreement": 0.735,
+    "note": "measured on the 1600-case set, not the 400-case test split"
+   }
+  }
+ },
+ "massive": {
+  "zh-TW": {
+   "jev": {
+    "n": 100,
+    "dropped": 0,
+    "accuracy": 0.93,
+    "accuracy_counting_dropped": 0.93,
+    "ece": 0.042,
+    "brier": 0.1143,
+    "nll": 0.6927,
+    "mean_confidence": 0.9268,
+    "median_ms": 243.2
+   },
+   "laya": {
+    "n": 100,
+    "dropped": 0,
+    "accuracy": 0.46,
+    "accuracy_counting_dropped": 0.46,
+    "ece": 0.5198,
+    "brier": 1.0483,
+    "nll": 13.4028,
+    "mean_confidence": 0.9798,
+    "median_ms": 743.0
+   },
+   "laya-multilingual": {
+    "n": 100,
+    "dropped": 0,
+    "accuracy": 0.61,
+    "accuracy_counting_dropped": 0.61,
+    "ece": 0.2662,
+    "brier": 0.6563,
+    "nll": 2.9121,
+    "mean_confidence": 0.8558,
+    "median_ms": 251.1
+   },
+   "_jev_minus": {
+    "laya": {
+     "diff": 0.47,
+     "ci95": [
+      0.36,
+      0.58
+     ]
+    },
+    "laya-multilingual": {
+     "diff": 0.32,
+     "ci95": [
+      0.21,
+      0.43
+     ]
+    }
+   }
+  },
+  "zh-CN": {
+   "jev": {
+    "n": 100,
+    "dropped": 0,
+    "accuracy": 0.94,
+    "accuracy_counting_dropped": 0.94,
+    "ece": 0.0465,
+    "brier": 0.1031,
+    "nll": 0.4304,
+    "mean_confidence": 0.9531,
+    "median_ms": 241.8
+   },
+   "laya": {
+    "n": 100,
+    "dropped": 0,
+    "accuracy": 0.62,
+    "accuracy_counting_dropped": 0.62,
+    "ece": 0.376,
+    "brier": 0.7521,
+    "nll": 9.4563,
+    "mean_confidence": 0.9885,
+    "median_ms": 634.2
+   },
+   "laya-multilingual": {
+    "n": 100,
+    "dropped": 0,
+    "accuracy": 0.65,
+    "accuracy_counting_dropped": 0.65,
+    "ece": 0.2192,
+    "brier": 0.5484,
+    "nll": 2.1772,
+    "mean_confidence": 0.8591,
+    "median_ms": 247.9
+   },
+   "_jev_minus": {
+    "laya": {
+     "diff": 0.32,
+     "ci95": [
+      0.23,
+      0.41
+     ]
+    },
+    "laya-multilingual": {
+     "diff": 0.29,
+     "ci95": [
+      0.19,
+      0.39
+     ]
+    }
+   }
+  },
+  "en": {
+   "jev": {
+    "n": 100,
+    "dropped": 0,
+    "accuracy": 0.92,
+    "accuracy_counting_dropped": 0.92,
+    "ece": 0.043,
+    "brier": 0.1103,
+    "nll": 0.6888,
+    "mean_confidence": 0.9454,
+    "median_ms": 235.4
+   },
+   "laya": {
+    "n": 100,
+    "dropped": 0,
+    "accuracy": 0.82,
+    "accuracy_counting_dropped": 0.82,
+    "ece": 0.1789,
+    "brier": 0.3563,
+    "nll": 3.8505,
+    "mean_confidence": 0.9989,
+    "median_ms": 630.0
+   },
+   "laya-multilingual": {
+    "n": 100,
+    "dropped": 0,
+    "accuracy": 0.71,
+    "accuracy_counting_dropped": 0.71,
+    "ece": 0.2333,
+    "brier": 0.5063,
+    "nll": 2.1233,
+    "mean_confidence": 0.8876,
+    "median_ms": 241.3
+   },
+   "_jev_minus": {
+    "laya": {
+     "diff": 0.1,
+     "ci95": [
+      0.0297,
+      0.18
+     ]
+    },
+    "laya-multilingual": {
+     "diff": 0.21,
+     "ci95": [
+      0.11,
+      0.3002
+     ]
+    }
+   }
+  },
+  "_reference_published": {
+   "laya": {
+    "zh-TW": 0.46,
+    "zh-CN": 0.62,
+    "en": 0.82
+   },
+   "laya-multilingual": {
+    "zh-TW": 0.54,
+    "zh-CN": 0.63,
+    "en": 0.68
+   },
+   "source": "Laya repo research/results/cpu_51_language_sweep.json (laya 0.2.0)"
+  }
+ }
+}

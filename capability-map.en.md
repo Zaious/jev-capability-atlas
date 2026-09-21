@@ -34,6 +34,7 @@ Split into two sections: **public benchmarks** are results published by others t
 | [Pure-recall trivia vs. supplied context](#pure-recall-trivia-vs-supplied-context) | Not self-contained → self-contained | With clean questions it knew even the obscure fact (confidence 0.87→1.00 with a passage); the earlier "confidently wrong" result came from our own typo — a wrong state doesn't dent its confidence | 🔬 |
 | [Latency distribution: median vs. tail](#latency-distribution-median-vs-tail) | — | Median 250ms, p95 299ms; only 1 outlier in 30 calls, likely connection cold-start | 🔬 |
 | [A stage-one filter: which half of a two-stage pipeline should Jev own](#a-stage-one-filter-which-half-of-a-two-stage-pipeline-should-jev-own) | Self-contained (content + the watch reason both supplied) | Three rounds of question-design iteration; none of the three failures was about judgment | 🔬 |
+| [Jev vs Laya: a head-to-head on identical inputs](#jev-vs-laya-a-head-to-head-on-identical-inputs) | Self-contained (both sides get identical input) | Zero-shot: Jev 0.736, Laya 0.36 (below an input-blind baseline); Laya's fine-tuned specialist wins by 3 points with 5× the calibration error; zh-TW intent 0.93 vs 0.61 | 🔬 |
 | [ICU alarm classification: testing a viral tweet](#icu-arrhythmia-alarm-classification-a-viral-tweet-tested-against-a-public-dataset) | Mixed (physiological signal needs converting to text features) | Official score 0.271, worse than "let every alarm through"; 0% sensitivity on asystole/V-tach | 🔬 |
 
 ---
@@ -284,6 +285,16 @@ Source: [`suites/jev-latency-distribution/`](suites/jev-latency-distribution/)
 
 Source: [`suites/stage1-triage-filter/`](suites/stage1-triage-filter/)
 
+### Jev vs Laya: a head-to-head on identical inputs
+
+**What was done**: the open-source Laya (Apache 2.0, a BERT-style encoder plus a decision head) went viral as "more accurate than Jev, 3× better calibrated, 7× faster," but the Jev numbers in its table are quoted — it has no Jev API access. We sent the same `state` and questions to Jev and to local Laya on two sets: the typed-decisions test split (400 cases / 2,000 decisions — the dataset behind Laya's headline win) and MASSIVE intent classification (100 utterances each in Traditional Chinese, Simplified Chinese and English, human labels, built Laya's own way). Metric definitions are copied from Laya's own evaluation script, and we reproduce Laya's published numbers.
+
+**Results**: on typed-decisions, Jev (never trained on these workflows) scores 0.736; Laya's general checkpoints 0.35–0.36, **below the 0.484 input-blind baseline**; only the checkpoint fine-tuned on this dataset's train split, at 0.766, beats Jev — by 3 points (95% CI 1 to 5) — while its calibration error of 0.213 is five times Jev's 0.041. On MASSIVE, Jev scores 0.93 / 0.94 / 0.92 (zh-TW / zh-CN / en); Laya's best checkpoint 0.61 / 0.65 / 0.82. Given Traditional Chinese, Laya's English checkpoint is 0.46 accurate at 0.98 mean confidence.
+
+**What this means**: "Laya beats Jev" holds only for a fixed workflow, with training data, compared on its own distribution — and it wins on accuracy while losing on calibration. For new tasks, tasks without training data, or Chinese, today's Laya isn't a Jev replacement; its real value is self-hosting, data that never leaves the machine, and fine-tunability. Speed wasn't tested (Laya ran on a loaded CPU), and the dataset's teacher is an undisclosed model that may share lineage with Jev — full limitations in the suite README.
+
+Source: [`suites/laya-head-to-head/`](suites/laya-head-to-head/)
+
 ---
 
-**Untested, contributions welcome**: multimodal input (Jev currently only accepts text, per its own docs), composite multi-dimensional scoring in real product settings, non-English languages other than Thai, sarcasm/implied-intent detection spanning more than two conversational turns, a dedicated third-party benchmark for praise vs. sarcasm, and **using structured behavioral events (not raw mouse coordinates) to infer user hesitation/intent in real time and decide how to intervene** (the idea comes from one repo-less tweet — [@tsuyoshi_osiire](https://x.com/tsuyoshi_osiire); PostHog's own Replay Vision feature does something similar, but via multi-modal video understanding, not plain text — read up on exactly where that gap sits before taking this on).
+**Untested, contributions welcome**: multimodal input (Jev currently only accepts text, per its own docs), composite multi-dimensional scoring in real product settings, non-English languages other than Thai and Chinese intent classification, sarcasm/implied-intent detection spanning more than two conversational turns, a dedicated third-party benchmark for praise vs. sarcasm, and **using structured behavioral events (not raw mouse coordinates) to infer user hesitation/intent in real time and decide how to intervene** (the idea comes from one repo-less tweet — [@tsuyoshi_osiire](https://x.com/tsuyoshi_osiire); PostHog's own Replay Vision feature does something similar, but via multi-modal video understanding, not plain text — read up on exactly where that gap sits before taking this on).

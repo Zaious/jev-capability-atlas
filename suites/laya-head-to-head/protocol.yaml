@@ -1,0 +1,32 @@
+# Pinned for reproducibility -- treat this file as authoritative.
+jev:
+  requested_model: jev-latest
+  response_model: jev-1.13.0          # as returned by the API on the run date
+  sdk: typesafe_sdk 0.7.0
+  mode: generalist (zero-shot)        # never trained on these workflows, as far as is public
+laya:
+  package: laya 0.3.4
+  api: "laya.load(path, device='cpu').predict(state, questions)"
+  temperatures: shipped defaults, no refit
+  device: cpu                         # both local GPUs were occupied; latency is CPU latency
+  checkpoints:
+    laya: {repo: convaiinnovations/laya, revision: 1c5edc17a7acd8701df6fc341c0d179f1c62c982, mode: generalist}
+    laya-multilingual: {repo: convaiinnovations/laya-multilingual, revision: 052592a15d198d9ad47da779604259b10b47b7aa, mode: generalist}
+    laya-typed-decisions: {repo: convaiinnovations/laya-typed-decisions, revision: f9ab0b228f0fc0f14d873dbc99038f135c2da1b2, mode: "specialist (fine-tuned on typed-decisions train split)"}
+part_a:
+  dataset: LocalLLaMA/typed-decisions
+  revision: ea9306458d6e9563628369a3d1e72e362fb381d2
+  split: test                         # 400 cases x 5 questions = 2,000 decisions
+  labels: "mean of 3 samples from an undisclosed ~4B-class teacher; agreement, not correctness"
+  input: "state and questions sent verbatim to both sides (the rows are System One request bodies)"
+part_b:
+  dataset: mteb/amazon_massive_intent
+  revision: 940fd47a81eaa7f2cc7b129674d945d618ac38c2
+  langs: [zh-TW, zh-CN, en]
+  per_lang: 100                       # first 100 test utterances, as in Laya's published sweep
+  seed: 13
+  n_options: 20                       # gold + 19 sampled distractors, built exactly as Laya's build_massive()
+  labels: human (MASSIVE)
+metrics: "definitions copied from Laya's research/scripts/bench_local.py @ 42626c3: argmax accuracy, soft accuracy, Brier vs soft gold, 15-bin ECE on max probability, score MAE"
+bootstrap: {resamples: 2000, seed: 7, unit: "case (Part A), item (Part B)"}
+annotators: 0                         # Part A labels are a model's; Part B labels are MASSIVE's human labels
