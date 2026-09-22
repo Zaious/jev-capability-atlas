@@ -16,9 +16,13 @@
 
 （題目怎麼設計的、樣本數、誰標的答案——誠實講清楚是不是單一標註者）
 
+## 資料來源與授權
+
+（自己寫的題目直接說明；公開資料集寫來源連結、授權、有沒有把原文放進 repo；取自私人系統的資料寫明怎麼去識別化）
+
 ## 結果
 
-（貼真實數字，對應 `runs/` 裡的 log 檔名）
+（貼真實數字，對應 `runs/` 裡的 log 檔名；收據要存下實際送出的 state，`run.py` 要支援 `--dry-run`）
 
 ## 限制
 
@@ -39,8 +43,10 @@ Copy this whole folder, rename it to your suite's slug, fill in:
 (Which side of the capability-map axis? What did you expect, and why?)
 ## Methodology
 (How items were designed, sample size, who labeled the answers — say plainly if it was a single annotator)
+## Data source and license
+(For original items, say so; for public datasets, the source link, license, and whether the text is committed; for data from a private system, how it was de-identified)
 ## Results
-(Real numbers, matched to filenames in `runs/`)
+(Real numbers, matched to filenames in `runs/`; receipts must store the exact state sent, and `run.py` should support `--dry-run`)
 ## Limitations
 (Small N, single annotator, one language only — don't omit these)
 ## Tag

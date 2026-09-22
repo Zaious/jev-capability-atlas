@@ -1,4 +1,4 @@
-# 釘住用的參數，跡測性需要——以這份為準，不要另寫在 README.md 裡一次。
+# 釘住用的參數，為了能重現——以這份為準，不要在 README.md 裡再寫一次。
 # Pin these for reproducibility -- treat this file as authoritative,
 # don't re-state values in the README that could drift out of sync.
 model: jev-latest

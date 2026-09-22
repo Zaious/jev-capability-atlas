@@ -14,8 +14,8 @@
 
 ## 方法論
 
-- **Part A：typed-decisions 測試集**（[LocalLLaMA/typed-decisions](https://huggingface.co/datasets/LocalLLaMA/typed-decisions)，400 案 × 5 題 = 2,000 個判斷，英文）。每一列本身就是 System One 的請求內容，原封不動送給兩邊。標準答案是一個未公開的約 4B 級「出題老師」模型取樣三次的平均——**衡量的是跟那個老師的一致程度，不是對錯**。
-- **Part B：MASSIVE 意圖分類**（人工標註），繁中、簡中、英文各取前 100 句，20 選 1。題目組法照抄 Laya 自己的 `build_massive()`（種子 13），跟它公布的多語言掃描設定完全相同。
+- **Part A：typed-decisions 測試集**（[LocalLLaMA/typed-decisions](https://huggingface.co/datasets/LocalLLaMA/typed-decisions)，400 案 × 5 題 = 2,000 個判斷，英文）。每一列本身就是 System One 的請求內容，原封不動送給兩邊。標準答案是一個未公開的約 4B 級「出題老師」模型取樣三次的平均——**衡量的是跟那個老師的一致程度，不是對錯**。資料集授權 Apache 2.0。
+- **Part B：MASSIVE 意圖分類**（人工標註），繁中、簡中、英文各取前 100 句，20 選 1。題目組法照抄 Laya 自己的 `build_massive()`（種子 13），跟它公布的多語言掃描設定完全相同。MASSIVE 原始授權 CC BY 4.0（我們用的是 mteb 在 Hugging Face 的轉存版，該頁標示 Apache 2.0）。兩份資料集的原文都不放進 repo，執行時從釘住的版本下載，收據只存案例編號和機率。
 - **比較對象**：Jev（`jev-1.13.0`，通用模式）；Laya 英文版、多語版（通用模式，沒看過這些工作流程）；Laya typed-decisions 版（**專用模式**，在 Part A 訓練集上微調過，只跑 Part A）。
 - **評分定義**：照抄 Laya 自己的評測程式（`research/scripts/bench_local.py`）——argmax 準確率、soft accuracy、對 soft 標準答案的 Brier、15 區間 ECE（以最高機率當信心）、score 題的 MAE。兩邊用同一支 `score.py` 評。
 - **信賴區間**：準確率差距用 bootstrap（2,000 次，Part A 以「案」為單位重抽，因為同一案的 5 題共用同一份 state）。
@@ -123,8 +123,8 @@ We have Jev API access; the Laya team doesn't. So this suite sends the same `sta
 
 ## Methodology
 
-- **Part A: typed-decisions test split** ([LocalLLaMA/typed-decisions](https://huggingface.co/datasets/LocalLLaMA/typed-decisions), 400 cases × 5 questions = 2,000 decisions, English). Each row is itself a System One request body and is sent verbatim to both sides. Gold is the mean of three samples from an undisclosed ~4B-class "teacher" model — **it measures agreement with that teacher, not correctness**.
-- **Part B: MASSIVE intent classification** (human labels), first 100 test utterances each for Traditional Chinese, Simplified Chinese and English, 20-way choice. Items built exactly as Laya's own `build_massive()` (seed 13), matching its published multilingual sweep.
+- **Part A: typed-decisions test split** ([LocalLLaMA/typed-decisions](https://huggingface.co/datasets/LocalLLaMA/typed-decisions), 400 cases × 5 questions = 2,000 decisions, English). Each row is itself a System One request body and is sent verbatim to both sides. Gold is the mean of three samples from an undisclosed ~4B-class "teacher" model — **it measures agreement with that teacher, not correctness**. Licensed Apache 2.0.
+- **Part B: MASSIVE intent classification** (human labels), first 100 test utterances each for Traditional Chinese, Simplified Chinese and English, 20-way choice. Items built exactly as Laya's own `build_massive()` (seed 13), matching its published multilingual sweep. MASSIVE is originally CC BY 4.0 (we use mteb's re-host on Hugging Face, which lists Apache 2.0). Neither dataset's text is committed: both are downloaded from pinned revisions at run time, and receipts store only case IDs and probabilities.
 - **Models**: Jev (`jev-1.13.0`, generalist); Laya English and multilingual checkpoints (generalist — never saw these workflows); Laya typed-decisions checkpoint (**specialist**, fine-tuned on Part A's train split, Part A only).
 - **Metrics**: copied from Laya's own evaluation script (`research/scripts/bench_local.py`) — argmax accuracy, soft accuracy, Brier against the soft gold, 15-bin ECE on the max probability, MAE on score questions. Both sides scored by the same `score.py`.
 - **Confidence intervals**: paired bootstrap on accuracy differences (2,000 resamples; Part A resamples whole cases, since a case's 5 questions share one state).

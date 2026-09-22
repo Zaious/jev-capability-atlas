@@ -117,12 +117,12 @@ git checkout -b suite/<slug>
 git add suites/<slug>/
 git commit -m "suite: <slug> — <一句話結論,例如「反諷偵測跨句版 10/10」>"
 git push -u origin suite/<slug>
-gh pr create --title "suite: <slug>" --body "<貼 report.md 的摘要 + 標籤(🔬/📚/📖/💭)+ runs/ 檔名>"
+gh pr create --title "suite: <slug>" --body "<貼 README.md 的結果摘要 + 標籤(🔬/📚/📖/💭)+ runs/ 檔名>"
 ```
 
 **沒有 push 權限、只是被使用者臨時叫去跑一次的 agent**：不要只回報結論，把這些東西**逐項列出來**給使用者：
 1. 產生了哪些檔案（完整路徑）
-2. `report.md` 的內容全文，不是摘要
+2. 測試組 `README.md`（外部來源條目則是 `report.md`）的內容全文，不是摘要
 3. 每個案例的 `choice`/`confidence`/`probabilities`，不是只講對錯
 4. 明講這是 🔬 全新測試、還是複測既有 suite、還是純分析
 5. 一句話說使用者接下來可以怎麼做（自己開 PR、還是要你幫忙開）

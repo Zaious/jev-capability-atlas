@@ -2,7 +2,7 @@
 
 # 用 Jev 操作瀏覽器：實作指南
 
-這篇不回答「Jev 適不適合做瀏覽器操作」——那個證據在 [`capability-map.md`](capability-map.md#jev-browservs-playwright-mcp) 跟 [`README.md`](README.md#具體案例為什麼瀏覽器自動化測起來這麼強) 已經講過，別跳過直接抄架構。這篇是給已經看過那些證據、決定要接的人或 agent：**怎麼把你自己的系統接上 Jev 來操作瀏覽器**，包括你已經有一個大量用瀏覽器的 agent、想試試看拿 Jev 換掉裡面某一段判斷邏輯的情況。
+這篇不回答「Jev 適不適合做瀏覽器操作」——那個證據在 [`capability-map.md`](capability-map.md#jev-browser-vs-playwright-mcp) 跟 [`README.md`](README.md#具體案例為什麼瀏覽器自動化測起來這麼強) 已經講過，別跳過直接抄架構。這篇是給已經看過那些證據、決定要接的人或 agent：**怎麼把你自己的系統接上 Jev 來操作瀏覽器**，包括你已經有一個大量用瀏覽器的 agent、想試試看拿 Jev 換掉裡面某一段判斷邏輯的情況。
 
 內容整理自三個真實開源專案的官方文件（見下方「三個可以參考的真實實作」），架構模式跟限制是直接引用；跨專案共通的模式歸納是我們自己的綜合，見結尾標籤。
 
@@ -42,7 +42,7 @@ MCP server／CLI／npm library 三種介面都有，116 星，持續在維護（
 
 ### `MahmoudAdelbghany/jev-browser`——跑分數字的來源，不是架構參考
 
-這個專案的價值在於它做過 Jev vs Playwright MCP 的頭對頭跑分（見 [`capability-map.md`](capability-map.md#jev-browservs-playwright-mcp)），包括「Jev 不擅長純文字擷取」這個重要反例。專案本身很小（0 星、只 push 過一次），不是一個成熟到可以直接拿來抄架構的實作。
+這個專案的價值在於它做過 Jev vs Playwright MCP 的頭對頭跑分（見 [`capability-map.md`](capability-map.md#jev-browser-vs-playwright-mcp)），包括「Jev 不擅長純文字擷取」這個重要反例。專案本身很小（0 星、只 push 過一次），不是一個成熟到可以直接拿來抄架構的實作。
 
 **重要澄清，避免撞名混淆**：這個專案跟上面的 `jkudish/jev-browser` **是兩個完全獨立、互不相關的專案**，剛好同一天（2026-09-17）各自取了同一個名字。提到「jev-browser」時務必連著作者帳號一起講，不要只寫專案名。
 

@@ -115,12 +115,12 @@ git checkout -b suite/<slug>
 git add suites/<slug>/
 git commit -m "suite: <slug> — <one-line finding, e.g. "cross-turn sarcasm 10/10">"
 git push -u origin suite/<slug>
-gh pr create --title "suite: <slug>" --body "<paste report.md's summary + tag (🔬/📚/📖/💭) + runs/ filenames>"
+gh pr create --title "suite: <slug>" --body "<paste the README.md results summary + tag (🔬/📚/📖/💭) + runs/ filenames>"
 ```
 
 **Agent with no push access, asked by a user to just run something:** don't summarize with a conclusion alone — give the user, itemized:
 1. Which files were created (full paths)
-2. The full contents of `report.md`, not a summary of it
+2. The full contents of the suite's `README.md` (or `report.md` for an external-source entry), not a summary of it
 3. Each case's `choice`/`confidence`/`probabilities` — not just right/wrong
 4. Whether this is a 🔬 brand-new suite, a re-run of an existing one, or pure analysis
 5. One line on what the user can do next (open a PR themselves, or ask you to)

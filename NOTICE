@@ -4,25 +4,33 @@
 
 ## 授權範圍
 
-本 repo 的程式碼與原創文字以 MIT 授權釋出，全文見 [`LICENSE`](LICENSE)。這包括 `translations/` 目錄裡我們自己撰寫的文字。
+本 repo 的程式碼與原創文字以 MIT 授權釋出，全文見 [`LICENSE`](LICENSE)。這包括下面列出、我們自己撰寫的所有摘要文字。
 
-## `translations/` 裡放的是什麼
+## 摘要第三方來源的內容
 
-目錄名稱沿用早期的規劃，實際內容不是翻譯稿：每個條目是我們讀過第三方公開的跑分、文章、貼文或程式碼之後，**用自己的話**寫成的摘要與查證——整理對方的方法與結果、引用具體數字、附原始連結，再對照我們自己的測試下判斷。
+以下這些地方會介紹或查證別人發表的東西：
+
+- `translations/`：目錄名稱沿用早期的規劃，實際內容不是翻譯稿，而是我們讀過第三方公開的跑分、文章、貼文或 repo 之後，**用自己的話**寫成的摘要與查證。
+- [`capability-map.md`](capability-map.md)、[`browser-automation.md`](browser-automation.md)、[`jev-variants.md`](jev-variants.md)，以及 README 裡的比較段落：整理第三方專案的做法與數字，附原始連結。
+
+這些內容一律：
 
 - 不轉載原文全文，也不做整段翻譯；直接引述僅限標明出處的短句。
-- 每個條目實際轉載了什麼，寫在該目錄 `SOURCE.md` 的「轉載範圍」。
+- 附原始連結，讓讀者能回頭查證；`translations/` 的每個條目另在 `SOURCE.md` 寫明「轉載範圍」。
 - 被引用內容的權利仍屬原作者，MIT 授權不及於它們。
 
-原作者若認為某個條目超出合理引用範圍，請開 issue，我們會修改或移除。
+原作者若認為某處超出合理引用範圍，請開 issue，我們會修改或移除。
 
-## 貢獻新條目
+## 貢獻新內容
 
-請用自己的話整理，不要貼入原文全文或整段翻譯。若必須轉載超過短句的原文（例如測試題目全文），須先確認原始授權允許散布，並在 `SOURCE.md` 記下授權條款，見 [`CONTRIBUTING.md`](CONTRIBUTING.md)。
+請用自己的話整理，不要貼入原文全文或整段翻譯。若必須轉載超過短句的原文（例如測試題目全文），須先確認原始授權允許散布，並在 `SOURCE.md` 記下授權條款。完整的收錄準則見 [`CONTRIBUTING.md`](CONTRIBUTING.md)。
 
-## 其他素材
+## 測試組使用的資料
 
-`suites/` 使用的公開資料集（例如 PhysioNet/CinC Challenge 2015，ODC-By）依其原始授權使用，出處與授權寫在各測試組的 README。
+`suites/` 各測試組使用的資料，來源、授權與處理方式寫在各自的 README：
+
+- 公開資料集依其原始授權使用（例如 PhysioNet/CinC Challenge 2015 為 ODC-By；typed-decisions 為 Apache 2.0；MASSIVE 為 CC BY 4.0）。沒有必要時不把資料集原文放進 repo，收據只存案例編號與模型輸出。
+- 取自私人系統的資料先去識別化，處理方式寫在該測試組的 README。
 
 ## 商標
 
@@ -34,25 +42,33 @@
 
 ## What the license covers
 
-Code and original written content in this repository are released under the MIT License — full text in [`LICENSE`](LICENSE). That includes the text we wrote under `translations/`.
+Code and original written content in this repository are released under the MIT License — full text in [`LICENSE`](LICENSE). That includes all of the summary text we wrote in the places listed below.
 
-## What `translations/` contains
+## Content summarizing third-party sources
 
-The directory name is a holdover from early planning; its contents are not translations. Each entry is a summary and verification **written in our own words** after reading a third party's public benchmark, article, post or code — organizing their method and results, citing specific figures, linking the original, and weighing it against our own tests.
+These parts of the repo introduce or verify things others have published:
 
-- No full text of the original is reproduced, and nothing is translated paragraph by paragraph; direct quotation is limited to short, attributed phrases.
-- Each entry's `SOURCE.md` states its reproduction scope.
-- Rights in the quoted material stay with its authors; the MIT License does not extend to it.
+- `translations/`: the directory name is a holdover from early planning; its contents are not translations but summaries and verification **written in our own words** after reading a third party's public benchmark, article, post or repo.
+- [`capability-map.en.md`](capability-map.en.md), [`browser-automation.en.md`](browser-automation.en.md), [`jev-variants.en.md`](jev-variants.en.md), and the comparison sections of the README: organizing third-party projects' approaches and numbers, with links to the originals.
 
-If an original author considers an entry beyond fair quotation, please open an issue and we'll revise or remove it.
+All of this content:
 
-## Contributing new entries
+- Reproduces no full text and translates nothing paragraph by paragraph; direct quotation is limited to short, attributed phrases.
+- Links to the originals so readers can check them; each `translations/` entry also states its reproduction scope in `SOURCE.md`.
+- Leaves rights in the quoted material with its authors; the MIT License does not extend to it.
 
-Write it up in your own words; don't paste in the original's full text or translate it paragraph by paragraph. If you must reproduce more than short phrases (e.g. full test items), first confirm the original license permits redistribution and record it in `SOURCE.md` — see [`CONTRIBUTING.md`](CONTRIBUTING.md).
+If an original author considers anything here beyond fair quotation, please open an issue and we'll revise or remove it.
 
-## Other material
+## Contributing new content
 
-Public datasets used under `suites/` (e.g. PhysioNet/CinC Challenge 2015, ODC-By) are used under their original licenses; source and license are stated in each suite's README.
+Write it up in your own words; don't paste in the original's full text or translate it paragraph by paragraph. If you must reproduce more than short phrases (e.g. full test items), first confirm the original license permits redistribution and record it in `SOURCE.md`. The full inclusion rules are in [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+## Data used by the suites
+
+Each suite's README states the source, license and handling of the data it uses:
+
+- Public datasets are used under their original licenses (e.g. PhysioNet/CinC Challenge 2015 under ODC-By; typed-decisions under Apache 2.0; MASSIVE under CC BY 4.0). Dataset text isn't committed unless necessary; receipts store only case IDs and model outputs.
+- Data taken from private systems is de-identified first, with the handling described in that suite's README.
 
 ## Trademarks
 
