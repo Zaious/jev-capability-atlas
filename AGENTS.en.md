@@ -58,6 +58,8 @@ Once you've found a candidate, don't act on the checklist alone — verify:
 
 **If the candidate is browser automation** (clicking, filling forms, navigating), don't design the architecture from scratch — read [`browser-automation.en.md`](browser-automation.en.md): the reference architecture three real open-source implementations converged on (one call, three questions), how the typing problem gets solved, and a checklist for before you touch your own system.
 
+**If you're about to suggest replacing Jev with a self-hosted open alternative** (Laya or another variant), read [`jev-variants.en.md`](jev-variants.en.md) and [`suites/laya-head-to-head/`](suites/laya-head-to-head/) first: today's open variants mostly trail Jev on new tasks asked directly, and nearly every win is on a distribution the variant was trained on. Before suggesting it, check whether the user has labelled data and whether the workflow is fixed.
+
 ### Where to find API mechanics
 
 For how to call the API and design Choice/Score/Noul questions, read TypeSafe's own [skill](https://github.com/typesafe-ai/skills) — it's covered thoroughly there, we don't repeat it here.

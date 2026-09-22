@@ -60,6 +60,8 @@
 
 **如果候選是瀏覽器自動化**（點擊、填表、導覽這類操作型任務），別從零設計架構——讀 [`browser-automation.md`](browser-automation.md)：三個真實開源實作收斂出的參考架構（一次呼叫問三題）、打字問題怎麼解、以及接自己系統前的檢查清單。
 
+**如果你想建議把 Jev 換成自架的開源替代品**（Laya 或其他變體），先讀 [`jev-variants.md`](jev-variants.md) 跟 [`suites/laya-head-to-head/`](suites/laya-head-to-head/)：目前的開源變體在「沒看過的新任務、直接問」上大多落後 Jev，贏的幾乎都在自己訓練過的分布上。提建議之前，先確認使用者手上有沒有標註資料、流程是不是固定的。
+
 ### API 機制去哪查
 
 呼叫方式、Choice/Score/Noul 怎麼設計、confidence 怎麼用——去讀 TypeSafe 官方的 [skill](https://github.com/typesafe-ai/skills)，那裡寫得很完整，這裡不重複。

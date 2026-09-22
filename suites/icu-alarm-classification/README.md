@@ -30,7 +30,7 @@
 |---|---|
 | 準確率 | 63.3%（19/30） |
 | 敏感度（真警報抓到的比例） | **33.3%**（5/15） |
-| 特異度（假警報正確放行的比例） | 93.3%（14/15） |
+| 特異度（假警報被正確判為假警報、可以不響的比例） | 93.3%（14/15） |
 | Challenge 官方評分（`(TP+TN)/(TP+TN+FP+5·FN)`，漏放真警報罰 5 倍） | **0.271** |
 
 跟 `NeillWhite/icu-false-alarm-reduction` 已發表的分數對照（**引用他已發表的數字，我們沒有驗證過他的結果**）：
@@ -102,7 +102,7 @@ Real log in `runs/2026-09-19.json` (30 real API calls, 28,030 input tokens total
 |---|---|
 | Accuracy | 63.3% (19/30) |
 | Sensitivity (true alarms caught) | **33.3%** (5/15) |
-| Specificity (false alarms correctly let through) | 93.3% (14/15) |
+| Specificity (false alarms correctly identified as false, safe to silence) | 93.3% (14/15) |
 | Challenge's official score (`(TP+TN)/(TP+TN+FP+5·FN)`, a suppressed true alarm costs 5x) | **0.271** |
 
 Compared against `NeillWhite/icu-false-alarm-reduction`'s published numbers (**citing their published figures, we did not verify their results ourselves**):

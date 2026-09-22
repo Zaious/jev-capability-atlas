@@ -49,6 +49,35 @@ In other words, what's strong here isn't the model's own browsing savvy — it's
 
 ---
 
+## Jev, BERT, Laya: what actually differs
+
+These three get compared a lot, but they are three different kinds of thing. **BERT is a component you train yourself; Jev is a decision service you can ask directly; Laya is an open model that gives BERT Jev's question format while keeping BERT-level comprehension.**
+
+### Technical
+
+| | BERT (as a classifier) | Laya | Jev |
+|---|---|---|---|
+| What it is | Pretrained encoder (2018; original 110M / 340M parameters) | BERT-style encoder plus a decision head: ModernBERT-large (421M total) in English, mmBERT-base (322M total) multilingual | A pretrained language model post-trained with RLCD; parameter count and architecture not published 📖 |
+| Where the question is defined | Fixed into the output layer at training time; a new label set means retraining | Given as text at request time (instructions + criteria), same format as Jev | Given as text at request time 📖 |
+| How the state is read | One passage at a time, 512 tokens max in the original | **One sequence per question**, "question + options + state", 512 tokens (English) or 1,024 (multilingual); the state's tail is cut beyond that — at least 6 cases were truncated for the English checkpoint in our run 🔬 | The state is read once and shared by all questions; state plus the longest question can reach 32k tokens 📖 |
+| How options are read | Options are just output-layer class indices; the model never reads their text | Option text sits in the same sequence, but all options share 192–256 tokens, so with many options each is cut to a few tokens (it self-reports 0.425 on 77-way Banking77) | Options are read together: an outside experiment found adding an irrelevant option shifts the ratios between the others 📚; 0.87 on 72-way Banking77 📚 |
+| Probabilities | Softmax output, usually trained with cross-entropy; calibration is yours to check | Calibration trained with reinforcement learning, but by its own account it ships over-confident and needs a temperature refit | Calibration is the training objective (RLCD) 📖; we measured ECE 0.041 🔬 |
+| Can you train it | You must (labelled data required) | Fine-tunable | No — every account shares the same weights; you steer it only through state, instructions and criteria 📖 |
+| Deployment and cost | Self-hosted | Self-hosted, Apache 2.0, no per-call cost | API only: $0.042 per million input tokens, output free 📖; data leaves your environment |
+| Languages | Depends on the base | The multilingual checkpoint claims 100+ languages, but scores 0.61 on Traditional-Chinese intent 🔬 | Officially best in English, weaker in CJK 📖; we measured 0.93 on Traditional-Chinese intent 🔬 |
+
+What Jev looks like inside isn't published. One black-box study with a couple of thousand API calls ([Jev's Architecture Unmasked](https://archerhume.com/posts/jevs-architecture-unmasked)) 📚 finds behavioral evidence that the state is encoded once, questions can't see each other, and a question's options are read jointly; "a causal transformer, possibly MoE, around 10B active parameters" is inference, and the author flags it as the least certain part.
+
+### Application
+
+💭 The dividing line isn't "which is more accurate" — it's **whether you have training data and whether your questions keep changing**:
+
+- **Use BERT (or any small classifier you train)**: the task and labels are fixed, you have thousands of labelled examples, volume is high enough that per-call cost matters, and data can't leave your environment.
+- **Use Laya**: the same conditions as BERT, but you want to keep Jev's question format (several questions per call, options written as text), or you want to label with Jev first and distil into a self-hosted model. Fine-tuned, it can catch Jev on its own distribution, but you'll need to recalibrate its confidences yourself.
+- **Use Jev**: the task is new, unlabelled, the questions change often, the state is long, you need trustworthy probabilities to route on, and data can go to an external API.
+
+A common combination: launch on Jev, accumulate labels, and once the workflow is fixed and volume is large enough, distil into a small self-hosted model — TypeSafe's own cookbook shows training a downstream classical model on Jev's probabilities 📖. The Laya head-to-head is in [`suites/laya-head-to-head/`](suites/laya-head-to-head/); a dozen-plus other open variants, compatible servers and extension libraries are sorted in [`jev-variants.en.md`](jev-variants.en.md).
+
 ## The core finding: one axis
 
 Across our own tests (real API calls, not estimates) and every third-party benchmark we've read, one axis keeps explaining the results:
@@ -92,6 +121,7 @@ README.md / README.en.md   this page, bilingual (mechanism explained here, not a
 AGENTS.md                  scanning checklist for agents
 capability-map.md / .en.md the axis, kept up to date
 browser-automation.md / .en.md  implementation guide for browser automation (architecture, typing problem, real implementations)
+jev-variants.md / .en.md   open Jev variants, compatible servers and extension libraries (with verification status)
 CONTRIBUTING.md            contribution rules
 skill/jev-fit-check/       AGENTS.md packaged as a Claude Skill
 suites/                    each real test (methodology + protocol + raw logs + report)
