@@ -64,6 +64,19 @@ These aren't replacements — they **still call Jev**, composing its yes/no and 
 
 Hundreds of other applications are in awesome-jev; the integrations this repo has checked are in [`capability-map.en.md`](capability-map.en.md).
 
+## Variants that read images directly
+
+Jev itself currently accepts text only — no images, audio or video (the docs say "not supported (yet)") 📖. These variants claim to take pixels directly; all are self-reported and untested by us:
+
+| Name | Approach | Scope | Tag |
+|---|---|---|---|
+| [PlayJev](https://github.com/OmniJev/PlayJev) | Qwen3.5-0.8B-Base fine-tuned into a vision-language model: one 448px game frame in, a probability over that game's available moves out, with low-confidence steps handed to a search program; Apache 2.0 | Specialist: only the ten browser games it was trained on (2.2M frames) | 📚 |
+| [decider-2b-vision](https://huggingface.co/Mapika/decider-2b-vision) | The vision-language variant of decider: an image plus the same question format, answered directly; there's an in-browser demo built by the Hugging Face team | General question format, but the author notes it's still on the older v5 weights and being retrained | 📚 |
+| [LitJev](https://github.com/zhengxuyu/litjev) | No training; reads a Qwen model's output probabilities, so a vision Qwen checkpoint makes screenshot decisions possible | Depends on the Qwen model you plug in | 📚 |
+| [jevlike](https://github.com/vinnylarouge/jevlike) | Training library for small option scorers; the same scoring head can take image patches as input (with a Doom demo video) | A research starting point | 📚 |
+
+The more common, and steadier, approach isn't having a model look at the image at all — it's **turning the scene into text or structured data first, then handing that to Jev**: [jev-drone](https://github.com/RomanSlack/jev-drone) turns the onboard camera feed into a symbolic depth-plus-segmentation scene, and its README says outright "Jev is not a vision model"; [GUI JEV](https://github.com/ZihuaEvan/GUI_JEV) has a separate vision model describe each tile of a screenshot, with Jev only choosing among the descriptions; [jev-canvas](https://github.com/gaborishka/jev-canvas) tracks a finger with MediaPipe and transcribes speech before asking Jev. It's the same idea as [`browser-automation.en.md`](browser-automation.en.md) reading the DOM instead of a screenshot; the decision rule is in the "candidate signal isn't text" section of [`AGENTS.en.md`](AGENTS.en.md).
+
 ## Datasets used to evaluate this family
 
 - [LocalLLaMA/typed-decisions](https://huggingface.co/datasets/LocalLLaMA/typed-decisions): four workflows, a 400-case test split; our Laya head-to-head uses it. Gold comes from an undisclosed teacher model, so it measures agreement, not correctness.

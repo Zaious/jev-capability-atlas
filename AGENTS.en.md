@@ -30,6 +30,18 @@ Yes → a candidate. No (needs an external knowledge base, needs comparison agai
 
 **Only when no existing system has ever computed that signal at all** (a camera judging whether real-world fruit is ripe, whether a wall has a structural crack) does a separate perception/conversion model become genuinely necessary — there, it's a required step, not a shortcut for insufficient logging. Work out which case your candidate is before deciding whether to wire one in.
 
+Real examples almost all convert to text first and then hand it to Jev: [jev-drone](https://github.com/RomanSlack/jev-drone) turns the onboard camera feed into a symbolic depth-plus-segmentation scene before Jev judges it; [GUI JEV](https://github.com/ZihuaEvan/GUI_JEV) has a separate vision model describe each tile of a screenshot, and Jev only chooses among the descriptions; [jev-canvas](https://github.com/gaborishka/jev-canvas) tracks a finger with MediaPipe and transcribes speech before asking Jev anything. Jev itself currently accepts text only 📖. There are Jev-shaped open variants that read pixels directly, but so far they're specialists or unverified — see [`jev-variants.en.md`](jev-variants.en.md#variants-that-read-images-directly).
+
+### Official hard limits: know these before you scan
+
+From [TypeSafe's Models page](https://docs.typesafe.ai/models) 📖 — check each candidate against these first; some drop out right here:
+
+- **Text only**: the state must be a string, a JSON object, or an array of text values. No images, audio or video.
+- **Length**: 64k tokens per request; the state plus the single longest question can be at most 32k tokens. Beyond that, chunk or summarize first — it isn't a candidate as-is.
+- **No fine-tuning**: every account shares the same weights; you steer it only through state, instructions and criteria. "Just train it on our data" isn't an option; if you need fine-tuning, see the open variants in [`jev-variants.en.md`](jev-variants.en.md).
+- **Languages**: English is best; other languages (including CJK) are officially less accurate, so validate on your own data. We measured 0.93 on Traditional-Chinese intent classification 🔬 ([`suites/laya-head-to-head/`](suites/laya-head-to-head/)), but that's one task, not yours.
+- **Price and rate limits**: $0.042 per million input tokens, output free; rate limits are officially described as adjusting dynamically.
+
 ### What to grep for, ranked by signal strength
 
 1. **An existing LLM call whose prompt asks for classification/rating/yes-no, and whose response is parsed down to a single label** — look for prompts with "classify," "categorize," "rate 1-10," "which of the following," followed by regex extraction or `if response ==` parsing where the free text itself is never used. Strongest signal: you're paying for a whole model's output and keeping only one narrow value.
@@ -51,9 +63,9 @@ Yes → a candidate. No (needs an external knowledge base, needs comparison agai
 Once you've found a candidate, don't act on the checklist alone — verify:
 
 1. Pull 10–20 **real** historical inputs/outputs from the existing system (not invented ones).
-2. Write a minimal Choice/Score call and actually hit the live API against that real data (needs `TYPESAFE_API_KEY`; see the template in [`scripts/common/`](scripts/common/)).
-3. Compare side by side against the existing approach (regex/old classifier/old LLM call) — look at the disagreement rate and confidence distribution, not one nice-looking example.
-4. Only integrate once real data supports it, and **layer it as a second opinion first, not a replacement** — same as our own pilots: run it for a while before promoting it.
+2. Write a minimal Choice/Score call and actually hit the live API against that real data (needs `TYPESAFE_API_KEY`; see the template in [`scripts/common/`](scripts/common/)). **Print the states you're about to send and proofread them, and store the exact state sent with each result** — Jev won't tell you the input is broken: we misspelled one character in a correct option of our own history question and it picked a wrong answer at 0.90 confidence ([`suites/history-recall-context/`](suites/history-recall-context/)). If the state is assembled from OCR, scraping or user input, upstream cleaning is part of this step too.
+3. Compare side by side against the existing approach (regex/old classifier/old LLM call) — look at the disagreement rate and confidence distribution, not one nice-looking example. If you compare latency, exclude the first call: connection setup makes it 2–3× slower ([`suites/jev-latency-distribution/`](suites/jev-latency-distribution/)).
+4. Only integrate once real data supports it, and **layer it as a second opinion first, not a replacement** — same as our own pilots: run it for a while before promoting it. On a latency-sensitive path, fire one warm-up call after the service starts.
 5. Contribute the result — good or bad — back to [`suites/`](suites/). This is the entire reason this repo exists.
 
 **If the candidate is browser automation** (clicking, filling forms, navigating), don't design the architecture from scratch — read [`browser-automation.en.md`](browser-automation.en.md): the reference architecture three real open-source implementations converged on (one call, three questions), how the typing problem gets solved, and a checklist for before you touch your own system.
@@ -87,10 +99,11 @@ Every `run.py` makes real API calls and saves the responses to `suites/<slug>/ru
 ### Adding a new suite
 
 1. `cp -r suites/TEMPLATE suites/<your-slug>`
-2. Write `data/cases.json` + `run.py` following an existing suite (e.g. `suites/history-recall-context/`) as a template — import `scripts/common/jev_client.py` rather than reimplementing access logic.
+2. Write `data/cases.json` + `run.py` following an existing suite (e.g. `suites/history-recall-context/`) as a template — import `scripts/common/jev_client.py` rather than reimplementing access logic; `run.py` should support `--dry-run` to print the states it would send, and the receipt should store each sent state — the history suite's typos slipped through because neither was done.
 3. Actually run it, producing `runs/<date>.json`.
 4. Fill in `README.md` (mirroring `suites/TEMPLATE/README.md`'s sections) and `protocol.yaml`.
-5. **Before reporting, self-check against the PR checklist in `CONTRIBUTING.md`** — especially "every number traces to a real log" and "every finding is tagged 🔬/📚/📖/💭."
+5. If the README reports aggregate numbers (accuracy, sensitivity and the like), add a script that recomputes them from the receipts, with `--check` exiting 1 on a mismatch (as in [`suites/icu-alarm-classification/metrics.py`](suites/icu-alarm-classification/metrics.py)) — so the prose and the receipts can't quietly drift apart.
+6. **Before reporting, self-check against the PR checklist in `CONTRIBUTING.md`** — especially "every number traces to a real log" and "every finding is tagged 🔬/📚/📖/💭."
 
 ### Reporting results — a concrete protocol (the important part; don't just say "I ran it, looks good")
 

@@ -64,6 +64,19 @@ Jev 發布後兩週內，冒出一整批「長得像 Jev」的東西：開源權
 
 其他數百個應用見 awesome-jev；本 repo 查證過的整合案例見 [`capability-map.md`](capability-map.md)。
 
+## 能直接看圖的變體
+
+Jev 官方目前只收文字，圖片、聲音、影片都不收（官方寫的是「not supported (yet)」）📖。宣稱能直接吃像素的變體目前有這幾個，全部是作者自述，我們沒有測過：
+
+| 名稱 | 做法 | 範圍 | 標記 |
+|---|---|---|---|
+| [PlayJev](https://github.com/OmniJev/PlayJev) | Qwen3.5-0.8B-Base 微調成視覺語言模型，一次讀一張 448px 的遊戲畫面，輸出這款遊戲可用動作的機率，低信心的步驟交給搜尋程式；Apache 2.0 | 專用：只在它訓練過的十款瀏覽器遊戲上（220 萬張畫面）| 📚 |
+| [decider-2b-vision](https://huggingface.co/Mapika/decider-2b-vision) | decider 的視覺語言版，一張圖加上同樣的題目格式直接做判斷；有 Hugging Face 團隊做的線上試用頁 | 通用題目格式，但作者寫明它還停在舊的 v5 權重、正在重新訓練 | 📚 |
+| [LitJev](https://github.com/zhengxuyu/litjev) | 不訓練，讀 Qwen 模型的輸出機率；接上 vision 版的 Qwen 就能對截圖做判斷 | 取決於你接的 Qwen 模型 | 📚 |
+| [jevlike](https://github.com/vinnylarouge/jevlike) | 小型選項評分頭的訓練函式庫；同一個評分頭也能拿圖塊當輸入（附 Doom 操作的示範影片）| 研究用的起點 | 📚 |
+
+更常見、也更穩的做法其實不是讓模型看圖，而是**先把畫面轉成文字或結構化資料，再交給 Jev**：[jev-drone](https://github.com/RomanSlack/jev-drone) 把機上相機畫面算成深度加分割的符號場景，README 直接寫「Jev is not a vision model」；[GUI JEV](https://github.com/ZihuaEvan/GUI_JEV) 讓另一個視覺模型先描述截圖的每個格子，Jev 只在描述之間選；[jev-canvas](https://github.com/gaborishka/jev-canvas) 用 MediaPipe 追蹤手指、語音轉成文字後才問 Jev。這跟 [`browser-automation.md`](browser-automation.md) 選讀 DOM、不用截圖是同一個思路，判斷準則見 [`AGENTS.md`](AGENTS.md) 的「候選訊號本來就不是文字」那節。
+
 ## 評這個家族用的資料集
 
 - [LocalLLaMA/typed-decisions](https://huggingface.co/datasets/LocalLLaMA/typed-decisions)：四個工作流程、400 案測試集，我們的 Laya 對照用它。標準答案出自一個未公開的出題老師模型，衡量的是一致程度不是對錯。

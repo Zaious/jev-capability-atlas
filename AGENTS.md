@@ -30,6 +30,18 @@
 
 **只有真的從來沒有任何既有系統計算過那個訊號**（例如相機對著真實世界判斷水果熟不熟、判斷一道牆有沒有結構性裂縫），才真的需要另外接一個感知/轉換模型——這種情況下感知模型是必要步驟，不是圖方便的補丁；先分清楚你的候選屬於哪一種，再決定要不要動手接。
 
+真實例子幾乎都是「先轉成文字再交給 Jev」：[jev-drone](https://github.com/RomanSlack/jev-drone) 把機上相機畫面先算成深度加分割的符號場景，再讓 Jev 判斷；[GUI JEV](https://github.com/ZihuaEvan/GUI_JEV) 讓另一個視覺模型先描述截圖的每個格子，Jev 只在描述之間選；[jev-canvas](https://github.com/gaborishka/jev-canvas) 用 MediaPipe 追蹤手指、語音轉成文字後才問 Jev。Jev 官方目前只收文字 📖。也有直接吃像素、長得像 Jev 的開源變體，但目前都是專用或未經驗證，見 [`jev-variants.md`](jev-variants.md#能直接看圖的變體)。
+
+### 官方硬限制：掃之前先知道
+
+出自 [TypeSafe 官方 Models 頁](https://docs.typesafe.ai/models) 📖，掃到候選時先對一次，有些候選在這一步就出局：
+
+- **只收文字**：state 必須是字串、JSON 物件或文字陣列，不收圖片、聲音、影片。
+- **長度**：每次請求 64k tokens；state 加上最長的那一題最多 32k tokens。超過就要先切分或摘要，不能直接當候選。
+- **不能微調**：所有帳號共用同一組權重，只能靠 state、instructions、criteria 調整。「拿我們的資料訓練一下就好」這條路不存在；需要微調的話，看 [`jev-variants.md`](jev-variants.md) 的開源變體。
+- **語言**：英文最好，其他語言（含中日韓）官方說準確率較低，要用你自己的資料驗證。我們測的繁中意圖分類是 0.93 🔬（[`suites/laya-head-to-head/`](suites/laya-head-to-head/)），但那是單一任務，不代表你的任務。
+- **價格與速率**：每百萬 input tokens 0.042 美元、output 不收費；速率上限官方註明會動態調整。
+
 ### 掃描清單：找什麼樣的程式碼
 
 依訊號強度排序，`grep` 得到的具體模式：
@@ -53,9 +65,9 @@
 找到候選後，不要憑判準直接動手改，先驗證：
 
 1. 從現有系統挑 10–20 筆**真實**歷史輸入/輸出（不是編的）。
-2. 寫一個最小的 Choice/Score 呼叫，對這批真實資料**真的打 API**（需要 `TYPESAFE_API_KEY`，見 [`scripts/common/`](scripts/common/) 的樣板）。
-3. 跟現有方案（regex/舊分類器/舊 LLM 呼叫）的結果並排比較，看分歧率跟信心分布——不是看單一好看的案例。
-4. 只有在真實數據支持時才動手整合，而且**先當第二意見疊加，不要直接取代**——跟我們的 pilot 一樣，先跑幾輪確認再考慮扶正。
+2. 寫一個最小的 Choice/Score 呼叫，對這批真實資料**真的打 API**（需要 `TYPESAFE_API_KEY`，見 [`scripts/common/`](scripts/common/) 的樣板）。**送出前先把要送的 state 印出來校一次，並把實際送出的 state 存進結果**——Jev 不會提醒你輸入有錯：我們自己的歷史題把正確選項打錯一個字，它以 0.90 的信心選了錯的答案（[`suites/history-recall-context/`](suites/history-recall-context/)）。state 如果是從 OCR、爬蟲或使用者輸入組出來的，上游的清洗也是這一步的一部分。
+3. 跟現有方案（regex/舊分類器/舊 LLM 呼叫）的結果並排比較，看分歧率跟信心分布——不是看單一好看的案例。要比延遲的話，第一次呼叫要排除：建立連線會讓它慢 2–3 倍（[`suites/jev-latency-distribution/`](suites/jev-latency-distribution/)）。
+4. 只有在真實數據支持時才動手整合，而且**先當第二意見疊加，不要直接取代**——跟我們的 pilot 一樣，先跑幾輪確認再考慮扶正。放進延遲敏感的路徑時，服務啟動後先打一次暖機呼叫。
 5. 把結果（不管好壞）貢獻回 [`suites/`](suites/)——這正是這個 repo 存在的理由。
 
 **如果候選是瀏覽器自動化**（點擊、填表、導覽這類操作型任務），別從零設計架構——讀 [`browser-automation.md`](browser-automation.md)：三個真實開源實作收斂出的參考架構（一次呼叫問三題）、打字問題怎麼解、以及接自己系統前的檢查清單。
@@ -89,10 +101,11 @@ python suites/<slug>/run.py
 ### 新增一組測試
 
 1. `cp -r suites/TEMPLATE suites/<你的 slug>`
-2. 照現有 suite（例如 `suites/history-recall-context/`）的樣板寫 `data/cases.json` + `run.py`（import `scripts/common/jev_client.py`，不要重寫存取邏輯）
+2. 照現有 suite（例如 `suites/history-recall-context/`）的樣板寫 `data/cases.json` + `run.py`（import `scripts/common/jev_client.py`，不要重寫存取邏輯）；`run.py` 要能用 `--dry-run` 只印出將送出的 state，收據裡也逐題存下實際送出的 state——歷史題的錯字就是因為這兩件事都沒做才漏掉的
 3. 真的執行，產出 `runs/<日期>.json`
 4. 填 `README.md`（對照 `suites/TEMPLATE/README.md` 的區塊）跟 `protocol.yaml`
-5. **回報結果前，對照 `CONTRIBUTING.md` 的 PR checklist 自己先檢查一次**——尤其是「每個數字都對應一筆真實 log」跟「標了 🔬/📚/📖/💭 之一」這兩條
+5. README 裡有彙總數字（準確率、敏感度這類）的話，附一支從收據重算的腳本，加 `--check` 在數字對不上時 exit 1（照 [`suites/icu-alarm-classification/metrics.py`](suites/icu-alarm-classification/metrics.py)）——文字跟收據才不會悄悄分岔。
+6. **回報結果前，對照 `CONTRIBUTING.md` 的 PR checklist 自己先檢查一次**——尤其是「每個數字都對應一筆真實 log」跟「標了 🔬/📚/📖/💭 之一」這兩條
 
 ### 回報結果——具體協定（這是重點，不要只說「我跑了，結果不錯」）
 
