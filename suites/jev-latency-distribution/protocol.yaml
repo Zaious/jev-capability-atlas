@@ -5,7 +5,9 @@ model: jev-latest
 question_type: noul
 sample_size: 30
 annotators: 1              # single annotator wrote the 30 items; this suite does not score correctness
-run_date: "2026-09-19"
+run_date: "2026-09-22"      # receipt of record; runs/2026-09-19.json predates warm-up exclusion
+warmup_calls: 1            # timed and recorded as stats.warmup_ms, excluded from the statistics
+p95_method: "nearest rank, no interpolation"
 purpose: "cross-check the 'no long tail' latency finding in
   translations/jev-benchmark-article-huangserva-zh/ from a different
   network environment"

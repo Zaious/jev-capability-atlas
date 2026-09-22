@@ -84,7 +84,7 @@ def main():
     print()
     print(f"{'Accuracy':<44} {accuracy[0]}/{accuracy[1]} = {accuracy[0]/accuracy[1]:.1%}")
     print(f"{'Sensitivity (true alarms caught)':<44} {sensitivity[0]}/{sensitivity[1]} = {sensitivity[0]/sensitivity[1]:.1%}")
-    print(f"{'Specificity (false alarms let through)':<44} {specificity[0]}/{specificity[1]} = {specificity[0]/specificity[1]:.1%}")
+    print(f"{'Specificity (false alarms identified as false)':<44} {specificity[0]}/{specificity[1]} = {specificity[0]/specificity[1]:.1%}")
     print(f"{'Official score (FN penalised 5x)':<44} {score:.3f}")
     print()
     print("sensitivity by alarm type:")

@@ -1,0 +1,286 @@
+{
+  "suite": "jev-latency-distribution",
+  "model": "jev-latest",
+  "stats": {
+    "n": 30,
+    "min_ms": 208.2,
+    "median_ms": 247.0,
+    "p95_ms": 280.8,
+    "max_ms": 313.5,
+    "p95_method": "nearest rank, no interpolation (index 28 of 30 sorted samples)",
+    "warmup_ms": 699.3,
+    "warmup_excluded": true
+  },
+  "results": [
+    {
+      "id": "01",
+      "elapsed_ms": 230.9,
+      "noul": 0.9,
+      "usage": {
+        "input_tokens": 304,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "02",
+      "elapsed_ms": 313.5,
+      "noul": 0.01,
+      "usage": {
+        "input_tokens": 305,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "03",
+      "elapsed_ms": 258.6,
+      "noul": 0.01,
+      "usage": {
+        "input_tokens": 310,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "04",
+      "elapsed_ms": 222.9,
+      "noul": 0.01,
+      "usage": {
+        "input_tokens": 301,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "05",
+      "elapsed_ms": 226.1,
+      "noul": 0.96,
+      "usage": {
+        "input_tokens": 305,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "06",
+      "elapsed_ms": 255.4,
+      "noul": 0.01,
+      "usage": {
+        "input_tokens": 307,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "07",
+      "elapsed_ms": 245.0,
+      "noul": 0.22,
+      "usage": {
+        "input_tokens": 302,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "08",
+      "elapsed_ms": 223.8,
+      "noul": 0.01,
+      "usage": {
+        "input_tokens": 302,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "09",
+      "elapsed_ms": 218.2,
+      "noul": 0.98,
+      "usage": {
+        "input_tokens": 306,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "10",
+      "elapsed_ms": 235.7,
+      "noul": 0.02,
+      "usage": {
+        "input_tokens": 302,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "11",
+      "elapsed_ms": 257.9,
+      "noul": 0.98,
+      "usage": {
+        "input_tokens": 304,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "12",
+      "elapsed_ms": 243.3,
+      "noul": 0.01,
+      "usage": {
+        "input_tokens": 304,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "13",
+      "elapsed_ms": 255.1,
+      "noul": 0.01,
+      "usage": {
+        "input_tokens": 305,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "14",
+      "elapsed_ms": 280.8,
+      "noul": 0.98,
+      "usage": {
+        "input_tokens": 305,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "15",
+      "elapsed_ms": 251.9,
+      "noul": 0.01,
+      "usage": {
+        "input_tokens": 298,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "16",
+      "elapsed_ms": 213.9,
+      "noul": 0.98,
+      "usage": {
+        "input_tokens": 303,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "17",
+      "elapsed_ms": 261.6,
+      "noul": 0.01,
+      "usage": {
+        "input_tokens": 301,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "18",
+      "elapsed_ms": 271.8,
+      "noul": 0.76,
+      "usage": {
+        "input_tokens": 301,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "19",
+      "elapsed_ms": 277.9,
+      "noul": 0.01,
+      "usage": {
+        "input_tokens": 301,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "20",
+      "elapsed_ms": 277.4,
+      "noul": 0.98,
+      "usage": {
+        "input_tokens": 310,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "21",
+      "elapsed_ms": 259.5,
+      "noul": 0.02,
+      "usage": {
+        "input_tokens": 298,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "22",
+      "elapsed_ms": 211.7,
+      "noul": 0.97,
+      "usage": {
+        "input_tokens": 304,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "23",
+      "elapsed_ms": 249.0,
+      "noul": 0.01,
+      "usage": {
+        "input_tokens": 302,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "24",
+      "elapsed_ms": 216.7,
+      "noul": 0.97,
+      "usage": {
+        "input_tokens": 303,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "25",
+      "elapsed_ms": 218.5,
+      "noul": 0.01,
+      "usage": {
+        "input_tokens": 307,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "26",
+      "elapsed_ms": 229.9,
+      "noul": 0.97,
+      "usage": {
+        "input_tokens": 307,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "27",
+      "elapsed_ms": 257.1,
+      "noul": 0.02,
+      "usage": {
+        "input_tokens": 306,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "28",
+      "elapsed_ms": 254.0,
+      "noul": 0.97,
+      "usage": {
+        "input_tokens": 305,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "29",
+      "elapsed_ms": 241.0,
+      "noul": 0.03,
+      "usage": {
+        "input_tokens": 303,
+        "output_tokens": 22
+      }
+    },
+    {
+      "id": "30",
+      "elapsed_ms": 208.2,
+      "noul": 0.97,
+      "usage": {
+        "input_tokens": 306,
+        "output_tokens": 22
+      }
+    }
+  ]
+}
