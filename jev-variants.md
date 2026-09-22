@@ -35,6 +35,7 @@ Jev 發布後兩週內，冒出一整批「長得像 Jev」的東西：開源權
 |---|---|---|---|---|
 | [decider](https://github.com/Mapika/decider) | Qwen3.5 的 0.8B／2B／35B-A3B 微調；最多 255 個選項、32k tokens；Apache 2.0 | 可以：官方 SDK 把 `TYPESAFE_BASE_URL` 指到它的伺服器即可 | [JevBench](https://benchmarkheaven.com/jev-models) 公開題（易／中／難）：Jev 1.000／0.986／0.730，decider-2b v10 1.000／0.972／0.676；另一套 Bespoke 公開題 decider 小幅領先（0.774 對 0.760）。**這是清單裡唯一自述在某套公開題上贏過 Jev 的通用模型**，我們沒有驗證 | 📚 |
 | [kev](https://github.com/jaredpalmer/kev) | Qwen3.5 的 0.8B／4B／9B 加 adapter，依外部推測的 Jev 架構設計，可在 MacBook 上訓練；Apache 2.0 | 可以：本地 `/v1/systemone` | 在沒訓練過的資料上，Kev-9B 比 Jev 低 3.5 點（0.822 對 0.857，開發集）；作者明說不知道 Jev 用什麼資料訓練，不是對照實驗 | 📚 |
+| [AgentJev-0.6B](https://github.com/malevrigns/agent-jev) | Qwen3-0.6B 拿掉生成文字的輸出層，換成逐一評分候選項的輸出層（選項順序不影響結果）；在 typed-decisions 訓練集上微調，屬於專用；上下文 2,048 tokens，超過就報錯、不會靜默截斷；同一題的選項共用 state 的計算；GitHub 標 Apache 2.0 | 不行：自有 HTTP 端點 `POST /api/evaluate`，是非題叫 Boolean 不叫 Noul | typed-decisions 測試集 79.25%；**在同一批題目上自己重跑的** Laya 專用版 77.00%（差距 +2.25，95% 信賴區間 +0.65 至 +3.90）。表上 Jev 的 72.7% 抄自資料集說明頁，不是它自己量的（我們實測 Jev 73.6%）。校準誤差 0.169（10 區間），約是我們量到的 Jev 0.041 的四倍。作者明寫「不能推廣為全面超過 Jev」；沒有任何沒看過題目的成績 | 📚 |
 | [NanoJev](https://github.com/TianyuCodings/NanoJev) | Qwen3-0.6B 加決策輸出層，用 ViZDoom、迷宮、貪食蛇等遊戲資料訓練；MIT，附訓練流程、權重與資料集 | 否 | 遊戲任務上贏 Jev——但它就是在這些遊戲上訓練的，屬於專用 | 📚 |
 | [Qwen2.5-1B-RLCD](https://huggingface.co/spaces/drinkmoonshine/parallel-constrained-decoding) | 用 RLCD 訓練的 Qwen2.5-1B 展示頁 | 否 | 沒有比 | 📚 |
 
@@ -89,4 +90,4 @@ Jev 官方目前只收文字，圖片、聲音、影片都不收（官方寫的�
 
 歡迎用 [`suites/laya-head-to-head/`](suites/laya-head-to-head/) 的格式補上其他變體的同輸入對照：`common.py` 和 `score.py` 已經處理好資料集與評分，加一方通常只要寫一支 `run_<模型>.py`。
 
-**名單整理日期：2026-09-22。** 這個領域每天在變，星數與版本以各 repo 當下為準。
+**名單整理日期：2026-09-22（2026-09-23 補 AgentJev-0.6B）。** 這個領域每天在變，星數與版本以各 repo 當下為準。
