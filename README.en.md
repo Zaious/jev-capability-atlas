@@ -34,6 +34,15 @@ The honest caveat: calibration is a **population-level** property, not a guarant
 
 **So what is it**: a model trained for genuine language understanding, deliberately constrained to typed answers only, with a training objective aimed at making its probability numbers trustworthy. It differs from a state machine in having real language understanding; from blind guessing in that its confidence carries empirical signal (with the caveat above); from current "reasoning models" (o1/DeepSeek-R1-class) in not doing extended, multi-step, self-conditioning derivation — TypeSafe places it in a genuinely third category. All three negations together are more honest than reaching for any single label.
 
+### "System One" is not a metaphor; it is the design goal
+
+Take the name literally: the SDK method is `client.system_one(...)`, and the family is called System One models 📖. In Kahneman's split, System 1 is fast, automatic and does not explain itself; System 2 is slow, deliberate and works things out. So the line above — that it should be used as a component embedded in your own code — **is not a conclusion we derived, it is the vendor's own positioning**; and "let the slow model think and the fast one act" is nobody's invention, it is the reason this model exists.
+
+💭 Two practical consequences for anyone reading this map:
+
+1. **An architecture where a large model plans and Jev picks the actions is not a discovery** — it is the default. What's worth recording is **where the line falls, and the third layer**. Every implementation that actually runs has three: planning (a large model sets the objective), decision (Jev picks one per step) and **deterministic execution** (pathfinding, protocol, arithmetic, rule checks — not a model at all). That third layer is usually left out of the telling entirely, yet without it the first two layers' output never reaches a real system. Worked examples: the Minecraft section of [`analysis/jev-games-tcg.md`](analysis/jev-games-tcg.md) (35 planning calls, 131 decisions, execution handed to Mineflayer) and [`browser-automation.en.md`](browser-automation.en.md).
+2. **What *is* non-obvious is inverting the default**: PlayJev hands its least confident steps **up** to System Two; wakegate spends one cheap judgment **before** waking the agent at all. Those are the "you wouldn't think of that" cases — [`jev-patterns.en.md`](jev-patterns.en.md) collects that kind, not the manual.
+
 ### A worked example: why browser automation benchmarks so well
 
 Two independent third-party projects wired Jev into browser automation, with consistent results: `jev-browser` (an independent developer's MCP server, 1.5× faster and 1.6× cheaper than Playwright MCP at tied accuracy) and `jev-ultrafast` (Browser Use's own official integration, 25% faster median task time, 91% fewer browser protocol calls). 📚 Full methodology, numbers, and honest caveats for both, kept separate, are in [`capability-map.md`](capability-map.en.md) — not repeated here; this section is about the mechanism.

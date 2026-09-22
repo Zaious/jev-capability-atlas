@@ -2,7 +2,7 @@
 
 # Jev 用在策略遊戲與集換式卡牌（TCG）：現有證據與設計原則
 
-整理日期：2026-09-22
+整理日期：2026-09-22（2026-09-23 補 Minecraft 一節）
 
 ## 這篇分析在講什麼
 
@@ -15,6 +15,7 @@
 - 西洋棋：[wondertwins/jev-benchmark](https://github.com/wondertwins/jev-benchmark)
 - 撲克：[backnotprop〈Jev is the fish at the poker table〉](https://backnotprop.com/blog/jev-poker/)（2026-09-17）、[dperezcabrera/jev-poker](https://github.com/dperezcabrera/jev-poker)
 - 寶可夢紅版：[valentynkit/jev-plays-pokemon-red](https://github.com/valentynkit/jev-plays-pokemon-red)
+- Minecraft（長時程、開放世界；規劃＋決策＋執行三層）：[rmalde/minecraft-agent](https://github.com/rmalde/minecraft-agent)——**它引用的數字都不在 repo 裡，見下面那節的四點但書**
 - 其他遊戲專案（井字棋與四子棋對照、星海爭霸、Doom、2048）與直接讀遊戲畫面的變體，見 [awesome-jev](https://github.com/yibie/awesome-jev) 的 Game & Simulation 分類與 [`jev-variants.md`](../jev-variants.md)
 - 本 repo 的核心判準（答案能不能從給它的內容讀出來）見 [`README.md`](../README.md)
 
@@ -35,6 +36,31 @@ wondertwins/jev-benchmark 用 30 個中盤局面、25 題一步殺，以 Stockfi
 ### 寶可夢紅版：只在分岔點問 📚
 
 valentynkit/jev-plays-pokemon-red 把路線和所有算術交給程式，只在遊戲真的出現分岔時才問 Jev，而且只讓它在程式確認過合法的動作裡挑。每回合的「這一招會不會把對手打昏」預測拿 Brier 分數對照遊戲記憶體的實際結果——但作者刻意還沒公布校準數字，因為免費額度下最長的一段只有 5 回合。
+
+### Minecraft：第一個長時程、開放世界的案例 📚
+
+[rmalde/minecraft-agent](https://github.com/rmalde/minecraft-agent)（2026-09-20，**無授權檔**）：GPT-6 Astra 規劃、Jev（釘 `typesafe/jev-1.13`）選動作、Mineflayer 負責尋路與遊戲協定。作者自述從空手開始 8 分 43.300 秒殺龍出關，用掉 **131 次 Jev 決策與 35 次 Astra 呼叫**。
+
+**它加了什麼**：前面幾個案例都是回合制、狀態小（西洋棋、撲克、寶可夢、2048、星海）。這是第一個長時程、開放世界的案例，而它真正示範的是**三層，不是兩層**：
+
+| 層 | 誰做 | 為什麼是它 |
+|---|---|---|
+| 規劃 | Astra，35 次 | 「現在的目標是什麼」要跨幾百步，答案不在任何單一 `state` 裡 |
+| 決策 | Jev，131 次 | 「這一步從引擎列出的可用動作裡選哪個」，答案就在 `state` 裡 |
+| 執行 | Mineflayer，**不是模型** | 尋路、方塊互動、遊戲協定——把「往那邊走」變成實際動作 |
+
+💭 「大模型想、Jev 動」本身不是發現，是 System One 模型的出廠定位（見 [`README.md`](../README.md)）。值得記錄的是**分界線落在哪，以及第三層**：第三層最常在別人的敘述裡被整個略過，但沒有它，前兩層的輸出到不了遊戲裡——這跟西洋棋那條「事實交給程式先算好」是同一個位置。35 比 131 這個比例則是這個分法的價目表：貴的那顆一個目標問一次，便宜的那顆每一步問一次。
+
+**但這是一次展示，不是一份測量。四點要打折**：
+
+1. **收據刻意不在 repo 裡。** README 明講錄影與產生的證據都排除在 git 外，`.gitignore` 證實了（`runs/`、`*.jsonl`、`*.mp4`、`*.log`；`combat-lab/*` 只留 `.mjs`）。所以 8:43.300、131 次、35 次、17 項檢查全過——**沒有一項能從 repo 查證**。照 [`CONTRIBUTING.md`](../CONTRIBUTING.md#收錄準則) 第一條，這不能開 `translations/` 條目。
+2. **路線是人先跑出來、凍進設定檔的。** 這點查得到，因為 `optimization/nether/config.json` 有進 git：裡面直接寫著種子、村莊、三個補給箱、進出傳送門、Nether 兩個航點、八張床的準備位置、八段移動，而 `source` 欄位指向 speedrun.com 上的一場人類速通。**agent 不是在找路線，是在執行一條人類的路線。** README 自己也寫了路線在另一個測試世界先勘查過。
+3. **難度是 Peaceful**（README 與設定檔都是）——不生成敵對生物，等於把 Minecraft 速通最大的變數拿掉。
+4. **沒有對照組，也沒有量過 Jev 選對幾次。** 沒有「換大模型來選動作會怎樣」、沒有腳本基準線、沒有決策層級的正確率，所以回答不了「Jev 貢獻了多少」。戰鬥那些數字（每張床 11→46 傷害、七張床殺龍剩 13 血）來自 combat-lab，作者自己寫明那不算完整 Survival 跑，而且那支 probe 不呼叫任何模型。
+
+**值得照抄的是它的誠實紀律**，而且是寫在 README 裡約束後人的：不呼叫模型的測試驅動程式「絕不可以被呈現為模型控制的跑」；錄影中途改過程式要標出每個暫停、要回報死亡，「不得描述為無死亡或未中斷」。它也拿測試結果否決過一個看起來更快的動作——長距離掉進 End 傳送門會把摔落傷害帶進 End——改成短距離、逐步檢查的向下挖。
+
+**這個案例支持的說法**：在一條已知路線上、關掉敵對生物的世界裡，三層分工能一路跑完。**它不支持的說法**：Jev 會玩 Minecraft。
 
 ### 所有遊戲專案的共同做法 📚
 
@@ -67,6 +93,7 @@ valentynkit/jev-plays-pokemon-red 把路線和所有算術交給程式，只在�
 ## 限制
 
 - 全部是第三方自述，我們沒有重跑。
+- **不是每一個第三方自述都一樣可查**：西洋棋、撲克、寶可夢的數字在各自的 repo 或文章裡查得到；Minecraft 那個案例的收據被 `.gitignore` 排除，只有路線設定檔查得到。引用時要分開講。
 - 樣本都很小：撲克求解器對照只有一個翻牌、30 個局面；300 手撲克的標準誤比結果本身還大；西洋棋 30 個局面。
 - 棋類、撲克跟 TCG 不是同一種遊戲：TCG 同時有隱藏資訊、每張牌不同的規則文字、以及連鎖效果，現有證據只能類推，不能直接套用。
 
@@ -78,7 +105,7 @@ valentynkit/jev-plays-pokemon-red 把路線和所有算術交給程式，只在�
 
 # Jev for strategy games and trading card games (TCGs): evidence so far and design principles (English)
 
-Compiled 2026-09-22
+Compiled 2026-09-22 (Minecraft section added 2026-09-23)
 
 ## What this analysis says
 
@@ -91,6 +118,7 @@ We searched in English and Chinese (2026-09-22) and found no Jev + TCG project o
 - Chess: [wondertwins/jev-benchmark](https://github.com/wondertwins/jev-benchmark)
 - Poker: [backnotprop, "Jev is the fish at the poker table"](https://backnotprop.com/blog/jev-poker/) (2026-09-17), [dperezcabrera/jev-poker](https://github.com/dperezcabrera/jev-poker)
 - Pokémon Red: [valentynkit/jev-plays-pokemon-red](https://github.com/valentynkit/jev-plays-pokemon-red)
+- Minecraft (long-horizon, open world; a planning + decision + execution split): [rmalde/minecraft-agent](https://github.com/rmalde/minecraft-agent) — **none of the figures it cites are in the repo; see the four discounts in that section**
 - Other game projects (tic-tac-toe and Connect Four comparisons, StarCraft, Doom, 2048) and variants that read game frames directly: the Game & Simulation category of [awesome-jev](https://github.com/yibie/awesome-jev) and [`jev-variants.en.md`](../jev-variants.en.md)
 - This repo's core test (can the answer be read from what you give it?): [`README.en.md`](../README.en.md)
 
@@ -111,6 +139,31 @@ The "code-supplied facts" are what python-chess computes first: both sides' piec
 ### Pokémon Red: ask only at branches 📚
 
 valentynkit/jev-plays-pokemon-red gives the route and all arithmetic to code, calls Jev only where the game actually branches, and only lets it pick among actions the code has proved legal. Each battle turn's "will this faint the opponent?" prediction is scored by Brier against the game's memory — but the author deliberately hasn't published calibration yet, because the longest run on the free tier is only 5 turns.
+
+### Minecraft: the first long-horizon, open-world case 📚
+
+[rmalde/minecraft-agent](https://github.com/rmalde/minecraft-agent) (2026-09-20, **no license file**): GPT-6 Astra plans, Jev (pinned to `typesafe/jev-1.13`) picks actions, and Mineflayer handles pathfinding and the game protocol. The author reports going from an empty inventory to a dead dragon and the exit portal in 8 minutes 43.300 seconds, using **131 Jev decisions and 35 Astra calls**.
+
+**What it adds**: the earlier cases are all turn-based with small states (chess, poker, Pokémon, 2048, StarCraft). This is the first long-horizon, open-world one, and what it actually demonstrates is **three layers, not two**:
+
+| Layer | Who | Why them |
+|---|---|---|
+| Planning | Astra, 35 calls | "What's the objective now" spans hundreds of steps; the answer isn't in any single `state` |
+| Decision | Jev, 131 calls | "Which of the engine's available actions is next" — the answer is in the `state` |
+| Execution | Mineflayer, **not a model** | Pathfinding, block interaction, the game protocol — turning "go that way" into actual actions |
+
+💭 "The slow model thinks, the fast one acts" isn't a discovery — it's what a System One model is sold as (see [`README.en.md`](../README.en.md)). What's worth recording is **where the line falls, and the third layer**: that third layer is usually left out of the telling entirely, yet without it the first two layers' output never reaches the game — the same position chess's "let code compute the facts first" occupies. The 35-to-131 ratio is that split's price list: the expensive model is asked once per objective, the cheap one once per step.
+
+**But this is a demo, not a measurement. Four discounts**:
+
+1. **The receipts are deliberately not in the repo.** The README states that recordings and generated evidence stay local and out of git, and `.gitignore` confirms it (`runs/`, `*.jsonl`, `*.mp4`, `*.log`; `combat-lab/*` keeps only `.mjs`). So 8:43.300, the 131, the 35, and "all 17 run checks passed" — **not one of them can be checked from the repo**. Under [`CONTRIBUTING.md`](../CONTRIBUTING.md#inclusion-rules)'s first test, that rules out a `translations/` entry.
+2. **The route was worked out by a human and frozen into a config file.** This part is checkable, because `optimization/nether/config.json` *is* in git: it carries the seed, the village, three supply chests, both portals, two Nether waypoints, eight bed placements and eight travel legs — and its `source` field points at a human speedrun on speedrun.com. **The agent isn't finding the route; it's executing a human's route.** The README also says the route was surveyed in a separate test world.
+3. **Difficulty is Peaceful** (both the README and the config) — no hostile mobs spawn, which removes the single largest variable in a Minecraft speedrun.
+4. **No control arm, and no measurement of how often Jev picked correctly.** No "what if a large model picked the actions," no scripted baseline, no per-decision accuracy — so "how much did Jev contribute?" is unanswerable. The combat figures (11 to 46 damage per bed, seven beds and 13 health left) come from combat-lab, which the author states does not qualify as a full Survival run, on a probe that calls no model at all.
+
+**What is worth copying is its honesty discipline**, written into the README to bind whoever comes next: a test driver that calls no model "must never be presented as a model-controlled run"; a recording interrupted for a code change must mark every pause and report deaths, and "do not describe such a recording as a deathless or uninterrupted run." It also used a test result to reject a faster-looking action — a long fall into the End portal carries fall damage into the End — in favour of short, checked downward mining steps.
+
+**What this case supports**: on a known route, in a world with hostile mobs turned off, a three-layer split can run the whole way through. **What it does not support**: that Jev can play Minecraft.
 
 ### What every game project does 📚
 
@@ -143,6 +196,7 @@ Those need search in code, or low-confidence decisions escalated to a large mode
 ## Limitations
 
 - All of it is self-reported by third parties; we haven't re-run any of it.
+- **Not all self-reports are equally checkable**: the chess, poker and Pokémon figures can be found in their own repos or posts; the Minecraft case's receipts are excluded by `.gitignore`, leaving only its route config. Cite them separately.
 - Every sample is small: the solver comparison is one flop and 30 spots; the 300-hand poker test has a standard error larger than the result; chess is 30 positions.
 - Chess and poker aren't TCGs: a TCG combines hidden information, per-card rules text and chained effects, so the existing evidence can only be carried over by analogy, not applied directly.
 
