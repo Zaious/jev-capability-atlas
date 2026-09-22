@@ -1,15 +1,22 @@
 {
- "run_file": "2026-09-23.json",
+ "run_files": [
+  "2026-09-23-listener-state.json",
+  "2026-09-23.json"
+ ],
  "run_date": "2026-09-23",
  "model_answered": "jev-1.13.0",
  "errors": 0,
- "warmup_ms_excluded": 845.8,
+ "eligible_listening_items": 175,
  "baselines": {
   "dialogues_ge_min_turns": 192,
   "listening_pairs": 1597,
   "listening_majority_class": 0.4803,
   "listening_majority_label": "neutral",
   "listening_mirror_baseline": 0.3626,
+  "listening_eligible_pairs": 1228,
+  "listening_eligible_majority": 0.4739,
+  "listening_eligible_mirror": 0.3493,
+  "listening_persistence_baseline": 0.4145,
   "gold_same_speaker_switch_rate": 0.535,
   "gold_switch_opportunities": 1759,
   "sample_gold_switch_rate": 0.5092,
@@ -33,7 +40,26 @@
     "p95": 331.3
    },
    "mirror_baseline_on_sample": 0.4236,
-   "matched_speaker_emotion": 0.5357
+   "matched_speaker_emotion": 0.5357,
+   "on_eligible_subset": {
+    "items": 175,
+    "calls": 525,
+    "accuracy": 0.4324,
+    "majority_class_baseline": 0.4286,
+    "majority_class_label": "neutral",
+    "chance": 0.1429,
+    "ece": 0.1649,
+    "mean_confidence": 0.5587,
+    "same_answer_all_repeats": 0.92,
+    "predicted_neutral_share": 0.461,
+    "gold_neutral_share": 0.4286,
+    "latency_ms": {
+     "p50": 257.3,
+     "p95": 334.8
+    },
+    "mirror_baseline_on_sample": 0.3943,
+    "matched_speaker_emotion": 0.5238
+   }
   },
   "listening_no_context": {
    "items": 229,
@@ -52,7 +78,68 @@
     "p95": 326.8
    },
    "mirror_baseline_on_sample": 0.4236,
-   "matched_speaker_emotion": 0.508
+   "matched_speaker_emotion": 0.508,
+   "on_eligible_subset": {
+    "items": 175,
+    "calls": 525,
+    "accuracy": 0.4019,
+    "majority_class_baseline": 0.4286,
+    "majority_class_label": "neutral",
+    "chance": 0.1429,
+    "ece": 0.2449,
+    "mean_confidence": 0.6468,
+    "same_answer_all_repeats": 0.949,
+    "predicted_neutral_share": 0.6838,
+    "gold_neutral_share": 0.4286,
+    "latency_ms": {
+     "p50": 255.6,
+     "p95": 327.7
+    },
+    "mirror_baseline_on_sample": 0.3943,
+    "matched_speaker_emotion": 0.5048
+   }
+  },
+  "listening_tracked": {
+   "items": 175,
+   "calls": 525,
+   "accuracy": 0.4324,
+   "majority_class_baseline": 0.4286,
+   "majority_class_label": "neutral",
+   "chance": 0.1429,
+   "ece": 0.2195,
+   "mean_confidence": 0.6323,
+   "same_answer_all_repeats": 0.96,
+   "predicted_neutral_share": 0.379,
+   "gold_neutral_share": 0.4286,
+   "latency_ms": {
+    "p50": 255.5,
+    "p95": 320.1
+   },
+   "mirror_baseline_on_sample": 0.3943,
+   "matched_speaker_emotion": 0.4381,
+   "persistence_baseline_on_sample": 0.4229,
+   "matched_listener_prior_emotion": 0.72
+  },
+  "listening_tracked_nolabel": {
+   "items": 175,
+   "calls": 525,
+   "accuracy": 0.4038,
+   "majority_class_baseline": 0.4286,
+   "majority_class_label": "neutral",
+   "chance": 0.1429,
+   "ece": 0.2031,
+   "mean_confidence": 0.5623,
+   "same_answer_all_repeats": 0.92,
+   "predicted_neutral_share": 0.4095,
+   "gold_neutral_share": 0.4286,
+   "latency_ms": {
+    "p50": 257.3,
+    "p95": 326.8
+   },
+   "mirror_baseline_on_sample": 0.3943,
+   "matched_speaker_emotion": 0.461,
+   "persistence_baseline_on_sample": 0.4229,
+   "matched_listener_prior_emotion": 0.501
   },
   "self_context": {
    "items": 357,
@@ -114,6 +201,38 @@
    "ci95": [
     -0.0386,
     0.0934
+   ]
+  }
+ },
+ "listener_state_effect": {
+  "tracked_vs_context": {
+   "items": 175,
+   "b_won": 61,
+   "b_lost": 61,
+   "accuracy_diff": 0.0,
+   "ci95": [
+    -0.0686,
+    0.0667
+   ]
+  },
+  "tracked_vs_tracked_nolabel": {
+   "items": 175,
+   "b_won": 51,
+   "b_lost": 36,
+   "accuracy_diff": 0.0286,
+   "ci95": [
+    -0.0267,
+    0.0838
+   ]
+  },
+  "nolabel_vs_context": {
+   "items": 175,
+   "b_won": 23,
+   "b_lost": 38,
+   "accuracy_diff": -0.0286,
+   "ci95": [
+    -0.0743,
+    0.0171
    ]
   }
  }

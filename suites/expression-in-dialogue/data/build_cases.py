@@ -38,6 +38,7 @@ MELD_FILE = "test_sent_emo.csv"
 DIALOGUES = 30        # 抽幾段對話 / dialogues sampled
 MIN_TURNS = 6         # 至少幾句才收（太短看不出換不換臉）/ minimum utterances
 CONTEXT_TURNS = 4
+LISTENER_TURNS = 2     # 聽者自己先前幾句進 listener_state / listener's own prior turns
 SEED = 29
 
 LABELS = {
@@ -74,7 +75,7 @@ def fetch(repo, rev, name):
 
 
 def clean(t):
-    return " ".join((t or "").replace("", "'").split())
+    return " ".join((t or "").replace("\u0092", "'").split())
 
 
 def dialogues():
@@ -108,12 +109,19 @@ def build():
             })
             if i + 1 < len(turns) and turns[i + 1]["speaker"] != t["speaker"]:
                 nxt = turns[i + 1]
+                # 聽者自己在這段對話裡先前說過的話。給它的 gold 標籤＝模擬一個
+                # **完美的**角色情緒追蹤器，所以那兩臂量到的是上界，不是產品做得到的值。
+                # The listener's own earlier turns. Handing over their gold labels simulates a
+                # PERFECT character-emotion tracker, so those arms measure an upper bound.
+                own = [x for x in turns[:i] if x["speaker"] == nxt["speaker"]][-LISTENER_TURNS:]
                 listening.append({
                     "id": f"d{did}-u{t['u']}-listen", "dialogue": did, "index": i,
                     "speaker": t["speaker"], "line": t["line"],
                     "listener": nxt["speaker"],
                     "gold": nxt["gold"],              # 代理答案：聽者下一句的情緒
                     "speaker_gold": t["gold"],        # 用來算「照鏡子」基準線
+                    "listener_prior_gold": own[-1]["gold"] if own else None,  # 「情緒延續」基準線
+                    "listener_state": [{"line": o["line"], "felt": o["gold"]} for o in own],
                     "context": [{"speaker": b["speaker"], "line": b["line"]} for b in before],
                 })
     return {"self": self_cases, "listening": listening}
@@ -142,6 +150,15 @@ def corpus_baselines():
     pairs = [(t, turns[i + 1]) for turns in pool.values() for i, t in enumerate(turns[:-1])
              if turns[i + 1]["speaker"] != t["speaker"]]
     listener = collections.Counter(b["gold"] for _, b in pairs)
+    elig = []
+    for turns in pool.values():
+        for i, t in enumerate(turns[:-1]):
+            nxt = turns[i + 1]
+            if nxt["speaker"] == t["speaker"]:
+                continue
+            own = [x for x in turns[:i] if x["speaker"] == nxt["speaker"]]
+            if own:
+                elig.append((t, nxt, own[-1]))
     mirror = sum(1 for a, b in pairs if a["gold"] == b["gold"]) / len(pairs)
     switch = tot = 0
     for turns in pool.values():
@@ -158,6 +175,13 @@ def corpus_baselines():
         "listening_majority_class": round(listener.most_common(1)[0][1] / len(pairs), 4),
         "listening_majority_label": listener.most_common(1)[0][0],
         "listening_mirror_baseline": round(mirror, 4),
+        "listening_eligible_pairs": len(elig),
+        "listening_eligible_majority": round(
+            collections.Counter(b["gold"] for _, b, _ in elig).most_common(1)[0][1] / len(elig), 4),
+        "listening_eligible_mirror": round(
+            sum(1 for a, b, _ in elig if a["gold"] == b["gold"]) / len(elig), 4),
+        "listening_persistence_baseline": round(
+            sum(1 for _, b, p in elig if p["gold"] == b["gold"]) / len(elig), 4),
         "gold_same_speaker_switch_rate": round(switch / tot, 4),
         "gold_switch_opportunities": tot,
     }
