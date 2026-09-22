@@ -34,7 +34,9 @@ EXTRA_SUSPECTS = "种据"
 TEXT_EXT = {".md", ".yaml", ".yml", ".py", ".json", ".txt", ".toml", ".cfg", ".ini"}
 TEXT_NAMES = {"NOTICE", "LICENSE"}
 SKIP_PARTS = ("/runs/",)  # 收據不能手改，錯字要在 data/ 那一層就擋下 / receipts are immutable
-SKIP_FILES = {"scripts/zh-check/simplified_only.txt", "scripts/zh-check/allowlist.txt"}
+# 這支自己的說明與自我測試刻意放了簡體字範例 / this file holds Simplified examples on purpose
+SKIP_FILES = {"scripts/zh-check/simplified_only.txt", "scripts/zh-check/allowlist.txt",
+              "scripts/zh-check/check_zh.py"}
 
 
 def load_chars():
@@ -62,7 +64,10 @@ def load_allowlist():
 
 def tracked_files():
     try:
-        out = subprocess.run(["git", "-C", ROOT, "ls-files"], capture_output=True, text=True,
+        # 連同還沒 add、但沒被 .gitignore 排除的新檔一起掃，否則本地跑會漏掉剛寫的檔案
+        # include untracked-but-not-ignored files too, or a local run misses brand-new files
+        out = subprocess.run(["git", "-C", ROOT, "ls-files", "--cached", "--others", "--exclude-standard"],
+                             capture_output=True, text=True,
                              encoding="utf-8", check=True).stdout.splitlines()
     except Exception:
         out = []
