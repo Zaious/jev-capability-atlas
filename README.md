@@ -92,6 +92,8 @@ Jev 內部到底長什麼樣，官方沒有公開。有人用兩千多次 API �
 
 這條軸還有一種更隱蔽的違反方式：不是任務需要外部知識，是呼叫方自己沒把該給的內容放進 `state`。真實案例：有人試著用 Jev 判斷該不該砍掉 Agent 自己過去的工具呼叫紀錄（context 壓縮）——真實測試中，預設設定下打分看不到輸出內容本身，256 筆結果裡 0 筆保留信心值超過 0.3，等於幾乎每次都判定「可以刪」。**這裡的判斷失敗好修，但「砍掉的內容不一定能復原」這個風險改不掉**——這正是 AGENTS.md 已經講的「不可逆動作不該交給機率模型」原則，只是它藏在「內部清理」裡不容易被認出來。**我們不建議把它做成無人監督、預設自動開啟的東西**。完整追蹤見 [`translations/jev-context-compaction-debate-zh/`](translations/jev-context-compaction-debate-zh/)。
 
+**同一件事後來有人完整量過，結論更值得看**：📚 一個第三方實作（[hermes-jev-skills](https://github.com/kerpopule/hermes-jev-skills)）把「用 Jev 挑哪些回合該留進交接摘要」在七個真實 session、104 題回憶考上量完，**然後把 Jev 拿掉**——Jev 版 37.5%，輸給單純取最後一段的 48.1%（逐題 4 勝 15 敗），出貨版改成「整段對話＋1,200 字、不用 Jev」，58.7%。值得注意的是它的失敗理由跟上一段不一樣：**這次 state 是給齊的，Jev 的判斷本身也確實比「取最近的」好（逐題 11 勝 4 敗），輸的是「挑回合」這個問題形狀**——留下來的回合仍然只保留前 400 字元，而每回合平均有 1,400–7,400 字元，裁掉的東西不是換一組回合能救回來的。這給了那條軸一個補充：**把任務改寫成 Jev 能答的形狀之後，還要再問一次「這個形狀本身能不能完成原本的工作」**。見 [`translations/hermes-jev-skills-zh/`](translations/hermes-jev-skills-zh/)。
+
 來源標記：🔬 我們自己測的（附收據）／📚 第三方來源（我們沒有重跑）／📖 TypeSafe 官方文件／💭 我們自己的判斷——完整定義與收錄準則見 [`CONTRIBUTING.md`](CONTRIBUTING.md#收錄準則)；每組實驗的方法論與逐項收據在各自的 [`suites/`](suites/) 目錄。
 
 ---
@@ -106,6 +108,7 @@ Jev 內部到底長什麼樣，官方沒有公開。有人用兩千多次 API �
 6. **先問你現在的判斷成本是不是已經是零，再決定要不要接 Jev**——如果你本來就在用訂閱制的工具（Claude Code、Codex 這類），一次額外的大模型判斷邊際成本本來就接近零，插一層 Jev 進去只會多一層延遲、多一次出錯機會，省不到錢；Jev 真正划算的地方是原本要為每次判斷額外付費呼叫大模型的場景。另外，「快」真正的意思是**沒有長尾，不是中位數領先**——跟另一份第三方跑分／我們自己重跑的量測都顯示，Jev 中位數延遲不一定贏過輕量大模型，但幾乎不會出現讓人等到抓狂的離群慢查詢，這對使用者可見的即時互動場景比單純比中位數更重要。細節見 [`capability-map.md`](capability-map.md#拿到-jev然後呢一篇剔掉虛火的真實落地清單)、[`suites/jev-latency-distribution/`](suites/jev-latency-distribution/)。
 7. **想換成開源自架的替代品（例如 Laya）之前，先分清楚你的任務是「固定工作流程、有訓練資料」還是「新任務、直接問」**——我們用同一組輸入實測：Laya 微調過的專用版在自己的訓練分布上準確率小贏 Jev 3 個百分點，但校準差五倍；沒微調的通用版低於「完全不看輸入」的基準線，中文意圖分類落後 Jev 約 30 個百分點。見 [`suites/laya-head-to-head/`](suites/laya-head-to-head/)。
 8. **評分題（Score）的每一個等級，都要寫成文字裡直接看得到的情境**——TypeSafe 官方的複合評分範例拿履歷篩選示範：等級寫成「No Python experience mentioned」「Mentioned but no detail」「Used in projects, some specifics」這種看履歷就能核對的描述，每個維度分開評，權重寫在你自己的程式碼裡 📖（[Composite scoring](https://docs.typesafe.ai/patterns/composite-scoring)）。需要跟外部比較的等級（「這個結果很重要」）文字裡查不出來，那就是核心那條軸在評分題上的樣子。
+9. **送出去之前，先想清楚 `state` 裡有什麼**——Jev 是雲端 API，沒有地端版本，**你放進 `state` 的每一個字都離開了這台機器**。一個第三方實作把分層做得很細，值得照抄 📚：信箱/電話/token 先遮蔽、檢索段落的來源 id 與路徑換成 `P0`/`P1` 只送內容不送出處、看起來像憑證的整段直接不送、敏感路徑改送粗特徵（長度、有沒有程式碼、有沒有風險字眼）。有一個細節特別容易漏：**先解碼再篩**——電子報頁尾會把收件人地址 percent-encode 在退訂連結、base64 在追蹤連結裡，純文字的遮蔽器兩個都看不到。還有一條順序問題：如果判斷發生在 agent 行動之前（例如用 Jev 決定這一輪要用哪個模型），「叫 agent 不要送客戶資料」這條指示對它無效。見 [`translations/hermes-jev-skills-zh/`](translations/hermes-jev-skills-zh/)、[`AGENTS.md`](AGENTS.md)。
 
 ## 給 Agent：哪邊能嘗試改用 Jev、怎麼回報結果
 

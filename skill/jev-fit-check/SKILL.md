@@ -75,6 +75,39 @@ don't force it.
 - **Anywhere a working, zero-cost deterministic script already does the job
   well** — don't add a model where there is no demonstrated failure to fix.
 
+## Can this content leave the machine?
+
+Jev is a cloud API with no on-premise build, so **every character of the
+`state` leaves the machine**. Alongside "is the answer in the state?", ask
+"is this content allowed to leave?" — a candidate can be disqualified here
+even when it passes the one test. A worked-through layering to copy: redact
+emails, phones and tokens; replace a retrieved passage's source id and path
+with `P0`/`P1` so the content goes and the provenance doesn't; drop a
+passage that looks like a credential rather than redacting it; and on
+sensitive paths send only coarse features (length, whether code is present,
+whether risk words appear). Two things that are easy to miss:
+
+- **Decode before screening.** A newsletter footer carries the recipient's
+  address percent-encoded in the unsubscribe link and base64'd in the
+  tracking link; a plain-text redactor sees neither. Unwrap
+  quoted-printable, percent-encoding, HTML entities and base64 first.
+- **Check what acts first.** If the Jev call happens before the agent does
+  (deciding which model answers this turn, say), an instruction telling the
+  agent not to send customer data has no effect on it.
+
+## Writing the question: requirement vs preferences
+
+Jev scores your options against your state and cannot tell which line of
+that state is the binding one, so an attribute you meant as a bonus gets
+applied as a hard filter. Name the deciding attribute, then name the
+tie-breakers explicitly — an unlabelled second attribute reads as required.
+A `Noul` with an unstated "and also" is two questions; ask the requirement,
+and ask the preferences separately or not at all. Don't lower a confidence
+threshold to compensate for a question answering two things: the threshold
+was calibrated against one. (A vendor self-report puts this at 16/44 versus
+33/44 on the same set, same model, same code path — n=44 and second-hand,
+so treat it as a default worth measuring on your own data, not a law.)
+
 ## Minimum verification flow before integrating a candidate
 
 1. Pull 10–20 real historical inputs/outputs from the existing system —
@@ -108,5 +141,12 @@ every test we've run or read about. Tasks needing outside knowledge (pure
 trivia recall with no supporting passage, comparison against an entire
 field, genuinely overlapping/ambiguous categories) have shown real, and in
 one case dangerous, degradation — including a case where confidence stayed
-high while accuracy collapsed. Treat any single number, including these, as
+high while accuracy collapsed. A separate third-party finding is worth
+carrying into any scan: a task can pass the one test, get good judgments out
+of Jev, and still fail because the *shape* you rewrote it into cannot do the
+original job — in a measured case, picking which transcript turns to keep
+beat a recency baseline and still produced worse handoffs than keeping a
+plain tail, because the kept turns survived only as their first 400
+characters. After rewriting a task into a shape Jev can answer, ask once
+more whether that shape still does the original job. Treat any single number, including these, as
 a starting point to verify on your own data, not a guarantee.

@@ -29,6 +29,8 @@ Split into two sections: **public benchmarks** are results published by others t
 | [The viral ad-breakdown tweet: can Jev read a Gemini embedding?](#the-viral-ad-breakdown-tweet-can-jev-actually-read-color-and-style-from-a-gemini-embedding) | — | Performance numbers plausible; the "embedding carries visual semantics to Jev" explanation doesn't hold up | 📚 |
 | [You got Jev, now what? A hype-free landing list](#you-got-jev-now-what-a-hype-free-landing-list) | — | Only 15 of 217 projects usable today; the author's own 4 integration attempts all failed, with specific root causes | 📚 |
 | [Jev as an agent judge (LangChain)](#jev-as-an-agent-judge-langchain) | Self-contained (the trace and evidence are in the state) | Matched the human on all five pass/fail items, 92–913× lower score variance than three LLM judges, $0.00035 per call; but five items, one reviewer, and the control group's sampling was never turned off | 📚 |
+| [An agent's small internal decisions](#an-agents-small-internal-decisions-routing-skill-selection-action-choice-hermes-jev-skills) | Self-contained (the candidates are on the screen, in the catalog, in this turn's text) | A verification step turned 2 confident-wrong skill picks (0.94-0.96) into 0; the single 0.65 action floor gave zero wrong actions across five runs | 📚 |
+| [Compaction and handoffs: measured, then Jev removed](#compaction-and-handoffs-measured-then-jev-was-removed-hermes-jev-skills) | Wrong shape (the state was complete and the judgement was good; picking turns is what lost) | The Jev arm scored 37.5% against 48.1% for a plain tail (4 questions won, 15 lost); what shipped drops Jev and scores 58.7% | 📚 |
 | Praise vs. sarcasm (dedicated public benchmark) | — | None found as of this writing — an open slot you could fill | — |
 | [Citation support-checking](#citation-support-checking) | Self-contained | 9/12 supports, 0 contradicts, low confidence correctly tracked hard cases | 🔬 |
 | [Sarcasm detection, same-clause/cross-turn](#sarcasm-detection) | Self-contained | 12/12, 10/10 correct, including a correctly-low-confidence case | 🔬 |
@@ -236,6 +238,30 @@ No one appears to have published a dedicated public benchmark for Jev's sarcasm/
 **What this means**: the method is worth copying — frozen runs, identical inputs, and keeping "agrees with the human" separate from "agrees with itself." But **it proves much less than the headline suggests**: the sample is 5 items × 100 repeats (not 500 items), the oracle is a single reviewer, and reading the code shows **none of the three LLM judges had a temperature set, so they ran on their providers' default sampling** — part of the variance gap comes from that setting. The Jev version wasn't recorded either. The direction fits this repo's core axis: everything needed to judge an agent run is already in the state. Full write-up and all three caveats: [`translations/langchain-jev-as-judge-zh/`](translations/langchain-jev-as-judge-zh/).
 
 Source: [`translations/langchain-jev-as-judge-zh/`](translations/langchain-jev-as-judge-zh/)
+
+---
+
+### An agent's small internal decisions: routing, skill selection, action choice (hermes-jev-skills)
+
+**What was done**: [hermes-jev-skills](https://github.com/kerpopule/hermes-jev-skills) (MIT) hands an agent's small internal decisions to Jev — which model answers this turn, which skill to load, which element to click next — and measures each one.
+
+**Results**: on a 379-skill catalog, skill selection's first stage alone sent "click through the checkout flow in the browser" to `dogfood` at 0.96 confidence, and 0.94 on the repeat — **wrong both times**. Adding a second request (one `needs_skill` plus one Noul per finalist) took confident-wrong picks from 2 to 0 over 28 cases, at a 489 ms median. Action choice went the other way: over 31 labelled cases run five times, the current single 0.65 confidence floor produced **zero wrong actions**, so the second question they tested ("does any candidate match the goal at all") was **not adopted** despite carrying real signal (no-answer cases top out at 0.43-0.45 while everything else starts at 0.61) — used alone as the gate, it clicks the one wrong button in every run.
+
+**What this means**: routing, skill selection and action choice all sit on the self-contained side of the core axis — the candidates are on the screen, in the catalog, in this turn's text — the same shape [`browser-automation.en.md`](browser-automation.en.md) converged on. The new thing here is those two confident-wrong picks: **a floor only sees how sure the answer is, and this one was sure.** It's the cleanest third-party instance of confident-wrong we've collected, caught on a shipping product's decision path. The author notes that the expectations were written by the same hands running the eval, and that the floor was calibrated on the same cases. Full write-up and our four caveats: [`translations/hermes-jev-skills-zh/`](translations/hermes-jev-skills-zh/).
+
+Source: [`translations/hermes-jev-skills-zh/`](translations/hermes-jev-skills-zh/)
+
+---
+
+### Compaction and handoffs: measured, then Jev was removed (hermes-jev-skills)
+
+**What was done**: the same repo measured using Jev to pick which transcript turns survive into a handoff capsule. Seven real working sessions (12-194 turns, 25,000-118,000 characters, all with heavy tool use), a 15-question recall exam each, 104 of 105 questions answerable by an oracle holding the whole transcript; every arm writes the same 400-word capsule with the same writer.
+
+**Results**: the Jev arm scored **37.5%** closed-book against **48.1%** for a plain last-24,000-characters tail — **4 questions won, 15 lost**. What shipped afterwards is the whole dialogue with a 1,200-word budget and no Jev at all: **58.7% / 75.0%**. Two "obviously right" improvements were also measured, and both made it worse.
+
+**What this means**: this is the map's first instance of a third party measuring Jev on a task and then removing it — and its failure mode differs from the one we had already recorded. In [`translations/jev-context-compaction-debate-zh/`](translations/jev-context-compaction-debate-zh/) the state carried only length placeholders, so the content was never exposed. Here the state was complete and **Jev's judgement really was good**: given the same number of marks, its picks beat recency 11 questions to 4. What lost is the shape of the question — a kept turn still survives only as its first 400 characters, while five of the seven sessions average 1,400-7,400 characters a turn, so **no choice of turns recovers what clipping throws away**. The lesson: after rewriting a task into a shape Jev can answer, ask once more whether that shape can still do the original job. Quote the per-question 4-won-15-lost rather than the two averages — the author measured that prompt wording alone moves about 7.7 points, and these two percentages differ by 10.6. Full write-up and caveats: [`translations/hermes-jev-skills-zh/`](translations/hermes-jev-skills-zh/).
+
+Source: [`translations/hermes-jev-skills-zh/`](translations/hermes-jev-skills-zh/)
 
 ---
 
