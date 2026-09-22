@@ -35,6 +35,7 @@ Split into two sections: **public benchmarks** are results published by others t
 | [Latency distribution: median vs. tail](#latency-distribution-median-vs-tail) | — | Median 247ms, p95 281ms; no outlier in 30 calls once the warm-up is excluded — the older run's outlier is confirmed as connection cold-start | 🔬 |
 | [A stage-one filter: which half of a two-stage pipeline should Jev own](#a-stage-one-filter-which-half-of-a-two-stage-pipeline-should-jev-own) | Self-contained (content + the watch reason both supplied) | Three rounds of question-design iteration; none of the three failures was about judgment | 🔬 |
 | [Jev vs Laya: a head-to-head on identical inputs](#jev-vs-laya-a-head-to-head-on-identical-inputs) | Self-contained (both sides get identical input) | Zero-shot: Jev 0.736, Laya 0.36 (below an input-blind baseline); Laya's fine-tuned specialist wins by 3 points with 5× the calibration error; zh-TW intent 0.93 vs 0.61 | 🔬 |
+| [Proofreading with Jev: catching wrong characters](#proofreading-with-jev-catching-wrong-characters) | Self-contained (the answer is in the sentence) | At 0.5: 67% of learner typos caught, 2% false alarms on this repo's correct sentences; a full pass over the repo's 677 sentences missed nothing; it's poor at Simplified characters, which go to a character list | 🔬 |
 | [ICU alarm classification: testing a viral tweet](#icu-arrhythmia-alarm-classification-a-viral-tweet-tested-against-a-public-dataset) | Mixed (physiological signal needs converting to text features) | Official score 0.271, worse than "let every alarm through"; 0% sensitivity on asystole/V-tach | 🔬 |
 
 ---
@@ -294,6 +295,16 @@ Source: [`suites/stage1-triage-filter/`](suites/stage1-triage-filter/)
 **What this means**: "Laya beats Jev" holds only for a fixed workflow, with training data, compared on its own distribution — and it wins on accuracy while losing on calibration. For new tasks, tasks without training data, or Chinese, today's Laya isn't a Jev replacement; its real value is self-hosting, data that never leaves the machine, and fine-tunability. Speed wasn't tested (Laya ran on a loaded CPU), and the dataset's teacher is an undisclosed model that may share lineage with Jev — full limitations in the suite README.
 
 Source: [`suites/laya-head-to-head/`](suites/laya-head-to-head/)
+
+### Proofreading with Jev: catching wrong characters
+
+**What was done**: this repo was bitten by two kinds of typo itself — Simplified characters inside Traditional text, and real characters used in place of the right one (皮帝, 康燕, 金住). The first kind goes to a deterministic character-list check; the second can't be caught by any list, so we tested whether Jev can serve as a second opinion: one sentence as the `state`, asking "is there a wrong character?" Positives are real learner typos from the SIGHAN 2015 Chinese Spelling Check test set (originally Traditional; the open copy had been converted to Simplified, so we converted back and kept only pairs whose typo positions survived); negatives are the same test set's "clean" sentences and 152 correct sentences from this repo.
+
+**Results**: at a 0.5 threshold it catches 67% of learner typos with only 2% false alarms on this repo's correct sentences (3 of 152, each checked by hand and typo-free); all three of our own real typos are caught (0.96, 0.95, 0.68). Scanning all 677 sentences in the repo at the same threshold flagged 16: 3 deliberately quoted old typos in correction records, 13 false alarms (about 1.9%), and no missed typo. Asking whether Simplified characters are mixed in is unreliable — a corrected sentence scored as more suspicious.
+
+**What this means**: 💭 it holds up as a non-blocking review tool that asks a person to take a look, now shipped as `scripts/zh-check/proofread_jev.py`. The division of labour is the one this repo keeps recommending: the deterministic part (Simplified characters) goes to code, the feel-for-language narrow judgment (wrong characters) goes to Jev, and whatever it flags goes to a person. Limits: SIGHAN's typos are mostly sound-alikes, not quite the shape errors AI generation produces, of which we have only three; SIGHAN's "clean" set hides unlabelled typos, so its false-alarm rate is only an upper bound.
+
+Source: [`suites/zh-proofreading/`](suites/zh-proofreading/)
 
 ---
 

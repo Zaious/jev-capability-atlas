@@ -2,3 +2,7 @@
 # Intentional Simplified text: path<TAB>allowed substring. "*" as the path means any file.
 # 簡中來源作者的本名 / the real name of a Simplified-Chinese source's author
 translations/libukai-hubei-news-classification-zh/SOURCE.md	李不凯
+# zh-proofreading 測試組引用本 repo 舊錯字當例子 / the zh-proofreading suite quotes the repo's old typos as examples
+suites/zh-proofreading/README.md	写、际、处、没
+suites/zh-proofreading/README.md	写, 际, 处, 没
+suites/zh-proofreading/data/build_cases.py	另写|實际|此处|没有

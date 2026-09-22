@@ -1,0 +1,6034 @@
+{
+ "meta": {
+  "suite": "zh-proofreading",
+  "requested_model": "jev-latest",
+  "response_models": [
+   "jev-1.13.0"
+  ],
+  "date": "2026-09-22",
+  "calls": 555,
+  "errors": 0,
+  "input_tokens": 224078,
+  "instructions": {
+   "wrong_char": "Does this Traditional Chinese text contain a wrong character — a real character used in place of the correct one, producing a word that doesn't exist or doesn't fit (for example 皮帝 instead of 皇帝)? Ignore factual accuracy.",
+   "any_error": "Does this Traditional Chinese text contain any typo: a wrong character, a misspelled word, or a Simplified Chinese character mixed into Traditional text? Judge only the characters and words, not whether the content is factually true."
+  },
+  "sighan": {
+   "repo": "AnonymousSubmissionOnly/sighan15",
+   "revision": "1a936bafdb86abcb8bddae860504302c77b4fd9a",
+   "seed": 11,
+   "per_set": 200
+  }
+ },
+ "results": {
+  "sighan_error": [
+   {
+    "id": "sighan15-test-0949",
+    "p": {
+     "wrong_char": 0.75,
+     "any_error": 0.68
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 418,
+    "typo_positions": [
+     8,
+     32
+    ]
+   },
+   {
+    "id": "sighan15-test-0985",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 406,
+    "typo_positions": [
+     0
+    ]
+   },
+   {
+    "id": "sighan15-test-0948",
+    "p": {
+     "wrong_char": 0.61,
+     "any_error": 0.52
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 400,
+    "typo_positions": [
+     7
+    ]
+   },
+   {
+    "id": "sighan15-test-1063",
+    "p": {
+     "wrong_char": 0.47,
+     "any_error": 0.39
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": [
+     19
+    ]
+   },
+   {
+    "id": "sighan15-test-0370",
+    "p": {
+     "wrong_char": 0.84,
+     "any_error": 0.7
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 390,
+    "typo_positions": [
+     10
+    ]
+   },
+   {
+    "id": "sighan15-test-0362",
+    "p": {
+     "wrong_char": 0.79,
+     "any_error": 0.74
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 391,
+    "typo_positions": [
+     12
+    ]
+   },
+   {
+    "id": "sighan15-test-1071",
+    "p": {
+     "wrong_char": 0.72,
+     "any_error": 0.78
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 423,
+    "typo_positions": [
+     21,
+     28
+    ]
+   },
+   {
+    "id": "sighan15-test-1003",
+    "p": {
+     "wrong_char": 0.69,
+     "any_error": 0.63
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "typo_positions": [
+     37
+    ]
+   },
+   {
+    "id": "sighan15-test-0363",
+    "p": {
+     "wrong_char": 0.53,
+     "any_error": 0.44
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 405,
+    "typo_positions": [
+     7,
+     11,
+     19
+    ]
+   },
+   {
+    "id": "sighan15-test-0188",
+    "p": {
+     "wrong_char": 0.74,
+     "any_error": 0.63
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "typo_positions": [
+     15
+    ]
+   },
+   {
+    "id": "sighan15-test-0939",
+    "p": {
+     "wrong_char": 0.7,
+     "any_error": 0.53
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "typo_positions": [
+     8,
+     9
+    ]
+   },
+   {
+    "id": "sighan15-test-0614",
+    "p": {
+     "wrong_char": 0.76,
+     "any_error": 0.76
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 390,
+    "typo_positions": [
+     17
+    ]
+   },
+   {
+    "id": "sighan15-test-0279",
+    "p": {
+     "wrong_char": 0.82,
+     "any_error": 0.9
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 378,
+    "typo_positions": [
+     3
+    ]
+   },
+   {
+    "id": "sighan15-test-0184",
+    "p": {
+     "wrong_char": 0.53,
+     "any_error": 0.4
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "typo_positions": [
+     13
+    ]
+   },
+   {
+    "id": "sighan15-test-0078",
+    "p": {
+     "wrong_char": 0.76,
+     "any_error": 0.62
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 412,
+    "typo_positions": [
+     13
+    ]
+   },
+   {
+    "id": "sighan15-test-0822",
+    "p": {
+     "wrong_char": 0.34,
+     "any_error": 0.3
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 431,
+    "typo_positions": [
+     3
+    ]
+   },
+   {
+    "id": "sighan15-test-1099",
+    "p": {
+     "wrong_char": 0.8,
+     "any_error": 0.78
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": [
+     23,
+     24
+    ]
+   },
+   {
+    "id": "sighan15-test-0305",
+    "p": {
+     "wrong_char": 0.11,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "typo_positions": [
+     16
+    ]
+   },
+   {
+    "id": "sighan15-test-0027",
+    "p": {
+     "wrong_char": 0.63,
+     "any_error": 0.44
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "typo_positions": [
+     13
+    ]
+   },
+   {
+    "id": "sighan15-test-0130",
+    "p": {
+     "wrong_char": 0.27,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 391,
+    "typo_positions": [
+     6
+    ]
+   },
+   {
+    "id": "sighan15-test-0115",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 406,
+    "typo_positions": [
+     17
+    ]
+   },
+   {
+    "id": "sighan15-test-0069",
+    "p": {
+     "wrong_char": 0.77,
+     "any_error": 0.8
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 386,
+    "typo_positions": [
+     12
+    ]
+   },
+   {
+    "id": "sighan15-test-1089",
+    "p": {
+     "wrong_char": 0.25,
+     "any_error": 0.25
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "typo_positions": [
+     18
+    ]
+   },
+   {
+    "id": "sighan15-test-0481",
+    "p": {
+     "wrong_char": 0.52,
+     "any_error": 0.38
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 411,
+    "typo_positions": [
+     31
+    ]
+   },
+   {
+    "id": "sighan15-test-0055",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "typo_positions": [
+     13
+    ]
+   },
+   {
+    "id": "sighan15-test-0983",
+    "p": {
+     "wrong_char": 0.66,
+     "any_error": 0.6
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 419,
+    "typo_positions": [
+     3
+    ]
+   },
+   {
+    "id": "sighan15-test-0663",
+    "p": {
+     "wrong_char": 0.85,
+     "any_error": 0.9
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "typo_positions": [
+     13,
+     19
+    ]
+   },
+   {
+    "id": "sighan15-test-0924",
+    "p": {
+     "wrong_char": 0.58,
+     "any_error": 0.41
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 391,
+    "typo_positions": [
+     18
+    ]
+   },
+   {
+    "id": "sighan15-test-0378",
+    "p": {
+     "wrong_char": 0.73,
+     "any_error": 0.51
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "typo_positions": [
+     5
+    ]
+   },
+   {
+    "id": "sighan15-test-0520",
+    "p": {
+     "wrong_char": 0.82,
+     "any_error": 0.7
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 411,
+    "typo_positions": [
+     10
+    ]
+   },
+   {
+    "id": "sighan15-test-0233",
+    "p": {
+     "wrong_char": 0.65,
+     "any_error": 0.36
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 391,
+    "typo_positions": [
+     18
+    ]
+   },
+   {
+    "id": "sighan15-test-0647",
+    "p": {
+     "wrong_char": 0.81,
+     "any_error": 0.72
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 406,
+    "typo_positions": [
+     16
+    ]
+   },
+   {
+    "id": "sighan15-test-0286",
+    "p": {
+     "wrong_char": 0.76,
+     "any_error": 0.78
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 376,
+    "typo_positions": [
+     4
+    ]
+   },
+   {
+    "id": "sighan15-test-0499",
+    "p": {
+     "wrong_char": 0.29,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 409,
+    "typo_positions": [
+     9
+    ]
+   },
+   {
+    "id": "sighan15-test-0004",
+    "p": {
+     "wrong_char": 0.79,
+     "any_error": 0.8
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 386,
+    "typo_positions": [
+     14
+    ]
+   },
+   {
+    "id": "sighan15-test-0670",
+    "p": {
+     "wrong_char": 0.63,
+     "any_error": 0.36
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 428,
+    "typo_positions": [
+     47
+    ]
+   },
+   {
+    "id": "sighan15-test-0083",
+    "p": {
+     "wrong_char": 0.89,
+     "any_error": 0.92
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "typo_positions": [
+     14,
+     18
+    ]
+   },
+   {
+    "id": "sighan15-test-0454",
+    "p": {
+     "wrong_char": 0.55,
+     "any_error": 0.43
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 415,
+    "typo_positions": [
+     0,
+     9
+    ]
+   },
+   {
+    "id": "sighan15-test-0664",
+    "p": {
+     "wrong_char": 0.76,
+     "any_error": 0.73
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 405,
+    "typo_positions": [
+     20
+    ]
+   },
+   {
+    "id": "sighan15-test-0271",
+    "p": {
+     "wrong_char": 0.64,
+     "any_error": 0.73
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": [
+     24
+    ]
+   },
+   {
+    "id": "sighan15-test-0400",
+    "p": {
+     "wrong_char": 0.2,
+     "any_error": 0.35
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": [
+     19
+    ]
+   },
+   {
+    "id": "sighan15-test-0550",
+    "p": {
+     "wrong_char": 0.65,
+     "any_error": 0.37
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 386,
+    "typo_positions": [
+     5
+    ]
+   },
+   {
+    "id": "sighan15-test-0987",
+    "p": {
+     "wrong_char": 0.25,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 429,
+    "typo_positions": [
+     14
+    ]
+   },
+   {
+    "id": "sighan15-test-0876",
+    "p": {
+     "wrong_char": 0.76,
+     "any_error": 0.51
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": [
+     22
+    ]
+   },
+   {
+    "id": "sighan15-test-1072",
+    "p": {
+     "wrong_char": 0.43,
+     "any_error": 0.22
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": [
+     12
+    ]
+   },
+   {
+    "id": "sighan15-test-0718",
+    "p": {
+     "wrong_char": 0.2,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 406,
+    "typo_positions": [
+     25
+    ]
+   },
+   {
+    "id": "sighan15-test-0250",
+    "p": {
+     "wrong_char": 0.84,
+     "any_error": 0.82
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 383,
+    "typo_positions": [
+     3
+    ]
+   },
+   {
+    "id": "sighan15-test-1067",
+    "p": {
+     "wrong_char": 0.79,
+     "any_error": 0.7
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "typo_positions": [
+     20
+    ]
+   },
+   {
+    "id": "sighan15-test-0794",
+    "p": {
+     "wrong_char": 0.66,
+     "any_error": 0.75
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 415,
+    "typo_positions": [
+     20
+    ]
+   },
+   {
+    "id": "sighan15-test-0229",
+    "p": {
+     "wrong_char": 0.77,
+     "any_error": 0.47
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "typo_positions": [
+     5
+    ]
+   },
+   {
+    "id": "sighan15-test-0514",
+    "p": {
+     "wrong_char": 0.79,
+     "any_error": 0.79
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 424,
+    "typo_positions": [
+     3
+    ]
+   },
+   {
+    "id": "sighan15-test-0281",
+    "p": {
+     "wrong_char": 0.83,
+     "any_error": 0.8
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "typo_positions": [
+     15
+    ]
+   },
+   {
+    "id": "sighan15-test-1064",
+    "p": {
+     "wrong_char": 0.7,
+     "any_error": 0.72
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 388,
+    "typo_positions": [
+     0,
+     1
+    ]
+   },
+   {
+    "id": "sighan15-test-0064",
+    "p": {
+     "wrong_char": 0.58,
+     "any_error": 0.63
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 409,
+    "typo_positions": [
+     38
+    ]
+   },
+   {
+    "id": "sighan15-test-0569",
+    "p": {
+     "wrong_char": 0.72,
+     "any_error": 0.48
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 406,
+    "typo_positions": [
+     4
+    ]
+   },
+   {
+    "id": "sighan15-test-0800",
+    "p": {
+     "wrong_char": 0.81,
+     "any_error": 0.82
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "typo_positions": [
+     21
+    ]
+   },
+   {
+    "id": "sighan15-test-0107",
+    "p": {
+     "wrong_char": 0.82,
+     "any_error": 0.77
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "typo_positions": [
+     20
+    ]
+   },
+   {
+    "id": "sighan15-test-0391",
+    "p": {
+     "wrong_char": 0.43,
+     "any_error": 0.22
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 399,
+    "typo_positions": [
+     24
+    ]
+   },
+   {
+    "id": "sighan15-test-0993",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.24
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 388,
+    "typo_positions": [
+     2
+    ]
+   },
+   {
+    "id": "sighan15-test-0879",
+    "p": {
+     "wrong_char": 0.81,
+     "any_error": 0.76
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 424,
+    "typo_positions": [
+     14,
+     15,
+     48,
+     49
+    ]
+   },
+   {
+    "id": "sighan15-test-0282",
+    "p": {
+     "wrong_char": 0.74,
+     "any_error": 0.53
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 384,
+    "typo_positions": [
+     7,
+     8
+    ]
+   },
+   {
+    "id": "sighan15-test-0374",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 379,
+    "typo_positions": [
+     5,
+     8
+    ]
+   },
+   {
+    "id": "sighan15-test-0063",
+    "p": {
+     "wrong_char": 0.57,
+     "any_error": 0.57
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 395,
+    "typo_positions": [
+     9
+    ]
+   },
+   {
+    "id": "sighan15-test-0017",
+    "p": {
+     "wrong_char": 0.6,
+     "any_error": 0.79
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "typo_positions": [
+     18
+    ]
+   },
+   {
+    "id": "sighan15-test-0990",
+    "p": {
+     "wrong_char": 0.69,
+     "any_error": 0.6
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "typo_positions": [
+     10
+    ]
+   },
+   {
+    "id": "sighan15-test-0689",
+    "p": {
+     "wrong_char": 0.27,
+     "any_error": 0.31
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 395,
+    "typo_positions": [
+     15
+    ]
+   },
+   {
+    "id": "sighan15-test-0001",
+    "p": {
+     "wrong_char": 0.79,
+     "any_error": 0.77
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 388,
+    "typo_positions": [
+     9
+    ]
+   },
+   {
+    "id": "sighan15-test-0210",
+    "p": {
+     "wrong_char": 0.83,
+     "any_error": 0.88
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 402,
+    "typo_positions": [
+     10,
+     12,
+     27,
+     28
+    ]
+   },
+   {
+    "id": "sighan15-test-0203",
+    "p": {
+     "wrong_char": 0.83,
+     "any_error": 0.74
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "typo_positions": [
+     11
+    ]
+   },
+   {
+    "id": "sighan15-test-0954",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 412,
+    "typo_positions": [
+     12
+    ]
+   },
+   {
+    "id": "sighan15-test-0049",
+    "p": {
+     "wrong_char": 0.39,
+     "any_error": 0.41
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 390,
+    "typo_positions": [
+     15
+    ]
+   },
+   {
+    "id": "sighan15-test-0468",
+    "p": {
+     "wrong_char": 0.71,
+     "any_error": 0.45
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 395,
+    "typo_positions": [
+     11
+    ]
+   },
+   {
+    "id": "sighan15-test-0367",
+    "p": {
+     "wrong_char": 0.64,
+     "any_error": 0.42
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 388,
+    "typo_positions": [
+     6,
+     7
+    ]
+   },
+   {
+    "id": "sighan15-test-1014",
+    "p": {
+     "wrong_char": 0.38,
+     "any_error": 0.48
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 442,
+    "typo_positions": [
+     39,
+     66
+    ]
+   },
+   {
+    "id": "sighan15-test-0389",
+    "p": {
+     "wrong_char": 0.75,
+     "any_error": 0.68
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 384,
+    "typo_positions": [
+     9
+    ]
+   },
+   {
+    "id": "sighan15-test-0407",
+    "p": {
+     "wrong_char": 0.78,
+     "any_error": 0.62
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 391,
+    "typo_positions": [
+     17
+    ]
+   },
+   {
+    "id": "sighan15-test-0071",
+    "p": {
+     "wrong_char": 0.45,
+     "any_error": 0.27
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "typo_positions": [
+     29
+    ]
+   },
+   {
+    "id": "sighan15-test-0570",
+    "p": {
+     "wrong_char": 0.54,
+     "any_error": 0.47
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "typo_positions": [
+     2
+    ]
+   },
+   {
+    "id": "sighan15-test-0636",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.09
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 405,
+    "typo_positions": [
+     32
+    ]
+   },
+   {
+    "id": "sighan15-test-0196",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 386,
+    "typo_positions": [
+     3
+    ]
+   },
+   {
+    "id": "sighan15-test-0808",
+    "p": {
+     "wrong_char": 0.81,
+     "any_error": 0.85
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "typo_positions": [
+     1,
+     14
+    ]
+   },
+   {
+    "id": "sighan15-test-0683",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.09
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 412,
+    "typo_positions": [
+     31
+    ]
+   },
+   {
+    "id": "sighan15-test-0264",
+    "p": {
+     "wrong_char": 0.65,
+     "any_error": 0.64
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "typo_positions": [
+     22
+    ]
+   },
+   {
+    "id": "sighan15-test-0327",
+    "p": {
+     "wrong_char": 0.52,
+     "any_error": 0.61
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 391,
+    "typo_positions": [
+     5
+    ]
+   },
+   {
+    "id": "sighan15-test-0086",
+    "p": {
+     "wrong_char": 0.71,
+     "any_error": 0.58
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 407,
+    "typo_positions": [
+     12
+    ]
+   },
+   {
+    "id": "sighan15-test-0299",
+    "p": {
+     "wrong_char": 0.32,
+     "any_error": 0.32
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 386,
+    "typo_positions": [
+     0
+    ]
+   },
+   {
+    "id": "sighan15-test-0324",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 395,
+    "typo_positions": [
+     17
+    ]
+   },
+   {
+    "id": "sighan15-test-0014",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": [
+     3
+    ]
+   },
+   {
+    "id": "sighan15-test-0401",
+    "p": {
+     "wrong_char": 0.52,
+     "any_error": 0.45
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 420,
+    "typo_positions": [
+     32
+    ]
+   },
+   {
+    "id": "sighan15-test-1009",
+    "p": {
+     "wrong_char": 0.6,
+     "any_error": 0.73
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 420,
+    "typo_positions": [
+     40
+    ]
+   },
+   {
+    "id": "sighan15-test-1060",
+    "p": {
+     "wrong_char": 0.79,
+     "any_error": 0.83
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 409,
+    "typo_positions": [
+     7,
+     10,
+     20,
+     35
+    ]
+   },
+   {
+    "id": "sighan15-test-0140",
+    "p": {
+     "wrong_char": 0.71,
+     "any_error": 0.46
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 385,
+    "typo_positions": [
+     9
+    ]
+   },
+   {
+    "id": "sighan15-test-0244",
+    "p": {
+     "wrong_char": 0.38,
+     "any_error": 0.26
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 395,
+    "typo_positions": [
+     6
+    ]
+   },
+   {
+    "id": "sighan15-test-0717",
+    "p": {
+     "wrong_char": 0.77,
+     "any_error": 0.58
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "typo_positions": [
+     8
+    ]
+   },
+   {
+    "id": "sighan15-test-0095",
+    "p": {
+     "wrong_char": 0.32,
+     "any_error": 0.22
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 407,
+    "typo_positions": [
+     6
+    ]
+   },
+   {
+    "id": "sighan15-test-0010",
+    "p": {
+     "wrong_char": 0.75,
+     "any_error": 0.68
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "typo_positions": [
+     16
+    ]
+   },
+   {
+    "id": "sighan15-test-1053",
+    "p": {
+     "wrong_char": 0.83,
+     "any_error": 0.76
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 420,
+    "typo_positions": [
+     7
+    ]
+   },
+   {
+    "id": "sighan15-test-0462",
+    "p": {
+     "wrong_char": 0.51,
+     "any_error": 0.55
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 418,
+    "typo_positions": [
+     21
+    ]
+   },
+   {
+    "id": "sighan15-test-0826",
+    "p": {
+     "wrong_char": 0.32,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 430,
+    "typo_positions": [
+     6
+    ]
+   },
+   {
+    "id": "sighan15-test-0483",
+    "p": {
+     "wrong_char": 0.4,
+     "any_error": 0.46
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "typo_positions": [
+     2
+    ]
+   },
+   {
+    "id": "sighan15-test-0180",
+    "p": {
+     "wrong_char": 0.8,
+     "any_error": 0.76
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 386,
+    "typo_positions": [
+     11
+    ]
+   },
+   {
+    "id": "sighan15-test-0687",
+    "p": {
+     "wrong_char": 0.84,
+     "any_error": 0.81
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "typo_positions": [
+     11
+    ]
+   },
+   {
+    "id": "sighan15-test-0564",
+    "p": {
+     "wrong_char": 0.83,
+     "any_error": 0.8
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 412,
+    "typo_positions": [
+     16
+    ]
+   },
+   {
+    "id": "sighan15-test-1083",
+    "p": {
+     "wrong_char": 0.67,
+     "any_error": 0.54
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 408,
+    "typo_positions": [
+     35
+    ]
+   },
+   {
+    "id": "sighan15-test-0446",
+    "p": {
+     "wrong_char": 0.2,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 402,
+    "typo_positions": [
+     27
+    ]
+   },
+   {
+    "id": "sighan15-test-0509",
+    "p": {
+     "wrong_char": 0.61,
+     "any_error": 0.76
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "typo_positions": [
+     18
+    ]
+   },
+   {
+    "id": "sighan15-test-0189",
+    "p": {
+     "wrong_char": 0.55,
+     "any_error": 0.74
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 383,
+    "typo_positions": [
+     5
+    ]
+   },
+   {
+    "id": "sighan15-test-0748",
+    "p": {
+     "wrong_char": 0.74,
+     "any_error": 0.67
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "typo_positions": [
+     6
+    ]
+   },
+   {
+    "id": "sighan15-test-0801",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 417,
+    "typo_positions": [
+     22
+    ]
+   },
+   {
+    "id": "sighan15-test-0139",
+    "p": {
+     "wrong_char": 0.44,
+     "any_error": 0.39
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 386,
+    "typo_positions": [
+     4
+    ]
+   },
+   {
+    "id": "sighan15-test-0950",
+    "p": {
+     "wrong_char": 0.73,
+     "any_error": 0.64
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 426,
+    "typo_positions": [
+     46
+    ]
+   },
+   {
+    "id": "sighan15-test-0651",
+    "p": {
+     "wrong_char": 0.73,
+     "any_error": 0.59
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "typo_positions": [
+     5
+    ]
+   },
+   {
+    "id": "sighan15-test-0373",
+    "p": {
+     "wrong_char": 0.77,
+     "any_error": 0.56
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 388,
+    "typo_positions": [
+     3
+    ]
+   },
+   {
+    "id": "sighan15-test-0114",
+    "p": {
+     "wrong_char": 0.54,
+     "any_error": 0.86
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "typo_positions": [
+     10
+    ]
+   },
+   {
+    "id": "sighan15-test-0384",
+    "p": {
+     "wrong_char": 0.53,
+     "any_error": 0.47
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "typo_positions": [
+     9
+    ]
+   },
+   {
+    "id": "sighan15-test-0411",
+    "p": {
+     "wrong_char": 0.6,
+     "any_error": 0.47
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 389,
+    "typo_positions": [
+     7
+    ]
+   },
+   {
+    "id": "sighan15-test-0207",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "typo_positions": [
+     23
+    ]
+   },
+   {
+    "id": "sighan15-test-0981",
+    "p": {
+     "wrong_char": 0.36,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "typo_positions": [
+     4
+    ]
+   },
+   {
+    "id": "sighan15-test-1081",
+    "p": {
+     "wrong_char": 0.41,
+     "any_error": 0.29
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "typo_positions": [
+     15,
+     17
+    ]
+   },
+   {
+    "id": "sighan15-test-0829",
+    "p": {
+     "wrong_char": 0.52,
+     "any_error": 0.33
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 377,
+    "typo_positions": [
+     0
+    ]
+   },
+   {
+    "id": "sighan15-test-0599",
+    "p": {
+     "wrong_char": 0.37,
+     "any_error": 0.22
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": [
+     9
+    ]
+   },
+   {
+    "id": "sighan15-test-0293",
+    "p": {
+     "wrong_char": 0.24,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 380,
+    "typo_positions": [
+     1
+    ]
+   },
+   {
+    "id": "sighan15-test-0019",
+    "p": {
+     "wrong_char": 0.59,
+     "any_error": 0.44
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 390,
+    "typo_positions": [
+     19
+    ]
+   },
+   {
+    "id": "sighan15-test-0966",
+    "p": {
+     "wrong_char": 0.78,
+     "any_error": 0.64
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 420,
+    "typo_positions": [
+     27
+    ]
+   },
+   {
+    "id": "sighan15-test-0187",
+    "p": {
+     "wrong_char": 0.74,
+     "any_error": 0.6
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 385,
+    "typo_positions": [
+     0
+    ]
+   },
+   {
+    "id": "sighan15-test-0382",
+    "p": {
+     "wrong_char": 0.54,
+     "any_error": 0.44
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "typo_positions": [
+     7
+    ]
+   },
+   {
+    "id": "sighan15-test-0611",
+    "p": {
+     "wrong_char": 0.46,
+     "any_error": 0.43
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 411,
+    "typo_positions": [
+     3,
+     4
+    ]
+   },
+   {
+    "id": "sighan15-test-0648",
+    "p": {
+     "wrong_char": 0.22,
+     "any_error": 0.22
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 421,
+    "typo_positions": [
+     34
+    ]
+   },
+   {
+    "id": "sighan15-test-0587",
+    "p": {
+     "wrong_char": 0.82,
+     "any_error": 0.76
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "typo_positions": [
+     1,
+     2
+    ]
+   },
+   {
+    "id": "sighan15-test-0908",
+    "p": {
+     "wrong_char": 0.77,
+     "any_error": 0.63
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 389,
+    "typo_positions": [
+     8
+    ]
+   },
+   {
+    "id": "sighan15-test-0043",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 389,
+    "typo_positions": [
+     2
+    ]
+   },
+   {
+    "id": "sighan15-test-0154",
+    "p": {
+     "wrong_char": 0.5,
+     "any_error": 0.46
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "typo_positions": [
+     13
+    ]
+   },
+   {
+    "id": "sighan15-test-0974",
+    "p": {
+     "wrong_char": 0.47,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 407,
+    "typo_positions": [
+     10,
+     11
+    ]
+   },
+   {
+    "id": "sighan15-test-0439",
+    "p": {
+     "wrong_char": 0.3,
+     "any_error": 0.23
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 408,
+    "typo_positions": [
+     35
+    ]
+   },
+   {
+    "id": "sighan15-test-0252",
+    "p": {
+     "wrong_char": 0.19,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "typo_positions": [
+     14,
+     15
+    ]
+   },
+   {
+    "id": "sighan15-test-0008",
+    "p": {
+     "wrong_char": 0.52,
+     "any_error": 0.26
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 383,
+    "typo_positions": [
+     0
+    ]
+   },
+   {
+    "id": "sighan15-test-0804",
+    "p": {
+     "wrong_char": 0.84,
+     "any_error": 0.85
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 402,
+    "typo_positions": [
+     1,
+     10
+    ]
+   },
+   {
+    "id": "sighan15-test-0620",
+    "p": {
+     "wrong_char": 0.34,
+     "any_error": 0.38
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 414,
+    "typo_positions": [
+     28
+    ]
+   },
+   {
+    "id": "sighan15-test-0320",
+    "p": {
+     "wrong_char": 0.32,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 382,
+    "typo_positions": [
+     4
+    ]
+   },
+   {
+    "id": "sighan15-test-0287",
+    "p": {
+     "wrong_char": 0.57,
+     "any_error": 0.41
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 384,
+    "typo_positions": [
+     1,
+     2
+    ]
+   },
+   {
+    "id": "sighan15-test-0988",
+    "p": {
+     "wrong_char": 0.69,
+     "any_error": 0.49
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 406,
+    "typo_positions": [
+     28,
+     29
+    ]
+   },
+   {
+    "id": "sighan15-test-1070",
+    "p": {
+     "wrong_char": 0.68,
+     "any_error": 0.83
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "typo_positions": [
+     0
+    ]
+   },
+   {
+    "id": "sighan15-test-0073",
+    "p": {
+     "wrong_char": 0.79,
+     "any_error": 0.71
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "typo_positions": [
+     15
+    ]
+   },
+   {
+    "id": "sighan15-test-0088",
+    "p": {
+     "wrong_char": 0.52,
+     "any_error": 0.54
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 385,
+    "typo_positions": [
+     13
+    ]
+   },
+   {
+    "id": "sighan15-test-0202",
+    "p": {
+     "wrong_char": 0.5,
+     "any_error": 0.29
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "typo_positions": [
+     15
+    ]
+   },
+   {
+    "id": "sighan15-test-0591",
+    "p": {
+     "wrong_char": 0.33,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "typo_positions": [
+     30
+    ]
+   },
+   {
+    "id": "sighan15-test-0645",
+    "p": {
+     "wrong_char": 0.63,
+     "any_error": 0.42
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 433,
+    "typo_positions": [
+     15
+    ]
+   },
+   {
+    "id": "sighan15-test-0242",
+    "p": {
+     "wrong_char": 0.62,
+     "any_error": 0.67
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "typo_positions": [
+     2,
+     3
+    ]
+   },
+   {
+    "id": "sighan15-test-0926",
+    "p": {
+     "wrong_char": 0.81,
+     "any_error": 0.68
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "typo_positions": [
+     22
+    ]
+   },
+   {
+    "id": "sighan15-test-0608",
+    "p": {
+     "wrong_char": 0.51,
+     "any_error": 0.4
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 378,
+    "typo_positions": [
+     8
+    ]
+   },
+   {
+    "id": "sighan15-test-0361",
+    "p": {
+     "wrong_char": 0.82,
+     "any_error": 0.84
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "typo_positions": [
+     30
+    ]
+   },
+   {
+    "id": "sighan15-test-1085",
+    "p": {
+     "wrong_char": 0.87,
+     "any_error": 0.93
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 419,
+    "typo_positions": [
+     17
+    ]
+   },
+   {
+    "id": "sighan15-test-0630",
+    "p": {
+     "wrong_char": 0.29,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "typo_positions": [
+     25
+    ]
+   },
+   {
+    "id": "sighan15-test-0452",
+    "p": {
+     "wrong_char": 0.78,
+     "any_error": 0.7
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 402,
+    "typo_positions": [
+     4
+    ]
+   },
+   {
+    "id": "sighan15-test-0134",
+    "p": {
+     "wrong_char": 0.33,
+     "any_error": 0.27
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "typo_positions": [
+     3
+    ]
+   },
+   {
+    "id": "sighan15-test-0593",
+    "p": {
+     "wrong_char": 0.67,
+     "any_error": 0.5
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 388,
+    "typo_positions": [
+     9
+    ]
+   },
+   {
+    "id": "sighan15-test-1054",
+    "p": {
+     "wrong_char": 0.69,
+     "any_error": 0.51
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "typo_positions": [
+     8
+    ]
+   },
+   {
+    "id": "sighan15-test-0585",
+    "p": {
+     "wrong_char": 0.24,
+     "any_error": 0.21
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 413,
+    "typo_positions": [
+     36
+    ]
+   },
+   {
+    "id": "sighan15-test-0144",
+    "p": {
+     "wrong_char": 0.47,
+     "any_error": 0.25
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "typo_positions": [
+     3,
+     4
+    ]
+   },
+   {
+    "id": "sighan15-test-0810",
+    "p": {
+     "wrong_char": 0.65,
+     "any_error": 0.42
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 412,
+    "typo_positions": [
+     0
+    ]
+   },
+   {
+    "id": "sighan15-test-0185",
+    "p": {
+     "wrong_char": 0.3,
+     "any_error": 0.21
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": [
+     2
+    ]
+   },
+   {
+    "id": "sighan15-test-0635",
+    "p": {
+     "wrong_char": 0.66,
+     "any_error": 0.55
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "typo_positions": [
+     29
+    ]
+   },
+   {
+    "id": "sighan15-test-0161",
+    "p": {
+     "wrong_char": 0.79,
+     "any_error": 0.76
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 384,
+    "typo_positions": [
+     10
+    ]
+   },
+   {
+    "id": "sighan15-test-0928",
+    "p": {
+     "wrong_char": 0.39,
+     "any_error": 0.43
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 412,
+    "typo_positions": [
+     8
+    ]
+   },
+   {
+    "id": "sighan15-test-0227",
+    "p": {
+     "wrong_char": 0.74,
+     "any_error": 0.62
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 382,
+    "typo_positions": [
+     11
+    ]
+   },
+   {
+    "id": "sighan15-test-0813",
+    "p": {
+     "wrong_char": 0.72,
+     "any_error": 0.7
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 416,
+    "typo_positions": [
+     43
+    ]
+   },
+   {
+    "id": "sighan15-test-0245",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.2
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 379,
+    "typo_positions": [
+     1
+    ]
+   },
+   {
+    "id": "sighan15-test-0739",
+    "p": {
+     "wrong_char": 0.47,
+     "any_error": 0.31
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 409,
+    "typo_positions": [
+     7
+    ]
+   },
+   {
+    "id": "sighan15-test-1052",
+    "p": {
+     "wrong_char": 0.65,
+     "any_error": 0.59
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 424,
+    "typo_positions": [
+     15
+    ]
+   },
+   {
+    "id": "sighan15-test-0164",
+    "p": {
+     "wrong_char": 0.48,
+     "any_error": 0.57
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "typo_positions": [
+     12
+    ]
+   },
+   {
+    "id": "sighan15-test-0947",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 419,
+    "typo_positions": [
+     6
+    ]
+   },
+   {
+    "id": "sighan15-test-0552",
+    "p": {
+     "wrong_char": 0.42,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 390,
+    "typo_positions": [
+     10,
+     15
+    ]
+   },
+   {
+    "id": "sighan15-test-0193",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.27
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 390,
+    "typo_positions": [
+     2
+    ]
+   },
+   {
+    "id": "sighan15-test-0691",
+    "p": {
+     "wrong_char": 0.47,
+     "any_error": 0.49
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 428,
+    "typo_positions": [
+     4
+    ]
+   },
+   {
+    "id": "sighan15-test-0375",
+    "p": {
+     "wrong_char": 0.55,
+     "any_error": 0.33
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "typo_positions": [
+     6
+    ]
+   },
+   {
+    "id": "sighan15-test-0778",
+    "p": {
+     "wrong_char": 0.82,
+     "any_error": 0.76
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 406,
+    "typo_positions": [
+     29
+    ]
+   },
+   {
+    "id": "sighan15-test-0613",
+    "p": {
+     "wrong_char": 0.49,
+     "any_error": 0.2
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 377,
+    "typo_positions": [
+     3
+    ]
+   },
+   {
+    "id": "sighan15-test-0076",
+    "p": {
+     "wrong_char": 0.66,
+     "any_error": 0.66
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 389,
+    "typo_positions": [
+     7,
+     8
+    ]
+   },
+   {
+    "id": "sighan15-test-0853",
+    "p": {
+     "wrong_char": 0.81,
+     "any_error": 0.9
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 415,
+    "typo_positions": [
+     21
+    ]
+   },
+   {
+    "id": "sighan15-test-0046",
+    "p": {
+     "wrong_char": 0.51,
+     "any_error": 0.57
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 391,
+    "typo_positions": [
+     17
+    ]
+   },
+   {
+    "id": "sighan15-test-0099",
+    "p": {
+     "wrong_char": 0.71,
+     "any_error": 0.66
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 400,
+    "typo_positions": [
+     15
+    ]
+   },
+   {
+    "id": "sighan15-test-0991",
+    "p": {
+     "wrong_char": 0.8,
+     "any_error": 0.75
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 406,
+    "typo_positions": [
+     31
+    ]
+   },
+   {
+    "id": "sighan15-test-0036",
+    "p": {
+     "wrong_char": 0.72,
+     "any_error": 0.59
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 381,
+    "typo_positions": [
+     9
+    ]
+   },
+   {
+    "id": "sighan15-test-1005",
+    "p": {
+     "wrong_char": 0.6,
+     "any_error": 0.55
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "typo_positions": [
+     3,
+     4
+    ]
+   },
+   {
+    "id": "sighan15-test-1012",
+    "p": {
+     "wrong_char": 0.2,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 399,
+    "typo_positions": [
+     7
+    ]
+   },
+   {
+    "id": "sighan15-test-0238",
+    "p": {
+     "wrong_char": 0.72,
+     "any_error": 0.5
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 378,
+    "typo_positions": [
+     5,
+     6
+    ]
+   },
+   {
+    "id": "sighan15-test-1046",
+    "p": {
+     "wrong_char": 0.77,
+     "any_error": 0.73
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 390,
+    "typo_positions": [
+     17
+    ]
+   },
+   {
+    "id": "sighan15-test-0251",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 389,
+    "typo_positions": [
+     10,
+     11
+    ]
+   },
+   {
+    "id": "sighan15-test-0910",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 419,
+    "typo_positions": [
+     36
+    ]
+   },
+   {
+    "id": "sighan15-test-0606",
+    "p": {
+     "wrong_char": 0.62,
+     "any_error": 0.52
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "typo_positions": [
+     15
+    ]
+   },
+   {
+    "id": "sighan15-test-0487",
+    "p": {
+     "wrong_char": 0.54,
+     "any_error": 0.39
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 375,
+    "typo_positions": [
+     0
+    ]
+   },
+   {
+    "id": "sighan15-test-1037",
+    "p": {
+     "wrong_char": 0.8,
+     "any_error": 0.83
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "typo_positions": [
+     11
+    ]
+   },
+   {
+    "id": "sighan15-test-0524",
+    "p": {
+     "wrong_char": 0.68,
+     "any_error": 0.74
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 437,
+    "typo_positions": [
+     2,
+     59
+    ]
+   },
+   {
+    "id": "sighan15-test-0179",
+    "p": {
+     "wrong_char": 0.8,
+     "any_error": 0.77
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 383,
+    "typo_positions": [
+     5
+    ]
+   },
+   {
+    "id": "sighan15-test-1002",
+    "p": {
+     "wrong_char": 0.64,
+     "any_error": 0.42
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "typo_positions": [
+     25
+    ]
+   },
+   {
+    "id": "sighan15-test-1092",
+    "p": {
+     "wrong_char": 0.86,
+     "any_error": 0.92
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 432,
+    "typo_positions": [
+     4,
+     6,
+     8,
+     23,
+     24,
+     26,
+     47
+    ]
+   },
+   {
+    "id": "sighan15-test-0754",
+    "p": {
+     "wrong_char": 0.79,
+     "any_error": 0.76
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 435,
+    "typo_positions": [
+     19,
+     32,
+     46,
+     48,
+     55
+    ]
+   },
+   {
+    "id": "sighan15-test-0478",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "typo_positions": [
+     19
+    ]
+   },
+   {
+    "id": "sighan15-test-0891",
+    "p": {
+     "wrong_char": 0.77,
+     "any_error": 0.76
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 402,
+    "typo_positions": [
+     12
+    ]
+   },
+   {
+    "id": "sighan15-test-1050",
+    "p": {
+     "wrong_char": 0.67,
+     "any_error": 0.43
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 423,
+    "typo_positions": [
+     38,
+     48
+    ]
+   }
+  ],
+  "sighan_clean": [
+   {
+    "id": "sighan15-test-0145",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.21
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 402,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0579",
+    "p": {
+     "wrong_char": 0.75,
+     "any_error": 0.65
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 447,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0448",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.21
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 408,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0433",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0033",
+    "p": {
+     "wrong_char": 0.47,
+     "any_error": 0.71
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 395,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0137",
+    "p": {
+     "wrong_char": 0.09,
+     "any_error": 0.08
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 380,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0561",
+    "p": {
+     "wrong_char": 0.26,
+     "any_error": 0.27
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0840",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.25
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 419,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0900",
+    "p": {
+     "wrong_char": 0.36,
+     "any_error": 0.28
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 435,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0521",
+    "p": {
+     "wrong_char": 0.19,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 417,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0124",
+    "p": {
+     "wrong_char": 0.71,
+     "any_error": 0.49
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 382,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0102",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0381",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0581",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0755",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.09
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 420,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0283",
+    "p": {
+     "wrong_char": 0.09,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 380,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0195",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 380,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0745",
+    "p": {
+     "wrong_char": 0.41,
+     "any_error": 0.27
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 438,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0301",
+    "p": {
+     "wrong_char": 0.37,
+     "any_error": 0.22
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 388,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0909",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 384,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0690",
+    "p": {
+     "wrong_char": 0.63,
+     "any_error": 0.59
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-1049",
+    "p": {
+     "wrong_char": 0.24,
+     "any_error": 0.2
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 399,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0304",
+    "p": {
+     "wrong_char": 0.31,
+     "any_error": 0.44
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0074",
+    "p": {
+     "wrong_char": 0.07,
+     "any_error": 0.08
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 385,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0039",
+    "p": {
+     "wrong_char": 0.24,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 388,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0955",
+    "p": {
+     "wrong_char": 0.64,
+     "any_error": 0.48
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 376,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0740",
+    "p": {
+     "wrong_char": 0.11,
+     "any_error": 0.09
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0649",
+    "p": {
+     "wrong_char": 0.3,
+     "any_error": 0.3
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0072",
+    "p": {
+     "wrong_char": 0.82,
+     "any_error": 0.82
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0042",
+    "p": {
+     "wrong_char": 0.7,
+     "any_error": 0.66
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0146",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 385,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0967",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0133",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 390,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0644",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 426,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0661",
+    "p": {
+     "wrong_char": 0.42,
+     "any_error": 0.33
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 417,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0297",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.3
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 399,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0143",
+    "p": {
+     "wrong_char": 0.25,
+     "any_error": 0.32
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 389,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0147",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 395,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0912",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0753",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 434,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0098",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.84
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0277",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.21
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 384,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0710",
+    "p": {
+     "wrong_char": 0.19,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0731",
+    "p": {
+     "wrong_char": 0.45,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 421,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0168",
+    "p": {
+     "wrong_char": 0.49,
+     "any_error": 0.54
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 386,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0951",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0151",
+    "p": {
+     "wrong_char": 0.35,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 383,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0882",
+    "p": {
+     "wrong_char": 0.26,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 417,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0869",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 399,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0440",
+    "p": {
+     "wrong_char": 0.19,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 412,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0945",
+    "p": {
+     "wrong_char": 0.25,
+     "any_error": 0.2
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 419,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0795",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 409,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0031",
+    "p": {
+     "wrong_char": 0.09,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 388,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0874",
+    "p": {
+     "wrong_char": 0.22,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-1078",
+    "p": {
+     "wrong_char": 0.46,
+     "any_error": 0.32
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 418,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0597",
+    "p": {
+     "wrong_char": 0.59,
+     "any_error": 0.42
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0015",
+    "p": {
+     "wrong_char": 0.19,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 402,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-1041",
+    "p": {
+     "wrong_char": 0.32,
+     "any_error": 0.24
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 421,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0692",
+    "p": {
+     "wrong_char": 0.09,
+     "any_error": 0.07
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0410",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0409",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 406,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0604",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.08
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 377,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0012",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 389,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0633",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 427,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0079",
+    "p": {
+     "wrong_char": 0.53,
+     "any_error": 0.42
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0085",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 389,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0100",
+    "p": {
+     "wrong_char": 0.09,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 384,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0662",
+    "p": {
+     "wrong_char": 0.2,
+     "any_error": 0.23
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 405,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0121",
+    "p": {
+     "wrong_char": 0.21,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0276",
+    "p": {
+     "wrong_char": 0.11,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 395,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0887",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.09
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0994",
+    "p": {
+     "wrong_char": 0.3,
+     "any_error": 0.23
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 418,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0749",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0356",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0415",
+    "p": {
+     "wrong_char": 0.37,
+     "any_error": 0.26
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0936",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-1020",
+    "p": {
+     "wrong_char": 0.5,
+     "any_error": 0.43
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 406,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0722",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 402,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0603",
+    "p": {
+     "wrong_char": 0.56,
+     "any_error": 0.56
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 417,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0485",
+    "p": {
+     "wrong_char": 0.11,
+     "any_error": 0.09
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 385,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0465",
+    "p": {
+     "wrong_char": 0.46,
+     "any_error": 0.4
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 416,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0488",
+    "p": {
+     "wrong_char": 0.46,
+     "any_error": 0.33
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 407,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0857",
+    "p": {
+     "wrong_char": 0.72,
+     "any_error": 0.75
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 428,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0563",
+    "p": {
+     "wrong_char": 0.1,
+     "any_error": 0.08
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0092",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 383,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0546",
+    "p": {
+     "wrong_char": 0.21,
+     "any_error": 0.21
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0764",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 402,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0543",
+    "p": {
+     "wrong_char": 0.43,
+     "any_error": 0.35
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0980",
+    "p": {
+     "wrong_char": 0.27,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 395,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0332",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0622",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0096",
+    "p": {
+     "wrong_char": 0.21,
+     "any_error": 0.35
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 412,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0505",
+    "p": {
+     "wrong_char": 0.06,
+     "any_error": 0.07
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 388,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0024",
+    "p": {
+     "wrong_char": 0.76,
+     "any_error": 0.69
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 419,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0241",
+    "p": {
+     "wrong_char": 0.19,
+     "any_error": 0.5
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 389,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0726",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.21
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0119",
+    "p": {
+     "wrong_char": 0.28,
+     "any_error": 0.2
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 379,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0518",
+    "p": {
+     "wrong_char": 0.27,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0789",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.22
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 421,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0639",
+    "p": {
+     "wrong_char": 0.22,
+     "any_error": 0.31
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0688",
+    "p": {
+     "wrong_char": 0.76,
+     "any_error": 0.72
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 411,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0508",
+    "p": {
+     "wrong_char": 0.76,
+     "any_error": 0.82
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 413,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0275",
+    "p": {
+     "wrong_char": 0.22,
+     "any_error": 0.26
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 421,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0011",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 380,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0394",
+    "p": {
+     "wrong_char": 0.26,
+     "any_error": 0.21
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 424,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0326",
+    "p": {
+     "wrong_char": 0.09,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 383,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0142",
+    "p": {
+     "wrong_char": 0.19,
+     "any_error": 0.34
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 389,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0706",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 409,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0637",
+    "p": {
+     "wrong_char": 0.25,
+     "any_error": 0.27
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0215",
+    "p": {
+     "wrong_char": 0.84,
+     "any_error": 0.9
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 390,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0929",
+    "p": {
+     "wrong_char": 0.34,
+     "any_error": 0.44
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0999",
+    "p": {
+     "wrong_char": 0.4,
+     "any_error": 0.3
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 444,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0765",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.21
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 420,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0369",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 399,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0904",
+    "p": {
+     "wrong_char": 0.2,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 415,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0466",
+    "p": {
+     "wrong_char": 0.48,
+     "any_error": 0.3
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0978",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 413,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0258",
+    "p": {
+     "wrong_char": 0.49,
+     "any_error": 0.72
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0346",
+    "p": {
+     "wrong_char": 0.1,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0431",
+    "p": {
+     "wrong_char": 0.11,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0693",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.65
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 386,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0267",
+    "p": {
+     "wrong_char": 0.46,
+     "any_error": 0.38
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0213",
+    "p": {
+     "wrong_char": 0.1,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 383,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0659",
+    "p": {
+     "wrong_char": 0.54,
+     "any_error": 0.5
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0457",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 395,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0817",
+    "p": {
+     "wrong_char": 0.39,
+     "any_error": 0.22
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 382,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0818",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 385,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0767",
+    "p": {
+     "wrong_char": 0.26,
+     "any_error": 0.49
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0214",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 407,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0225",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0412",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0230",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0970",
+    "p": {
+     "wrong_char": 0.22,
+     "any_error": 0.36
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 437,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0338",
+    "p": {
+     "wrong_char": 0.07,
+     "any_error": 0.08
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 378,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0219",
+    "p": {
+     "wrong_char": 0.07,
+     "any_error": 0.42
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 376,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0136",
+    "p": {
+     "wrong_char": 0.07,
+     "any_error": 0.08
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 379,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-1028",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0907",
+    "p": {
+     "wrong_char": 0.38,
+     "any_error": 0.22
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 413,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0380",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 385,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0041",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0737",
+    "p": {
+     "wrong_char": 0.34,
+     "any_error": 0.24
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0068",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-1061",
+    "p": {
+     "wrong_char": 0.39,
+     "any_error": 0.21
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0996",
+    "p": {
+     "wrong_char": 0.45,
+     "any_error": 0.31
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 479,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-1059",
+    "p": {
+     "wrong_char": 0.51,
+     "any_error": 0.36
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0473",
+    "p": {
+     "wrong_char": 0.44,
+     "any_error": 0.25
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 412,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0496",
+    "p": {
+     "wrong_char": 0.26,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 409,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0300",
+    "p": {
+     "wrong_char": 0.27,
+     "any_error": 0.29
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 386,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0856",
+    "p": {
+     "wrong_char": 0.48,
+     "any_error": 0.31
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0437",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.08
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0972",
+    "p": {
+     "wrong_char": 0.61,
+     "any_error": 0.29
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0650",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 440,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0547",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0516",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0702",
+    "p": {
+     "wrong_char": 0.37,
+     "any_error": 0.32
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 406,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0337",
+    "p": {
+     "wrong_char": 0.11,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-1044",
+    "p": {
+     "wrong_char": 0.29,
+     "any_error": 0.24
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 391,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0975",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 426,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0475",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 418,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0342",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 389,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0081",
+    "p": {
+     "wrong_char": 0.2,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 381,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-1091",
+    "p": {
+     "wrong_char": 0.22,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 428,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0302",
+    "p": {
+     "wrong_char": 0.39,
+     "any_error": 0.33
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 388,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0968",
+    "p": {
+     "wrong_char": 0.1,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-1038",
+    "p": {
+     "wrong_char": 0.5,
+     "any_error": 0.37
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 422,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0956",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 375,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0735",
+    "p": {
+     "wrong_char": 0.21,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-1051",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0594",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 386,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0383",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 391,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0920",
+    "p": {
+     "wrong_char": 0.64,
+     "any_error": 0.58
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 395,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0675",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-1069",
+    "p": {
+     "wrong_char": 0.1,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 405,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0021",
+    "p": {
+     "wrong_char": 0.19,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0667",
+    "p": {
+     "wrong_char": 0.43,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 408,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0841",
+    "p": {
+     "wrong_char": 0.7,
+     "any_error": 0.9
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 406,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0995",
+    "p": {
+     "wrong_char": 0.45,
+     "any_error": 0.37
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 434,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0477",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 422,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0205",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0028",
+    "p": {
+     "wrong_char": 0.24,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 391,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0288",
+    "p": {
+     "wrong_char": 0.07,
+     "any_error": 0.07
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 378,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0256",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.21
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 399,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0141",
+    "p": {
+     "wrong_char": 0.07,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 376,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0053",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.2
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 414,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0656",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0959",
+    "p": {
+     "wrong_char": 0.64,
+     "any_error": 0.43
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 409,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0469",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.25
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0116",
+    "p": {
+     "wrong_char": 0.33,
+     "any_error": 0.28
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 377,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0750",
+    "p": {
+     "wrong_char": 0.1,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 386,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0560",
+    "p": {
+     "wrong_char": 0.25,
+     "any_error": 0.29
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0681",
+    "p": {
+     "wrong_char": 0.38,
+     "any_error": 0.31
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 405,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0961",
+    "p": {
+     "wrong_char": 0.66,
+     "any_error": 0.37
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 405,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0895",
+    "p": {
+     "wrong_char": 0.45,
+     "any_error": 0.27
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 402,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0082",
+    "p": {
+     "wrong_char": 0.43,
+     "any_error": 0.22
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 384,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0711",
+    "p": {
+     "wrong_char": 0.2,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0864",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.09
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0933",
+    "p": {
+     "wrong_char": 0.46,
+     "any_error": 0.35
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0498",
+    "p": {
+     "wrong_char": 0.62,
+     "any_error": 0.38
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0957",
+    "p": {
+     "wrong_char": 0.09,
+     "any_error": 0.09
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "typo_positions": []
+   },
+   {
+    "id": "sighan15-test-0183",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "typo_positions": []
+   }
+  ],
+  "repo_clean": [
+   {
+    "id": "repo-000",
+    "p": {
+     "wrong_char": 0.31,
+     "any_error": 0.41
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 411,
+    "text": "Jev 沒看過這些工作流程，照樣到 0.736——剛好落在出題老師自我一致上限附近。"
+   },
+   {
+    "id": "repo-001",
+    "p": {
+     "wrong_char": 0.35,
+     "any_error": 0.27
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 440,
+    "text": "一筆是某上游服務宣布棄用某個既有機制的 RFC（p=0.85）——完全符合「受監看上游的棄用公告」這個判準，歷史上卻被評成擱置（53 分）。"
+   },
+   {
+    "id": "repo-002",
+    "p": {
+     "wrong_char": 0.19,
+     "any_error": 0.22
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 451,
+    "text": "Part A 的標準答案是一個未公開模型的輸出，衡量的是一致程度不是對錯；如果那個出題老師跟 Jev 有血緣關係，Jev 的分數會被墊高——資料集沒有說老師是誰，我們無法排除。"
+   },
+   {
+    "id": "repo-003",
+    "p": {
+     "wrong_char": 0.1,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "text": "不確定性要導向「盡快用便宜的方式讓人看一眼」，不是導向「假裝解決了」。"
+   },
+   {
+    "id": "repo-004",
+    "p": {
+     "wrong_char": 0.25,
+     "any_error": 0.21
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 405,
+    "text": "N=24，單一標註者，只有英文，只有「訊號都給齊」這種形式的反諷。"
+   },
+   {
+    "id": "repo-005",
+    "p": {
+     "wrong_char": 0.22,
+     "any_error": 0.3
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 400,
+    "text": "唯一自述在一套公開題上小幅領先的通用模型是 decider，我們沒有驗證。"
+   },
+   {
+    "id": "repo-006",
+    "p": {
+     "wrong_char": 0.21,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "text": "宣稱能直接吃像素的變體目前有這幾個，全部是作者自述，我們沒有測過："
+   },
+   {
+    "id": "repo-007",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 435,
+    "text": "AMB2 案例的「模糊」判準本身可能是我們出題的瑕疵，不是模型過度自信的證據——見 report 內對這點的討論，歡迎有不同意見的人提出反例。"
+   },
+   {
+    "id": "repo-008",
+    "p": {
+     "wrong_char": 0.22,
+     "any_error": 0.24
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "text": "Laya 跑在有其他負載的 CPU 上，延遲數字不能拿來比速度。"
+   },
+   {
+    "id": "repo-009",
+    "p": {
+     "wrong_char": 0.25,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 460,
+    "text": "三輪失敗，沒有一輪的原因是模型判斷力：第一輪敗在判準沒有傳達基準率、第二輪敗在中間選項描述太抽象、第三輪的「不一致」則多半來自歷史標籤本身該不該當成正解、以及內容重建的落差。"
+   },
+   {
+    "id": "repo-010",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "text": "5. 被比較的是通用還是專用模型？"
+   },
+   {
+    "id": "repo-011",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 446,
+    "text": "資料集說明把 0.75 左右視為飽和，並提醒「遠高於 0.75」代表學到的是老師的怪癖——0.766 還稱不上遠高於，但已經在這條線上方，值得存疑。"
+   },
+   {
+    "id": "repo-012",
+    "p": {
+     "wrong_char": 0.21,
+     "any_error": 0.24
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 431,
+    "text": "選項都是真實人物：②③ 的三個選項都是乾隆朝真實存在的皇后（乾隆第一位皇后／乾隆生母／嘉慶生母），不是一眼就能排除的假選項。"
+   },
+   {
+    "id": "repo-013",
+    "p": {
+     "wrong_char": 0.11,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 382,
+    "text": "1. 它是通用還是專用？"
+   },
+   {
+    "id": "repo-014",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 395,
+    "text": "引用別人發表的數字，跟在同一批輸入上實測，要分開講。"
+   },
+   {
+    "id": "repo-015",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 384,
+    "text": "每一條實質主張都標上其中一種。"
+   },
+   {
+    "id": "repo-016",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "text": "舊版唯一的離群值，就是暖機造成的。"
+   },
+   {
+    "id": "repo-017",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 431,
+    "text": "真要驗收這種任務，比較該問的是「觸發時精準度夠不夠」跟「人看過之後同不同意」，而不是「跟舊系統的標籤對不對得上」。"
+   },
+   {
+    "id": "repo-018",
+    "p": {
+     "wrong_char": 0.2,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 400,
+    "text": "調溫度用的資料如果跟測試資料重疊，校準數字會好看得不真實。"
+   },
+   {
+    "id": "repo-019",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 423,
+    "text": "機制上：它很快、很便宜，只能做「選一個選項/打個分/回答是非」這種窄判斷，不會寫文字解釋自己在想什麼。"
+   },
+   {
+    "id": "repo-020",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.09
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "text": "這些都是整理過程中真的遇到過的問題："
+   },
+   {
+    "id": "repo-021",
+    "p": {
+     "wrong_char": 0.09,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 388,
+    "text": "查不到就寫「無法查證」，或乾脆不收。"
+   },
+   {
+    "id": "repo-022",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 416,
+    "text": "這條規則的理由：這整個專案存在的意義就是「用收據取代印象」，破例一次，後面所有數字都失去意義。"
+   },
+   {
+    "id": "repo-023",
+    "p": {
+     "wrong_char": 0.3,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 408,
+    "text": "歷史標籤不該當成正解：這批標籤是既有政策跑出來的結果，不是獨立的真理。"
+   },
+   {
+    "id": "repo-024",
+    "p": {
+     "wrong_char": 0.4,
+     "any_error": 0.31
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 438,
+    "text": "3. 打字流程先配好一個小模型，不要依賴關鍵字退化路徑；如果暫時沒配，讓退化狀態在你的 log 裡看得到，不要讓它看起來像正常結果。"
+   },
+   {
+    "id": "repo-025",
+    "p": {
+     "wrong_char": 0.1,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 411,
+    "text": "「第幾任皇帝」這類題目要看從哪一任開始數，這一版改問父子、母子關係，不受數法影響。"
+   },
+   {
+    "id": "repo-026",
+    "p": {
+     "wrong_char": 0.46,
+     "any_error": 0.22
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 437,
+    "text": "一個真實運作中的個人知識管線：每晚自動抓取一批內容（依既有的監看清單），逐件判斷要「立刻交給 LLM agent 深入處理」、「丟掉」、還是「先擱著」。"
+   },
+   {
+    "id": "repo-027",
+    "p": {
+     "wrong_char": 0.2,
+     "any_error": 0.25
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 390,
+    "text": "p95 的算法：排序後取最近秩、不內插。"
+   },
+   {
+    "id": "repo-028",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 406,
+    "text": "專門模型換來的準確率，代價往往是訓練分布外的行為更難預期，不是免費的。"
+   },
+   {
+    "id": "repo-029",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "text": "編碼器或小型模型加一層自己訓練的決策輸出層，一次前向就給出所有選項的機率。"
+   },
+   {
+    "id": "repo-030",
+    "p": {
+     "wrong_char": 0.26,
+     "any_error": 0.24
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "text": "真正該攔的是目標/卡住兩題的機率長期不上不下、又不像是分散在合理選項上的情況。"
+   },
+   {
+    "id": "repo-031",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 400,
+    "text": "唯一正解：不管用哪種慣例數、哪種稱呼，都只有一個選項說得通。"
+   },
+   {
+    "id": "repo-032",
+    "p": {
+     "wrong_char": 0.11,
+     "any_error": 0.08
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "text": "這兩次執行都沒有出現失敗，但無法排除個別呼叫曾經重試過。"
+   },
+   {
+    "id": "repo-033",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 400,
+    "text": "在評測資料的同一個分布上訓練過就是專用，主場贏不稀奇。"
+   },
+   {
+    "id": "repo-034",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 461,
+    "text": "這種字面比對抓不到兩種錯誤：①改述後用詞不同但確實支持（會被字面比對誤判成無關）②幾乎整句抄字典但關鍵一詞被反轉，例如「增加」寫成「減少」的相反（會被字面比對誤判成強力支持）。"
+   },
+   {
+    "id": "repo-035",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 383,
+    "text": "例如創辦人推銷自己的服務。"
+   },
+   {
+    "id": "repo-036",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "text": "它的判斷完全建立在你給的文字上，文字錯了，信心值不會替你把關。"
+   },
+   {
+    "id": "repo-037",
+    "p": {
+     "wrong_char": 0.19,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "text": "在評測資料的同一個分布上訓練過，就是專用。"
+   },
+   {
+    "id": "repo-038",
+    "p": {
+     "wrong_char": 0.19,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 453,
+    "text": "（架構模式、限制、打字模型機制都直接引用自三個真實專案的官方文件，連結見上文各節；三個專案共通模式的歸納、檢查清單、跟「別撞名混淆」的提醒是我們自己的  綜合）"
+   },
+   {
+    "id": "repo-039",
+    "p": {
+     "wrong_char": 0.27,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 425,
+    "text": "獨立、非官方、非 TypeSafe 贊助的社群專案（除了一般的早鳥候補名單，我們沒有收到 TypeSafe 任何報酬或提前使用權）。"
+   },
+   {
+    "id": "repo-040",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.37
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 435,
+    "text": "2. 算法歧義：舊版只揭露了 A 題的標準答案有爭議，沒發現 B、C 題「第七任皇帝」也一樣——三個選項剛好各對應一種數法。"
+   },
+   {
+    "id": "repo-041",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 434,
+    "text": "標籤分布：2 筆立即處理、7 筆擱置、6 筆丟棄——注意這個 4.3% 的「立即處理」基準率，是後面第一輪失敗的關鍵。"
+   },
+   {
+    "id": "repo-042",
+    "p": {
+     "wrong_char": 0.33,
+     "any_error": 0.31
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 442,
+    "text": "接自己系統前先確認：你的任務有沒有窄到值得為它訓練一個專門模型；如果沒有，Jev 這種「不用訓練、直接打 API」的通用選項通常還是划算的起點。"
+   },
+   {
+    "id": "repo-043",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.41
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 431,
+    "text": "D 題也一樣：數法不同，第二任可能是皇太極、順治或康熙，只有康熙在選項裡，它選康熙但信心只有 0.46–0.51。"
+   },
+   {
+    "id": "repo-044",
+    "p": {
+     "wrong_char": 0.22,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "text": "這四個問題都是 Laya 對照實測裡真的踩到的："
+   },
+   {
+    "id": "repo-045",
+    "p": {
+     "wrong_char": 0.49,
+     "any_error": 0.35
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 419,
+    "text": "三個獨立專案不約而同收斂到同一個模式，值得當成起手式：每一步只打一次 Jev，在同一份 state 上問三題："
+   },
+   {
+    "id": "repo-046",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "text": "合成方法論曾與真實論文資料對照驗證，見完整評測報告（連結於根目錄 README）。"
+   },
+   {
+    "id": "repo-047",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.26
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 423,
+    "text": "標準答案是一個未公開的約 4B 級「出題老師」模型取樣三次的平均——衡量的是跟那個老師的一致程度，不是對錯。"
+   },
+   {
+    "id": "repo-048",
+    "p": {
+     "wrong_char": 0.21,
+     "any_error": 0.24
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 432,
+    "text": "這則貼文沒有附程式碼、資料、或方法論——這組測試是拿一個真實、開放的公開資料集，重建一個對應的簡化版本，看這個宣稱能不能立得住。"
+   },
+   {
+    "id": "repo-049",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 412,
+    "text": "不一定要有新資料，也歡迎讀完現有內容後寫的綜合分析、批判、或指出我們判準軸的漏洞。"
+   },
+   {
+    "id": "repo-050",
+    "p": {
+     "wrong_char": 0.2,
+     "any_error": 0.25
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 401,
+    "text": "第一關目前是靠 agent 逐件讀過去判斷，成本跟延遲都壓在這一關。"
+   },
+   {
+    "id": "repo-051",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.09
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 391,
+    "text": "我們從自己的網路環境重跑一次同樣性質的量測。"
+   },
+   {
+    "id": "repo-052",
+    "p": {
+     "wrong_char": 0.56,
+     "any_error": 0.5
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 412,
+    "text": "你的任務如果是新的、沒有訓練資料的（例如我們自己的第一關篩選），能直接用的是 Jev。"
+   },
+   {
+    "id": "repo-053",
+    "p": {
+     "wrong_char": 0.21,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 416,
+    "text": "這組動機來自一個真實觀察：很多引用查核工具只做「宣稱與引文的內容詞字面交集」——零交集才示警。"
+   },
+   {
+    "id": "repo-054",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 395,
+    "text": "第三輪為什麼這樣設計：三種結果的犯錯代價根本不對稱。"
+   },
+   {
+    "id": "repo-055",
+    "p": {
+     "wrong_char": 0.26,
+     "any_error": 0.29
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 445,
+    "text": "反諷偵測在 NLP 文獻裡公認是難題，我們原先（用第二節 RLCD/RLVR 架構區分做推論）也預測這對 Jev 會是弱項，接近能力地圖上「需要外部知識」那一側。"
+   },
+   {
+    "id": "repo-056",
+    "p": {
+     "wrong_char": 0.21,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 399,
+    "text": "手打的數字、憑印象寫的信心值、沒跑過就先寫結論——一律不收。"
+   },
+   {
+    "id": "repo-057",
+    "p": {
+     "wrong_char": 0.27,
+     "any_error": 0.3
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 434,
+    "text": "另外附兩題診斷用、不計分的題目：把舊版兩題只修正錯字、其他一字不改重問，用來判斷舊版結果是錯字造成的，還是題目本身的問題。"
+   },
+   {
+    "id": "repo-058",
+    "p": {
+     "wrong_char": 0.35,
+     "any_error": 0.37
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 399,
+    "text": "對 Jev 不利的結果跟有利的一樣收，收不收只看證據，不看結論。"
+   },
+   {
+    "id": "repo-059",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 447,
+    "text": "內容整理自三個真實開源專案的官方文件（見下方「三個可以參考的真實實作」），架構模式跟限制是直接引用；跨專案共通的模式歸納是我們自己的綜合，見結尾標籤。"
+   },
+   {
+    "id": "repo-060",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.32
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 444,
+    "text": "這組甚至輸給「保留全部警報」這個什麼都不做的基準線——因為官方評分對漏放真警報罰很重，而這組的錯誤幾乎全部是漏放（10 個 FN，只有 1 個 FP）。"
+   },
+   {
+    "id": "repo-061",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.09
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "text": "把三個代價完全不同的決定塞進同一題三選一，是在要求模型同時閃避三種不同的錯誤。"
+   },
+   {
+    "id": "repo-062",
+    "p": {
+     "wrong_char": 0.26,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 415,
+    "text": "要換之前，先確認你的任務是不是固定的、手上有沒有標註資料——這兩個條件成立，變體才開始划算。"
+   },
+   {
+    "id": "repo-063",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "text": "在這兩組裡，資訊不夠時它會猶豫，資訊有錯時它不會——值得記一筆但不代表通則。"
+   },
+   {
+    "id": "repo-064",
+    "p": {
+     "wrong_char": 0.11,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "text": "這裡要回答的是更根本的問題：什麼情況下它強，什麼情況下它弱，為什麼。"
+   },
+   {
+    "id": "repo-065",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 412,
+    "text": "也就是說，Laya 量它自己的那一半是誠實的——問題出在跟 Jev 的比法，不在它自己的量測。"
+   },
+   {
+    "id": "repo-066",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "text": "調溫度用的資料如果跟測試資料重疊，數字會好看得不真實。"
+   },
+   {
+    "id": "repo-067",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "text": "6. 校準數字是出廠的，還是事後調過溫度？"
+   },
+   {
+    "id": "repo-068",
+    "p": {
+     "wrong_char": 0.39,
+     "any_error": 0.41
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "text": "被叫去看別的專案，評估哪裡適合換成 Jev → 讀「模式 A」"
+   },
+   {
+    "id": "repo-069",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.4
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 414,
+    "text": "2. 照上面的 fan-out 架構起手，不要從零設計——三個獨立專案收斂到同一個模式不是巧合。"
+   },
+   {
+    "id": "repo-070",
+    "p": {
+     "wrong_char": 0.24,
+     "any_error": 0.2
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 439,
+    "text": "兩個模糊對照案例分岔：一個信心誠實偏低（0.19），另一個信心滿檔（1.00）——事後檢視，後者其實不算真的模糊（見 report 下方討論）。"
+   },
+   {
+    "id": "repo-071",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "text": "這個領域每天在變，星數與版本以各 repo 當下為準。"
+   },
+   {
+    "id": "repo-072",
+    "p": {
+     "wrong_char": 0.2,
+     "any_error": 0.25
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 418,
+    "text": "1. 動作 Choice——從這一步頁面上所有可點/可打字/可選擇的元素，加上捲動/上一頁/完成，選一個。"
+   },
+   {
+    "id": "repo-073",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 449,
+    "text": "跑之前我們以為反諷偵測會難；跑完發現不難——即使拆到跨句，只要反諷觸發線索完整存在於給定的 state 裡，單次平行判讀就抓得到，不需要真正意義上的多步驟推導。"
+   },
+   {
+    "id": "repo-074",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "text": "依心律不整類型拆開看，敏感度差很多："
+   },
+   {
+    "id": "repo-075",
+    "p": {
+     "wrong_char": 0.24,
+     "any_error": 0.43
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 412,
+    "text": "反過來，任務是新的、沒有訓練資料、或是中文，目前的 Laya 通用版不是 Jev 的替代品。"
+   },
+   {
+    "id": "repo-076",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "text": "這頁把它們分類整理，並標出每一個「跟 Jev 比過」的數字是怎麼來的。"
+   },
+   {
+    "id": "repo-077",
+    "p": {
+     "wrong_char": 0.27,
+     "any_error": 0.41
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "text": "底座比編碼器大很多，理解力和知識比較接近 Jev，代價是要 GPU。"
+   },
+   {
+    "id": "repo-078",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 399,
+    "text": "一段話裡混了不同來源，就分開標，不要用一個標記蓋過全部。"
+   },
+   {
+    "id": "repo-079",
+    "p": {
+     "wrong_char": 0.3,
+     "any_error": 0.26
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 391,
+    "text": "3. 信心值是出廠的，還是事後調過溫度？"
+   },
+   {
+    "id": "repo-080",
+    "p": {
+     "wrong_char": 0.22,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "text": "優點是小、快、可以自架；共同弱點是底座的知識與理解力有限。"
+   },
+   {
+    "id": "repo-081",
+    "p": {
+     "wrong_char": 0.2,
+     "any_error": 0.26
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 421,
+    "text": "給人看怎麼用，給 agent 帶進專案看哪裡能試著換上去，也給任何做過真實驗的人一個把結果貢獻進來的地方。"
+   },
+   {
+    "id": "repo-082",
+    "p": {
+     "wrong_char": 0.2,
+     "any_error": 0.23
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 415,
+    "text": "只測了 Jev 自己，沒有同場對照另一個便宜大模型，所以只能驗證「Jev 本身沒有長尾」這一半。"
+   },
+   {
+    "id": "repo-083",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 407,
+    "text": "上面那兩筆「誤觸發」看起來更像是抓到了舊政策偏嚴的盲點，不是失手。"
+   },
+   {
+    "id": "repo-084",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 382,
+    "text": "1. 找得到一手來源嗎？"
+   },
+   {
+    "id": "repo-085",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 430,
+    "text": "目錄名稱沿用早期規劃，實際收的是別人發表的跑分、文章、貼文與 repo——用自己的話整理並查證，不是翻譯稿，也不逐字翻譯題目。"
+   },
+   {
+    "id": "repo-086",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 413,
+    "text": "收：附收據或一手來源、結果可以回頭查證的東西；誠實回報的失敗；推翻我們自己結論的證據。"
+   },
+   {
+    "id": "repo-087",
+    "p": {
+     "wrong_char": 0.1,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 428,
+    "text": "服務剛啟動、或長時間閒置後的第一次請求，應該預期多出幾百毫秒；對延遲敏感的系統可以在啟動時先打一次暖機。"
+   },
+   {
+    "id": "repo-088",
+    "p": {
+     "wrong_char": 0.27,
+     "any_error": 0.24
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "text": "被叫進這個 repo 本身，要跑既有測試、加新測試、或回報結果 → 讀「模式 B」"
+   },
+   {
+    "id": "repo-089",
+    "p": {
+     "wrong_char": 0.32,
+     "any_error": 0.2
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 399,
+    "text": "跨句版另加兩個刻意寫模糊、不計分的對照案例，只看信心行為。"
+   },
+   {
+    "id": "repo-090",
+    "p": {
+     "wrong_char": 0.52,
+     "any_error": 0.56
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 414,
+    "text": "單一 Noul 問題：「這個警報是真的具臨床意義的事件，不是雜訊/導聯脫落/動作假影嗎？"
+   },
+   {
+    "id": "repo-091",
+    "p": {
+     "wrong_char": 0.25,
+     "any_error": 0.23
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 417,
+    "text": "Laya 真正的賣點不是「比 Jev 準」，是自架、資料不出機器、沒有每次呼叫的成本、可以自己微調。"
+   },
+   {
+    "id": "repo-092",
+    "p": {
+     "wrong_char": 0.21,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 390,
+    "text": "單一標註者（我們自己）出題兼判標準答案。"
+   },
+   {
+    "id": "repo-093",
+    "p": {
+     "wrong_char": 0.24,
+     "any_error": 0.19
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 388,
+    "text": "這一版的出題規則是舊版錯誤換來的："
+   },
+   {
+    "id": "repo-094",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 408,
+    "text": "不對稱代價應該寫進分流設計，不是塞進判準文字裡：這是本組最可以帶走的一條。"
+   },
+   {
+    "id": "repo-095",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 384,
+    "text": "暖機：正式量測前先打一次呼叫。"
+   },
+   {
+    "id": "repo-096",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 391,
+    "text": "7. 宣稱者跟被宣稱的東西有沒有利害關係？"
+   },
+   {
+    "id": "repo-097",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 404,
+    "text": "當初「第一次特別慢是連線建立的一次性成本」這個推測，這次得到直接證實。"
+   },
+   {
+    "id": "repo-098",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 443,
+    "text": "什麼時候該讓模型下決斷、什麼時候該把不確定交還給人，取決於各個結果犯錯的代價，而這件事用程式碼裡的門檻表達，比用判準描述去暗示要可靠得多。"
+   },
+   {
+    "id": "repo-099",
+    "p": {
+     "wrong_char": 0.35,
+     "any_error": 0.3
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 406,
+    "text": "這一類不是替代品，是仍然呼叫 Jev，但把它的是非題或選擇題組合成新的操作。"
+   },
+   {
+    "id": "repo-100",
+    "p": {
+     "wrong_char": 0.38,
+     "any_error": 0.26
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 400,
+    "text": "歡迎貢獻更大規模、跨領域的裸記憶 vs 給定背景對照測試。"
+   },
+   {
+    "id": "repo-101",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "text": "每題重問三次只能看出單次呼叫之間的浮動，不能取代更多題目。"
+   },
+   {
+    "id": "repo-102",
+    "p": {
+     "wrong_char": 0.43,
+     "any_error": 0.24
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 409,
+    "text": "兩份資料集的原文都不放進 repo，執行時從釘住的版本下載，收據只存案例編號和機率。"
+   },
+   {
+    "id": "repo-103",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 434,
+    "text": "兩輪對照：①同句版——反諷訊號跟正面詞在同一句 ②跨句版——負面脈絡在一個回合、字面純粹不帶保留的正面稱讚在另一個獨立回合。"
+   },
+   {
+    "id": "repo-104",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 414,
+    "text": "拆成兩題各自守住一個昂貴的極端、剩下全部交給便宜的人工批次複查，才對得上實際代價結構。"
+   },
+   {
+    "id": "repo-105",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.2
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 423,
+    "text": "參考線：不看輸入、每題猜訓練集最常見答案 = 0.484；資料集說明的出題老師自我一致上限 = 0.735。"
+   },
+   {
+    "id": "repo-106",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 384,
+    "text": "這組就是去驗證這個預測對不對。"
+   },
+   {
+    "id": "repo-107",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 446,
+    "text": "字面版刻意用「正面詞緊接負面事件」的固定修辭套路；跨句版刻意把兩者拆到不同回合，移除同句內的字面矛盾，測試是否還需要「真正的」跨句語用推理才能抓到。"
+   },
+   {
+    "id": "repo-108",
+    "p": {
+     "wrong_char": 0.31,
+     "any_error": 0.31
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "text": "問題設計：比照我們自己在 README 補進去的建議——先試單題，真的弱才拆解。"
+   },
+   {
+    "id": "repo-109",
+    "p": {
+     "wrong_char": 0.26,
+     "any_error": 0.26
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 433,
+    "text": "舊版 B 題還有一筆寫這組收據之前、在對話裡非正式跑過的結果（未存檔）：信心 0.08、選道光，跟 E 題這次的浮動一致。"
+   },
+   {
+    "id": "repo-110",
+    "p": {
+     "wrong_char": 0.19,
+     "any_error": 0.23
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 429,
+    "text": "這兩種情況正好對應能力地圖「訊號自足」那一側——答案完全在 claim+quote 這兩段文字裡，不需要外部知識，是 Jev 該強的地方。"
+   },
+   {
+    "id": "repo-111",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 422,
+    "text": "兩次跑出的判斷結果也很穩定：同一句話在兩天的機率最多只差 0.02，沒有任何一題在 0.5 兩側翻轉。"
+   },
+   {
+    "id": "repo-112",
+    "p": {
+     "wrong_char": 0.22,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 385,
+    "text": "只有二手轉貼時，先追到原始出處。"
+   },
+   {
+    "id": "repo-113",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 446,
+    "text": "五個合成案例，涵蓋清楚反駁、完全無關、字面淺但語意深的難例，以及最關鍵的兩組對照：改述後字面重疊很低但語意支持、字面重疊很高但意思被關鍵字反轉。"
+   },
+   {
+    "id": "repo-114",
+    "p": {
+     "wrong_char": 0.24,
+     "any_error": 0.26
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 429,
+    "text": "但它自己的模型說明寫明：表上 Jev 那一欄是「第三方發表、從未在這裡量過（沒有 TypeSafe API 權限），樣本數與提示都不同」。"
+   },
+   {
+    "id": "repo-115",
+    "p": {
+     "wrong_char": 0.26,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "text": "各含刻意設計成「聽起來像諷刺但其實真心」的陷阱案例。"
+   },
+   {
+    "id": "repo-116",
+    "p": {
+     "wrong_char": 0.52,
+     "any_error": 0.46
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 423,
+    "text": "好處是任何現成模型都能用、沒有訓練成本；限制是機率沒有經過 Jev 那種校準訓練，多半要自己調溫度。"
+   },
+   {
+    "id": "repo-117",
+    "p": {
+     "wrong_char": 0.19,
+     "any_error": 0.23
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 455,
+    "text": "同樣的輸入、同樣的題目、同一套評分定義之下，Laya 贏過 Jev 只有一種情況：它專門微調過的版本，在自己的訓練分布上，準確率高 3 個百分點，而且校準比 Jev 差五倍。"
+   },
+   {
+    "id": "repo-118",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.27
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 396,
+    "text": "計分題只有三題、單一標註者、只測了中文歷史一個領域。"
+   },
+   {
+    "id": "repo-119",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 416,
+    "text": "③ 的背景段落刻意把三個選項都提到：要讀懂誰是誰的母親才答得對，不是只比對段落裡出現的名字。"
+   },
+   {
+    "id": "repo-120",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 428,
+    "text": "這組的真正產出不是命中率，是三輪問題設計的迭代過程，每一輪都因為不同的理由失敗，而每次失敗的原因都不是模型判斷力。"
+   },
+   {
+    "id": "repo-121",
+    "p": {
+     "wrong_char": 0.21,
+     "any_error": 0.23
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 427,
+    "text": "不收：只有宣稱、沒有證據或結果的東西（純構想、上架公告、安裝教學——那類交給 awesome-jev 這種清單）；找不到一手來源的轉述。"
+   },
+   {
+    "id": "repo-122",
+    "p": {
+     "wrong_char": 0.24,
+     "any_error": 0.24
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 423,
+    "text": "題目乾淨時，它的裸記憶比我們原本寫的好：常見史實 1.00 答對，冷門史實不給背景也以 0.87 答對。"
+   },
+   {
+    "id": "repo-123",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 403,
+    "text": "目的是隔離出「裸記憶」跟「給定文字內的閱讀理解」這兩種不同的能力。"
+   },
+   {
+    "id": "repo-124",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.25
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 409,
+    "text": "兩次觸發「立即處理」的案例，都不是歷史標籤的「立即處理」，但兩筆都值得細看："
+   },
+   {
+    "id": "repo-125",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 451,
+    "text": "「立即處理」判錯＝浪費人的注意力（貴）；「丟棄」判錯＝永久失去，且數個月內擋住重新抓取（也貴，方向相反）；「擱置」判錯＝幾乎零成本，之後會被重新評估。"
+   },
+   {
+    "id": "repo-126",
+    "p": {
+     "wrong_char": 0.1,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 393,
+    "text": "實務上要注意的是：第一次呼叫會慢 2–3 倍。"
+   },
+   {
+    "id": "repo-127",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "text": "這是一個具體、可驗證的踩坑紀錄，不是理論建議。"
+   },
+   {
+    "id": "repo-128",
+    "p": {
+     "wrong_char": 0.43,
+     "any_error": 0.4
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 409,
+    "text": "A、B、C 三次重問結果完全相同；D、E 三次之間有小幅浮動，E 甚至換了選項。"
+   },
+   {
+    "id": "repo-129",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 392,
+    "text": "這份文件是活的——每收一組新貢獻就更新一次。"
+   },
+   {
+    "id": "repo-130",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 384,
+    "text": "4. 比較是不是同一批輸入？"
+   },
+   {
+    "id": "repo-131",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.15
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 397,
+    "text": "樣本數多少、標準答案是人工還是另一個模型、有沒有對照組。"
+   },
+   {
+    "id": "repo-132",
+    "p": {
+     "wrong_char": 0.3,
+     "any_error": 0.38
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 433,
+    "text": "Laya 用出廠溫度參數、沒有重新調整；它自己的說明寫明重新調整溫度是「效益最高的修正」，調過以後 ECE 會變好，但準確率不變。"
+   },
+   {
+    "id": "repo-133",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 386,
+    "text": "數字要對得上原文，轉述要能回頭查。"
+   },
+   {
+    "id": "repo-134",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.2
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 388,
+    "text": "N=5，單一標註者，英文，合成資料。"
+   },
+   {
+    "id": "repo-135",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 419,
+    "text": "這些門檻是在維基百科、DuckDuckGo 這類站上調出來的起始值，不是通用值，換到你自己的網站要重新校準。"
+   },
+   {
+    "id": "repo-136",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.18
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 422,
+    "text": "n=30 時落在第 29 個樣本，也就是只比最大值小一名——這個樣本數下它是尾端的指示，不是穩定的估計。"
+   },
+   {
+    "id": "repo-137",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.1
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 400,
+    "text": "這不是選讀的背景知識，是會影響你怎麼下結論、怎麼措辭的東西。"
+   },
+   {
+    "id": "repo-138",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 394,
+    "text": "舊版數字（僅供對照，不再作為任何結論的依據）："
+   },
+   {
+    "id": "repo-139",
+    "p": {
+     "wrong_char": 0.21,
+     "any_error": 0.22
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 428,
+    "text": "這組測的是：把第一關換成 Jev，行為會長什麼樣子——不是測「Jev 能不能重現既有判斷」，是測「這個分流設計本身合不合理」。"
+   },
+   {
+    "id": "repo-140",
+    "p": {
+     "wrong_char": 0.17,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 395,
+    "text": "轉貼常把 A 說的話掛到 B 身上，或把回覆當成主文。"
+   },
+   {
+    "id": "repo-141",
+    "p": {
+     "wrong_char": 0.14,
+     "any_error": 0.13
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 445,
+    "text": "這跟「不知道」在分布上長得一樣，單看這題分不出是哪一種；但同一組裡冷門的 B 題它以 0.87 答對，讓「題目歧義」這個解釋比「不知道」更說得通。"
+   },
+   {
+    "id": "repo-142",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 429,
+    "text": "對變動型頁面（changelog 之類）這代表內容可能已經跟當初擷取時不同，這是本組最大的方法論缺口，下面的結果要帶著這個折扣讀。"
+   },
+   {
+    "id": "repo-143",
+    "p": {
+     "wrong_char": 0.13,
+     "any_error": 0.17
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 387,
+    "text": "5/5 全對，包括兩組關鍵對照案例："
+   },
+   {
+    "id": "repo-144",
+    "p": {
+     "wrong_char": 0.23,
+     "any_error": 0.27
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 409,
+    "text": "不改權重，把每個選項對應到模型輸出的機率（例如讀選項字母的 logits），在選項上做 softmax。"
+   },
+   {
+    "id": "repo-145",
+    "p": {
+     "wrong_char": 0.25,
+     "any_error": 0.36
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 440,
+    "text": "專用模型在自己的主場贏 Jev 不稀奇（Laya 專用版高 3 個百分點），拿到沒看過的任務就是另一回事（Laya 通用版低於「不看輸入」的基準線）。"
+   },
+   {
+    "id": "repo-146",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.14
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 439,
+    "text": "測試組用的資料：自己寫的可以直接放；公開資料集寫明來源、授權、有沒有把原文放進 repo；私人或受限的資料必須先去識別化，並在 README 說明怎麼處理的。"
+   },
+   {
+    "id": "repo-147",
+    "p": {
+     "wrong_char": 0.15,
+     "any_error": 0.27
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 410,
+    "text": "專案本身很小（0 星、只 push 過一次），不是一個成熟到可以直接拿來抄架構的實作。"
+   },
+   {
+    "id": "repo-148",
+    "p": {
+     "wrong_char": 0.16,
+     "any_error": 0.16
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 441,
+    "text": "4. 目標/卡住的機率門檻，用你自己的網站重新測，不要照搬 0.85——三個專案的起始值都是在維基百科/DuckDuckGo 這類結構乾淨的站上調出來的。"
+   },
+   {
+    "id": "repo-149",
+    "p": {
+     "wrong_char": 0.12,
+     "any_error": 0.11
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 416,
+    "text": "穩定性：同一份設計隔天重跑一次，15 筆的分流結果完全相同，機率值差異在 ±0.03 以內。"
+   },
+   {
+    "id": "repo-150",
+    "p": {
+     "wrong_char": 0.3,
+     "any_error": 0.24
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 399,
+    "text": "不測準確率，測真實呼叫的延遲分布——中位數多少、有沒有長尾。"
+   },
+   {
+    "id": "repo-151",
+    "p": {
+     "wrong_char": 0.18,
+     "any_error": 0.12
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 417,
+    "text": "反過來，它的判斷完全建立在你給的文字上——文字有錯時，它不會提醒你題目怪怪的，照樣很有把握地選。"
+   }
+  ],
+  "repo_real_typo": [
+   {
+    "id": "real-1",
+    "p": {
+     "wrong_char": 0.96,
+     "any_error": 0.9
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 398,
+    "text": "大清帝國的第二任皮帝是誰？ (1)康燕 (2)雍正 (3)乾隆"
+   },
+   {
+    "id": "real-2",
+    "p": {
+     "wrong_char": 0.95,
+     "any_error": 0.87
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 418,
+    "text": "背景資料：清朝皮帝順序依次為：順治、康燕、雍正、乾隆、嘉慶、道光、咸豐、同治、光緒、宣統。"
+   },
+   {
+    "id": "real-3",
+    "p": {
+     "wrong_char": 0.68,
+     "any_error": 0.52
+    },
+    "model": "jev-1.13.0",
+    "input_tokens": 402,
+    "text": "金住用的參數，跡測性需要——以這份為準，不要在 README.md 裡再寫一次。"
+   }
+  ]
+ }
+}

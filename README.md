@@ -129,7 +129,7 @@ suites/                    每組實測（方法論＋協定＋真實 log＋報�
 translations/              國外跑分的翻譯與整理（只翻結果，不翻題目）
 analysis/                  沒有單一既有條目可掛的純分析（跨條目觀察、判準軸本身的批評）
 scripts/common/            共用的 API 呼叫樣板，不用各自重寫
-scripts/zh-check/          簡體字檢查，每個 PR 自動跑
+scripts/zh-check/          簡體字檢查（每個 PR 自動跑）與 Jev 校稿複查工具
 ```
 
 ## 授權

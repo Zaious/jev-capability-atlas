@@ -1,0 +1,22 @@
+# 釘住用的參數，為了能重現——以這份為準，不要在 README.md 裡再寫一次。
+# Pin these for reproducibility -- treat this file as authoritative,
+# don't re-state values in README.md that could drift out of sync.
+model: jev-latest          # answered by jev-1.13.0 on the run date
+question_type: noul        # two questions per call: wrong_char, any_error (wording fixed in run.py)
+sets:
+  sighan_error: 200        # SIGHAN 2015 CSC test sentences with a typo
+  sighan_clean: 200        # same test set, labelled error-free
+  repo_clean: 152          # this repo's own sentences, frozen in data/repo_clean.json
+  repo_real_typo: 3        # our own real typos, unscored
+seed: 11
+thresholds_reported: [0.3, 0.5, 0.7]
+annotators: 0              # SIGHAN gold labels; repo sentences assumed clean, flagged ones checked by hand
+run_date: "2026-09-22"
+data_source: >
+  SIGHAN 2015 CSC test set via Hugging Face AnonymousSubmissionOnly/sighan15
+  @ 1a936bafdb86abcb8bddae860504302c77b4fd9a (a Simplified conversion), converted back
+  with OpenCC s2tw and kept only when the typo positions survive the round trip
+  (1,098 of 1,100 pairs); plus this repo's own sentences
+data_license: >
+  SIGHAN: officially released for research; the mirror is labelled MIT; text not committed.
+  repo sentences: MIT (ours)

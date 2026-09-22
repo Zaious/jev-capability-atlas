@@ -1,0 +1,762 @@
+[
+ {
+  "source": "suites/laya-head-to-head/README.md",
+  "text": "Jev 沒看過這些工作流程，照樣到 0.736——剛好落在出題老師自我一致上限附近。",
+  "id": "repo-000"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "一筆是某上游服務宣布棄用某個既有機制的 RFC（p=0.85）——完全符合「受監看上游的棄用公告」這個判準，歷史上卻被評成擱置（53 分）。",
+  "id": "repo-001"
+ },
+ {
+  "source": "suites/laya-head-to-head/README.md",
+  "text": "Part A 的標準答案是一個未公開模型的輸出，衡量的是一致程度不是對錯；如果那個出題老師跟 Jev 有血緣關係，Jev 的分數會被墊高——資料集沒有說老師是誰，我們無法排除。",
+  "id": "repo-002"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "不確定性要導向「盡快用便宜的方式讓人看一眼」，不是導向「假裝解決了」。",
+  "id": "repo-003"
+ },
+ {
+  "source": "suites/sarcasm-vs-sincere-praise/README.md",
+  "text": "N=24，單一標註者，只有英文，只有「訊號都給齊」這種形式的反諷。",
+  "id": "repo-004"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "唯一自述在一套公開題上小幅領先的通用模型是 decider，我們沒有驗證。",
+  "id": "repo-005"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "宣稱能直接吃像素的變體目前有這幾個，全部是作者自述，我們沒有測過：",
+  "id": "repo-006"
+ },
+ {
+  "source": "suites/sarcasm-vs-sincere-praise/README.md",
+  "text": "AMB2 案例的「模糊」判準本身可能是我們出題的瑕疵，不是模型過度自信的證據——見 report 內對這點的討論，歡迎有不同意見的人提出反例。",
+  "id": "repo-007"
+ },
+ {
+  "source": "suites/laya-head-to-head/README.md",
+  "text": "Laya 跑在有其他負載的 CPU 上，延遲數字不能拿來比速度。",
+  "id": "repo-008"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "三輪失敗，沒有一輪的原因是模型判斷力：第一輪敗在判準沒有傳達基準率、第二輪敗在中間選項描述太抽象、第三輪的「不一致」則多半來自歷史標籤本身該不該當成正解、以及內容重建的落差。",
+  "id": "repo-009"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "5. 被比較的是通用還是專用模型？",
+  "id": "repo-010"
+ },
+ {
+  "source": "suites/laya-head-to-head/README.md",
+  "text": "資料集說明把 0.75 左右視為飽和，並提醒「遠高於 0.75」代表學到的是老師的怪癖——0.766 還稱不上遠高於，但已經在這條線上方，值得存疑。",
+  "id": "repo-011"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "選項都是真實人物：②③ 的三個選項都是乾隆朝真實存在的皇后（乾隆第一位皇后／乾隆生母／嘉慶生母），不是一眼就能排除的假選項。",
+  "id": "repo-012"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "1. 它是通用還是專用？",
+  "id": "repo-013"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "引用別人發表的數字，跟在同一批輸入上實測，要分開講。",
+  "id": "repo-014"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "每一條實質主張都標上其中一種。",
+  "id": "repo-015"
+ },
+ {
+  "source": "suites/jev-latency-distribution/README.md",
+  "text": "舊版唯一的離群值，就是暖機造成的。",
+  "id": "repo-016"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "真要驗收這種任務，比較該問的是「觸發時精準度夠不夠」跟「人看過之後同不同意」，而不是「跟舊系統的標籤對不對得上」。",
+  "id": "repo-017"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "調溫度用的資料如果跟測試資料重疊，校準數字會好看得不真實。",
+  "id": "repo-018"
+ },
+ {
+  "source": "README.md",
+  "text": "機制上：它很快、很便宜，只能做「選一個選項/打個分/回答是非」這種窄判斷，不會寫文字解釋自己在想什麼。",
+  "id": "repo-019"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "這些都是整理過程中真的遇到過的問題：",
+  "id": "repo-020"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "查不到就寫「無法查證」，或乾脆不收。",
+  "id": "repo-021"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "這條規則的理由：這整個專案存在的意義就是「用收據取代印象」，破例一次，後面所有數字都失去意義。",
+  "id": "repo-022"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "歷史標籤不該當成正解：這批標籤是既有政策跑出來的結果，不是獨立的真理。",
+  "id": "repo-023"
+ },
+ {
+  "source": "browser-automation.md",
+  "text": "3. 打字流程先配好一個小模型，不要依賴關鍵字退化路徑；如果暫時沒配，讓退化狀態在你的 log 裡看得到，不要讓它看起來像正常結果。",
+  "id": "repo-024"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "「第幾任皇帝」這類題目要看從哪一任開始數，這一版改問父子、母子關係，不受數法影響。",
+  "id": "repo-025"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "一個真實運作中的個人知識管線：每晚自動抓取一批內容（依既有的監看清單），逐件判斷要「立刻交給 LLM agent 深入處理」、「丟掉」、還是「先擱著」。",
+  "id": "repo-026"
+ },
+ {
+  "source": "suites/jev-latency-distribution/README.md",
+  "text": "p95 的算法：排序後取最近秩、不內插。",
+  "id": "repo-027"
+ },
+ {
+  "source": "browser-automation.md",
+  "text": "專門模型換來的準確率，代價往往是訓練分布外的行為更難預期，不是免費的。",
+  "id": "repo-028"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "編碼器或小型模型加一層自己訓練的決策輸出層，一次前向就給出所有選項的機率。",
+  "id": "repo-029"
+ },
+ {
+  "source": "browser-automation.md",
+  "text": "真正該攔的是目標/卡住兩題的機率長期不上不下、又不像是分散在合理選項上的情況。",
+  "id": "repo-030"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "唯一正解：不管用哪種慣例數、哪種稱呼，都只有一個選項說得通。",
+  "id": "repo-031"
+ },
+ {
+  "source": "suites/jev-latency-distribution/README.md",
+  "text": "這兩次執行都沒有出現失敗，但無法排除個別呼叫曾經重試過。",
+  "id": "repo-032"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "在評測資料的同一個分布上訓練過就是專用，主場贏不稀奇。",
+  "id": "repo-033"
+ },
+ {
+  "source": "suites/citation-support-check/README.md",
+  "text": "這種字面比對抓不到兩種錯誤：①改述後用詞不同但確實支持（會被字面比對誤判成無關）②幾乎整句抄字典但關鍵一詞被反轉，例如「增加」寫成「減少」的相反（會被字面比對誤判成強力支持）。",
+  "id": "repo-034"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "例如創辦人推銷自己的服務。",
+  "id": "repo-035"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "它的判斷完全建立在你給的文字上，文字錯了，信心值不會替你把關。",
+  "id": "repo-036"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "在評測資料的同一個分布上訓練過，就是專用。",
+  "id": "repo-037"
+ },
+ {
+  "source": "browser-automation.md",
+  "text": "（架構模式、限制、打字模型機制都直接引用自三個真實專案的官方文件，連結見上文各節；三個專案共通模式的歸納、檢查清單、跟「別撞名混淆」的提醒是我們自己的  綜合）",
+  "id": "repo-038"
+ },
+ {
+  "source": "README.md",
+  "text": "獨立、非官方、非 TypeSafe 贊助的社群專案（除了一般的早鳥候補名單，我們沒有收到 TypeSafe 任何報酬或提前使用權）。",
+  "id": "repo-039"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "2. 算法歧義：舊版只揭露了 A 題的標準答案有爭議，沒發現 B、C 題「第七任皇帝」也一樣——三個選項剛好各對應一種數法。",
+  "id": "repo-040"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "標籤分布：2 筆立即處理、7 筆擱置、6 筆丟棄——注意這個 4.3% 的「立即處理」基準率，是後面第一輪失敗的關鍵。",
+  "id": "repo-041"
+ },
+ {
+  "source": "browser-automation.md",
+  "text": "接自己系統前先確認：你的任務有沒有窄到值得為它訓練一個專門模型；如果沒有，Jev 這種「不用訓練、直接打 API」的通用選項通常還是划算的起點。",
+  "id": "repo-042"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "D 題也一樣：數法不同，第二任可能是皇太極、順治或康熙，只有康熙在選項裡，它選康熙但信心只有 0.46–0.51。",
+  "id": "repo-043"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "這四個問題都是 Laya 對照實測裡真的踩到的：",
+  "id": "repo-044"
+ },
+ {
+  "source": "browser-automation.md",
+  "text": "三個獨立專案不約而同收斂到同一個模式，值得當成起手式：每一步只打一次 Jev，在同一份 state 上問三題：",
+  "id": "repo-045"
+ },
+ {
+  "source": "suites/citation-support-check/README.md",
+  "text": "合成方法論曾與真實論文資料對照驗證，見完整評測報告（連結於根目錄 README）。",
+  "id": "repo-046"
+ },
+ {
+  "source": "suites/laya-head-to-head/README.md",
+  "text": "標準答案是一個未公開的約 4B 級「出題老師」模型取樣三次的平均——衡量的是跟那個老師的一致程度，不是對錯。",
+  "id": "repo-047"
+ },
+ {
+  "source": "suites/icu-alarm-classification/README.md",
+  "text": "這則貼文沒有附程式碼、資料、或方法論——這組測試是拿一個真實、開放的公開資料集，重建一個對應的簡化版本，看這個宣稱能不能立得住。",
+  "id": "repo-048"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "不一定要有新資料，也歡迎讀完現有內容後寫的綜合分析、批判、或指出我們判準軸的漏洞。",
+  "id": "repo-049"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "第一關目前是靠 agent 逐件讀過去判斷，成本跟延遲都壓在這一關。",
+  "id": "repo-050"
+ },
+ {
+  "source": "suites/jev-latency-distribution/README.md",
+  "text": "我們從自己的網路環境重跑一次同樣性質的量測。",
+  "id": "repo-051"
+ },
+ {
+  "source": "suites/laya-head-to-head/README.md",
+  "text": "你的任務如果是新的、沒有訓練資料的（例如我們自己的第一關篩選），能直接用的是 Jev。",
+  "id": "repo-052"
+ },
+ {
+  "source": "suites/citation-support-check/README.md",
+  "text": "這組動機來自一個真實觀察：很多引用查核工具只做「宣稱與引文的內容詞字面交集」——零交集才示警。",
+  "id": "repo-053"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "第三輪為什麼這樣設計：三種結果的犯錯代價根本不對稱。",
+  "id": "repo-054"
+ },
+ {
+  "source": "suites/sarcasm-vs-sincere-praise/README.md",
+  "text": "反諷偵測在 NLP 文獻裡公認是難題，我們原先（用第二節 RLCD/RLVR 架構區分做推論）也預測這對 Jev 會是弱項，接近能力地圖上「需要外部知識」那一側。",
+  "id": "repo-055"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "手打的數字、憑印象寫的信心值、沒跑過就先寫結論——一律不收。",
+  "id": "repo-056"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "另外附兩題診斷用、不計分的題目：把舊版兩題只修正錯字、其他一字不改重問，用來判斷舊版結果是錯字造成的，還是題目本身的問題。",
+  "id": "repo-057"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "對 Jev 不利的結果跟有利的一樣收，收不收只看證據，不看結論。",
+  "id": "repo-058"
+ },
+ {
+  "source": "browser-automation.md",
+  "text": "內容整理自三個真實開源專案的官方文件（見下方「三個可以參考的真實實作」），架構模式跟限制是直接引用；跨專案共通的模式歸納是我們自己的綜合，見結尾標籤。",
+  "id": "repo-059"
+ },
+ {
+  "source": "suites/icu-alarm-classification/README.md",
+  "text": "這組甚至輸給「保留全部警報」這個什麼都不做的基準線——因為官方評分對漏放真警報罰很重，而這組的錯誤幾乎全部是漏放（10 個 FN，只有 1 個 FP）。",
+  "id": "repo-060"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "把三個代價完全不同的決定塞進同一題三選一，是在要求模型同時閃避三種不同的錯誤。",
+  "id": "repo-061"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "要換之前，先確認你的任務是不是固定的、手上有沒有標註資料——這兩個條件成立，變體才開始划算。",
+  "id": "repo-062"
+ },
+ {
+  "source": "suites/icu-alarm-classification/README.md",
+  "text": "在這兩組裡，資訊不夠時它會猶豫，資訊有錯時它不會——值得記一筆但不代表通則。",
+  "id": "repo-063"
+ },
+ {
+  "source": "README.md",
+  "text": "這裡要回答的是更根本的問題：什麼情況下它強，什麼情況下它弱，為什麼。",
+  "id": "repo-064"
+ },
+ {
+  "source": "suites/laya-head-to-head/README.md",
+  "text": "也就是說，Laya 量它自己的那一半是誠實的——問題出在跟 Jev 的比法，不在它自己的量測。",
+  "id": "repo-065"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "調溫度用的資料如果跟測試資料重疊，數字會好看得不真實。",
+  "id": "repo-066"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "6. 校準數字是出廠的，還是事後調過溫度？",
+  "id": "repo-067"
+ },
+ {
+  "source": "AGENTS.md",
+  "text": "被叫去看別的專案，評估哪裡適合換成 Jev → 讀「模式 A」",
+  "id": "repo-068"
+ },
+ {
+  "source": "browser-automation.md",
+  "text": "2. 照上面的 fan-out 架構起手，不要從零設計——三個獨立專案收斂到同一個模式不是巧合。",
+  "id": "repo-069"
+ },
+ {
+  "source": "suites/sarcasm-vs-sincere-praise/README.md",
+  "text": "兩個模糊對照案例分岔：一個信心誠實偏低（0.19），另一個信心滿檔（1.00）——事後檢視，後者其實不算真的模糊（見 report 下方討論）。",
+  "id": "repo-070"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "這個領域每天在變，星數與版本以各 repo 當下為準。",
+  "id": "repo-071"
+ },
+ {
+  "source": "browser-automation.md",
+  "text": "1. 動作 Choice——從這一步頁面上所有可點/可打字/可選擇的元素，加上捲動/上一頁/完成，選一個。",
+  "id": "repo-072"
+ },
+ {
+  "source": "suites/sarcasm-vs-sincere-praise/README.md",
+  "text": "跑之前我們以為反諷偵測會難；跑完發現不難——即使拆到跨句，只要反諷觸發線索完整存在於給定的 state 裡，單次平行判讀就抓得到，不需要真正意義上的多步驟推導。",
+  "id": "repo-073"
+ },
+ {
+  "source": "suites/icu-alarm-classification/README.md",
+  "text": "依心律不整類型拆開看，敏感度差很多：",
+  "id": "repo-074"
+ },
+ {
+  "source": "suites/laya-head-to-head/README.md",
+  "text": "反過來，任務是新的、沒有訓練資料、或是中文，目前的 Laya 通用版不是 Jev 的替代品。",
+  "id": "repo-075"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "這頁把它們分類整理，並標出每一個「跟 Jev 比過」的數字是怎麼來的。",
+  "id": "repo-076"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "底座比編碼器大很多，理解力和知識比較接近 Jev，代價是要 GPU。",
+  "id": "repo-077"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "一段話裡混了不同來源，就分開標，不要用一個標記蓋過全部。",
+  "id": "repo-078"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "3. 信心值是出廠的，還是事後調過溫度？",
+  "id": "repo-079"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "優點是小、快、可以自架；共同弱點是底座的知識與理解力有限。",
+  "id": "repo-080"
+ },
+ {
+  "source": "README.md",
+  "text": "給人看怎麼用，給 agent 帶進專案看哪裡能試著換上去，也給任何做過真實驗的人一個把結果貢獻進來的地方。",
+  "id": "repo-081"
+ },
+ {
+  "source": "suites/jev-latency-distribution/README.md",
+  "text": "只測了 Jev 自己，沒有同場對照另一個便宜大模型，所以只能驗證「Jev 本身沒有長尾」這一半。",
+  "id": "repo-082"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "上面那兩筆「誤觸發」看起來更像是抓到了舊政策偏嚴的盲點，不是失手。",
+  "id": "repo-083"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "1. 找得到一手來源嗎？",
+  "id": "repo-084"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "目錄名稱沿用早期規劃，實際收的是別人發表的跑分、文章、貼文與 repo——用自己的話整理並查證，不是翻譯稿，也不逐字翻譯題目。",
+  "id": "repo-085"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "收：附收據或一手來源、結果可以回頭查證的東西；誠實回報的失敗；推翻我們自己結論的證據。",
+  "id": "repo-086"
+ },
+ {
+  "source": "suites/jev-latency-distribution/README.md",
+  "text": "服務剛啟動、或長時間閒置後的第一次請求，應該預期多出幾百毫秒；對延遲敏感的系統可以在啟動時先打一次暖機。",
+  "id": "repo-087"
+ },
+ {
+  "source": "AGENTS.md",
+  "text": "被叫進這個 repo 本身，要跑既有測試、加新測試、或回報結果 → 讀「模式 B」",
+  "id": "repo-088"
+ },
+ {
+  "source": "suites/sarcasm-vs-sincere-praise/README.md",
+  "text": "跨句版另加兩個刻意寫模糊、不計分的對照案例，只看信心行為。",
+  "id": "repo-089"
+ },
+ {
+  "source": "suites/icu-alarm-classification/README.md",
+  "text": "單一 Noul 問題：「這個警報是真的具臨床意義的事件，不是雜訊/導聯脫落/動作假影嗎？",
+  "id": "repo-090"
+ },
+ {
+  "source": "suites/laya-head-to-head/README.md",
+  "text": "Laya 真正的賣點不是「比 Jev 準」，是自架、資料不出機器、沒有每次呼叫的成本、可以自己微調。",
+  "id": "repo-091"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "單一標註者（我們自己）出題兼判標準答案。",
+  "id": "repo-092"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "這一版的出題規則是舊版錯誤換來的：",
+  "id": "repo-093"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "不對稱代價應該寫進分流設計，不是塞進判準文字裡：這是本組最可以帶走的一條。",
+  "id": "repo-094"
+ },
+ {
+  "source": "suites/jev-latency-distribution/README.md",
+  "text": "暖機：正式量測前先打一次呼叫。",
+  "id": "repo-095"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "7. 宣稱者跟被宣稱的東西有沒有利害關係？",
+  "id": "repo-096"
+ },
+ {
+  "source": "suites/jev-latency-distribution/README.md",
+  "text": "當初「第一次特別慢是連線建立的一次性成本」這個推測，這次得到直接證實。",
+  "id": "repo-097"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "什麼時候該讓模型下決斷、什麼時候該把不確定交還給人，取決於各個結果犯錯的代價，而這件事用程式碼裡的門檻表達，比用判準描述去暗示要可靠得多。",
+  "id": "repo-098"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "這一類不是替代品，是仍然呼叫 Jev，但把它的是非題或選擇題組合成新的操作。",
+  "id": "repo-099"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "歡迎貢獻更大規模、跨領域的裸記憶 vs 給定背景對照測試。",
+  "id": "repo-100"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "每題重問三次只能看出單次呼叫之間的浮動，不能取代更多題目。",
+  "id": "repo-101"
+ },
+ {
+  "source": "suites/laya-head-to-head/README.md",
+  "text": "兩份資料集的原文都不放進 repo，執行時從釘住的版本下載，收據只存案例編號和機率。",
+  "id": "repo-102"
+ },
+ {
+  "source": "suites/sarcasm-vs-sincere-praise/README.md",
+  "text": "兩輪對照：①同句版——反諷訊號跟正面詞在同一句 ②跨句版——負面脈絡在一個回合、字面純粹不帶保留的正面稱讚在另一個獨立回合。",
+  "id": "repo-103"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "拆成兩題各自守住一個昂貴的極端、剩下全部交給便宜的人工批次複查，才對得上實際代價結構。",
+  "id": "repo-104"
+ },
+ {
+  "source": "suites/laya-head-to-head/README.md",
+  "text": "參考線：不看輸入、每題猜訓練集最常見答案 = 0.484；資料集說明的出題老師自我一致上限 = 0.735。",
+  "id": "repo-105"
+ },
+ {
+  "source": "suites/sarcasm-vs-sincere-praise/README.md",
+  "text": "這組就是去驗證這個預測對不對。",
+  "id": "repo-106"
+ },
+ {
+  "source": "suites/sarcasm-vs-sincere-praise/README.md",
+  "text": "字面版刻意用「正面詞緊接負面事件」的固定修辭套路；跨句版刻意把兩者拆到不同回合，移除同句內的字面矛盾，測試是否還需要「真正的」跨句語用推理才能抓到。",
+  "id": "repo-107"
+ },
+ {
+  "source": "suites/icu-alarm-classification/README.md",
+  "text": "問題設計：比照我們自己在 README 補進去的建議——先試單題，真的弱才拆解。",
+  "id": "repo-108"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "舊版 B 題還有一筆寫這組收據之前、在對話裡非正式跑過的結果（未存檔）：信心 0.08、選道光，跟 E 題這次的浮動一致。",
+  "id": "repo-109"
+ },
+ {
+  "source": "suites/citation-support-check/README.md",
+  "text": "這兩種情況正好對應能力地圖「訊號自足」那一側——答案完全在 claim+quote 這兩段文字裡，不需要外部知識，是 Jev 該強的地方。",
+  "id": "repo-110"
+ },
+ {
+  "source": "suites/jev-latency-distribution/README.md",
+  "text": "兩次跑出的判斷結果也很穩定：同一句話在兩天的機率最多只差 0.02，沒有任何一題在 0.5 兩側翻轉。",
+  "id": "repo-111"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "只有二手轉貼時，先追到原始出處。",
+  "id": "repo-112"
+ },
+ {
+  "source": "suites/citation-support-check/README.md",
+  "text": "五個合成案例，涵蓋清楚反駁、完全無關、字面淺但語意深的難例，以及最關鍵的兩組對照：改述後字面重疊很低但語意支持、字面重疊很高但意思被關鍵字反轉。",
+  "id": "repo-113"
+ },
+ {
+  "source": "suites/laya-head-to-head/README.md",
+  "text": "但它自己的模型說明寫明：表上 Jev 那一欄是「第三方發表、從未在這裡量過（沒有 TypeSafe API 權限），樣本數與提示都不同」。",
+  "id": "repo-114"
+ },
+ {
+  "source": "suites/sarcasm-vs-sincere-praise/README.md",
+  "text": "各含刻意設計成「聽起來像諷刺但其實真心」的陷阱案例。",
+  "id": "repo-115"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "好處是任何現成模型都能用、沒有訓練成本；限制是機率沒有經過 Jev 那種校準訓練，多半要自己調溫度。",
+  "id": "repo-116"
+ },
+ {
+  "source": "suites/laya-head-to-head/README.md",
+  "text": "同樣的輸入、同樣的題目、同一套評分定義之下，Laya 贏過 Jev 只有一種情況：它專門微調過的版本，在自己的訓練分布上，準確率高 3 個百分點，而且校準比 Jev 差五倍。",
+  "id": "repo-117"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "計分題只有三題、單一標註者、只測了中文歷史一個領域。",
+  "id": "repo-118"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "③ 的背景段落刻意把三個選項都提到：要讀懂誰是誰的母親才答得對，不是只比對段落裡出現的名字。",
+  "id": "repo-119"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "這組的真正產出不是命中率，是三輪問題設計的迭代過程，每一輪都因為不同的理由失敗，而每次失敗的原因都不是模型判斷力。",
+  "id": "repo-120"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "不收：只有宣稱、沒有證據或結果的東西（純構想、上架公告、安裝教學——那類交給 awesome-jev 這種清單）；找不到一手來源的轉述。",
+  "id": "repo-121"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "題目乾淨時，它的裸記憶比我們原本寫的好：常見史實 1.00 答對，冷門史實不給背景也以 0.87 答對。",
+  "id": "repo-122"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "目的是隔離出「裸記憶」跟「給定文字內的閱讀理解」這兩種不同的能力。",
+  "id": "repo-123"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "兩次觸發「立即處理」的案例，都不是歷史標籤的「立即處理」，但兩筆都值得細看：",
+  "id": "repo-124"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "「立即處理」判錯＝浪費人的注意力（貴）；「丟棄」判錯＝永久失去，且數個月內擋住重新抓取（也貴，方向相反）；「擱置」判錯＝幾乎零成本，之後會被重新評估。",
+  "id": "repo-125"
+ },
+ {
+  "source": "suites/jev-latency-distribution/README.md",
+  "text": "實務上要注意的是：第一次呼叫會慢 2–3 倍。",
+  "id": "repo-126"
+ },
+ {
+  "source": "browser-automation.md",
+  "text": "這是一個具體、可驗證的踩坑紀錄，不是理論建議。",
+  "id": "repo-127"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "A、B、C 三次重問結果完全相同；D、E 三次之間有小幅浮動，E 甚至換了選項。",
+  "id": "repo-128"
+ },
+ {
+  "source": "capability-map.md",
+  "text": "這份文件是活的——每收一組新貢獻就更新一次。",
+  "id": "repo-129"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "4. 比較是不是同一批輸入？",
+  "id": "repo-130"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "樣本數多少、標準答案是人工還是另一個模型、有沒有對照組。",
+  "id": "repo-131"
+ },
+ {
+  "source": "suites/laya-head-to-head/README.md",
+  "text": "Laya 用出廠溫度參數、沒有重新調整；它自己的說明寫明重新調整溫度是「效益最高的修正」，調過以後 ECE 會變好，但準確率不變。",
+  "id": "repo-132"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "數字要對得上原文，轉述要能回頭查。",
+  "id": "repo-133"
+ },
+ {
+  "source": "suites/citation-support-check/README.md",
+  "text": "N=5，單一標註者，英文，合成資料。",
+  "id": "repo-134"
+ },
+ {
+  "source": "browser-automation.md",
+  "text": "這些門檻是在維基百科、DuckDuckGo 這類站上調出來的起始值，不是通用值，換到你自己的網站要重新校準。",
+  "id": "repo-135"
+ },
+ {
+  "source": "suites/jev-latency-distribution/README.md",
+  "text": "n=30 時落在第 29 個樣本，也就是只比最大值小一名——這個樣本數下它是尾端的指示，不是穩定的估計。",
+  "id": "repo-136"
+ },
+ {
+  "source": "AGENTS.md",
+  "text": "這不是選讀的背景知識，是會影響你怎麼下結論、怎麼措辭的東西。",
+  "id": "repo-137"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "舊版數字（僅供對照，不再作為任何結論的依據）：",
+  "id": "repo-138"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "這組測的是：把第一關換成 Jev，行為會長什麼樣子——不是測「Jev 能不能重現既有判斷」，是測「這個分流設計本身合不合理」。",
+  "id": "repo-139"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "轉貼常把 A 說的話掛到 B 身上，或把回覆當成主文。",
+  "id": "repo-140"
+ },
+ {
+  "source": "suites/history-recall-context/README.md",
+  "text": "這跟「不知道」在分布上長得一樣，單看這題分不出是哪一種；但同一組裡冷門的 B 題它以 0.87 答對，讓「題目歧義」這個解釋比「不知道」更說得通。",
+  "id": "repo-141"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "對變動型頁面（changelog 之類）這代表內容可能已經跟當初擷取時不同，這是本組最大的方法論缺口，下面的結果要帶著這個折扣讀。",
+  "id": "repo-142"
+ },
+ {
+  "source": "suites/citation-support-check/README.md",
+  "text": "5/5 全對，包括兩組關鍵對照案例：",
+  "id": "repo-143"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "不改權重，把每個選項對應到模型輸出的機率（例如讀選項字母的 logits），在選項上做 softmax。",
+  "id": "repo-144"
+ },
+ {
+  "source": "jev-variants.md",
+  "text": "專用模型在自己的主場贏 Jev 不稀奇（Laya 專用版高 3 個百分點），拿到沒看過的任務就是另一回事（Laya 通用版低於「不看輸入」的基準線）。",
+  "id": "repo-145"
+ },
+ {
+  "source": "CONTRIBUTING.md",
+  "text": "測試組用的資料：自己寫的可以直接放；公開資料集寫明來源、授權、有沒有把原文放進 repo；私人或受限的資料必須先去識別化，並在 README 說明怎麼處理的。",
+  "id": "repo-146"
+ },
+ {
+  "source": "browser-automation.md",
+  "text": "專案本身很小（0 星、只 push 過一次），不是一個成熟到可以直接拿來抄架構的實作。",
+  "id": "repo-147"
+ },
+ {
+  "source": "browser-automation.md",
+  "text": "4. 目標/卡住的機率門檻，用你自己的網站重新測，不要照搬 0.85——三個專案的起始值都是在維基百科/DuckDuckGo 這類結構乾淨的站上調出來的。",
+  "id": "repo-148"
+ },
+ {
+  "source": "suites/stage1-triage-filter/README.md",
+  "text": "穩定性：同一份設計隔天重跑一次，15 筆的分流結果完全相同，機率值差異在 ±0.03 以內。",
+  "id": "repo-149"
+ },
+ {
+  "source": "suites/jev-latency-distribution/README.md",
+  "text": "不測準確率，測真實呼叫的延遲分布——中位數多少、有沒有長尾。",
+  "id": "repo-150"
+ },
+ {
+  "source": "README.md",
+  "text": "反過來，它的判斷完全建立在你給的文字上——文字有錯時，它不會提醒你題目怪怪的，照樣很有把握地選。",
+  "id": "repo-151"
+ }
+]

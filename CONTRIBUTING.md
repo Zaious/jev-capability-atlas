@@ -103,7 +103,7 @@
 
 `scripts/common/jev_client.py` 提供 key 讀取跟一個自檢（零成本，故意用錯 key 打 401 確認服務活著）。各 suite 的跑分腳本 import 它，不要各自重寫存取邏輯。
 
-`scripts/zh-check/check_zh.py` 檢查繁體中文文字裡有沒有混進簡體字（字表由 OpenCC 推導，排除台灣與香港的合法寫法），有就 exit 1，每個 PR 都會自動跑。它抓不到「寫成另一個真的字」這種錯（例如把「皇帝」寫成「皮帝」），那一類還是要有人讀過。
+`scripts/zh-check/check_zh.py` 檢查繁體中文文字裡有沒有混進簡體字（字表由 OpenCC 推導，排除台灣與香港的合法寫法），有就 exit 1，每個 PR 都會自動跑。它抓不到「寫成另一個真的字」這種錯（例如把「皇帝」寫成「皮帝」）；那一類可以跑 `scripts/zh-check/proofread_jev.py`（需要 TYPESAFE_API_KEY），它用 Jev 列出可疑的句子讓人確認，不擋 commit，門檻依據見 [`suites/zh-proofreading/`](suites/zh-proofreading/)。
 
 ---
 
@@ -210,4 +210,4 @@ Open an issue or PR with a primary-source link and a tag. New rows in [`jev-vari
 
 `scripts/common/jev_client.py` handles key loading and a zero-cost self-check (deliberately triggers a 401 with a bad key to confirm the service is live). Suite scripts should import it rather than reimplementing access logic.
 
-`scripts/zh-check/check_zh.py` checks that no Simplified character slipped into Traditional Chinese text (the list is derived from OpenCC, excluding forms valid in Taiwan and Hong Kong) and exits 1 if one did; it runs on every PR. It can't catch a wrong-but-real character (writing 皮帝 for 皇帝) — that still needs a reader.
+`scripts/zh-check/check_zh.py` checks that no Simplified character slipped into Traditional Chinese text (the list is derived from OpenCC, excluding forms valid in Taiwan and Hong Kong) and exits 1 if one did; it runs on every PR. It can't catch a wrong-but-real character (writing 皮帝 for 皇帝); for that kind, run `scripts/zh-check/proofread_jev.py` (needs TYPESAFE_API_KEY), which uses Jev to list suspicious sentences for a person to check without blocking the commit — threshold basis in [`suites/zh-proofreading/`](suites/zh-proofreading/).
