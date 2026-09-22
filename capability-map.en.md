@@ -38,6 +38,7 @@ Split into two sections: **public benchmarks** are results published by others t
 | [Latency distribution: median vs. tail](#latency-distribution-median-vs-tail) | — | Median 247ms, p95 281ms; no outlier in 30 calls once the warm-up is excluded — the older run's outlier is confirmed as connection cold-start | 🔬 |
 | [A stage-one filter: which half of a two-stage pipeline should Jev own](#a-stage-one-filter-which-half-of-a-two-stage-pipeline-should-jev-own) | Self-contained (content + the watch reason both supplied) | Three rounds of question-design iteration; none of the three failures was about judgment | 🔬 |
 | [Jev vs Laya: a head-to-head on identical inputs](#jev-vs-laya-a-head-to-head-on-identical-inputs) | Self-contained (both sides get identical input) | Zero-shot: Jev 0.736, Laya 0.36 (below an input-blind baseline); Laya's fine-tuned specialist wins by 3 points with 5× the calibration error; zh-TW intent 0.93 vs 0.61 | 🔬 |
+| [Picking an expression per line](#virtual-humans-picking-an-expression-per-line-one-task-both-sides-of-the-axis) | The same task on both sides | 0.807 with ECE 0.049 when the answer is in the text; 0.436 with ECE 0.239 when it is in the performance, and confidence doesn't drop | 🔬 |
 | [Proofreading with Jev: catching wrong characters](#proofreading-with-jev-catching-wrong-characters) | Self-contained (the answer is in the sentence) | At 0.5: 67% of learner typos caught, 2% false alarms on this repo's correct sentences; a full pass over the repo's 677 sentences missed nothing; it's poor at Simplified characters, which go to a character list | 🔬 |
 | [ICU alarm classification: testing a viral tweet](#icu-arrhythmia-alarm-classification-a-viral-tweet-tested-against-a-public-dataset) | Mixed (physiological signal needs converting to text features) | Official score 0.271, worse than "let every alarm through"; 0% sensitivity on asystole/V-tach | 🔬 |
 
@@ -334,6 +335,18 @@ Source: [`suites/stage1-triage-filter/`](suites/stage1-triage-filter/)
 **What this means**: "Laya beats Jev" holds only for a fixed workflow, with training data, compared on its own distribution — and it wins on accuracy while losing on calibration. For new tasks, tasks without training data, or Chinese, today's Laya isn't a Jev replacement; its real value is self-hosting, data that never leaves the machine, and fine-tunability. Speed wasn't tested (Laya ran on a loaded CPU), and the dataset's teacher is an undisclosed model that may share lineage with Jev — full limitations in the suite README.
 
 Source: [`suites/laya-head-to-head/`](suites/laya-head-to-head/)
+
+### Virtual humans picking an expression per line: one task, both sides of the axis
+
+**What we did**: people are shipping products and public implementations that have Jev read a line and pick the character's expression, and none of them has published a number. Rather than writing our own items we used two **existing dialogue corpora**: MELD (English Friends scripts, with turn order) and a Traditional Chinese multi-emotion dialogue set (no turn order). One Choice per line — *which expression should the avatar wear while speaking this* — 40 lines per class, each asked 3 times, 2,640 calls.
+
+**Results**: Chinese, line only, **0.807** (chance 0.125) with ECE **0.049**; English, line only, **0.436** (chance 0.143) with ECE **0.239**; English with four preceding turns, 0.485 and ECE 0.121. The paired effect of context is **+0.049, 95% CI [+0.002, +0.095]**, winning 91 items and losing 50. Latency is p50 around 270 ms and p95 around 390 ms on all three arms, and 0.971-0.988 of items gave the same answer across all three repeats.
+
+**What this means**: **this is not "it's better at Chinese"** — the difference is in how each corpus was labelled. MELD's annotators watched the video and heard the delivery, so part of the answer isn't in the text at all (`Where is Leslie?` is labelled fear, `Sorry.` sadness); the Chinese set was labelled from text alone. So this measures **the core axis on a single task**: 0.807 when the answer is in the text, 0.436 when it is in the performance. And it fails in the usual direction — where the answer isn't in the text it doesn't hesitate, it picks neutral at confidence 1.00. The second finding: **context buys calibration more than accuracy**, cutting ECE from 0.239 to 0.121 while adding only 4.9 points. Anyone building this should decide which oracle they mean: "what a human picks from the text" is the 0.8 regime, "what the voice actor did" is the 0.45 regime. Limitations (balanced sampling, different label sets, AI-generated lines in the Chinese set whose card disagrees with its file) are in the suite.
+
+Source: [`suites/expression-selection/`](suites/expression-selection/)
+
+---
 
 ### Proofreading with Jev: catching wrong characters
 

@@ -1,0 +1,34 @@
+# 釘住用的參數，為了能重現——以這份為準，不要在 README.md 裡再寫一次。
+# Pin these for reproducibility -- treat this file as authoritative,
+# don't re-state values in README.md that could drift out of sync.
+model: jev-latest            # answered by jev-1.13.0 on the run date
+question_type: choice        # one Choice per call; wording frozen in run.py
+arms:
+  meld_no_context: 280       # English line only
+  meld_context: 280          # same lines plus up to 4 preceding turns
+  zh_single: 320             # Traditional Chinese line only (no turn order in that corpus)
+repeats: 3
+workers: 8
+per_class: 40                # balanced sampling: chance is 1/7 (MELD) and 1/8 (zh)
+context_turns: 4
+seed: 17                     # sampling
+bootstrap: 2000              # paired resampling over items, seed 23
+bins: 15                     # ECE, equal-width on the max probability
+thresholds_reported: [0.3, 0.4, 0.5, 0.6, 0.7]
+annotators: unknown          # neither corpus publishes inter-annotator agreement
+run_date: "2026-09-23"
+data_source: >
+  MELD test split via Hugging Face zrr1999/MELD_Text
+  @ 442fba93972d9cc642b9bbdafd123740e02d3250 (test_sent_emo.csv), a text-only mirror of
+  declare-lab/MELD; only utterances with at least one preceding turn in the same dialogue.
+  Chinese lines via Hugging Face Johnson8187/Chinese_Multi-Emotion_Dialogue_Dataset
+  @ f3854f9489071a4dc0bb69f2366d95095837ce68 (data.csv).
+data_license: >
+  MELD: GPL-3.0 upstream (declare-lab/MELD), derived from copyrighted TV dialogue.
+  Chinese set: MIT, but it states that part of the data is AI-generated and carries no
+  source column. Neither corpus's text is committed here: cases.json and data/_cache/ are
+  gitignored, and the receipts store the SHA-256 of each state instead of the line.
+  Audit with `python data/build_cases.py --verify runs/<date>.json`.
+question_wording_credit: >
+  The "judge the expressed tone, not the emotional topic, the quoted speaker, or the
+  actual inner state" boundary is taken from fand/jev-emotional-avatar (MIT).

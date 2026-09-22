@@ -6,3 +6,8 @@ __pycache__/
 # per-record intermediates from suites/icu-alarm-classification/data/extract_features.py
 # (regenerable, and not part of a case)
 suites/*/data/cases.debug.json
+
+# suites/expression-selection: neither corpus is ours to redistribute.
+# Rebuilt deterministically from the pinned revisions in data/build_cases.py.
+suites/expression-selection/data/cases.json
+suites/*/data/_cache/

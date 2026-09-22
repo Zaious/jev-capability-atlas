@@ -1,0 +1,327 @@
+{
+ "run_file": "2026-09-23.json",
+ "run_date": "2026-09-23",
+ "model_answered": "jev-1.13.0",
+ "warmup_ms_excluded": 766.1,
+ "errors": 0,
+ "arms": {
+  "meld_context": {
+   "items": 280,
+   "calls": 840,
+   "accuracy": 0.4845,
+   "majority_baseline": 0.1429,
+   "ece": 0.1208,
+   "brier": 0.706,
+   "mean_confidence": 0.6054,
+   "same_answer_all_repeats": 0.971,
+   "per_class": {
+    "anger": {
+     "n": 120,
+     "recall": 0.55,
+     "most_confused_with": "neutral"
+    },
+    "disgust": {
+     "n": 120,
+     "recall": 0.35,
+     "most_confused_with": "neutral"
+    },
+    "fear": {
+     "n": 120,
+     "recall": 0.317,
+     "most_confused_with": "neutral"
+    },
+    "joy": {
+     "n": 120,
+     "recall": 0.733,
+     "most_confused_with": "neutral"
+    },
+    "neutral": {
+     "n": 120,
+     "recall": 0.758,
+     "most_confused_with": "joy"
+    },
+    "sadness": {
+     "n": 120,
+     "recall": 0.15,
+     "most_confused_with": "neutral"
+    },
+    "surprise": {
+     "n": 120,
+     "recall": 0.533,
+     "most_confused_with": "joy"
+    }
+   },
+   "top_confusions": [
+    {
+     "pair": "sadness -> neutral",
+     "n": 62
+    },
+    {
+     "pair": "fear -> neutral",
+     "n": 54
+    },
+    {
+     "pair": "disgust -> neutral",
+     "n": 36
+    },
+    {
+     "pair": "disgust -> anger",
+     "n": 36
+    },
+    {
+     "pair": "surprise -> joy",
+     "n": 30
+    }
+   ],
+   "threshold_sweep": {
+    "0.3": {
+     "coverage": 0.943,
+     "accuracy_on_covered": 0.509,
+     "accuracy_after_neutral_fallback": 0.48
+    },
+    "0.4": {
+     "coverage": 0.832,
+     "accuracy_on_covered": 0.535,
+     "accuracy_after_neutral_fallback": 0.468
+    },
+    "0.5": {
+     "coverage": 0.69,
+     "accuracy_on_covered": 0.579,
+     "accuracy_after_neutral_fallback": 0.442
+    },
+    "0.6": {
+     "coverage": 0.514,
+     "accuracy_on_covered": 0.65,
+     "accuracy_after_neutral_fallback": 0.388
+    },
+    "0.7": {
+     "coverage": 0.339,
+     "accuracy_on_covered": 0.667,
+     "accuracy_after_neutral_fallback": 0.302
+    }
+   },
+   "latency_ms": {
+    "p50": 270.0,
+    "p95": 387.9,
+    "max": 614.4
+   }
+  },
+  "meld_no_context": {
+   "items": 280,
+   "calls": 840,
+   "accuracy": 0.4357,
+   "majority_baseline": 0.1429,
+   "ece": 0.2392,
+   "brier": 0.8492,
+   "mean_confidence": 0.6709,
+   "same_answer_all_repeats": 0.971,
+   "per_class": {
+    "anger": {
+     "n": 120,
+     "recall": 0.375,
+     "most_confused_with": "neutral"
+    },
+    "disgust": {
+     "n": 120,
+     "recall": 0.35,
+     "most_confused_with": "neutral"
+    },
+    "fear": {
+     "n": 120,
+     "recall": 0.325,
+     "most_confused_with": "neutral"
+    },
+    "joy": {
+     "n": 120,
+     "recall": 0.625,
+     "most_confused_with": "neutral"
+    },
+    "neutral": {
+     "n": 120,
+     "recall": 0.842,
+     "most_confused_with": "fear"
+    },
+    "sadness": {
+     "n": 120,
+     "recall": 0.175,
+     "most_confused_with": "neutral"
+    },
+    "surprise": {
+     "n": 120,
+     "recall": 0.358,
+     "most_confused_with": "neutral"
+    }
+   },
+   "top_confusions": [
+    {
+     "pair": "sadness -> neutral",
+     "n": 60
+    },
+    {
+     "pair": "surprise -> neutral",
+     "n": 50
+    },
+    {
+     "pair": "anger -> neutral",
+     "n": 45
+    },
+    {
+     "pair": "disgust -> neutral",
+     "n": 40
+    },
+    {
+     "pair": "fear -> neutral",
+     "n": 39
+    }
+   ],
+   "threshold_sweep": {
+    "0.3": {
+     "coverage": 0.965,
+     "accuracy_on_covered": 0.445,
+     "accuracy_after_neutral_fallback": 0.43
+    },
+    "0.4": {
+     "coverage": 0.896,
+     "accuracy_on_covered": 0.453,
+     "accuracy_after_neutral_fallback": 0.41
+    },
+    "0.5": {
+     "coverage": 0.73,
+     "accuracy_on_covered": 0.467,
+     "accuracy_after_neutral_fallback": 0.354
+    },
+    "0.6": {
+     "coverage": 0.615,
+     "accuracy_on_covered": 0.489,
+     "accuracy_after_neutral_fallback": 0.327
+    },
+    "0.7": {
+     "coverage": 0.479,
+     "accuracy_on_covered": 0.522,
+     "accuracy_after_neutral_fallback": 0.293
+    }
+   },
+   "latency_ms": {
+    "p50": 274.7,
+    "p95": 375.8,
+    "max": 596.0
+   }
+  },
+  "zh_single": {
+   "items": 320,
+   "calls": 960,
+   "accuracy": 0.8073,
+   "majority_baseline": 0.125,
+   "ece": 0.0491,
+   "brier": 0.2959,
+   "mean_confidence": 0.8188,
+   "same_answer_all_repeats": 0.988,
+   "per_class": {
+    "厭惡語調": {
+     "n": 120,
+     "recall": 0.558,
+     "most_confused_with": "憤怒語調"
+    },
+    "平淡語氣": {
+     "n": 120,
+     "recall": 0.725,
+     "most_confused_with": "疑問語調"
+    },
+    "悲傷語調": {
+     "n": 120,
+     "recall": 0.75,
+     "most_confused_with": "平淡語氣"
+    },
+    "憤怒語調": {
+     "n": 120,
+     "recall": 0.942,
+     "most_confused_with": "厭惡語調"
+    },
+    "疑問語調": {
+     "n": 120,
+     "recall": 0.825,
+     "most_confused_with": "憤怒語調"
+    },
+    "開心語調": {
+     "n": 120,
+     "recall": 0.892,
+     "most_confused_with": "驚奇語調"
+    },
+    "關切語調": {
+     "n": 120,
+     "recall": 0.85,
+     "most_confused_with": "疑問語調"
+    },
+    "驚奇語調": {
+     "n": 120,
+     "recall": 0.917,
+     "most_confused_with": "平淡語氣"
+    }
+   },
+   "top_confusions": [
+    {
+     "pair": "厭惡語調 -> 憤怒語調",
+     "n": 39
+    },
+    {
+     "pair": "平淡語氣 -> 疑問語調",
+     "n": 27
+    },
+    {
+     "pair": "悲傷語調 -> 平淡語氣",
+     "n": 24
+    },
+    {
+     "pair": "疑問語調 -> 憤怒語調",
+     "n": 12
+    },
+    {
+     "pair": "關切語調 -> 疑問語調",
+     "n": 12
+    }
+   ],
+   "threshold_sweep": {
+    "0.3": {
+     "coverage": 1.0,
+     "accuracy_on_covered": 0.807,
+     "accuracy_after_neutral_fallback": 0.807
+    },
+    "0.4": {
+     "coverage": 0.985,
+     "accuracy_on_covered": 0.809,
+     "accuracy_after_neutral_fallback": 0.797
+    },
+    "0.5": {
+     "coverage": 0.924,
+     "accuracy_on_covered": 0.835,
+     "accuracy_after_neutral_fallback": 0.774
+    },
+    "0.6": {
+     "coverage": 0.844,
+     "accuracy_on_covered": 0.852,
+     "accuracy_after_neutral_fallback": 0.731
+    },
+    "0.7": {
+     "coverage": 0.75,
+     "accuracy_on_covered": 0.882,
+     "accuracy_after_neutral_fallback": 0.689
+    }
+   },
+   "latency_ms": {
+    "p50": 267.6,
+    "p95": 396.7,
+    "max": 631.4
+   }
+  }
+ },
+ "meld_context_vs_no_context": {
+  "items": 280,
+  "context_won": 91,
+  "context_lost": 50,
+  "accuracy_diff": 0.0488,
+  "ci95": [
+   0.0024,
+   0.0952
+  ]
+ }
+}

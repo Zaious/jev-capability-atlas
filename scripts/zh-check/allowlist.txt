@@ -6,3 +6,7 @@ translations/libukai-hubei-news-classification-zh/SOURCE.md	李不凯
 suites/zh-proofreading/README.md	写、际、处、没
 suites/zh-proofreading/README.md	写, 际, 处, 没
 suites/zh-proofreading/data/build_cases.py	另写|實际|此处|没有
+# expression-selection 引用它用的語料裡實際出現的簡體字當例子
+# the expression-selection suite quotes the Simplified characters its corpus actually contains
+suites/expression-selection/README.md	灿烂、这样、霉
+suites/expression-selection/README.md	灿烂, 这样, 霉
