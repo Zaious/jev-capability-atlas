@@ -164,7 +164,20 @@ Some representatives come from "[Jev application map: 60 cases](https://doc.laoy
 | [jev-drone](https://github.com/RomanSlack/jev-drone) (JEV-57) | Turns the camera feed into a symbolic depth-and-segmentation scene first | 📚 demo |
 | [Browser automation](browser-automation.en.md) | Reads the DOM instead of a screenshot | 📚 see that page |
 
-## 12. Small, unexpected uses
+## 12. Treat evaluation itself as a decision task
+
+**Approach**: judging how well an agent run went is itself a judgment: is the answer grounded, were the tools used appropriately, does it pass? Put the trace, the final answer and the retrieved evidence in the `state` and score it with a few atomic questions, instead of having a large model write a critique that you then parse into a score.
+
+**Why it isn't obvious**: people hand evaluation to "a smarter model" and assume a judge has to explain itself; but the evidence is already in the trace, and a judge runs tens of thousands of times a day, where slow and expensive directly limits how much you dare to evaluate.
+
+| Representative | What it does | Evidence |
+|---|---|---|
+| [LangChain's Jev-as-a-Judge](translations/langchain-jev-as-judge-zh/) | Freezes five agent runs and has Jev and three LLM judges score the same inputs 100 times each, keeping "agrees with the human" separate from "agrees with itself" | 📚 matched the human on all five pass/fail items, 92–913× lower variance, $0.00035 per call; but five items, one reviewer, and the control group's sampling was never turned off (all three caveats in that entry) |
+| [jev-belay](https://github.com/valentynkit/jev-belay) | The same idea, blocking turns that claim "done" without verification | 📚 AUROC 0.976 over 100 labelled real stops |
+
+**When it fails**: a stable judge isn't a correct one — a consistently wrong evaluator produces bad feedback cheaply, at scale (LangChain says so themselves). Align it against human labels before you ship it, and keep spot-checking afterwards.
+
+## 13. Small, unexpected uses
 
 | Representative | What it does | Evidence |
 |---|---|---|

@@ -28,6 +28,7 @@ Split into two sections: **public benchmarks** are results published by others t
 | [A real production Simplified-Chinese classification task: does this news article involve Hubei?](#a-real-production-simplified-chinese-classification-task-does-this-news-article-involve-hubei) | Mixed (mostly self-contained, disagreements cluster where not) | ~85% agreement with Flash Lite; disagreements mostly named-entity cases needing outside knowledge | 📚 |
 | [The viral ad-breakdown tweet: can Jev read a Gemini embedding?](#the-viral-ad-breakdown-tweet-can-jev-actually-read-color-and-style-from-a-gemini-embedding) | — | Performance numbers plausible; the "embedding carries visual semantics to Jev" explanation doesn't hold up | 📚 |
 | [You got Jev, now what? A hype-free landing list](#you-got-jev-now-what-a-hype-free-landing-list) | — | Only 15 of 217 projects usable today; the author's own 4 integration attempts all failed, with specific root causes | 📚 |
+| [Jev as an agent judge (LangChain)](#jev-as-an-agent-judge-langchain) | Self-contained (the trace and evidence are in the state) | Matched the human on all five pass/fail items, 92–913× lower score variance than three LLM judges, $0.00035 per call; but five items, one reviewer, and the control group's sampling was never turned off | 📚 |
 | Praise vs. sarcasm (dedicated public benchmark) | — | None found as of this writing — an open slot you could fill | — |
 | [Citation support-checking](#citation-support-checking) | Self-contained | 9/12 supports, 0 contradicts, low confidence correctly tracked hard cases | 🔬 |
 | [Sarcasm detection, same-clause/cross-turn](#sarcasm-detection) | Self-contained | 12/12, 10/10 correct, including a correctly-low-confidence case | 🔬 |
@@ -223,6 +224,18 @@ Source: [huangserva's post on X](https://x.com/servasyy_ai/status/21011326670561
 ### Praise vs. sarcasm (dedicated public benchmark)
 
 No one appears to have published a dedicated public benchmark for Jev's sarcasm/irony detection specifically — we tested this ourselves (see below), but that's our own small test, not an independent third-party benchmark. This is an open slot you could fill: find or publish one, then translate/organize it into [`translations/`](translations/).
+
+---
+
+### Jev as an agent judge (LangChain)
+
+**What was done**: LangChain asked whether agent evaluation has a third option beyond hand-written code and LLM-as-judge. They built a weather agent with their own Deep Agents, defined five cases, **ran the agent once per case and froze the complete output**, so every judge saw the same fixed runs and only the judge changed; each judge scored them 100 times, with one human reviewer providing the oracle.
+
+**Results**: pass/fail accuracy — Jev 100%, Terra 99.8%, Luna 96.4%, Claude Sonnet 4.6 80.0%; mean variance of the continuous score — Jev 0.0000149, 92 to 913× lower than the three LLM judges; $0.00035 and 0.44 s per call, $0.34 for the whole run against $28.17 for Claude.
+
+**What this means**: the method is worth copying — frozen runs, identical inputs, and keeping "agrees with the human" separate from "agrees with itself." But **it proves much less than the headline suggests**: the sample is 5 items × 100 repeats (not 500 items), the oracle is a single reviewer, and reading the code shows **none of the three LLM judges had a temperature set, so they ran on their providers' default sampling** — part of the variance gap comes from that setting. The Jev version wasn't recorded either. The direction fits this repo's core axis: everything needed to judge an agent run is already in the state. Full write-up and all three caveats: [`translations/langchain-jev-as-judge-zh/`](translations/langchain-jev-as-judge-zh/).
+
+Source: [`translations/langchain-jev-as-judge-zh/`](translations/langchain-jev-as-judge-zh/)
 
 ---
 
