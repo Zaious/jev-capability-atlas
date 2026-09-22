@@ -1,0 +1,120 @@
+{
+ "run_file": "2026-09-23.json",
+ "run_date": "2026-09-23",
+ "model_answered": "jev-1.13.0",
+ "errors": 0,
+ "warmup_ms_excluded": 845.8,
+ "baselines": {
+  "dialogues_ge_min_turns": 192,
+  "listening_pairs": 1597,
+  "listening_majority_class": 0.4803,
+  "listening_majority_label": "neutral",
+  "listening_mirror_baseline": 0.3626,
+  "gold_same_speaker_switch_rate": 0.535,
+  "gold_switch_opportunities": 1759,
+  "sample_gold_switch_rate": 0.5092,
+  "sample_switch_opportunities": 273
+ },
+ "arms": {
+  "listening_context": {
+   "items": 229,
+   "calls": 687,
+   "accuracy": 0.4309,
+   "majority_class_baseline": 0.4367,
+   "majority_class_label": "neutral",
+   "chance": 0.1429,
+   "ece": 0.1793,
+   "mean_confidence": 0.573,
+   "same_answer_all_repeats": 0.934,
+   "predicted_neutral_share": 0.4978,
+   "gold_neutral_share": 0.4367,
+   "latency_ms": {
+    "p50": 256.8,
+    "p95": 331.3
+   },
+   "mirror_baseline_on_sample": 0.4236,
+   "matched_speaker_emotion": 0.5357
+  },
+  "listening_no_context": {
+   "items": 229,
+   "calls": 687,
+   "accuracy": 0.4032,
+   "majority_class_baseline": 0.4367,
+   "majority_class_label": "neutral",
+   "chance": 0.1429,
+   "ece": 0.2486,
+   "mean_confidence": 0.6518,
+   "same_answer_all_repeats": 0.961,
+   "predicted_neutral_share": 0.6841,
+   "gold_neutral_share": 0.4367,
+   "latency_ms": {
+    "p50": 256.5,
+    "p95": 326.8
+   },
+   "mirror_baseline_on_sample": 0.4236,
+   "matched_speaker_emotion": 0.508
+  },
+  "self_context": {
+   "items": 357,
+   "calls": 1071,
+   "accuracy": 0.6685,
+   "majority_class_baseline": 0.4594,
+   "majority_class_label": "neutral",
+   "chance": 0.1429,
+   "ece": 0.0504,
+   "mean_confidence": 0.6867,
+   "same_answer_all_repeats": 0.978,
+   "predicted_neutral_share": 0.55,
+   "gold_neutral_share": 0.4594,
+   "latency_ms": {
+    "p50": 256.4,
+    "p95": 334.2
+   },
+   "switch_rate": 0.4921,
+   "switch_opportunities_per_repeat": 273,
+   "gold_switch_rate_on_sample": 0.5092
+  },
+  "self_no_context": {
+   "items": 357,
+   "calls": 1071,
+   "accuracy": 0.6387,
+   "majority_class_baseline": 0.4594,
+   "majority_class_label": "neutral",
+   "chance": 0.1429,
+   "ece": 0.1194,
+   "mean_confidence": 0.7545,
+   "same_answer_all_repeats": 0.964,
+   "predicted_neutral_share": 0.6312,
+   "gold_neutral_share": 0.4594,
+   "latency_ms": {
+    "p50": 258.7,
+    "p95": 325.4
+   },
+   "switch_rate": 0.4982,
+   "switch_opportunities_per_repeat": 273,
+   "gold_switch_rate_on_sample": 0.5092
+  }
+ },
+ "context_effect": {
+  "self": {
+   "items": 327,
+   "b_won": 86,
+   "b_lost": 49,
+   "accuracy_diff": 0.0377,
+   "ci95": [
+    -0.0031,
+    0.0754
+   ]
+  },
+  "listening": {
+   "items": 207,
+   "b_won": 80,
+   "b_lost": 61,
+   "accuracy_diff": 0.0306,
+   "ci95": [
+    -0.0386,
+    0.0934
+   ]
+  }
+ }
+}
