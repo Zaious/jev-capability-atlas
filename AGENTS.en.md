@@ -103,7 +103,7 @@ Every `run.py` makes real API calls and saves the responses to `suites/<slug>/ru
 3. Actually run it, producing `runs/<date>.json`.
 4. Fill in `README.md` (mirroring `suites/TEMPLATE/README.md`'s sections) and `protocol.yaml`.
 5. If the README reports aggregate numbers (accuracy, sensitivity and the like), add a script that recomputes them from the receipts, with `--check` exiting 1 on a mismatch (as in [`suites/icu-alarm-classification/metrics.py`](suites/icu-alarm-classification/metrics.py)) — so the prose and the receipts can't quietly drift apart.
-6. **Before reporting, self-check against the PR checklist in `CONTRIBUTING.md`** — especially "every number traces to a real log" and "every finding is tagged 🔬/📚/📖/💭."
+6. **Before reporting, self-check against the PR checklist in `CONTRIBUTING.md`** — especially "every number traces to a real log" and "every finding is tagged 🔬/📚/📖/💭." Finally, run `python scripts/zh-check/check_zh.py` to make sure no Simplified characters slipped in.
 
 ### Reporting results — a concrete protocol (the important part; don't just say "I ran it, looks good")
 

@@ -87,7 +87,7 @@ Jev 內部到底長什麼樣，官方沒有公開。有人用兩千多次 API �
 | 訊號自足（state 裡有） | 訊號不自足（需要外部知識） |
 |---|---|
 | ✅ 分類任務（AG News 91%、Banking77 87%——[jev-benchmarks](https://github.com/AbdelStark/jev-benchmarks)） | ⚠️ 需要文章沒寫的外部知識才能判斷的題（第三方真實案例：[湖北新聞分類](translations/libukai-hubei-news-classification-zh/)；它不一定不知道，但知不知道事前看不出來——見 [`suites/history-recall-context/`](suites/history-recall-context/)） |
-| ✅ 引用支持度判讀（claim+quote 都給齊——見 [`suites/citation-support-check/`](suites/citation-support-check/)） | ⚠️ 需要跟整個領域比較的評分（論文新穎性、专案重要性） |
+| ✅ 引用支持度判讀（claim+quote 都給齊——見 [`suites/citation-support-check/`](suites/citation-support-check/)） | ⚠️ 需要跟整個領域比較的評分（論文新穎性、專案重要性） |
 | ✅ 反諷/諷刺偵測（觸發線索在給定文字裡，即使跨對話回合——見 [`suites/sarcasm-vs-sincere-praise/`](suites/sarcasm-vs-sincere-praise/)） | ⚠️ 類別本身就重疊、糊在一起的分類（DAIR Emotion 48%，而且信心值同時失準——[jev-benchmarks](https://github.com/AbdelStark/jev-benchmarks)） |
 
 這條軸還有一種更隱蔽的違反方式：不是任務需要外部知識，是呼叫方自己沒把該給的內容放進 `state`。真實案例：有人試著用 Jev 判斷該不該砍掉 Agent 自己過去的工具呼叫紀錄（context 壓縮）——真實測試中，預設設定下打分看不到輸出內容本身，256 筆結果裡 0 筆保留信心值超過 0.3，等於幾乎每次都判定「可以刪」。**這裡的判斷失敗好修，但「砍掉的內容不一定能復原」這個風險改不掉**——這正是 AGENTS.md 已經講的「不可逆動作不該交給機率模型」原則，只是它藏在「內部清理」裡不容易被認出來。**我們不建議把它做成無人監督、預設自動開啟的東西**。完整追蹤見 [`translations/jev-context-compaction-debate-zh/`](translations/jev-context-compaction-debate-zh/)。
@@ -129,6 +129,7 @@ suites/                    每組實測（方法論＋協定＋真實 log＋報�
 translations/              國外跑分的翻譯與整理（只翻結果，不翻題目）
 analysis/                  沒有單一既有條目可掛的純分析（跨條目觀察、判準軸本身的批評）
 scripts/common/            共用的 API 呼叫樣板，不用各自重寫
+scripts/zh-check/          簡體字檢查，每個 PR 自動跑
 ```
 
 ## 授權

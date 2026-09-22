@@ -129,6 +129,7 @@ suites/                    each real test (methodology + protocol + raw logs + r
 translations/              foreign benchmarks, translated and organized (results only, not test items)
 analysis/                  pure analysis with no single existing entry to attach to (cross-entry observations, critiques of the axis itself)
 scripts/common/            shared API-calling boilerplate
+scripts/zh-check/          Simplified-character check, runs on every PR
 ```
 
 ## License

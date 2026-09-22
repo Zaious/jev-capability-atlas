@@ -6,7 +6,7 @@ Shared TypeSafe/Jev API access helper. Every suite should import this instead
 of re-implementing key loading.
 
 存取順序 / lookup order:
-  1. 環境變數 TYPESAFE_API_KEY（此处是主要路徑——貢獻者不會有我們自己的私人保管庫）
+  1. 環境變數 TYPESAFE_API_KEY（此處是主要路徑——貢獻者不會有我們自己的私人保管庫）
      env var TYPESAFE_API_KEY (the primary path for external contributors)
   2. 本 repo 根目錄的 .env.local（gitignored，方便本地開發）
      a gitignored .env.local **at this repository's root**, for local dev convenience

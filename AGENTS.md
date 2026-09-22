@@ -105,7 +105,7 @@ python suites/<slug>/run.py
 3. 真的執行，產出 `runs/<日期>.json`
 4. 填 `README.md`（對照 `suites/TEMPLATE/README.md` 的區塊）跟 `protocol.yaml`
 5. README 裡有彙總數字（準確率、敏感度這類）的話，附一支從收據重算的腳本，加 `--check` 在數字對不上時 exit 1（照 [`suites/icu-alarm-classification/metrics.py`](suites/icu-alarm-classification/metrics.py)）——文字跟收據才不會悄悄分岔。
-6. **回報結果前，對照 `CONTRIBUTING.md` 的 PR checklist 自己先檢查一次**——尤其是「每個數字都對應一筆真實 log」跟「標了 🔬/📚/📖/💭 之一」這兩條
+6. **回報結果前，對照 `CONTRIBUTING.md` 的 PR checklist 自己先檢查一次**——尤其是「每個數字都對應一筆真實 log」跟「標了 🔬/📚/📖/💭 之一」這兩條；最後跑一次 `python scripts/zh-check/check_zh.py`，確認沒有混進簡體字
 
 ### 回報結果——具體協定（這是重點，不要只說「我跑了，結果不錯」）
 

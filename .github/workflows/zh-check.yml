@@ -1,0 +1,20 @@
+name: zh-check
+
+# 擋住混進繁體中文文字裡的簡體字（見 scripts/zh-check/check_zh.py）。
+# Blocks Simplified characters slipping into Traditional Chinese text.
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Self-test
+        run: python scripts/zh-check/check_zh.py --selftest
+      - name: Scan the repo
+        run: python scripts/zh-check/check_zh.py

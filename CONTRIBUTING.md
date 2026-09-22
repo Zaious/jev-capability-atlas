@@ -97,10 +97,13 @@
 - [ ] 如果搬了題目全文（不只是結果），確認過原始授權，寫進 `SOURCE.md`
 - [ ] 強宣稱（「完全失效」「完美」）附了對照組，不是單一模型單次結果
 - [ ] README（測試組）或 `report.md`（外部來源）老實列出樣本數、標註者數量等限制，不誇大
+- [ ] `python scripts/zh-check/check_zh.py` 通過（PR 會自動跑；刻意保留的簡體字加進 `scripts/zh-check/allowlist.txt`）
 
 ## 共用工具
 
 `scripts/common/jev_client.py` 提供 key 讀取跟一個自檢（零成本，故意用錯 key 打 401 確認服務活著）。各 suite 的跑分腳本 import 它，不要各自重寫存取邏輯。
+
+`scripts/zh-check/check_zh.py` 檢查繁體中文文字裡有沒有混進簡體字（字表由 OpenCC 推導，排除台灣與香港的合法寫法），有就 exit 1，每個 PR 都會自動跑。它抓不到「寫成另一個真的字」這種錯（例如把「皇帝」寫成「皮帝」），那一類還是要有人讀過。
 
 ---
 
@@ -201,7 +204,10 @@ Open an issue or PR with a primary-source link and a tag. New rows in [`jev-vari
 - [ ] If you brought in full test items (not just results), the original license was checked and is cited in `SOURCE.md`
 - [ ] Strong claims ("completely fails," "perfect") have a control comparison, not a single unreplicated run
 - [ ] The README (suites) or `report.md` (external sources) states sample size and annotator-count limitations honestly
+- [ ] `python scripts/zh-check/check_zh.py` passes (it runs on every PR; add intentional Simplified text to `scripts/zh-check/allowlist.txt`)
 
 ## Shared tooling
 
 `scripts/common/jev_client.py` handles key loading and a zero-cost self-check (deliberately triggers a 401 with a bad key to confirm the service is live). Suite scripts should import it rather than reimplementing access logic.
+
+`scripts/zh-check/check_zh.py` checks that no Simplified character slipped into Traditional Chinese text (the list is derived from OpenCC, excluding forms valid in Taiwan and Hong Kong) and exits 1 if one did; it runs on every PR. It can't catch a wrong-but-real character (writing 皮帝 for 皇帝) — that still needs a reader.

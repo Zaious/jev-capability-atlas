@@ -1,0 +1,4 @@
+# 刻意保留的簡體字：路徑<TAB>允許的字串（出現在該檔案的這段字串裡就不算錯）。
+# Intentional Simplified text: path<TAB>allowed substring. "*" as the path means any file.
+# 簡中來源作者的本名 / the real name of a Simplified-Chinese source's author
+translations/libukai-hubei-news-classification-zh/SOURCE.md	李不凯
