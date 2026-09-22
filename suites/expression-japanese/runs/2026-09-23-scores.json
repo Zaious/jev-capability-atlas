@@ -1,0 +1,318 @@
+{
+ "run_file": "2026-09-23.json",
+ "run_date": "2026-09-23",
+ "model_answered": "jev-1.13.0",
+ "errors": 0,
+ "warmup_ms_excluded": 746.4,
+ "baselines": {
+  "split": "test",
+  "test_rows": 2000,
+  "reader_consensus_rows": 1717,
+  "reader_consensus_rate": 0.8585,
+  "reader_majority_class": "期待",
+  "reader_majority_baseline": 0.2912,
+  "human_ceiling_reader": 0.7221,
+  "human_ceiling_reader_n": 3311,
+  "writer_majority_class": "喜び",
+  "writer_majority_baseline": 0.343,
+  "human_ceiling_writer": 0.5242,
+  "sample_reader_majority_baseline": 0.2975,
+  "sample_writer_majority_baseline": 0.33,
+  "sample_human_ceiling_writer": 0.53
+ },
+ "expressed_vs_reader_consensus": {
+  "items": 400,
+  "calls": 1200,
+  "accuracy": 0.4833,
+  "majority_class_baseline": 0.2975,
+  "majority_class_label": "期待",
+  "chance": 0.1111,
+  "ece": 0.1832,
+  "mean_confidence": 0.6634,
+  "same_answer_all_repeats": 0.973,
+  "per_class": {
+   "信頼": {
+    "n": 3,
+    "recall": 0.0,
+    "most_confused_with": "平静"
+   },
+   "喜び": {
+    "n": 303,
+    "recall": 0.693,
+    "most_confused_with": "平静"
+   },
+   "嫌悪": {
+    "n": 42,
+    "recall": 0.167,
+    "most_confused_with": "怒り"
+   },
+   "平静": {
+    "n": 18,
+    "recall": 1.0
+   },
+   "怒り": {
+    "n": 15,
+    "recall": 0.6,
+    "most_confused_with": "平静"
+   },
+   "恐れ": {
+    "n": 114,
+    "recall": 0.421,
+    "most_confused_with": "平静"
+   },
+   "悲しみ": {
+    "n": 213,
+    "recall": 0.446,
+    "most_confused_with": "平静"
+   },
+   "期待": {
+    "n": 357,
+    "recall": 0.356,
+    "most_confused_with": "平静"
+   },
+   "驚き": {
+    "n": 135,
+    "recall": 0.489,
+    "most_confused_with": "平静"
+   }
+  },
+  "threshold_sweep": {
+   "0.3": {
+    "coverage": 0.971,
+    "accuracy_on_covered": 0.488
+   },
+   "0.5": {
+    "coverage": 0.753,
+    "accuracy_on_covered": 0.53
+   },
+   "0.7": {
+    "coverage": 0.466,
+    "accuracy_on_covered": 0.608
+   }
+  }
+ },
+ "felt_vs_writer_selfreport": {
+  "items": 400,
+  "calls": 1200,
+  "accuracy": 0.4483,
+  "majority_class_baseline": 0.33,
+  "majority_class_label": "喜び",
+  "chance": 0.1111,
+  "ece": 0.2603,
+  "mean_confidence": 0.7086,
+  "same_answer_all_repeats": 0.95,
+  "per_class": {
+   "信頼": {
+    "n": 12,
+    "recall": 0.0,
+    "most_confused_with": "喜び"
+   },
+   "喜び": {
+    "n": 396,
+    "recall": 0.581,
+    "most_confused_with": "期待"
+   },
+   "嫌悪": {
+    "n": 48,
+    "recall": 0.25,
+    "most_confused_with": "期待"
+   },
+   "平静": {
+    "n": 45,
+    "recall": 0.2,
+    "most_confused_with": "期待"
+   },
+   "怒り": {
+    "n": 45,
+    "recall": 0.422,
+    "most_confused_with": "悲しみ"
+   },
+   "恐れ": {
+    "n": 66,
+    "recall": 0.455,
+    "most_confused_with": "悲しみ"
+   },
+   "悲しみ": {
+    "n": 267,
+    "recall": 0.277,
+    "most_confused_with": "平静"
+   },
+   "期待": {
+    "n": 228,
+    "recall": 0.469,
+    "most_confused_with": "平静"
+   },
+   "驚き": {
+    "n": 93,
+    "recall": 0.613,
+    "most_confused_with": "恐れ"
+   }
+  },
+  "threshold_sweep": {
+   "0.3": {
+    "coverage": 0.954,
+    "accuracy_on_covered": 0.459
+   },
+   "0.5": {
+    "coverage": 0.772,
+    "accuracy_on_covered": 0.498
+   },
+   "0.7": {
+    "coverage": 0.562,
+    "accuracy_on_covered": 0.563
+   }
+  }
+ },
+ "expressed_vs_writer_selfreport": {
+  "items": 400,
+  "calls": 1200,
+  "accuracy": 0.3808,
+  "majority_class_baseline": 0.33,
+  "majority_class_label": "喜び",
+  "chance": 0.1111,
+  "ece": 0.2826,
+  "mean_confidence": 0.6634,
+  "same_answer_all_repeats": 0.973,
+  "per_class": {
+   "信頼": {
+    "n": 12,
+    "recall": 0.0,
+    "most_confused_with": "喜び"
+   },
+   "喜び": {
+    "n": 396,
+    "recall": 0.523,
+    "most_confused_with": "平静"
+   },
+   "嫌悪": {
+    "n": 48,
+    "recall": 0.125,
+    "most_confused_with": "平静"
+   },
+   "平静": {
+    "n": 45,
+    "recall": 0.356,
+    "most_confused_with": "喜び"
+   },
+   "怒り": {
+    "n": 45,
+    "recall": 0.333,
+    "most_confused_with": "平静"
+   },
+   "恐れ": {
+    "n": 66,
+    "recall": 0.318,
+    "most_confused_with": "悲しみ"
+   },
+   "悲しみ": {
+    "n": 267,
+    "recall": 0.247,
+    "most_confused_with": "平静"
+   },
+   "期待": {
+    "n": 228,
+    "recall": 0.311,
+    "most_confused_with": "平静"
+   },
+   "驚き": {
+    "n": 93,
+    "recall": 0.591,
+    "most_confused_with": "恐れ"
+   }
+  },
+  "threshold_sweep": {
+   "0.3": {
+    "coverage": 0.971,
+    "accuracy_on_covered": 0.387
+   },
+   "0.5": {
+    "coverage": 0.753,
+    "accuracy_on_covered": 0.424
+   },
+   "0.7": {
+    "coverage": 0.466,
+    "accuracy_on_covered": 0.488
+   }
+  }
+ },
+ "felt_vs_reader_consensus": {
+  "items": 400,
+  "calls": 1200,
+  "accuracy": 0.5942,
+  "majority_class_baseline": 0.2975,
+  "majority_class_label": "期待",
+  "chance": 0.1111,
+  "ece": 0.1222,
+  "mean_confidence": 0.7086,
+  "same_answer_all_repeats": 0.95,
+  "per_class": {
+   "信頼": {
+    "n": 3,
+    "recall": 0.0,
+    "most_confused_with": "平静"
+   },
+   "喜び": {
+    "n": 303,
+    "recall": 0.756,
+    "most_confused_with": "期待"
+   },
+   "嫌悪": {
+    "n": 42,
+    "recall": 0.214,
+    "most_confused_with": "怒り"
+   },
+   "平静": {
+    "n": 18,
+    "recall": 1.0
+   },
+   "怒り": {
+    "n": 15,
+    "recall": 0.6,
+    "most_confused_with": "嫌悪"
+   },
+   "恐れ": {
+    "n": 114,
+    "recall": 0.605,
+    "most_confused_with": "平静"
+   },
+   "悲しみ": {
+    "n": 213,
+    "recall": 0.441,
+    "most_confused_with": "怒り"
+   },
+   "期待": {
+    "n": 357,
+    "recall": 0.577,
+    "most_confused_with": "平静"
+   },
+   "驚き": {
+    "n": 135,
+    "recall": 0.585,
+    "most_confused_with": "喜び"
+   }
+  },
+  "threshold_sweep": {
+   "0.3": {
+    "coverage": 0.954,
+    "accuracy_on_covered": 0.61
+   },
+   "0.5": {
+    "coverage": 0.772,
+    "accuracy_on_covered": 0.675
+   },
+   "0.7": {
+    "coverage": 0.562,
+    "accuracy_on_covered": 0.742
+   }
+  }
+ },
+ "expressed_equals_felt": 0.7625,
+ "as_a_fourth_annotator": {
+  "agreement_with_any_single_reader": 0.4594,
+  "human_pairwise_reference": 0.7221
+ },
+ "latency_ms": {
+  "p50": 256.0,
+  "p95": 333.2
+ }
+}

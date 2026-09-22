@@ -10,3 +10,29 @@ suites/zh-proofreading/data/build_cases.py	另写|實际|此处|没有
 # the expression-selection suite quotes the Simplified characters its corpus actually contains
 suites/expression-selection/README.md	灿烂、这样、霉
 suites/expression-selection/README.md	灿烂, 这样, 霉
+# 日文新字體跟簡體字長得一樣（平静/内心/判断/本当），那組 suite 引的是日文原文，不是簡體
+# Japanese shinjitai overlap with Simplified forms; that suite quotes Japanese, not Simplified
+suites/expression-japanese/README.md	平静
+suites/expression-japanese/README.md	内心
+suites/expression-japanese/README.md	判断
+suites/expression-japanese/README.md	本当
+suites/expression-japanese/protocol.yaml	平静
+suites/expression-japanese/protocol.yaml	内心
+suites/expression-japanese/protocol.yaml	判断
+suites/expression-japanese/protocol.yaml	本当
+suites/expression-japanese/run.py	平静
+suites/expression-japanese/run.py	内心
+suites/expression-japanese/run.py	判断
+suites/expression-japanese/run.py	本当
+suites/expression-japanese/data/build_cases.py	平静
+suites/expression-japanese/data/build_cases.py	内心
+suites/expression-japanese/data/build_cases.py	判断
+suites/expression-japanese/data/build_cases.py	本当
+capability-map.md	平静
+capability-map.md	内心
+capability-map.md	判断
+capability-map.md	本当
+capability-map.en.md	平静
+capability-map.en.md	内心
+capability-map.en.md	判断
+capability-map.en.md	本当

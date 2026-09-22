@@ -1,0 +1,40 @@
+# 釘住用的參數，為了能重現——以這份為準，不要在 README.md 裡再寫一次。
+# Pin these for reproducibility -- treat this file as authoritative.
+model: jev-latest          # answered by jev-1.13.0 on the run date
+question_type: choice      # two Choice questions in ONE request, sharing one state
+questions:
+  expressed: what a reader takes from the post   # scored against the 3-reader consensus
+  felt: what the writer was actually feeling     # scored against the writer's own self-report
+options: 9                 # Plutchik's 8 plus 平静 (neutral); Japanese wording, frozen in run.py
+items: 400
+repeats: 3
+workers: 8
+seed: 37                   # sampling
+bins: 15                   # ECE, equal-width on the max probability
+thresholds_reported: [0.3, 0.5, 0.7]
+run_date: "2026-09-23"
+sampling_note: >
+  A natural random sample of 400 from the 1,717 test-split posts where at least 2 of the 3
+  readers agree on the derived label, so the corpus-level human ceilings apply directly.
+  Not balanced per class, so the baseline to read against is the majority class.
+human_ceilings: >
+  Computed offline by data/build_cases.py --stats, no API calls. One reader against the
+  other two when those two agree: 0.7221 (n=3311). Reader consensus against the writer's own
+  self-report: 0.5242. These are what a person can do from the text alone, and no text-only
+  model can be expected to exceed them.
+label_derivation: >
+  WRIME labels each of Plutchik's 8 emotions with an intensity of 0-3. The single label used
+  here is the argmax intensity, or 平静 when all 8 are 0; ties are broken by a fixed emotion
+  order so the derivation is reproducible. The reader label is the majority of the 3 readers'
+  derived labels; posts where all three differ are excluded.
+data_source: >
+  WRIME ver.1, test split, via https://github.com/ids-cv/wrime
+  @ 0681109ab52711110a491f055133033a4e0aea9c (wrime-ver1.tsv).
+  Kajiwara et al., "WRIME: A New Dataset for Emotional Intensity Estimation with Subjective
+  and Objective Annotations", NAACL 2021.
+data_license: >
+  CC BY-NC-ND 4.0. We neither redistribute the text nor distribute a modified version:
+  cases.json and data/_cache/ are gitignored and the receipts store the SHA-256 of each state.
+  Note the NonCommercial term applies to whoever downloads the corpus by running this suite;
+  it does not apply to this repository's own MIT-licensed code.
+  Audit with `python data/build_cases.py --verify runs/<date>.json`.
