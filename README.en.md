@@ -49,6 +49,23 @@ In other words, what's strong here isn't the model's own browsing savvy — it's
 
 ---
 
+## What "make Jev see images" actually amounts to today
+
+**Jev itself still accepts text only** — no images, audio or video; the official Models page says "not supported (yet)" 📖. So when you see a claim that something "gives Jev vision," the first job is to work out which of three quite different things it is:
+
+1. **Swap in a model that already sees images and dress it in Jev's question format** (decider-2b-vision, PlayJev, djev dev, jevlike, or LitJev on a vision Qwen). The vision is real, **but it isn't Jev** — it's someone else's weights wearing the same question shape, so calibration, accuracy and hardware all have to be asked again from scratch.
+2. **Turn the scene into text or structured data first, then hand that to the real Jev** (DOM, OCR, depth plus segmentation, hand tracking). That is genuinely Jev, and Jev never saw an image.
+3. **A claim with nothing behind it.**
+
+💭 Laying out the published figures (all self-reported; we re-ran none of them), here is where the direction actually stands:
+
+- **Only one of them has held-out numbers**: decider-2b-vision, 300 items per task, Visual7W held out 0.89 (ECE 0.03), ScienceQA 0.95, IconQA 0.94. But its own card says the text side is still on the older v5 weights, and playing from pixels scores 0 the moment it leaves the games it trained on (held-out Freeway, FrozenLake and the harder grid worlds are all 0). 📚
+- **The most thoroughly measured one concludes "specialist, and it costs general ability"**: PlayJev averages 0.57 of its teacher's score across ten games, and training on games alone drops MMBench from the base model's 0.66 to 0.48, recovering to 0.78 only with a 20% general-data mix. 📚
+- **The one with the deepest engineering has measured no quality at all**: djev dev genuinely patches vLLM's attention and scheduling (keeping an image span bidirectionally visible, forbidding a half-prefilled image, forcing the whole batch eager when an image is present) and does the one thing Jev cannot — options that are themselves images — but the first paragraph of its performance doc states that this release has no held-out external quality evaluation, and asks for one. 📚
+- **Nobody has measured accuracy on the "convert to text first" path**; what gets measured there is cost and speed: on the same screenshot, OCR-then-Jev costs $0.0002 and 0.13-0.38 s per decision against $0.032 and 5.2 s for handing the screenshot straight to Claude Opus 5 — **that is a cost and speed comparison, not an accuracy one**. 📚
+
+So what should the criterion be? Not "can it see images?" but **whether the signal you want has already been computed inside your system and simply isn't exposed** — usually it has, and that path is faster, more accurate and cheaper. The full table with per-item evidence is in [`jev-variants.en.md`](jev-variants.en.md#variants-that-read-images-directly); the decision rule is the "candidate signal isn't text" section of [`AGENTS.en.md`](AGENTS.en.md).
+
 ## Jev, BERT, Laya: what actually differs
 
 These three get compared a lot, but they are three different kinds of thing. **BERT is a component you train yourself; Jev is a decision service you can ask directly; Laya is an open model that gives BERT Jev's question format while keeping BERT-level comprehension.**

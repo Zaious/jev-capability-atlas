@@ -68,17 +68,19 @@ Jev 發布後兩週內，冒出一整批「長得像 Jev」的東西：開源權
 
 ## 能直接看圖的變體
 
-Jev 官方目前只收文字，圖片、聲音、影片都不收（官方寫的是「not supported (yet)」）📖。宣稱能直接吃像素的變體目前有這幾個，全部是作者自述，我們沒有測過：
+Jev 官方目前只收文字，圖片、聲音、影片都不收（官方寫的是「not supported (yet)」）📖。宣稱能直接吃像素的變體目前有這幾個，**全部是作者自述，我們都沒有重跑**——但它們的證據強度差很多，所以多列一欄「證據」，按強度排序：
 
-| 名稱 | 做法 | 範圍 | 標記 |
-|---|---|---|---|
-| [PlayJev](https://github.com/OmniJev/PlayJev) | Qwen3.5-0.8B-Base 微調成視覺語言模型，一次讀一張 448px 的遊戲畫面，輸出這款遊戲可用動作的機率，低信心的步驟交給搜尋程式；Apache 2.0 | 專用：只在它訓練過的十款瀏覽器遊戲上（220 萬張畫面）| 📚 |
-| [decider-2b-vision](https://huggingface.co/Mapika/decider-2b-vision) | decider 的視覺語言版，一張圖加上同樣的題目格式直接做判斷；有 Hugging Face 團隊做的線上試用頁 | 通用題目格式，但作者寫明它還停在舊的 v5 權重、正在重新訓練 | 📚 |
-| [LitJev](https://github.com/zhengxuyu/litjev) | 不訓練，讀 Qwen 模型的輸出機率；接上 vision 版的 Qwen 就能對截圖做判斷 | 取決於你接的 Qwen 模型 | 📚 |
-| [djev dev](https://github.com/Davipar/djev-dev) | DiffusionGemma 原生讀圖，不先轉成文字；**選項也可以是圖片**（「哪一張最接近這個參考物」），還能逐幀取樣攝影機畫面；Apache 2.0 | 通用題目格式，但要一張 B200；它依賴的 vLLM 結構化讀取 PR（[#57250](https://github.com/vllm-project/vllm/pull/57250)）**查證當下尚未合併**，所以得用它自己釘住的 runtime | 📚 |
-| [jevlike](https://github.com/vinnylarouge/jevlike) | 小型選項評分頭的訓練函式庫；同一個評分頭也能拿圖塊當輸入（附 Doom 操作的示範影片）| 研究用的起點 | 📚 |
+| 名稱 | 做法 | 範圍 | 證據（作者自述，我們沒重跑）| 標記 |
+|---|---|---|---|---|
+| [decider-2b-vision](https://huggingface.co/Mapika/decider-2b-vision) | decider 的視覺語言版（v5 文字權重移植進 Qwen3.5-2B 的視覺語言模型），一張圖加上同樣的題目格式直接做判斷；有 Hugging Face 團隊做的線上試用頁 | 通用題目格式，但作者寫明文字端還停在舊的 v5 權重，尚未用現在的文字權重重訓 | **這一區唯一有通用視覺問答準確率＋校準誤差的**：每項 300 題，Visual7W 保留集 0.89（ECE 0.03）、ScienceQA 0.95、IconQA 0.94、AI2D 0.93、A-OKVQA 0.85、Raven 與仇恨迷因各 0.80。純像素玩遊戲只在訓練過的有效——Breakout 41 贏過 RAM 狀態老師的 22，但保留的 Freeway、FrozenLake 與較難的格子世界都是 0 | 📚 |
+| [PlayJev](https://github.com/OmniJev/PlayJev) | Qwen3.5-0.8B-Base 微調成視覺語言模型，一次讀一張 448px 的遊戲畫面，輸出這款遊戲可用動作的機率，低信心的步驟交給搜尋程式；Apache 2.0 | 專用：只在它訓練過的十款瀏覽器遊戲上（220 萬張畫面）| **量得最徹底的一個**：每款 16 個保留 episode，十款平均只有老師分數的 **0.57**，每步 43 毫秒；附校準曲線，並證明「把最沒把握的步驟交給大模型，分數會爬到老師水準，隨機挑同樣多步則不會」。也誠實揭露純遊戲訓練會傷通用能力：MMBench 從基座的 0.66 掉到 0.48，摻兩成通用資料才回到 0.78 | 📚 |
+| [djev dev](https://github.com/Davipar/djev-dev) | DiffusionGemma 原生讀圖，不先轉成文字；**選項也可以是圖片**（「哪一張最接近這個參考物」），還能逐幀取樣攝影機畫面；Apache 2.0 | 通用題目格式，但要一張 B200；它依賴的 vLLM 結構化讀取 PR（[#57250](https://github.com/vllm-project/vllm/pull/57250)）**查證當下尚未合併**，所以得用它自己釘住的 runtime | 工程最深、品質沒量：原生圖片參照的標籤檢查 12/12（開發期內部跑），但**這一版沒有任何外部保留集的品質評測**，作者自己寫在 performance 文件第一段並公開徵求；延遲數字也明說不涵蓋圖片請求 | 📚 |
+| [LitJev](https://github.com/zhengxuyu/litjev) | 不訓練，讀 Qwen 模型的輸出機率；接上 vision 版的 Qwen 就能對截圖做判斷 | 取決於你接的 Qwen 模型 | 沒有任何視覺評測 | 📚 |
+| [jevlike](https://github.com/vinnylarouge/jevlike) | 小型選項評分頭的訓練函式庫；同一個評分頭也能拿圖塊當輸入（附 Doom 操作的示範影片）| 研究用的起點 | 只有一支示範影片，沒有數字 | 📚 |
 
-這四個裡只有 djev dev 做到一件 Jev 本身做不到的事：**把選項本身變成圖片**（「這三張杯子哪一張最接近參考物」），而不只是「看著一張圖回答文字題」。代價是它的參考硬體是一張 B200，而且作者自己寫明這一版不保證信心校準——把圖片當選項這件事值不值得，要自己量。
+這五個裡只有 djev dev 做到一件 Jev 本身做不到的事：**把選項本身變成圖片**（「這三張杯子哪一張最接近參考物」），而不只是「看著一張圖回答文字題」。代價是它的參考硬體是一張 B200，而且作者自己寫明這一版不保證信心校準——把圖片當選項這件事值不值得，要自己量。
+
+💭 把整欄證據合起來看，這個方向現在的狀態是：**有保留集數字的只有一家**（decider-2b-vision），**量得最徹底的那個給出的結論是「專用，而且會犧牲通用能力」**（PlayJev），**工程做得最深的那個品質一格都沒量**（djev dev）。所以「能不能看圖」現在還不是一個可以拿來做決策的判準——要問的是你這個任務有沒有人量過，多半沒有。
 
 更常見、也更穩的做法其實不是讓模型看圖，而是**先把畫面轉成文字或結構化資料，再交給 Jev**：[jev-drone](https://github.com/RomanSlack/jev-drone) 把機上相機畫面算成深度加分割的符號場景，README 直接寫「Jev is not a vision model」；[GUI JEV](https://github.com/ZihuaEvan/GUI_JEV) 讓另一個視覺模型先描述截圖的每個格子，Jev 只在描述之間選；[jev-canvas](https://github.com/gaborishka/jev-canvas) 用 MediaPipe 追蹤手指、語音轉成文字後才問 Jev。這跟 [`browser-automation.md`](browser-automation.md) 選讀 DOM、不用截圖是同一個思路，判斷準則見 [`AGENTS.md`](AGENTS.md) 的「候選訊號本來就不是文字」那節。
 
