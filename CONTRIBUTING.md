@@ -31,6 +31,7 @@
 | 我們自己對 Jev 跑的實驗 | `suites/<slug>/`（①）| 🔬 |
 | 別人發表、有可驗證結果的 Jev 應用、跑分、文章、貼文 | `translations/<slug>/`（②）；`capability-map` 的彙整由維護者加 | 📚 |
 | Jev 的替代品、復刻、相容伺服器，或在 Jev 之上擴充新操作的函式庫 | [`jev-variants.md`](jev-variants.md) 加一列（④）| 📚（我們同輸入實測過的才是 🔬）|
+| 一種不直覺的用法（至少有一個公開、能跑的實作）| [`jev-patterns.md`](jev-patterns.md) 補一個代表或一個新手法（④）| 📚（我們自己測過的才是 🔬）|
 | 某個領域的實作做法（架構、踩過的坑、檢查清單）| 對應的實作指南（目前只有 [`browser-automation.md`](browser-automation.md)）；同一個領域累積三個以上真實實作，才開新的指南（④）| 📚＋💭 |
 | 對既有條目或判準軸的評論、綜合分析 | 併進該條目；沒有單一對應條目才開 `analysis/<slug>.md`（③）| 💭 |
 | 沒有結果、沒有證據，只是宣傳或構想 | 不收 | — |
@@ -84,7 +85,7 @@
 
 如果你的分析沒有單一對應的既有條目可以掛（例如直接評論核心判準軸本身、或跨多個條目的整體觀察），才新開 `analysis/<slug>.md`（單一雙語檔案：中文區塊＋`---`＋英文區塊，比照 `CONTRIBUTING.md` 自己的排版；樣板見 [`analysis/TEMPLATE.md`](analysis/TEMPLATE.md)），一樣標 💭。
 
-### ④ 修正或補充既有頁面（變體清單、實作指南、能力地圖）
+### ④ 修正或補充既有頁面（變體清單、用法模式、實作指南、能力地圖）
 
 開 issue 或 PR，附一手來源連結與標記。[`jev-variants.md`](jev-variants.md) 的新項目要填齊「做法」「能不能直接換掉 Jev SDK」「跟 Jev 的比較（寫明是誰量的、是不是同一批輸入）」「標記」四欄；實作指南的新內容要指出是哪個真實實作、在哪個檔案或段落。
 
@@ -138,6 +139,7 @@ Tag every substantive claim with one of these. When a passage mixes sources, tag
 | An experiment we ran against Jev ourselves | `suites/<slug>/` (①) | 🔬 |
 | A Jev application, benchmark, article or post published by others, with verifiable results | `translations/<slug>/` (②); maintainers add the `capability-map` rollup | 📚 |
 | A Jev replacement, replica, compatible server, or a library that builds new operations on Jev | A row in [`jev-variants.en.md`](jev-variants.en.md) (④) | 📚 (🔬 only if we tested it on identical inputs) |
+| A non-obvious way of using Jev (with at least one public, runnable implementation) | Add a representative or a new technique to [`jev-patterns.en.md`](jev-patterns.en.md) (④) | 📚 (🔬 only if we tested it ourselves) |
 | How-to for a domain (architecture, pitfalls, checklists) | The matching implementation guide (currently only [`browser-automation.en.md`](browser-automation.en.md)); open a new guide only once a domain has three or more real implementations (④) | 📚 + 💭 |
 | Commentary or synthesis on an existing entry or the core axis | Attach it to that entry; open `analysis/<slug>.md` only if there's no single entry to attach to (③) | 💭 |
 | No results, no evidence — promotion or an idea | Not accepted | — |
@@ -191,7 +193,7 @@ Doesn't require new data — critiques of existing content or of our axis framew
 
 Only open a new `analysis/<slug>.md` (a single bilingual file — Chinese block, `---`, English block, following `CONTRIBUTING.md`'s own layout; template at [`analysis/TEMPLATE.md`](analysis/TEMPLATE.md)) when your analysis has no single existing entry to attach to — e.g. a direct critique of the core axis itself, or an observation spanning multiple entries. Also tagged 💭.
 
-### ④ Correcting or extending existing pages (variants page, implementation guides, capability map)
+### ④ Correcting or extending existing pages (variants page, usage patterns, implementation guides, capability map)
 
 Open an issue or PR with a primary-source link and a tag. New rows in [`jev-variants.en.md`](jev-variants.en.md) need all four columns filled: "approach," "drop-in for the Jev SDK?," "compared with Jev (who measured it, and whether on the same inputs)," and "tag." New material for an implementation guide should name the real implementation it comes from and the file or section.
 

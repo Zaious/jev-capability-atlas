@@ -99,7 +99,7 @@ Jev 內部到底長什麼樣，官方沒有公開。有人用兩千多次 API �
 ## 我能怎麼用 Jev？（給人看）
 
 1. **先讀 TypeSafe 官方的 [skill](https://github.com/typesafe-ai/skills)**，學怎麼呼叫 API、怎麼設計 Choice/Score/Noul 題目——那件事他們寫得很好，我們不重複。
-2. **再讀這裡的 [`capability-map.md`](capability-map.md)**（[English](capability-map.en.md)），對照你要做的任務屬於「訊號自足」還是「需要外部知識」，校準你該有的期待值。
+2. **再讀這裡的 [`capability-map.md`](capability-map.md)**（[English](capability-map.en.md)），對照你要做的任務屬於「訊號自足」還是「需要外部知識」，校準你該有的期待值。想找「原來可以這樣問」的靈感，看 [`jev-patterns.md`](jev-patterns.md)：按手法、不按領域整理，附代表實作與證據。
 3. **信心閾值自己在你的資料上驗**，不要照抄任何一份報告（包括這份）裡的數字——TypeSafe 自己的文件也這樣講。三段式起點：高信心→自動執行；中信心→先確認；低信心→升級給人或給完整推理能力的模型。
 4. **遇到需要「知道什麼」而不是「判斷什麼」的任務，先做檢索、把資料放進 `state`**——不是因為它一定記不得（我們自己的冷門史實題它不給背景也以 0.87 的信心答對），是因為記不記得你事前看不出來；放進 `state` 後同一題升到 1.00。見 [`suites/history-recall-context/`](suites/history-recall-context/) 跟第三方真實案例 [湖北新聞分類](translations/libukai-hubei-news-classification-zh/)。
 5. **單題判斷真的弱，才拆成多個原子化問題疊加**，不要預設拆解一定比較準——一份第三方跑分量出來：拆解在三個任務上確實拉高準確率，但在「看起來危險、其實無害」的困難良性案例上，誤判率從單題的 1.5% 惡化到拆解版本的 37.2%，約 25 倍；多分類問題也別一題問到底（12 選項單題判斷準確率只有 0.3998，是那份跑分裡最差的結果）。拆解結果適合當第二意見疊加，不建議單獨扛安全把關這類判斷。細節見 [`capability-map.md`](capability-map.md#拆解判斷的代價)。
@@ -123,6 +123,7 @@ AGENTS.md                  給 agent 讀的掃描判準
 capability-map.md / .en.md 那條軸的彙整表，持續更新
 browser-automation.md / .en.md  瀏覽器操作的實作指南（架構、打字問題、真實實作）
 jev-variants.md / .en.md   Jev 的開源變體、相容伺服器與擴展函式庫（附查證狀態）
+jev-patterns.md / .en.md   用法模式：按手法整理「不看別人做想不到」的用法（附證據與失敗條件）
 CONTRIBUTING.md            貢獻規則
 skill/jev-fit-check/       打包成 Claude Skill 的 AGENTS.md
 suites/                    每組實測（方法論＋協定＋真實 log＋報告）

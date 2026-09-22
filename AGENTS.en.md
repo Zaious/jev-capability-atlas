@@ -49,6 +49,8 @@ From [TypeSafe's Models page](https://docs.typesafe.ai/models) 📖 — check ea
 3. **High-frequency small decisions capped for cost/latency reasons** — comments like "only check the first N," "budget limit," next to a classification/routing decision. The cap usually exists because the current approach is too slow/expensive, not because the task doesn't need doing.
 4. **Existing filters that literal/regex matching can't catch semantic-layer errors on** — e.g. lexical-overlap checks that miss "same words, opposite meaning" (see our own citation-check and sarcasm-detection suites).
 
+**After scanning for code patterns, check the techniques in [`jev-patterns.en.md`](jev-patterns.en.md)**: some candidates only show up once the question is rephrased — extraction as "choose among candidates," long-document lookup as "navigate one choice at a time," "do two things agree?," "ask the cheap question before the expensive one."
+
 ### Where not to touch
 
 - **Safety-critical, irreversible gates** (deletion, payment, sending, permission decisions) — this logic belongs in deterministic code, and no probabilistic model, however fast, should own the final call. This isn't about Jev specifically — it's the general principle that irreversible actions shouldn't be handed to any probabilistic output.

@@ -99,7 +99,7 @@ Source tags: 🔬 our own tests (with receipts) / 📚 third-party sources (not 
 ## How can I use Jev? (for people)
 
 1. **Read TypeSafe's own [skill](https://github.com/typesafe-ai/skills) first** for how to call the API and design Choice/Score/Noul questions — they cover that well, we don't repeat it.
-2. **Read [`capability-map.en.md`](capability-map.en.md)** (or the [Chinese original](capability-map.md)) and place your task on the self-contained vs. needs-outside-knowledge axis to calibrate your expectations.
+2. **Read [`capability-map.en.md`](capability-map.en.md)** (or the [Chinese original](capability-map.md)) and place your task on the self-contained vs. needs-outside-knowledge axis to calibrate your expectations. For ideas on ways to ask it that you might not think of, see [`jev-patterns.en.md`](jev-patterns.en.md): organized by technique rather than domain, with representative implementations and evidence.
 3. **Validate your own confidence thresholds on your own data.** Don't copy a number from any report, including this one — TypeSafe's own docs say the same. A reasonable starting pattern: high confidence → act automatically; medium → confirm first; low → escalate to a person or a full reasoning-capable model.
 4. **For tasks that require *knowing* something rather than *judging* something, retrieve first and put it in `state`.** Not because it necessarily can't remember (it answered our obscure history question at 0.87 confidence with no passage), but because you can't tell in advance whether it does; with the passage in `state`, the same question went to 1.00. See [`suites/history-recall-context/`](suites/history-recall-context/) and the real third-party case [Hubei news classification](translations/libukai-hubei-news-classification-zh/).
 5. **Only decompose into atomic questions when the single-question judgment is genuinely weak — don't assume decomposition is always more accurate.** A third-party benchmark measured it: decomposition did raise accuracy on three tasks, but on "looks dangerous, is actually benign" hard benign cases, the false-positive rate worsened from 1.5% single-question to 37.2% decomposed — roughly 25x; also don't ask one question with many options for multi-class problems (a 12-option single call scored only 0.3998 in that same benchmark, the worst result in it). Decomposed results are a good secondary opinion, not something we'd recommend as the sole gate for a guardrail. Details in [`capability-map.en.md`](capability-map.en.md#the-cost-of-decomposing-a-judgment).
@@ -123,6 +123,7 @@ AGENTS.md                  scanning checklist for agents
 capability-map.md / .en.md the axis, kept up to date
 browser-automation.md / .en.md  implementation guide for browser automation (architecture, typing problem, real implementations)
 jev-variants.md / .en.md   open Jev variants, compatible servers and extension libraries (with verification status)
+jev-patterns.md / .en.md   usage patterns: non-obvious techniques organized by approach (with evidence and failure conditions)
 CONTRIBUTING.md            contribution rules
 skill/jev-fit-check/       AGENTS.md packaged as a Claude Skill
 suites/                    each real test (methodology + protocol + raw logs + report)
