@@ -49,6 +49,7 @@ Split into two sections: **public benchmarks** are results published by others t
 | [Proofreading with Jev: catching wrong characters](#proofreading-with-jev-catching-wrong-characters) | Self-contained (the answer is in the sentence) | At 0.5: 67% of learner typos caught, 2% false alarms on this repo's correct sentences; a full pass over the repo's 677 sentences missed nothing; it's poor at Simplified characters, which go to a character list | 🔬 |
 | [Catching self-justifying explanations (vs a deterministic scanner)](#catching-self-justifying-explanations-the-dimension-regexes-cant-see) | Self-contained (provided the criterion is written out with its exceptions) | **Corrected**: on review, the criterion's author judged all 15 of our invented "no-marker" cases legitimate; under the author's labels, criterion-only Jev false-alarms on 24 of 45 legitimate explanations (accuracy 0.60, below the scanner's 0.73). The original question is unanswered and needs real writing | 🔬 |
 | [Defending the author in a real draft (pilot)](#defending-the-author-in-a-real-draft-a-pilot) | Not self-contained (it turns on judgment the author never writes down) | Labels from the author's real cuts. One paragraph: can't tell author-protecting from reader-guiding (AUC 0.59); **whole section + reader profile, asked directly "unnecessary for this reader?": 0.898**, the top four of 34 all cut by the author — but that's the best of eight dimensions; the pre-registered combination is 0.674, pending replication | 🔬 |
+| [Checking a citation-audit ledger claim by claim](#checking-a-citation-audit-ledger-claim-by-claim) | Not self-contained (verdicts rest on the cited full text; the ledger keeps one quote) | Fails as a misread detector: the current audit-jev scores AUC 0.56; the primary flags 57 of 66 ok rows. But it accurately ranks where the recorded evidence doesn't cover the claim — 57 of 66 ok rows | 🔬 |
 | [ICU alarm classification: testing a viral tweet](#icu-arrhythmia-alarm-classification-a-viral-tweet-tested-against-a-public-dataset) | Mixed (physiological signal needs converting to text features) | Official score 0.271, worse than "let every alarm through"; 0% sensitivity on asystole/V-tach | 🔬 |
 
 ---
@@ -454,6 +455,18 @@ Source: [`suites/self-justify-detection/`](suites/self-justify-detection/)
 **Round 2 (same day)**: with the state changed to the whole section plus a one-line reader profile, and the question asked directly — "is this an unnecessary explanation for this reader?" — the cut-vs-kept AUC rose from 0.59 to **0.898**; the top four of all 34 sentences are ones the author cut, and the round-1 miss "I've drawn the line clearly" rises to second. 💭 Given enough context, asking directly beats splitting into sub-questions; the practical use is ranking for the author, not thresholding (scores sit in 0.25–0.51). But it's the best of eight dimensions; the pre-registered equal-weight combination is 0.674 — it counts only if it replicates on new drafts.
 
 Source: [`suites/self-justify-real-draft/`](suites/self-justify-real-draft/)
+
+---
+
+### Checking a citation-audit ledger claim by claim
+
+**What was done**: the citation-audit ledger of one of the maintainer's papers, 66 ok and 3 misread rows (all three: the claim carries more than its evidence). Jev was given only the claim sentence and the recorded quotes, via the existing audit-jev tool and a three-question set scoped to the citation number.
+
+**Results**: both arms catch all three misreads, but by flagging nearly everything — the primary flags 57 of 66 ok rows; the existing tool's AUC is 0.56. Row by row, the ok rows Jev scores highest are ones whose quote really doesn't cover a detail of the claim (one records only a chapter title); the lowest are near word-for-word matches.
+
+**What this means**: 💭 the ok verdicts were made against the full text and the ledger keeps one quote as a pointer, so to Jev a misread and an ok row with thin evidence look the same — the answer is in the source, not the state. Catching misreads needs the cited passage's full text. What it does measure, evidence coverage, is useful in itself: as a pre-closing coverage check so the ledger can be re-verified by someone else later. The existing audit-jev isn't recommended for routine use.
+
+Source: [`suites/citation-claim-evidence/`](suites/citation-claim-evidence/)
 
 ---
 

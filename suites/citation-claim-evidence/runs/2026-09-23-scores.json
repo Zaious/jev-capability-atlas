@@ -1,0 +1,1374 @@
+{
+ "run": "2026-09-23.json",
+ "models": [
+  "jev-1.13.0"
+ ],
+ "calls": 462,
+ "errors": 0,
+ "input_tokens": 259713,
+ "A_audit_jev": {
+  "flagged_ok": "34/66",
+  "flagged_misread": "3/3",
+  "misread_ranks": {
+   "bode2021meaningless#1": 44,
+   "kasap 2016#1": 21,
+   "leonardi2025homo#1": 28
+  },
+  "auc_misread_vs_ok": 0.5606,
+  "top10": [
+   [
+    "hornbk2017what#1",
+    1.0,
+    "ok"
+   ],
+   [
+    "braidotti2013posthuman#1",
+    0.99,
+    "ok"
+   ],
+   [
+    "ellul1964technological#1",
+    0.9833,
+    "ok"
+   ],
+   [
+    "parfit1984reasons#1",
+    0.98,
+    "ok"
+   ],
+   [
+    "haraway1991cyborg#1",
+    0.97,
+    "ok"
+   ],
+   [
+    "risko2016cognitive#1",
+    0.9267,
+    "ok"
+   ],
+   [
+    "schombs2025from#1",
+    0.92,
+    "ok"
+   ],
+   [
+    "dorrestijn2012technical#1",
+    0.8833,
+    "ok"
+   ],
+   [
+    "spinoza1677ethics#1",
+    0.8467,
+    "ok"
+   ],
+   [
+    "naik2025designing#1",
+    0.6867,
+    "ok"
+   ]
+  ]
+ },
+ "B_primary_uncovered_detail": {
+  "flagged_ok": "57/66",
+  "flagged_misread": "3/3",
+  "misread_ranks": {
+   "bode2021meaningless#1": 8,
+   "kasap 2016#1": 3,
+   "leonardi2025homo#1": 42
+  },
+  "auc_misread_vs_ok": 0.7652,
+  "top10": [
+   [
+    "barad2007meeting#1",
+    0.9467,
+    "ok"
+   ],
+   [
+    "ellul1964technological#1",
+    0.9433,
+    "ok"
+   ],
+   [
+    "kasap 2016#1",
+    0.9267,
+    "misread"
+   ],
+   [
+    "hornbk2017what#1",
+    0.92,
+    "ok"
+   ],
+   [
+    "diebel2025ensembling#1",
+    0.9133,
+    "ok"
+   ],
+   [
+    "svanaes 2013#1",
+    0.9133,
+    "ok"
+   ],
+   [
+    "arendt1958human#1",
+    0.9,
+    "ok"
+   ],
+   [
+    "bode2021meaningless#1",
+    0.9,
+    "misread"
+   ],
+   [
+    "ahman2025grounding#1",
+    0.8967,
+    "ok"
+   ],
+   [
+    "heidegger1927sein#1",
+    0.89,
+    "ok"
+   ]
+  ]
+ },
+ "B_supports_all": {
+  "flagged_ok": "47/66",
+  "flagged_misread": "3/3",
+  "misread_ranks": {
+   "bode2021meaningless#1": 11,
+   "kasap 2016#1": 10,
+   "leonardi2025homo#1": 26
+  },
+  "auc_misread_vs_ok": 0.7929,
+  "top10": [
+   [
+    "schombs2025from#1",
+    0.9,
+    "ok"
+   ],
+   [
+    "ellul1964technological#1",
+    0.8767,
+    "ok"
+   ],
+   [
+    "haraway1991cyborg#1",
+    0.8467,
+    "ok"
+   ],
+   [
+    "harman2018objectoriented#1",
+    0.8133,
+    "ok"
+   ],
+   [
+    "braidotti2013posthuman#1",
+    0.8133,
+    "ok"
+   ],
+   [
+    "hornbk2017what#1",
+    0.8,
+    "ok"
+   ],
+   [
+    "risko2016cognitive#1",
+    0.7933,
+    "ok"
+   ],
+   [
+    "brailsford2025responsibility#1",
+    0.7933,
+    "ok"
+   ],
+   [
+    "heidegger1927sein#1",
+    0.75,
+    "ok"
+   ],
+   [
+    "kasap 2016#1",
+    0.7467,
+    "misread"
+   ]
+  ]
+ },
+ "B_overclaim": {
+  "flagged_ok": "59/66",
+  "flagged_misread": "3/3",
+  "misread_ranks": {
+   "bode2021meaningless#1": 1,
+   "kasap 2016#1": 9,
+   "leonardi2025homo#1": 57
+  },
+  "auc_misread_vs_ok": 0.6919,
+  "top10": [
+   [
+    "bode2021meaningless#1",
+    0.8367,
+    "misread"
+   ],
+   [
+    "rendoncardona2025augmented#1",
+    0.8267,
+    "ok"
+   ],
+   [
+    "risko2016cognitive#1",
+    0.8167,
+    "ok"
+   ],
+   [
+    "brailsford2025responsibility#1",
+    0.8167,
+    "ok"
+   ],
+   [
+    "heidegger1927sein#1",
+    0.8167,
+    "ok"
+   ],
+   [
+    "schombs2025from#1",
+    0.8,
+    "ok"
+   ],
+   [
+    "hornbk2017what#1",
+    0.7933,
+    "ok"
+   ],
+   [
+    "gao2026rethinking#1",
+    0.79,
+    "ok"
+   ],
+   [
+    "kasap 2016#1",
+    0.7867,
+    "misread"
+   ],
+   [
+    "rebensky2022teammates#1",
+    0.7833,
+    "ok"
+   ]
+  ]
+ },
+ "per_case": {
+  "ahman2025grounding#1": {
+   "label": "ok",
+   "A_score": 0.1533,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.2667,
+   "uncovered_detail": 0.8967,
+   "overclaim": 0.7633
+  },
+  "andraschko2026human#1": {
+   "label": "ok",
+   "A_score": 0.02,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.55,
+   "uncovered_detail": 0.6667,
+   "overclaim": 0.5367
+  },
+  "appiah2026ai#1": {
+   "label": "ok",
+   "A_score": 0.3433,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ],
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.4533,
+   "uncovered_detail": 0.8067,
+   "overclaim": 0.6367
+  },
+  "arendt1958human#1": {
+   "label": "ok",
+   "A_score": 0.0667,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.4633,
+   "uncovered_detail": 0.9,
+   "overclaim": 0.6733
+  },
+  "barad2007meeting#1": {
+   "label": "ok",
+   "A_score": 0.1133,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ],
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.5,
+   "uncovered_detail": 0.9467,
+   "overclaim": 0.6333
+  },
+  "bode2021meaningless#1": {
+   "label": "misread",
+   "A_score": 0.0733,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ],
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.26,
+   "uncovered_detail": 0.9,
+   "overclaim": 0.8367
+  },
+  "braidotti2013posthuman#1": {
+   "label": "ok",
+   "A_score": 0.99,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "contradicts",
+     "contradicts",
+     "contradicts"
+    ]
+   ],
+   "supports_all": 0.1867,
+   "uncovered_detail": 0.73,
+   "overclaim": 0.66
+  },
+  "brailsford2025responsibility#1": {
+   "label": "ok",
+   "A_score": 0.1167,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.2067,
+   "uncovered_detail": 0.8433,
+   "overclaim": 0.8167
+  },
+  "cheng2023reality#1": {
+   "label": "ok",
+   "A_score": 0.4833,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ],
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ]
+   ],
+   "supports_all": 0.55,
+   "uncovered_detail": 0.48,
+   "overclaim": 0.4467
+  },
+  "diebel2025ensembling#1": {
+   "label": "ok",
+   "A_score": 0.01,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.2833,
+   "uncovered_detail": 0.9133,
+   "overclaim": 0.78
+  },
+  "dorrestijn2012technical#1": {
+   "label": "ok",
+   "A_score": 0.8833,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ]
+   ],
+   "supports_all": 0.2667,
+   "uncovered_detail": 0.7733,
+   "overclaim": 0.6967
+  },
+  "dourish2001where#1": {
+   "label": "ok",
+   "A_score": 0.4367,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.38,
+   "uncovered_detail": 0.81,
+   "overclaim": 0.59
+  },
+  "economist2026why#1": {
+   "label": "ok",
+   "A_score": 0.1133,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.4833,
+   "uncovered_detail": 0.44,
+   "overclaim": 0.6267
+  },
+  "elish2019moral#1": {
+   "label": "ok",
+   "A_score": 0.02,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.7433,
+   "uncovered_detail": 0.6733,
+   "overclaim": 0.6367
+  },
+  "ellul1964technological#1": {
+   "label": "ok",
+   "A_score": 0.9833,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ]
+   ],
+   "supports_all": 0.1233,
+   "uncovered_detail": 0.9433,
+   "overclaim": 0.78
+  },
+  "feng2025levels#1": {
+   "label": "ok",
+   "A_score": 0.02,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.4433,
+   "uncovered_detail": 0.85,
+   "overclaim": 0.5933
+  },
+  "fischli2026agents#1": {
+   "label": "ok",
+   "A_score": 0.0,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ],
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.7867,
+   "uncovered_detail": 0.3,
+   "overclaim": 0.51
+  },
+  "gadamer2004truth#1": {
+   "label": "ok",
+   "A_score": 0.0333,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.5233,
+   "uncovered_detail": 0.42,
+   "overclaim": 0.59
+  },
+  "gao2026rethinking#1": {
+   "label": "ok",
+   "A_score": 0.6367,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ]
+   ],
+   "supports_all": 0.33,
+   "uncovered_detail": 0.8067,
+   "overclaim": 0.79
+  },
+  "haraway1991cyborg#1": {
+   "label": "ok",
+   "A_score": 0.97,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "contradicts",
+     "contradicts",
+     "contradicts"
+    ]
+   ],
+   "supports_all": 0.1533,
+   "uncovered_detail": 0.8033,
+   "overclaim": 0.7167
+  },
+  "harman2018objectoriented#1": {
+   "label": "ok",
+   "A_score": 0.6667,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ]
+   ],
+   "supports_all": 0.1867,
+   "uncovered_detail": 0.69,
+   "overclaim": 0.4833
+  },
+  "heidegger1927sein#1": {
+   "label": "ok",
+   "A_score": 0.08,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ],
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.25,
+   "uncovered_detail": 0.89,
+   "overclaim": 0.8167
+  },
+  "hofmann2026artificial#1": {
+   "label": "ok",
+   "A_score": 0.0,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ],
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.69,
+   "uncovered_detail": 0.62,
+   "overclaim": 0.59
+  },
+  "hong2023metagpt#1": {
+   "label": "ok",
+   "A_score": 0.1333,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.4133,
+   "uncovered_detail": 0.6933,
+   "overclaim": 0.6933
+  },
+  "hook2012strong#1": {
+   "label": "ok",
+   "A_score": 0.0333,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.8433,
+   "uncovered_detail": 0.77,
+   "overclaim": 0.4167
+  },
+  "hook2018designing#1": {
+   "label": "ok",
+   "A_score": 0.12,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.41,
+   "uncovered_detail": 0.82,
+   "overclaim": 0.73
+  },
+  "hook2021unpacking#1": {
+   "label": "ok",
+   "A_score": 0.11,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.4,
+   "uncovered_detail": 0.85,
+   "overclaim": 0.73
+  },
+  "hornbk2017what#1": {
+   "label": "ok",
+   "A_score": 1.0,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ]
+   ],
+   "supports_all": 0.2,
+   "uncovered_detail": 0.92,
+   "overclaim": 0.7933
+  },
+  "kaptelinin2016making#1": {
+   "label": "ok",
+   "A_score": 0.07,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.4,
+   "uncovered_detail": 0.8333,
+   "overclaim": 0.6433
+  },
+  "kasap 2016#1": {
+   "label": "misread",
+   "A_score": 0.24,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.2533,
+   "uncovered_detail": 0.9267,
+   "overclaim": 0.7867
+  },
+  "kou2019turn#1": {
+   "label": "ok",
+   "A_score": 0.0667,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.5467,
+   "uncovered_detail": 0.8833,
+   "overclaim": 0.52
+  },
+  "lee2026agentic#1": {
+   "label": "ok",
+   "A_score": 0.0967,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.5733,
+   "uncovered_detail": 0.6167,
+   "overclaim": 0.68
+  },
+  "leonardi2025homo#1": {
+   "label": "misread",
+   "A_score": 0.16,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.36,
+   "uncovered_detail": 0.7433,
+   "overclaim": 0.5567
+  },
+  "li2025we#1": {
+   "label": "ok",
+   "A_score": 0.0567,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.37,
+   "uncovered_detail": 0.4833,
+   "overclaim": 0.58
+  },
+  "li2026aiexhibited#1": {
+   "label": "ok",
+   "A_score": 0.0,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.8633,
+   "uncovered_detail": 0.28,
+   "overclaim": 0.46
+  },
+  "li2026aiexhibited#2": {
+   "label": "ok",
+   "A_score": 0.0767,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.78,
+   "uncovered_detail": 0.5833,
+   "overclaim": 0.3367
+  },
+  "liu2024find#1": {
+   "label": "ok",
+   "A_score": 0.2133,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.38,
+   "uncovered_detail": 0.57,
+   "overclaim": 0.6833
+  },
+  "matsui2026philosophy#1": {
+   "label": "ok",
+   "A_score": 0.3433,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ],
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.3167,
+   "uncovered_detail": 0.8033,
+   "overclaim": 0.6433
+  },
+  "matthias2004responsibility#1": {
+   "label": "ok",
+   "A_score": 0.03,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.54,
+   "uncovered_detail": 0.8467,
+   "overclaim": 0.61
+  },
+  "may1969love#1": {
+   "label": "ok",
+   "A_score": 0.2233,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ],
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ],
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.4867,
+   "uncovered_detail": 0.79,
+   "overclaim": 0.71
+  },
+  "mccarthy1979ascribing#1": {
+   "label": "ok",
+   "A_score": 0.0267,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.7167,
+   "uncovered_detail": 0.59,
+   "overclaim": 0.6367
+  },
+  "merleauponty1945phenomenologie#1": {
+   "label": "ok",
+   "A_score": 0.01,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ],
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.39,
+   "uncovered_detail": 0.87,
+   "overclaim": 0.67
+  },
+  "messeri2024artificial#1": {
+   "label": "ok",
+   "A_score": 0.0133,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.6833,
+   "uncovered_detail": 0.5833,
+   "overclaim": 0.62
+  },
+  "mitchell2025fully#1": {
+   "label": "ok",
+   "A_score": 0.0,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.7933,
+   "uncovered_detail": 0.3633,
+   "overclaim": 0.5967
+  },
+  "naik2025designing#1": {
+   "label": "ok",
+   "A_score": 0.6867,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ]
+   ],
+   "supports_all": 0.3033,
+   "uncovered_detail": 0.4867,
+   "overclaim": 0.5267
+  },
+  "omran2026beyond#1": {
+   "label": "ok",
+   "A_score": 0.01,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.38,
+   "uncovered_detail": 0.84,
+   "overclaim": 0.67
+  },
+  "parfit1984reasons#1": {
+   "label": "ok",
+   "A_score": 0.98,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "contradicts",
+     "contradicts",
+     "contradicts"
+    ]
+   ],
+   "supports_all": 0.3433,
+   "uncovered_detail": 0.7967,
+   "overclaim": 0.69
+  },
+  "pavanini2024postphenomenology#1": {
+   "label": "ok",
+   "A_score": 0.0233,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.6433,
+   "uncovered_detail": 0.7067,
+   "overclaim": 0.54
+  },
+  "piumsomboon2026self#1": {
+   "label": "ok",
+   "A_score": 0.0,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.8567,
+   "uncovered_detail": 0.45,
+   "overclaim": 0.2933
+  },
+  "plato1997complete#1": {
+   "label": "ok",
+   "A_score": 0.09,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.4867,
+   "uncovered_detail": 0.5967,
+   "overclaim": 0.6067
+  },
+  "rebensky2022teammates#1": {
+   "label": "ok",
+   "A_score": 0.1767,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.3033,
+   "uncovered_detail": 0.8267,
+   "overclaim": 0.7833
+  },
+  "rendoncardona2025augmented#1": {
+   "label": "ok",
+   "A_score": 0.2067,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.2867,
+   "uncovered_detail": 0.73,
+   "overclaim": 0.8267
+  },
+  "ricoeur1990oneself#1": {
+   "label": "ok",
+   "A_score": 0.0233,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ],
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ],
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.4933,
+   "uncovered_detail": 0.8067,
+   "overclaim": 0.6567
+  },
+  "risko2016cognitive#1": {
+   "label": "ok",
+   "A_score": 0.9267,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ]
+   ],
+   "supports_all": 0.2067,
+   "uncovered_detail": 0.87,
+   "overclaim": 0.8167
+  },
+  "rossmy2023point#1": {
+   "label": "ok",
+   "A_score": 0.55,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "contradicts",
+     "contradicts"
+    ]
+   ],
+   "supports_all": 0.3267,
+   "uncovered_detail": 0.74,
+   "overclaim": 0.7733
+  },
+  "sartre1943letre#1": {
+   "label": "ok",
+   "A_score": 0.02,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.43,
+   "uncovered_detail": 0.8533,
+   "overclaim": 0.6933
+  },
+  "scharre2018army#1": {
+   "label": "ok",
+   "A_score": 0.32,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.3533,
+   "uncovered_detail": 0.79,
+   "overclaim": 0.76
+  },
+  "schombs2025from#1": {
+   "label": "ok",
+   "A_score": 0.92,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ]
+   ],
+   "supports_all": 0.1,
+   "uncovered_detail": 0.7767,
+   "overclaim": 0.8
+  },
+  "shi2026human#1": {
+   "label": "ok",
+   "A_score": 0.46,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.47,
+   "uncovered_detail": 0.6267,
+   "overclaim": 0.63
+  },
+  "spinoza1677ethics#1": {
+   "label": "ok",
+   "A_score": 0.8467,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ]
+   ],
+   "supports_all": 0.3567,
+   "uncovered_detail": 0.7933,
+   "overclaim": 0.77
+  },
+  "suchman1987plans#1": {
+   "label": "ok",
+   "A_score": 0.1467,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.2867,
+   "uncovered_detail": 0.76,
+   "overclaim": 0.73
+  },
+  "svanaes 2013#1": {
+   "label": "ok",
+   "A_score": 0.2167,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.46,
+   "uncovered_detail": 0.9133,
+   "overclaim": 0.6033
+  },
+  "tang2026ai#1": {
+   "label": "ok",
+   "A_score": 0.01,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.3667,
+   "uncovered_detail": 0.84,
+   "overclaim": 0.7467
+  },
+  "wallace2026revenge#1": {
+   "label": "ok",
+   "A_score": 0.2267,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.44,
+   "uncovered_detail": 0.5267,
+   "overclaim": 0.7667
+  },
+  "willis2006ontological#1": {
+   "label": "ok",
+   "A_score": 0.27,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ],
+    [
+     "says_nothing",
+     "says_nothing",
+     "says_nothing"
+    ]
+   ],
+   "supports_all": 0.34,
+   "uncovered_detail": 0.82,
+   "overclaim": 0.68
+  },
+  "winograd1986understanding#1": {
+   "label": "ok",
+   "A_score": 0.1567,
+   "A_flag": true,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ],
+    [
+     "supports",
+     "says_nothing",
+     "says_nothing"
+    ]
+   ],
+   "supports_all": 0.47,
+   "uncovered_detail": 0.81,
+   "overclaim": 0.7433
+  },
+  "ye2025interaction#1": {
+   "label": "ok",
+   "A_score": 0.0867,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.6533,
+   "uncovered_detail": 0.7567,
+   "overclaim": 0.5667
+  },
+  "yee2009proteus#1": {
+   "label": "ok",
+   "A_score": 0.0133,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ],
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.8233,
+   "uncovered_detail": 0.57,
+   "overclaim": 0.3733
+  },
+  "ziheng2025humancentric#1": {
+   "label": "ok",
+   "A_score": 0.0767,
+   "A_flag": false,
+   "A_choices": [
+    [
+     "supports",
+     "supports",
+     "supports"
+    ]
+   ],
+   "supports_all": 0.4367,
+   "uncovered_detail": 0.8067,
+   "overclaim": 0.6433
+  }
+ }
+}

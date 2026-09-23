@@ -34,7 +34,7 @@ def summarize(name, score, flagged, label):
             "flagged_misread": f"{sum(flagged[i] for i in mis)}/{len(mis)}",
             "misread_ranks": {i: rank[i] for i in sorted(mis)},
             "auc_misread_vs_ok": auc([score[i] for i in mis], [score[i] for i in oks]),
-            "top10": [(i, round(score[i], 4), label[i]) for i in ids[:10]]}
+            "top10": [[i, round(score[i], 4), label[i]] for i in ids[:10]]}
 
 
 def main():
