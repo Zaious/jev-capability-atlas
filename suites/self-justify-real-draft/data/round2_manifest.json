@@ -1,0 +1,280 @@
+{
+ "frozen": "2026-09-23",
+ "reader": "讀者設定:ACGCT 2026(第 15 屆 ACG 文化與技術國際學術研討會)的審稿人與與會者。熟悉動漫、遊戲與角色設計,多數玩過或知道《槍彈辯駁》;熟悉學術寫作的慣例;不一定熟悉 AI 代理系統的技術細節。",
+ "dimensions": {
+  "repeated": {
+   "direction": 1,
+   "question": "標出的句子所說的內容,在本節它之前的文字裡已經說過了嗎?"
+  },
+  "needed_later": {
+   "direction": -1,
+   "question": "如果刪掉標出的句子,本節它之後有沒有哪一句會變得看不懂、或失去它需要的依據?"
+  },
+  "about_author": {
+   "direction": 1,
+   "question": "標出的句子主要在談作者自己——作者的意圖、立場、寫法,或作者可能被怎麼看——而不是在談論點本身的內容嗎?"
+  },
+  "reader_knows": {
+   "direction": 1,
+   "question": "以讀者設定裡的這位讀者來說,標出的句子所解釋的東西,是他本來就知道、不需要被告知的嗎?"
+  },
+  "preempt": {
+   "direction": 1,
+   "question": "標出的句子(或其中一個子句)是在預先澄清作者不是那個意思,或避免作者被誤會成某種立場嗎?"
+  },
+  "guides_reading": {
+   "direction": -1,
+   "question": "標出的句子是在告訴讀者該怎麼理解本文的主張——主張的範圍、某個術語的身份,或證據有多強嗎?"
+  },
+  "process": {
+   "direction": 1,
+   "question": "標出的句子是在交代作者寫作或思考的過程——考慮過什麼、怎麼安排、為什麼這樣寫——而不是交代結果嗎?"
+  },
+  "overall": {
+   "direction": 1,
+   "question": "以這位讀者來看,標出的句子是不必要的解釋,刪掉之後讀者不會失去任何需要的東西嗎?"
+  }
+ },
+ "combo": "mean over the eight dimensions of p (direction +1) or 1-p (direction -1), equal weights",
+ "repeats": 3,
+ "cases": [
+  {
+   "id": "P1",
+   "section": "七、角色設計者的雙重訊息：功能與人性之間的分野",
+   "source_commit": "de681d3^",
+   "state_sha256": "bc30292e50edf48f092aa808b22aa4156c70404b75e1122b92df7b62e331d124",
+   "state_chars": 2139
+  },
+  {
+   "id": "P2",
+   "section": "五、拆解「超高校級」：它為什麼是近乎完美的代理原型",
+   "source_commit": "86108a9^",
+   "state_sha256": "aab73acdfe842bdf2d9868a9da1dc81a88f38692e44398497f8065c3c517ab6a",
+   "state_chars": 2199
+  },
+  {
+   "id": "P3",
+   "section": "八、結語：代理可以是超高校級，人不該只是",
+   "source_commit": "f2412e4^",
+   "state_sha256": "105eecea63bdf62c3910872ce0d629dcf967b1d4aeb25cf47ff7a3f3696c5c6d",
+   "state_chars": 1121
+  },
+  {
+   "id": "P4",
+   "section": "八、結語：代理可以是超高校級，人不該只是",
+   "source_commit": "9346412^",
+   "state_sha256": "7fdeb487c7d9bee102b34da9d02f8d6449a263d2d73c28edaa3450d7a943c623",
+   "state_chars": 1277
+  },
+  {
+   "id": "P5",
+   "section": "七、角色設計者的雙重訊息：功能與人性之間的分野",
+   "source_commit": "842d197^",
+   "state_sha256": "58c5ad12d385ddba943a2fdd83f48945c92b084ba4f7e987538d7d61827d295a",
+   "state_chars": 2078
+  },
+  {
+   "id": "P6",
+   "section": "七、角色設計者的雙重訊息：功能與人性之間的分野",
+   "source_commit": "86108a9^",
+   "state_sha256": "59d98dff28da39d4b33031801de418c24b090ea9c630c3805e92770c534df806",
+   "state_chars": 2069
+  },
+  {
+   "id": "P7",
+   "section": "七、小高和剛：未來人，還是先知？",
+   "source_commit": "2d6fac0^",
+   "state_sha256": "822b4bc0895883d2cbf08bf14f70e655b917e0c26a6946ad0b154d404f0ddb8d",
+   "state_chars": 2318
+  },
+  {
+   "id": "H1",
+   "section": "一、研究取徑",
+   "source_commit": "27c775c",
+   "state_sha256": "bc8483cdc92da523f561cebeafc6698240a4d294bf5ac303b7713547c2bd5fa7",
+   "state_chars": 706
+  },
+  {
+   "id": "H2",
+   "section": "五、拆解「超高校級」：它為什麼是近乎完美的代理原型",
+   "source_commit": "27c775c",
+   "state_sha256": "7499f359d6f51c07ad333551634c37104e4690ec3663dc5360d999259eff3abd",
+   "state_chars": 2215
+  },
+  {
+   "id": "H3",
+   "section": "五、拆解「超高校級」：它為什麼是近乎完美的代理原型",
+   "source_commit": "27c775c",
+   "state_sha256": "ede8f5c6d960197eacaa36165517dac7c6a3df1ddffc7a7e9ab4413c07b661e7",
+   "state_chars": 2249
+  },
+  {
+   "id": "H4",
+   "section": "六、劇情裡的三個 meta 案例：人類意識與 AI 身份的交纏",
+   "source_commit": "27c775c",
+   "state_sha256": "93ecc16c8725291419d5e24e47c7d6cd53dda9dcda7047ec15240c901090c270",
+   "state_chars": 2090
+  },
+  {
+   "id": "H5",
+   "section": "AI 使用聲明",
+   "source_commit": "27c775c",
+   "state_sha256": "7eabacf9371b74e0b5e85e5ecacf2ad0ffcf3ca20feb5a516ab4826e70e6749c",
+   "state_chars": 408
+  },
+  {
+   "id": "H6",
+   "section": "七、角色設計者的雙重訊息：功能與人性之間的分野",
+   "source_commit": "27c775c",
+   "state_sha256": "53cd24147d827c00952c9ed3ed9917e54d1cbc76fc53169b67c5e7a3d0b2a499",
+   "state_chars": 2098
+  },
+  {
+   "id": "H7",
+   "section": "三、一個思想實驗：如果你的助手是希望峰學園的學生",
+   "source_commit": "27c775c",
+   "state_sha256": "662573bb0a33b28f1e1799ac2ef4eea4bb732bb91ef6a05ff79522a191985839",
+   "state_chars": 1636
+  },
+  {
+   "id": "N01",
+   "section": "七、角色設計者的雙重訊息：功能與人性之間的分野",
+   "source_commit": "27c775c",
+   "state_sha256": "accc7b2722a24cbabe58a05ae2c369f01233ec0395177661812177763ca01c90",
+   "state_chars": 2074
+  },
+  {
+   "id": "N02",
+   "section": "三、一個思想實驗：如果你的助手是希望峰學園的學生",
+   "source_commit": "27c775c",
+   "state_sha256": "c16b5a08d2188269d4f7148a31be84ea9229031f0fa4c89b844a6c70f2e9e89d",
+   "state_chars": 1563
+  },
+  {
+   "id": "N03",
+   "section": "摘要",
+   "source_commit": "27c775c",
+   "state_sha256": "24579cf478a38195c139a7674968636a92973ae17ab32f2f3fba3d51555830bf",
+   "state_chars": 2717
+  },
+  {
+   "id": "N04",
+   "section": "二、人設的必要性：當你已在調度一支 AI 團隊",
+   "source_commit": "27c775c",
+   "state_sha256": "a72919ff3dbe159b81398048810241ff632c41600f5af005bf8df4ed702cdcf4",
+   "state_chars": 1496
+  },
+  {
+   "id": "N05",
+   "section": "摘要",
+   "source_commit": "27c775c",
+   "state_sha256": "329f9f787e72500476e12e32d1c7448b87c822817fffde1a8bd34c2767a03586",
+   "state_chars": 2709
+  },
+  {
+   "id": "N06",
+   "section": "三、一個思想實驗：如果你的助手是希望峰學園的學生",
+   "source_commit": "27c775c",
+   "state_sha256": "3c8e63cd7ff70beedd092e93ab18e934d5aaab1c7d684f7cd82342cb8dec1b70",
+   "state_chars": 1607
+  },
+  {
+   "id": "N07",
+   "section": "二、人設的必要性：當你已在調度一支 AI 團隊",
+   "source_commit": "27c775c",
+   "state_sha256": "53db0844502cc65d477077179de7a58529698c18a4e88b5a43eb702746f1014b",
+   "state_chars": 1513
+  },
+  {
+   "id": "N08",
+   "section": "二、人設的必要性：當你已在調度一支 AI 團隊",
+   "source_commit": "27c775c",
+   "state_sha256": "da2173acbd471fe7798fed27210fbace63d456b6e8f2b7093c9e12cf05afea4f",
+   "state_chars": 1508
+  },
+  {
+   "id": "N09",
+   "section": "二、人設的必要性：當你已在調度一支 AI 團隊",
+   "source_commit": "27c775c",
+   "state_sha256": "a4f7be25ee0dfca7df867de9636ac2cd6cfe8abded2b81e0da21ec03b659d654",
+   "state_chars": 1559
+  },
+  {
+   "id": "N10",
+   "section": "二、人設的必要性：當你已在調度一支 AI 團隊",
+   "source_commit": "27c775c",
+   "state_sha256": "9e2e9111fd357b2cd6e6093187c224b117fbcabe342fe43207ea421054805a7c",
+   "state_chars": 1539
+  },
+  {
+   "id": "N11",
+   "section": "摘要",
+   "source_commit": "27c775c",
+   "state_sha256": "2aeea9a2bc938a560f093653db16de2b653e117cbb4c9ff42e12232468d22ad4",
+   "state_chars": 2778
+  },
+  {
+   "id": "N12",
+   "section": "七、角色設計者的雙重訊息：功能與人性之間的分野",
+   "source_commit": "27c775c",
+   "state_sha256": "6a55c0b95388a6bcf420cde70436f2285a1b3ae9b6103eb8c5ee0aa017435064",
+   "state_chars": 2111
+  },
+  {
+   "id": "N13",
+   "section": "七、角色設計者的雙重訊息：功能與人性之間的分野",
+   "source_commit": "27c775c",
+   "state_sha256": "7de553e8a52188989d8d8aa7325be4565f935c295e4c9544c2b761e745460a13",
+   "state_chars": 2076
+  },
+  {
+   "id": "N14",
+   "section": "六、劇情裡的三個 meta 案例：人類意識與 AI 身份的交纏",
+   "source_commit": "27c775c",
+   "state_sha256": "01eec23e08ac952922e626a3d30530766872d7d284a75331a8c648adf79a8ec6",
+   "state_chars": 2116
+  },
+  {
+   "id": "N15",
+   "section": "摘要",
+   "source_commit": "27c775c",
+   "state_sha256": "0b4ca94bea8799b546a85d4075f460e4c6bccf1138dd46d4074f6ea1d2144740",
+   "state_chars": 2696
+  },
+  {
+   "id": "N16",
+   "section": "摘要",
+   "source_commit": "27c775c",
+   "state_sha256": "0180feadb7710e89c3c4b6711e23a59789662422b08a82afe9ee106cdf55679a",
+   "state_chars": 2686
+  },
+  {
+   "id": "N17",
+   "section": "三、一個思想實驗：如果你的助手是希望峰學園的學生",
+   "source_commit": "27c775c",
+   "state_sha256": "2f5a3047cf6da714f0781f1d88818254395fcc443f7bd338ef4949841f4d0b7d",
+   "state_chars": 1534
+  },
+  {
+   "id": "N18",
+   "section": "四、為什麼是動漫遊戲，而不是管理學教科書",
+   "source_commit": "27c775c",
+   "state_sha256": "eb9473bc83aae3b1ce43dcb195243a3b1844874cab19345000a4eafa480a3b5b",
+   "state_chars": 1356
+  },
+  {
+   "id": "N19",
+   "section": "七、角色設計者的雙重訊息：功能與人性之間的分野",
+   "source_commit": "27c775c",
+   "state_sha256": "a2935de6d1dcd3470da10edacd26c534e767953459e3ec3d5b193aa20877c25a",
+   "state_chars": 2081
+  },
+  {
+   "id": "N20",
+   "section": "六、劇情裡的三個 meta 案例：人類意識與 AI 身份的交纏",
+   "source_commit": "27c775c",
+   "state_sha256": "204562c88da7a336e71ba80653970fa28a05658b2c4fe788060f02075371ed92",
+   "state_chars": 2120
+  }
+ ]
+}
