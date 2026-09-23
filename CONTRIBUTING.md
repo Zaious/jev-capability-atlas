@@ -33,7 +33,7 @@
 | 別人發表、有可驗證結果的 Jev 應用、跑分、文章、貼文 | `translations/<slug>/`（②）；`capability-map` 的彙整由維護者加 | 📚 |
 | Jev 的替代品、復刻、相容伺服器，或在 Jev 之上擴充新操作的函式庫 | [`jev-variants.md`](jev-variants.md) 加一列（④）| 📚（我們同輸入實測過的才是 🔬）|
 | 一種不直覺的用法（至少有一個公開、能跑的實作）| [`jev-patterns.md`](jev-patterns.md) 補一個代表或一個新手法（④）| 📚（我們自己測過的才是 🔬）|
-| 某個領域的實作做法（架構、踩過的坑、檢查清單）| 對應的實作指南（目前只有 [`browser-automation.md`](browser-automation.md)）；同一個領域累積三個以上真實實作，才開新的指南（④）| 📚＋💭 |
+| 某個領域的實作做法（架構、踩過的坑、檢查清單）| 對應的實作指南（目前有 [`browser-automation.md`](browser-automation.md) 與 [`virtual-character-expressions.md`](virtual-character-expressions.md)）；開新指南的門檻是**同一個領域累積三個以上真實實作，或我們自己在同一個領域跑過三組以上 suite**（④）| 📚＋💭 |
 | 對既有條目或判準軸的評論、綜合分析 | 併進該條目；沒有單一對應條目才開 `analysis/<slug>.md`（③）| 💭 |
 | 沒有結果、沒有證據，只是宣傳或構想 | 不收 | — |
 

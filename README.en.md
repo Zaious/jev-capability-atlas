@@ -152,6 +152,7 @@ README.md / README.en.md   this page, bilingual (mechanism explained here, not a
 AGENTS.md                  scanning checklist for agents
 capability-map.md / .en.md the axis, kept up to date
 browser-automation.md / .en.md  implementation guide for browser automation (architecture, typing problem, real implementations)
+virtual-character-expressions.md / .en.md  implementation guide for virtual-character expressions (decision table, architecture, VRChat/VTuber)
 jev-variants.md / .en.md   open Jev variants, compatible servers and extension libraries (with verification status)
 jev-patterns.md / .en.md   usage patterns: non-obvious techniques organized by approach (with evidence and failure conditions)
 CONTRIBUTING.md            contribution rules

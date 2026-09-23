@@ -96,6 +96,8 @@ Jev 拿你給的選項去對你給的 `state` 評分，**它沒辦法知道你 s
 
 **如果候選是瀏覽器自動化**（點擊、填表、導覽這類操作型任務），別從零設計架構——讀 [`browser-automation.md`](browser-automation.md)：三個真實開源實作收斂出的參考架構（一次呼叫問三題）、打字問題怎麼解、以及接自己系統前的檢查清單。
 
+**如果候選是虛擬角色的表情或動作**（AI VTuber、VRChat、視覺小說演技、Live2D 角色），讀 [`virtual-character-expressions.md`](virtual-character-expressions.md)：先用那頁的決策表確認你的標準答案是哪一種。有兩個形狀我們量過、是死的——**「自己說話→自己的臉」**（標準答案是說話者自己的意圖，人類天花板只有 0.524，而且缺的訊號在你剛用 STT 丟掉的音訊裡）與**聆聽表情**（打不過「一律中性」，給它完美的角色情緒追蹤器也是 +0.000）。
+
 **如果你想建議把 Jev 換成自架的開源替代品**（Laya 或其他變體），先讀 [`jev-variants.md`](jev-variants.md) 跟 [`suites/laya-head-to-head/`](suites/laya-head-to-head/)：目前的開源變體在「沒看過的新任務、直接問」上大多落後 Jev，贏的幾乎都在自己訓練過的分布上。提建議之前，先確認使用者手上有沒有標註資料、流程是不是固定的。
 
 ### API 機制去哪查

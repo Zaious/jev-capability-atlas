@@ -36,3 +36,11 @@ capability-map.en.md	平静
 capability-map.en.md	内心
 capability-map.en.md	判断
 capability-map.en.md	本当
+virtual-character-expressions.md	平静
+virtual-character-expressions.md	内心
+virtual-character-expressions.md	判断
+virtual-character-expressions.md	本当
+virtual-character-expressions.en.md	平静
+virtual-character-expressions.en.md	内心
+virtual-character-expressions.en.md	判断
+virtual-character-expressions.en.md	本当

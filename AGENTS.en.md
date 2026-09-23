@@ -94,6 +94,8 @@ Once you've found a candidate, don't act on the checklist alone — verify:
 
 **If the candidate is browser automation** (clicking, filling forms, navigating), don't design the architecture from scratch — read [`browser-automation.en.md`](browser-automation.en.md): the reference architecture three real open-source implementations converged on (one call, three questions), how the typing problem gets solved, and a checklist for before you touch your own system.
 
+**If the candidate is a virtual character's expressions or gestures** (AI VTuber, VRChat, visual-novel performance, a Live2D character), read [`virtual-character-expressions.en.md`](virtual-character-expressions.en.md) and use its decision table to identify your oracle first. Two shapes are measured and dead: **"I speak, my own avatar's face follows"** (the oracle is the speaker's own intent, where the human ceiling is 0.524 and the missing signal is in the audio your STT just discarded) and **the listening expression** (it fails to beat always-neutral, and a perfect character-emotion tracker moves it by +0.000).
+
 **If you're about to suggest replacing Jev with a self-hosted open alternative** (Laya or another variant), read [`jev-variants.en.md`](jev-variants.en.md) and [`suites/laya-head-to-head/`](suites/laya-head-to-head/) first: today's open variants mostly trail Jev on new tasks asked directly, and nearly every win is on a distribution the variant was trained on. Before suggesting it, check whether the user has labelled data and whether the workflow is fixed.
 
 ### Where to find API mechanics

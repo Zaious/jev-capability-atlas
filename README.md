@@ -152,6 +152,7 @@ README.md / README.en.md   本頁雙語（含機制說明，不是另開檔案�
 AGENTS.md                  給 agent 讀的掃描判準
 capability-map.md / .en.md 那條軸的彙整表，持續更新
 browser-automation.md / .en.md  瀏覽器操作的實作指南（架構、打字問題、真實實作）
+virtual-character-expressions.md / .en.md  虛擬角色表情的實作指南（決策表、參考架構、VRChat／VTuber）
 jev-variants.md / .en.md   Jev 的開源變體、相容伺服器與擴展函式庫（附查證狀態）
 jev-patterns.md / .en.md   用法模式：按手法整理「不看別人做想不到」的用法（附證據與失敗條件）
 CONTRIBUTING.md            貢獻規則
