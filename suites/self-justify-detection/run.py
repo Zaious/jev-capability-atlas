@@ -52,12 +52,6 @@ def main():
     from typesafe_sdk import Noul
     client = get_client()
 
-    # 暖機一次、不計入 / one warm-up call, excluded
-    t0 = time.perf_counter()
-    client.system_one(state=cases[0]["text"], model="jev-latest",
-                      questions={"q": Noul(instructions=ARMS["J1_criterion"])})
-    warmup_ms = round((time.perf_counter() - t0) * 1000, 1)
-
     jobs = [(c, arm, rep) for rep in range(REPEATS) for arm in ARMS for c in cases]
 
     def ask(job):
@@ -70,13 +64,22 @@ def main():
                                       questions={"q": Noul(instructions=ARMS[arm])})
                 ms = round((time.perf_counter() - t) * 1000, 1)
                 a = r.answers["q"]
-                return {"id": c["id"], "arm": arm, "repeat": rep, "p_yes": round(a.noul, 4),
-                        "confidence": round(a.confidence, 4), "model": r.model,
+                return {"id": c["id"], "arm": arm, "repeat": rep, "p_yes": round(a.noul, 4), "model": r.model,
                         "input_tokens": r.usage.input_tokens, "latency_ms": ms, "state": c["text"]}
             except Exception as e:  # noqa: BLE001
                 err = f"{type(e).__name__}: {e}"
                 time.sleep(2 * (attempt + 1))
         return {"id": c["id"], "arm": arm, "repeat": rep, "error": err, "state": c["text"]}
+
+    # 暖機走跟正式呼叫同一個函式、不計入；它失敗就代表整批都會失敗，直接中止。
+    # 2026-09-23 第一次跑時暖機走另一條路徑，讀答案的 bug 因此沒被抓到，360 次全部白跑。
+    # The warm-up goes through the same function as the real calls and is excluded; if it
+    # fails, the whole batch would fail, so stop. On the first 2026-09-23 attempt the warm-up
+    # took a different path, a bug in reading the answer went uncaught, and all 360 calls were wasted.
+    warm = ask((cases[0], "J1_criterion", -1))
+    if "error" in warm:
+        sys.exit(f"warm-up failed, aborting before the batch: {warm['error']}")
+    warmup_ms = warm["latency_ms"]
 
     rows = []
     with ThreadPoolExecutor(max_workers=4) as ex:

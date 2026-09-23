@@ -47,6 +47,7 @@ Split into two sections: **public benchmarks** are results published by others t
 | [One abstention clause costs 11 points](#japanese-expression-selection-one-sentence-two-oracles-and-a-human-ceiling) | — | Same call, same state, same options: with "choose neutral when unsure" 0.483, without it 0.594 -- **wording outweighs changing the model** | 🔬 |
 | [What kind of utterance is this (speech acts)](#what-kind-of-utterance-is-this-the-alternative-when-emotion-cant-be-asked) | Self-contained, but weaker than expected | 0.756 on the no-question-mark subset (punctuation shortcut 0.708, always-inform 0.639); but directive 0.680 and commissive 0.477 -- the strong class is the one a regex already handles | 🔬 |
 | [Proofreading with Jev: catching wrong characters](#proofreading-with-jev-catching-wrong-characters) | Self-contained (the answer is in the sentence) | At 0.5: 67% of learner typos caught, 2% false alarms on this repo's correct sentences; a full pass over the repo's 677 sentences missed nothing; it's poor at Simplified characters, which go to a character list | 🔬 |
+| [Catching self-justifying explanations (vs a deterministic scanner)](#catching-self-justifying-explanations-the-dimension-regexes-cant-see) | Self-contained (provided the criterion is written out with its exceptions) | 15 paragraphs with no lexical marker: scanner 0, Jev 15; criterion alone false-alarms on 9/20 legitimate explanations, one sentence of exceptions cuts that to 1/20 but misses 3 cases of explaining to experts | 🔬 |
 | [ICU alarm classification: testing a viral tweet](#icu-arrhythmia-alarm-classification-a-viral-tweet-tested-against-a-public-dataset) | Mixed (physiological signal needs converting to text features) | Official score 0.271, worse than "let every alarm through"; 0% sensitivity on asystole/V-tach | 🔬 |
 
 ---
@@ -424,6 +425,18 @@ Source: [`suites/speech-act-classification/`](suites/speech-act-classification/)
 **What this means**: 💭 it holds up as a non-blocking review tool that asks a person to take a look, now shipped as `scripts/zh-check/proofread_jev.py`. The division of labour is the one this repo keeps recommending: the deterministic part (Simplified characters) goes to code, the feel-for-language narrow judgment (wrong characters) goes to Jev, and whatever it flags goes to a person. Limits: SIGHAN's typos are mostly sound-alikes, not quite the shape errors AI generation produces, of which we have only three; SIGHAN's "clean" set hides unlabelled typos, so its false-alarm rate is only an upper bound.
 
 Source: [`suites/zh-proofreading/`](suites/zh-proofreading/)
+
+---
+
+### Catching self-justifying explanations: the dimension regexes can't see
+
+**What was done**: 60 Traditional-Chinese paragraphs we wrote ourselves in five strata (self-justifying with or without a grammatical shape, legitimate explanations with or without one, plain paragraphs), labels frozen and pushed before any run. Three arms: the deterministic scanner from the maintainer's private tool babel-antiai, Jev with the one-sentence test alone ("delete it — can the reader still make the same decision? if so, delete it"), and Jev with one added sentence saying three kinds of legitimate explanation don't count. Three repeats each.
+
+**Results**: of 15 self-justifying paragraphs with no lexical marker, the scanner caught 0 and the Jev arms 15 and 12; on 10 legitimate explanations that use a shape, the scanner false-alarmed on 7, criterion-only Jev on 4, Jev with exceptions on 0. Overall accuracy 0.48 / 0.85 / 0.93, Jev's AUC about 0.98. The three paragraphs lost once the exceptions were added were all explaining to experts what they already know.
+
+**What this means**: 💭 checking text against a **defined** writing criterion is something Jev can do — including the kind a regex structurally can't see. Given only the criterion it treats every explanation as suspect; writing the exceptions out nearly removes the false alarms but excuses one kind of real self-justification, because background for newcomers and basics explained to experts look the same on the page and differ only in who the reader is. **Exceptions have to be written so they meet cues in the text; naming the category isn't enough.** Limits: one annotator who also wrote the items, 10 to 15 paragraphs per stratum, and the exception list and negatives come from the same list.
+
+Source: [`suites/self-justify-detection/`](suites/self-justify-detection/)
 
 ---
 

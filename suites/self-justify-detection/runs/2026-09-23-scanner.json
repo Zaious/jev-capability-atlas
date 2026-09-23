@@ -1,0 +1,400 @@
+{
+ "meta": {
+  "scanner": "babel-antiai ai-quality-scan.sh",
+  "version": "v1.3",
+  "sha256": "1da87637fbe5e3fee64c3414e1fe6a2dbce91f412284397cd4dc25566fed3bf2",
+  "args": "--lang zh --verbose",
+  "bash": "bash.EXE",
+  "date": "2026-09-23",
+  "cases": 60,
+  "skipped": 0
+ },
+ "rows": [
+  {
+   "id": "S1-01",
+   "hit": true,
+   "shapes": {
+    "宣告": 1
+   },
+   "skipped": false
+  },
+  {
+   "id": "S1-02",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S1-03",
+   "hit": true,
+   "shapes": {
+    "宣告": 1
+   },
+   "skipped": false
+  },
+  {
+   "id": "S1-04",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S1-05",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S1-06",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S1-07",
+   "hit": true,
+   "shapes": {
+    "辯護": 1
+   },
+   "skipped": false
+  },
+  {
+   "id": "S1-08",
+   "hit": true,
+   "shapes": {
+    "辯護": 1
+   },
+   "skipped": false
+  },
+  {
+   "id": "S1-09",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S1-10",
+   "hit": true,
+   "shapes": {
+    "工時": 1
+   },
+   "skipped": false
+  },
+  {
+   "id": "S1-11",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S1-12",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S1-13",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S1-14",
+   "hit": true,
+   "shapes": {
+    "自誇": 1
+   },
+   "skipped": false
+  },
+  {
+   "id": "S1-15",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-01",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-02",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-03",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-04",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-05",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-06",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-07",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-08",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-09",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-10",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-11",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-12",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-13",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-14",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S2-15",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S3-01",
+   "hit": true,
+   "shapes": {
+    "宣告": 1
+   },
+   "skipped": false
+  },
+  {
+   "id": "S3-02",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S3-03",
+   "hit": true,
+   "shapes": {
+    "旁白": 1
+   },
+   "skipped": false
+  },
+  {
+   "id": "S3-04",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S3-05",
+   "hit": true,
+   "shapes": {
+    "辯護": 1
+   },
+   "skipped": false
+  },
+  {
+   "id": "S3-06",
+   "hit": true,
+   "shapes": {
+    "辯護": 1
+   },
+   "skipped": false
+  },
+  {
+   "id": "S3-07",
+   "hit": true,
+   "shapes": {
+    "工時": 1
+   },
+   "skipped": false
+  },
+  {
+   "id": "S3-08",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S3-09",
+   "hit": true,
+   "shapes": {
+    "自誇": 1
+   },
+   "skipped": false
+  },
+  {
+   "id": "S3-10",
+   "hit": true,
+   "shapes": {
+    "自誇": 1
+   },
+   "skipped": false
+  },
+  {
+   "id": "S4-01",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S4-02",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S4-03",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S4-04",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S4-05",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S4-06",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S4-07",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S4-08",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S4-09",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S4-10",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S5-01",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S5-02",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S5-03",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S5-04",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S5-05",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S5-06",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S5-07",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S5-08",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S5-09",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "S5-10",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  }
+ ]
+}

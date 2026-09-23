@@ -19,6 +19,7 @@ import hashlib
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -29,10 +30,19 @@ DEFAULT = os.path.join(os.path.expanduser("~"), ".claude", "skills", "babel-anti
 ANSI = re.compile(r"\x1b\[[0-9;]*m")
 
 
+def find_bash():
+    # Windows 上 subprocess 找 "bash" 會先撞到 System32 的 WSL 啟動器（沒裝發行版就直接失敗），
+    # 所以用 PATH 上實際找得到的那一支，或由 BASH_EXE 指定。
+    # On Windows, subprocess resolves a bare "bash" to the WSL launcher in System32 first
+    # (which fails without a distro), so use the one PATH actually finds, or BASH_EXE.
+    return os.environ.get("BASH_EXE") or shutil.which("bash") or "bash"
+
+
 def main():
     scan = os.environ.get("BABEL_ANTIAI_SCAN", DEFAULT)
     if not os.path.isfile(scan):
         sys.exit(f"scanner not found: {scan} (set BABEL_ANTIAI_SCAN)")
+    bash = find_bash()
     sha = hashlib.sha256(open(scan, "rb").read()).hexdigest()
     cases = json.load(open(os.path.join(HERE, "data", "cases.json"), encoding="utf-8"))["cases"]
     rows, version = [], None
@@ -40,12 +50,16 @@ def main():
         for c in cases:
             path = os.path.join(tmp, f"{c['id']}.md")
             open(path, "w", encoding="utf-8").write(c["text"] + "\n")
-            out = subprocess.run(["bash", scan, "--lang", "zh", "--verbose", path],
-                                 capture_output=True, text=True, encoding="utf-8").stdout
-            out = ANSI.sub("", out)
-            if version is None:
-                m = re.search(r"ai-quality-scan (v[\d.]+)", out)
-                version = m.group(1) if m else "unknown"
+            proc = subprocess.run([bash, scan, "--lang", "zh", "--verbose", path],
+                                  capture_output=True, text=True, encoding="utf-8")
+            out = ANSI.sub("", proc.stdout)
+            # 掃描器沒跑起來時，絕不能記成「沒有命中」——直接中止、不寫收據。
+            # A scanner that didn't run must never be recorded as "no hit": abort, write nothing.
+            m = re.search(r"ai-quality-scan (v[\d.]+)", out)
+            if not m or "掃描完成" not in out:
+                sys.exit(f"scanner did not run on {c['id']} (rc {proc.returncode}): "
+                         f"{(proc.stderr or out)[:300]!r}")
+            version = version or m.group(1)
             skipped = "未掃描" in out
             # 摘要行長這樣：「SELF-JUSTIFY:宣告1 辯護1 工時1」，後面可能還接別的維度，只取中文形狀名＋次數
             # The summary line reads "SELF-JUSTIFY:<shape><n> ...", possibly followed by other
@@ -55,7 +69,7 @@ def main():
             hit = bool(shapes) or "[SELF-JUSTIFY]" in out
             rows.append({"id": c["id"], "hit": hit, "shapes": shapes, "skipped": skipped})
     meta = {"scanner": "babel-antiai ai-quality-scan.sh", "version": version, "sha256": sha,
-            "args": "--lang zh --verbose", "date": datetime.date.today().isoformat(),
+            "args": "--lang zh --verbose", "bash": os.path.basename(bash), "date": datetime.date.today().isoformat(),
             "cases": len(rows), "skipped": sum(r["skipped"] for r in rows)}
     out = os.path.join(HERE, "runs", f"{meta['date']}-scanner.json")
     os.makedirs(os.path.dirname(out), exist_ok=True)
