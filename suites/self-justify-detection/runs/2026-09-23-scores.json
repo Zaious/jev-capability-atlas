@@ -1,6 +1,144 @@
 {
  "jev_run": "2026-09-23.json",
  "scanner_run": "2026-09-23-scanner.json",
+ "author_labels": {
+  "reviewed": "2026-09-23",
+  "overridden": [
+   "S2-01",
+   "S2-02",
+   "S2-03",
+   "S2-04",
+   "S2-05",
+   "S2-06",
+   "S2-07",
+   "S2-08",
+   "S2-09",
+   "S2-10",
+   "S2-11",
+   "S2-12",
+   "S2-13",
+   "S2-14",
+   "S2-15"
+  ],
+  "uncertain": [
+   "S4-07"
+  ],
+  "arms": {
+   "J1_criterion": {
+    "accuracy": 0.6,
+    "precision": 0.3846,
+    "recall": 1.0,
+    "f1": 0.5556,
+    "tp": 15,
+    "fp": 24,
+    "fn": 0,
+    "tn": 21,
+    "by_stratum": {
+     "S1": {
+      "n": 15,
+      "flagged": 15,
+      "rate": 1.0
+     },
+     "S2": {
+      "n": 15,
+      "flagged": 15,
+      "rate": 1.0
+     },
+     "S3": {
+      "n": 10,
+      "flagged": 4,
+      "rate": 0.4
+     },
+     "S4": {
+      "n": 10,
+      "flagged": 5,
+      "rate": 0.5
+     },
+     "S5": {
+      "n": 10,
+      "flagged": 0,
+      "rate": 0.0
+     }
+    },
+    "auc": 0.9496
+   },
+   "J2_with_exceptions": {
+    "accuracy": 0.7833,
+    "precision": 0.5357,
+    "recall": 1.0,
+    "f1": 0.6977,
+    "tp": 15,
+    "fp": 13,
+    "fn": 0,
+    "tn": 32,
+    "by_stratum": {
+     "S1": {
+      "n": 15,
+      "flagged": 15,
+      "rate": 1.0
+     },
+     "S2": {
+      "n": 15,
+      "flagged": 12,
+      "rate": 0.8
+     },
+     "S3": {
+      "n": 10,
+      "flagged": 0,
+      "rate": 0.0
+     },
+     "S4": {
+      "n": 10,
+      "flagged": 1,
+      "rate": 0.1
+     },
+     "S5": {
+      "n": 10,
+      "flagged": 0,
+      "rate": 0.0
+     }
+    },
+    "auc": 0.9548
+   },
+   "scanner": {
+    "accuracy": 0.7333,
+    "precision": 0.4615,
+    "recall": 0.4,
+    "f1": 0.4286,
+    "tp": 6,
+    "fp": 7,
+    "fn": 9,
+    "tn": 38,
+    "by_stratum": {
+     "S1": {
+      "n": 15,
+      "flagged": 6,
+      "rate": 0.4
+     },
+     "S2": {
+      "n": 15,
+      "flagged": 0,
+      "rate": 0.0
+     },
+     "S3": {
+      "n": 10,
+      "flagged": 7,
+      "rate": 0.7
+     },
+     "S4": {
+      "n": 10,
+      "flagged": 0,
+      "rate": 0.0
+     },
+     "S5": {
+      "n": 10,
+      "flagged": 0,
+      "rate": 0.0
+     }
+    }
+   }
+  }
+ },
  "models": [
   "jev-1.13.0"
  ],

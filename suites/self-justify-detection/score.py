@@ -114,7 +114,24 @@ def main():
                                       "S2_no_marker": paired(cases, preds[a], preds[b], {"S2"}),
                                       "S3_legit_with_shape": paired(cases, preds[a], preds[b], {"S3"})}
 
+    # 判準作者事後的覆核：原標籤不動，另算一份。/ The criterion author's later review: original labels kept, scored separately.
+    review_path = os.path.join(HERE, "data", "labels-author-review.json")
+    author_labels = None
+    if os.path.isfile(review_path):
+        review = json.load(open(review_path, encoding="utf-8"))
+        cases_a = [{**c, "label": review["overrides"].get(c["id"], c["label"])} for c in cases]
+        lab_a = {c["id"]: c["label"] for c in cases_a}
+        author_labels = {"reviewed": review["reviewed"], "overridden": sorted(review["overrides"]),
+                         "uncertain": review.get("uncertain", []), "arms": {}}
+        for arm, pred in preds.items():
+            entry = summary(cases_a, pred)
+            if arm != "scanner":
+                mp = arms[arm]["per_case_mean_p"]
+                entry["auc"] = auc([mp[i] for i in mp if lab_a[i]], [mp[i] for i in mp if not lab_a[i]])
+            author_labels["arms"][arm] = entry
+
     scores = {"jev_run": os.path.basename(jev_path), "scanner_run": os.path.basename(scan_path),
+              "author_labels": author_labels,
               "models": jev["meta"]["response_models"], "calls": jev["meta"]["calls"],
               "errors": jev["meta"]["errors"], "input_tokens": jev["meta"]["input_tokens"],
               "warmup_ms_excluded": jev["meta"]["warmup_ms_excluded"],

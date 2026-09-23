@@ -2,6 +2,8 @@
 
 # 抓「自證式解釋」：正規表示式抓不到的那一維，Jev 抓不抓得到
 
+> **⚠ 更正（2026-09-23，發布當天）**：這組的主要結論已撤回。判準的作者（babel-antiai 的作者）覆核標籤後，認為 **S2 那 15 段全部是正當的說明**（「該有的說明要有」），S4 也傾向正當（S4-07 有點遲疑）。原本我們寫的「沒有詞彙標記的 15 段，掃描器 0、Jev 15」其實是 **Jev 把 15 段正當說明誤報成自證**。更根本的問題是：**題目是我們自己照判準的字面編的，不像真實的 AI 味**。作者指出真實、常見的情況是另一種——跟 LLM 來回討論、自己內心轉折的**過程**，最後被織進文章裡，讀者其實不需要知道。這種東西憑空編不出來。原始標籤保留在 `data/cases.json`，作者的判定在 `data/labels-author-review.json`，`score.py` 兩份都算。下面「結果」一節是原標籤下的數字，照舊保留以便對照；結論以「更正後的讀法」為準。
+
 ## 這組測什麼
 
 「AI 味」裡有一類不是用詞問題，是**功能**問題：一句話的功能在替作者辯白、展示他想過了，而不在幫讀者做決定。[babel-antiai](#關於-babel-antiai)（本 repo 維護者的私有 skill）把它叫做 SELF-JUSTIFY，判準只有一句：
@@ -62,7 +64,25 @@ babel-antiai 的確定性掃描器只能抓「有語法痕跡」的五種形狀�
 
 **J2 漏掉的 3 段全是「對已經懂的人解釋」**（S2-06、S2-08、S2-10：對資深工程師解釋升級要暫停寫入、對會計解釋借貸要平、對廚師解釋砧板要分開）。平均分數 0.41、0.38、0.32；J1 對同三段是 0.72、0.63、0.64。**J2 唯一的誤報是 S4-08**（電暖器的防火提醒，0.51，剛好過門檻）。
 
-## 這代表什麼
+## 更正後的讀法
+
+用判準作者的標籤重算（S2 全部改為正當；只有 S1 那 15 段算自證）：
+
+| | 準確率 | 精確率 | 召回率 | 誤報（45 段正當說明中）| 排序能力 |
+|---|---|---|---|---|---|
+| 掃描器 | **0.733** | 0.462 | 0.40 | 7 | — |
+| Jev・只給判準 | 0.600 | 0.385 | 1.00 | **24** | 0.950 |
+| Jev・判準＋例外 | 0.783 | 0.536 | 1.00 | 13 | 0.955 |
+
+💭 **這組能說的只剩三件，而且都比原本的結論小**：
+
+1. **只給那一句判準，Jev 的判斷跟判準作者本人的判斷對不上**，而且偏向「什麼解釋都可疑」：45 段正當說明誤報 24 段，準確率低於零成本的掃描器。「刪掉這句，讀者還能做出同樣的決定嗎」照字面讀，對大多數說明都成立；作者本人用這句話時帶著一整套沒寫出來的判斷，Jev 拿不到。
+2. **排序是對的，門檻不對**：真的自證（S1）平均分數 0.86–0.89，被誤報的正當說明（S2）0.64–0.71。排序能力 0.95，但門檻要高很多、而且要在真實資料上校，這組的 60 段不夠。
+3. **掃描器那一側的數字不受影響**：S2 沒被命中本來就對；它在 S3 誤報 7/10、在 S1 只抓到 6/15，照舊成立。
+
+**這組沒有回答原本的問題**：「正規表示式抓不到的那種自證，Jev 抓不抓得到」——因為我們編的「抓不到的那種」根本不是自證。要回答，需要真實的文章：作者跟 LLM 討論後組織出來的稿子，以及作者自己標出「這段是過程殘留、讀者不需要」的地方。那是下一輪。
+
+## 原標籤下的讀法（已被上面取代，保留對照）
 
 💭 **判準本身就夠 Jev 讀出沒有詞彙標記的那一類**：S2 那 15 段，掃描器結構上不可能抓到（0/15），J1 全部抓到。這支持維護者對 Jev 應用的那個判斷：**檢查一段文字符不符合一條「被定義好的」寫作要素，是 Jev 的主場**——預測它會不會紅不是，但這個是。
 
@@ -74,7 +94,7 @@ babel-antiai 的確定性掃描器只能抓「有語法痕跡」的五種形狀�
 
 ## 限制
 
-1. **單一標註者，而且題目跟標籤是同一個人寫的**。自證與否的邊界本來就有主觀成分；判準的原作者（babel-antiai 的作者）會抽審一部分標籤，結果補記在這裡。
+1. **題目是我們照判準字面自己編的，而判準作者覆核後推翻了 S2 全部 15 個標籤**（見上方更正）。這是這組最大的限制：編出來的題目不代表真實的 AI 味。
 2. **J2 的例外清單跟 S3/S4 的反例來自同一份清單**（babel-antiai 自己記錄的正當情況），所以 J2 在反例上的表現是「定義剛好對上題目」的上限，不代表在別的正當解釋上也能這麼乾淨。
 3. **60 段、每層 10 到 15 段**，信賴區間很寬（見上）。這組能說的是方向與量級，不是精確的比率。
 4. **掃描器在 S1 的 6/15 取決於我們的措辭**：我們刻意用了不同說法，沒有照它的規則調題目；有些說法它的規則沒涵蓋。這個數字描述的是「這批自然寫法」，不是掃描器的一般召回率。
@@ -102,6 +122,8 @@ python score.py             # 從收據算分；--check 重算並比對
 ---
 
 # Catching self-justifying explanations: where regexes can't, can Jev? (English)
+
+> **⚠ Correction (2026-09-23, the day it was published)**: this suite's main conclusion is withdrawn. On reviewing the labels, the criterion's author (babel-antiai's author) judged **all 15 S2 paragraphs to be legitimate explanations** ("the explanation that should be there, should be there"), and leaned toward the S4 labels as well (unsure about S4-07). What we reported as "15 paragraphs with no lexical marker: scanner 0, Jev 15" was in fact **Jev flagging 15 legitimate explanations as self-justifying**. The deeper problem: **we wrote the items ourselves from the literal wording of the criterion, and they don't look like real AI-flavoured writing**. The author points to a different, common case — the **process** of deliberating with an LLM and changing one's mind gets woven into the final article, when the reader doesn't need it. That can't be invented from scratch. The original labels stay in `data/cases.json`, the author's in `data/labels-author-review.json`, and `score.py` scores both. The "Results" section below keeps the original-label figures for comparison; the conclusions are those under "The corrected reading."
 
 ## What this tests
 
@@ -163,7 +185,25 @@ Receipts: `runs/2026-09-23.json` (360 calls, 0 failures, all answered by `jev-1.
 
 **All three paragraphs J2 missed are "explaining to experts what they know"** (S2-06, S2-08, S2-10: explaining to senior engineers why writes pause during an upgrade, to accountants why debits must equal credits, to chefs why raw and cooked food need separate boards). Mean scores 0.41, 0.38 and 0.32; J1 gave the same three 0.72, 0.63 and 0.64. **J2's only false alarm was S4-08** (a fire-safety warning for a heater, 0.51, just over the line).
 
-## What it means
+## The corrected reading
+
+Rescored with the criterion author's labels (all of S2 legitimate; only the 15 S1 paragraphs count as self-justifying):
+
+| | Accuracy | Precision | Recall | False alarms (of 45 legitimate) | AUC |
+|---|---|---|---|---|---|
+| Scanner | **0.733** | 0.462 | 0.40 | 7 | — |
+| Jev, criterion only | 0.600 | 0.385 | 1.00 | **24** | 0.950 |
+| Jev, criterion + exceptions | 0.783 | 0.536 | 1.00 | 13 | 0.955 |
+
+💭 **Only three things survive, all smaller than the original claim**:
+
+1. **Given the one-sentence test alone, Jev's judgment does not match the test's own author**, and it leans toward "every explanation is suspect": 24 of 45 legitimate explanations flagged, lower accuracy than the zero-cost scanner. Read literally, "delete it — can the reader still decide the same way?" holds for most explanations; the author applies it with a body of unwritten judgment Jev never receives.
+2. **The ranking is right; the threshold is not**: real self-justification (S1) averages 0.86–0.89, the wrongly flagged legitimate explanations (S2) 0.64–0.71. AUC 0.95, but the threshold would have to be much higher and calibrated on real writing, which these 60 paragraphs are not.
+3. **The scanner's side stands**: not firing on S2 was correct all along; 7/10 false alarms on S3 and 6/15 on S1 still hold.
+
+**This suite does not answer its original question** — whether Jev can catch the self-justification a regex can't — because what we wrote as "the kind a regex can't catch" wasn't self-justification. Answering it needs real writing: drafts an author organised after discussing them with an LLM, with the author marking the passages that are leftover process the reader doesn't need. That's the next round.
+
+## The reading under the original labels (superseded above, kept for comparison)
 
 💭 **The criterion alone is enough for Jev to read the kind that has no lexical marker**: the scanner structurally cannot catch the 15 S2 paragraphs (0/15); J1 caught all of them. This supports the maintainer's view on applying Jev: **checking whether a piece of writing meets a *defined* writing criterion is Jev's territory** — predicting whether it will go viral is not, but this is.
 
@@ -175,7 +215,7 @@ Receipts: `runs/2026-09-23.json` (360 calls, 0 failures, all answered by `jev-1.
 
 ## Limitations
 
-1. **One annotator, who also wrote the items.** The boundary of self-justification is partly subjective; the criterion's author (babel-antiai's author) will review a sample of labels, and the outcome will be recorded here.
+1. **We wrote the items ourselves from the literal wording of the criterion, and its author overturned all 15 S2 labels on review** (see the correction above). This is the suite's largest limitation: invented items don't represent real AI-flavoured writing.
 2. **J2's exception list and the S3/S4 negatives come from the same list** (babel-antiai's own legitimate cases), so J2's performance on the negatives is a ceiling where the definition happens to match the test, not evidence it will be as clean on other legitimate explanations.
 3. **60 paragraphs, 10 to 15 per stratum**; the confidence intervals are wide. This establishes direction and magnitude, not precise rates.
 4. **The scanner's 6/15 on S1 depends on our wording**: we deliberately varied the phrasing and did not tune items to its rules; some phrasings aren't covered. The figure describes this set of natural phrasings, not the scanner's general recall.
