@@ -48,6 +48,7 @@ Split into two sections: **public benchmarks** are results published by others t
 | [What kind of utterance is this (speech acts)](#what-kind-of-utterance-is-this-the-alternative-when-emotion-cant-be-asked) | Self-contained, but weaker than expected | 0.756 on the no-question-mark subset (punctuation shortcut 0.708, always-inform 0.639); but directive 0.680 and commissive 0.477 -- the strong class is the one a regex already handles | 🔬 |
 | [Proofreading with Jev: catching wrong characters](#proofreading-with-jev-catching-wrong-characters) | Self-contained (the answer is in the sentence) | At 0.5: 67% of learner typos caught, 2% false alarms on this repo's correct sentences; a full pass over the repo's 677 sentences missed nothing; it's poor at Simplified characters, which go to a character list | 🔬 |
 | [Catching self-justifying explanations (vs a deterministic scanner)](#catching-self-justifying-explanations-the-dimension-regexes-cant-see) | Self-contained (provided the criterion is written out with its exceptions) | **Corrected**: on review, the criterion's author judged all 15 of our invented "no-marker" cases legitimate; under the author's labels, criterion-only Jev false-alarms on 24 of 45 legitimate explanations (accuracy 0.60, below the scanner's 0.73). The original question is unanswered and needs real writing | 🔬 |
+| [Defending the author in a real draft (pilot)](#defending-the-author-in-a-real-draft-a-pilot) | Not self-contained (it turns on judgment the author never writes down) | Labels from the author's real cuts: picks sentences about the claim or the author out of ordinary ones (0/20 false alarms) but can't tell author-protecting from reader-guiding (7 vs 7, AUC 0.59); scanner 0 hits | 🔬 |
 | [ICU alarm classification: testing a viral tweet](#icu-arrhythmia-alarm-classification-a-viral-tweet-tested-against-a-public-dataset) | Mixed (physiological signal needs converting to text features) | Official score 0.271, worse than "let every alarm through"; 0% sensitivity on asystole/V-tach | 🔬 |
 
 ---
@@ -439,6 +440,18 @@ Source: [`suites/zh-proofreading/`](suites/zh-proofreading/)
 **Correction (same day)**: on review, the criterion's author judged all 15 of our invented "self-justifying with no lexical marker" paragraphs to be legitimate, so the conclusion above is withdrawn. Rescored with the author's labels: scanner accuracy 0.73, criterion-only Jev 0.60 (24 of 45 legitimate explanations flagged), Jev with exceptions 0.78; Jev's AUC is still 0.95 — real self-justification does score higher — but a 0.5 threshold drags in many legitimate explanations. 💭 What remains: **handed the one-sentence test literally, Jev's judgment doesn't match the test's own author**. The original question — can Jev catch the self-justification a regex can't — is unanswered: items written from the criterion's literal wording don't look like real AI-flavoured writing; the author points to deliberation with an LLM being woven into the finished article, which needs real writing to test.
 
 Source: [`suites/self-justify-detection/`](suites/self-justify-detection/)
+
+---
+
+### Defending the author in a real draft: a pilot
+
+**What was done**: after the previous suite was withdrawn, a real draft. Of 91 sentence-level changes between the AI-assisted draft and the submitted version of the maintainer's own paper, seven removed the same thing — managing how others see the author rather than telling the reader how to read the claim (the distinction the author confirmed). Those seven, seven similar sentences the author kept, and 20 unchanged sentences were put to Jev in two wordings, three times each.
+
+**Results**: with the author's distinction as the question, all 20 ordinary sentences scored under 0.41, no false alarms; but the seven cuts and the seven kept look-alikes didn't separate (5 flagged in each, AUC 0.59). It seems to respond to shape — a "this is not X" clarification scores high whatever it does, while the author's most typical cut, "I've drawn the line clearly; readers can judge," scored 0.40. The original criterion wording false-alarmed on 9 ordinary sentences. The scanner hit nothing in this draft.
+
+**What this means**: 💭 whether a sentence protects the author or guides the reader rests on judgment the author never writes down, and Jev can't draw that line yet; but it works as a first filter, narrowing 34 sentences to 10 for a person and catching 5 of the 7 cuts. Seven positives: direction only.
+
+Source: [`suites/self-justify-real-draft/`](suites/self-justify-real-draft/)
 
 ---
 

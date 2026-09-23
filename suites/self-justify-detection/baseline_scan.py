@@ -51,7 +51,7 @@ def main():
             path = os.path.join(tmp, f"{c['id']}.md")
             open(path, "w", encoding="utf-8").write(c["text"] + "\n")
             proc = subprocess.run([bash, scan, "--lang", "zh", "--verbose", path],
-                                  capture_output=True, text=True, encoding="utf-8")
+                                  capture_output=True, text=True, encoding="utf-8", errors="replace")
             out = ANSI.sub("", proc.stdout)
             # 掃描器沒跑起來時，絕不能記成「沒有命中」——直接中止、不寫收據。
             # A scanner that didn't run must never be recorded as "no hit": abort, write nothing.

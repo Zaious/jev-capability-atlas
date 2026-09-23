@@ -1,0 +1,218 @@
+{
+ "meta": {
+  "scanner": "babel-antiai ai-quality-scan.sh",
+  "version": "v1.3",
+  "sha256": "1da87637fbe5e3fee64c3414e1fe6a2dbce91f412284397cd4dc25566fed3bf2",
+  "args": "--lang zh --verbose",
+  "bash": "bash.EXE",
+  "date": "2026-09-23",
+  "cases": 34,
+  "skipped": 11
+ },
+ "rows": [
+  {
+   "id": "P1",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "P2",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "P3",
+   "hit": false,
+   "shapes": {},
+   "skipped": true
+  },
+  {
+   "id": "P4",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "P5",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "P6",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "P7",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "H1",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "H2",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "H3",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "H4",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "H5",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "H6",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "H7",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "N01",
+   "hit": false,
+   "shapes": {},
+   "skipped": true
+  },
+  {
+   "id": "N02",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "N03",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "N04",
+   "hit": false,
+   "shapes": {},
+   "skipped": true
+  },
+  {
+   "id": "N05",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "N06",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "N07",
+   "hit": false,
+   "shapes": {},
+   "skipped": true
+  },
+  {
+   "id": "N08",
+   "hit": false,
+   "shapes": {},
+   "skipped": true
+  },
+  {
+   "id": "N09",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "N10",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "N11",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "N12",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "N13",
+   "hit": false,
+   "shapes": {},
+   "skipped": true
+  },
+  {
+   "id": "N14",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  },
+  {
+   "id": "N15",
+   "hit": false,
+   "shapes": {},
+   "skipped": true
+  },
+  {
+   "id": "N16",
+   "hit": false,
+   "shapes": {},
+   "skipped": true
+  },
+  {
+   "id": "N17",
+   "hit": false,
+   "shapes": {},
+   "skipped": true
+  },
+  {
+   "id": "N18",
+   "hit": false,
+   "shapes": {},
+   "skipped": true
+  },
+  {
+   "id": "N19",
+   "hit": false,
+   "shapes": {},
+   "skipped": true
+  },
+  {
+   "id": "N20",
+   "hit": false,
+   "shapes": {},
+   "skipped": false
+  }
+ ]
+}
