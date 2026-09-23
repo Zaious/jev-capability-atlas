@@ -1,0 +1,985 @@
+{
+ "frozen": "2026-09-23",
+ "source": {
+  "paper": "philosophy-of-interaction-reversibility-2026 (the maintainer's own paper; an earlier version is public on Zenodo, DOI 10.5281/zenodo.21225988)",
+  "ledger_commit": "92f92b3"
+ },
+ "license": "Claim sentences are excerpts of the maintainer's manuscript, published with permission; quotes are short attributed excerpts of the cited works. Neither is covered by this repo's MIT license.",
+ "excluded": [
+  {
+   "work": "yee2007proteus",
+   "reason": "verdict qualified: abstract-level only"
+  },
+  {
+   "work": "yee2007proteus",
+   "reason": "verdict qualified: abstract-level only"
+  },
+  {
+   "work": "may1975courage",
+   "reason": "not-applicable (data misplacement in the ledger)"
+  }
+ ],
+ "cases": [
+  {
+   "id": "diebel2025ensembling#1",
+   "cited_as": "[21]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "Second, the cost of ceding has been measured: a decision fully delegated to AI is perceived as procedurally less fair, and this fairness deficit in turn erodes the human's trust in the one responsible [21]; and a systematic argument holds that risk to the human rises monotonically with the degree of autonomy, a semi-autonomous configuration that keeps meaningful human oversight being the better on",
+   "quotes": [
+    {
+     "quote": "the reduced perception of fairness undermines the perceived trustworthiness of the manager",
+     "where": "fulltext.md, thesis summary / conclusion section (kappa)"
+    }
+   ]
+  },
+  {
+   "id": "mitchell2025fully#1",
+   "cited_as": "[69]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "a systematic argument holds that risk to the human rises monotonically with the degree of autonomy, a semi-autonomous configuration that keeps meaningful human oversight being the better one on risk and benefit [69]",
+   "quotes": [
+    {
+     "quote": "Our analysis reveals that risks to people increase with the autonomy of a system... Our review suggests that AI agents may be understood on a sliding scale of autonomy, where risks outweigh benefits for systems at the upper end (full autonomy)... semi-autonomous systems, which retain some level of human control, offer a more favorable risk-benefit profile",
+     "where": "fulltext.md, Abstract + §1 Introduction"
+    }
+   ]
+  },
+  {
+   "id": "matsui2026philosophy#1",
+   "cited_as": "[63]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "(Matsui [63] also borrows breakdown, via Harman [38], but to disclose the agent's withdrawn being; this paper uses it to disclose the human's noticing of its own ceded agency.) Reversibility is already in play here: what has withdrawn can be reclaimed only if first noticed, which is exactly what a withdrawn reliance makes hard.",
+   "quotes": [
+    {
+     "quote": "Human-Agent Interaction (HAI) is an emerging field of engineering research that has flourished over the past two decades. This field is an interdisciplinary area encompassing robotics and information engineering, as well as psychology and cognitive science. A major characteristic of this field is that it positions agents as ‘others’ and examines them from an engineering perspective. This paper aims to critically examine conventional research methods from a philosophical perspective in this field, where philosophical accumulation remains limited. The main references are Harman’s object-oriented(OOO) ontology and Gunji’s natural-born intelligence (NBI) model. Using these arguments, I wish to critique the other-person modelism and social constructivism found in conventional HAI research. I first invoke OOO to defend the ontological status of agents as entities that exist independently of their relationships with models or users. Incidentally, I will examine NBI as a theoretical foundation for designing genuinely real agents. Furthermore, I would like to explore new developments in HAI.",
+     "where": "abstract (OpenAlex 自動取得,未裁剪)"
+    },
+    {
+     "quote": "Therefore, these breakdowns are not merely bugs to be eliminated. Rather, they are moments when the agent's 'withdrawn' aspect—its ontological dimension independent of human modelling—is forcibly exposed... which resonates with Harman's assertion that 'objects are always withdrawn and never fully appear'.",
+     "where": "fulltext.md §3 \"Defending the existence of agents\" — breakdown/withdrawal via Harman's OOO, applied to the agent's being"
+    }
+   ]
+  },
+  {
+   "id": "li2026aiexhibited#1",
+   "cited_as": "[57]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "This is measured, not conjectured: sustained conversation with a personality-bearing AI drifts users' self-concepts toward the AI and homogenizes them across users [57], converging with broader evidence of human alignment toward AI through social influence [58].",
+   "quotes": [
+    {
+     "quote": "Recent Large Language Model (LLM) based AI can exhibit recognizable and measurable personality traits during conversations to improve user experience. However, as human understandings of their personality traits can be affected by their interaction partners’ traits, a potential risk is that AI traits may shape and bias users’ self-concept of their own traits. To explore the possibility, we conducted a randomized behavioral experiment. Our results indicate that after conversations about personal topics with an LLM-based AI chatbot using GPT-4o default personality traits, users’ self-concepts aligned with the AI’s measured personality traits. The longer the conversation, the greater the alignment. This alignment led to increased homogeneity in self-concepts among users. We also observed that the degree of self-concept alignment was positively associated with users’ conversation enjoyment. Our findings uncover how AI personality traits can shape users’ self-concepts through human-AI conversation, highlighting both risks and opportunities. We provide important design implications for developing more responsible and ethical AI systems.",
+     "where": "abstract (OpenAlex 自動取得,未裁剪)"
+    }
+   ]
+  },
+  {
+   "id": "li2026aiexhibited#2",
+   "cited_as": "[57]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "First, why the self is shaped in interaction: the study explains it by a psychological mechanism (personality-trait information is conveyed implicitly through language even without explicit discussion of traits; the user infers the AI's traits from this, and the inference in turn reshapes the user's own self-concept, a process the study treats as a form of social influence), while this paper's axis points to something more underlying",
+   "quotes": [
+    {
+     "quote": "Personality trait information, whether human or AI, can be conveyed indirectly through language. In this way, individuals can infer traits of their conversational partner without explicit discussion of those traits...personality-trait inferences then influence individuals' own self-concept and lead to alignment, which can be regarded as a form of social influence.",
+     "where": "fulltext.md §6.1.1(原文自己給出的機制解釋)"
+    }
+   ]
+  },
+  {
+   "id": "gao2026rethinking#1",
+   "cited_as": "[33]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "The \"phenomenology of human–AI experience\" in psychology [33] asks, under a psychological name, after the human's being formed.",
+   "quotes": [
+    {
+     "quote": "L131: \"psychology should clarify how concepts of agency and personhood function in lived human experience and practice. In the sections that follow, we therefore shift our focus from criteria for agency and personhood to the phenomenology of sense of agency, mind perception, and anthropomorphism in human-AI interaction...\"",
+     "where": "fulltext.md(OCR 全文,2026-09-22 補核;取代先前僅 PDF 圖層直讀前三頁)"
+    }
+   ]
+  },
+  {
+   "id": "rendoncardona2025augmented#1",
+   "cited_as": "[81]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "Recent work already understands the XR system as one that modulates the incident light field [81] rather than merely overlaying content; and if technology intervenes in perception at the optical level, it no longer only presents a world for consciousness to interpret, but, before interpretation, takes part in constituting perception itself.",
+   "quotes": [
+    {
+     "quote": "Augmented Reality (AR) has grown from specialised uses to applications for the common public. One of these developments led to Augmented Vision (AV), which enhances vision beyond traditional methods like glasses or contact lenses. This review aims to compare and categorise AV systems according to the paradigms they implement to enhance the users' vision. Additionally, the review examines whether researchers conduct measurements and analysis on the human visual system (HVS) when evaluating their system. Such an overall view will help future researchers position their work on AV. By understanding AV systems' paradigms and approaches, researchers will be well-equipped to identify gaps, explore novel directions, and leverage existing advancements. We searched Scopus, Web of Science, and PubMed databases for publications until February 26, 2025, exploring citations and references for the selected articles to avoid missing out on relevant articles. We then conducted a two-step screening process that involved LLM-assisted screening of the article's abstracts and an in-depth assessment of the article. This review follows the PRISMA statement, reducing bias risk. We selected 113 of 469 articles, as they improved users' visual performance. We defined three main categories: (1) adding light to the incoming light field, (2) modifying the incoming light field, and (3) intersecting approaches. We found three main application areas: (1) task-specific, (2) vision correction, and (3) visual perception enhancement. The most typical application is task-specific. We identified a gap in the literature since just four of the papers we reviewed measured and analysed the accommodation while utilising the device.",
+     "where": "abstract (OpenAlex 自動取得,未裁剪)"
+    }
+   ]
+  },
+  {
+   "id": "andraschko2026human#1",
+   "cited_as": "[3]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "And the human is not wholly passive here: research also records users' \"deliberate reassertion of agency\": reversing the attributions formed in earlier delegation to AI, and reclaiming ownership of the decision [3] (drawing on Leonardi's \"human agency loop\" [56]), which is just the resisting facet, within a designed environment, of the plenitude the first act names (§2.1).",
+   "quotes": [
+    {
+     "quote": "Abstract Platform workers are on the frontlines of AI-driven task transformation, leading to challenges in linking cognitive, agency-related, and behavioral responses to GenAI use. This study investigates these tensions, focusing on how and why platform workers reassert their agency. Building on cognitive dissonance theory and the human agency loop, our model proposes that cognitive dissonance both constrains human agency and is associated with deliberate reassertion, revealing paradoxical dynamics in human-AI interaction. Drawing on a quantitative survey of 232 platform workers in the UK, we empirically examine four environmental triggers that link to cognitive dissonance of GenAI use for work, which in turn relates to human agency and its deliberate reassertion. By connecting environmental triggers, psychological tension, and behavioral responses, this research advances IS theory on GenAI and human agency, offers actionable insights for platform governance, and provides a foundation for future research on GenAI use for work.",
+     "where": "abstract (OpenAlex 自動取得,未裁剪)"
+    }
+   ]
+  },
+  {
+   "id": "elish2019moral#1",
+   "cited_as": "[26]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "Elish [26] gave that gap its site-level form, the moral crumple zone, in which a human operator absorbs responsibility for a system over whose behavior they had only limited control; as control is distributed across the system, accountability is not distributed with it, but settles on the person.",
+   "quotes": [
+    {
+     "quote": "a moral crumple zone to describe how responsibility for an action may be misattributed to a human actor who had limited control over the behavior of an automated or autonomous system...accountability appears to be deflected off of the automated parts of the system...and focused on the immediate human operators, who possess only limited knowledge, capacity, or control",
+     "where": "fulltext.md, Abstract + Introduction"
+    }
+   ]
+  },
+  {
+   "id": "omran2026beyond#1",
+   "cited_as": "[74]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "AI governance, ethics, and law have begun to circle this, but from outside the design site: they ask how to require the human to be responsible, how to allocate blame, how to legislate oversight, and, lately, how to train the human to be capable, in AI-literacy programs for the officials who govern the systems [74].",
+   "quotes": [
+    {
+     "quote": "discussions move beyond the technology itself and into questions of accountability, human oversight, public trust, transparency, bias, procurement, and decision-making...UNESCO's AI Literacy Training for Civil Servants",
+     "where": "fulltext.md(全文,UNESCO 部落格文章)"
+    }
+   ]
+  },
+  {
+   "id": "scharre2018army#1",
+   "cited_as": "[86]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "The literature of autonomous systems names the position itself, human-on-the-loop [86], standing over a process that runs on its own, ready to intervene; its question remains the system's safe operation, the direction the first two loops share.",
+   "quotes": [
+    {
+     "quote": "Supervised Autonomous Weapon System (human on the loop)...has semiautonomous (human in the loop) and supervised autonomous (human on the loop) modes. Supervised autonomy is vital for defending ships against short-warning saturation attacks.",
+     "where": "fulltext.md(多處,含 Aegis 系統案例)"
+    }
+   ]
+  },
+  {
+   "id": "plato1997complete#1",
+   "cited_as": "[78]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "Philosophy hands down two lineages, and this paper takes from them a distinction, not a side: desire as lack, Plato's eros [78], on which one enters to fill; and desire as plenitude, Spinoza's conatus [94], on which one enters to extend.",
+   "quotes": [
+    {
+     "quote": "\"So such a man or anyone else who has a desire desires what is not at hand and not present, what he does not have, and what he is not, and that of which he is in need; for such are the objects of desire and love.\" […] \"As the son of Poros and Penia, his lot in life is set to be like theirs. In the first place, he is always poor […] always living with Need. But on his father's side he is a schemer after the beautiful and the good […] a lover of wisdom through all his life.\"",
+     "where": "fulltext.md, Symposium (Nehamas & Woodruff trans.), pp. 483–486 — Stephanus 200e–204b(Diotima's account of Eros as desire for what one lacks, and as child of Poros/Penia)"
+    }
+   ]
+  },
+  {
+   "id": "spinoza1677ethics#1",
+   "cited_as": "[94]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "Philosophy hands down two lineages, and this paper takes from them a distinction, not a side: desire as lack, Plato's eros [78], on which one enters to fill; and desire as plenitude, Spinoza's conatus [94], on which one enters to extend.",
+   "quotes": [
+    {
+     "quote": "\"Desire\" is the actual essence of man, in so far as it is conceived, as determined to a particular activity by some given modification of itself. [Explanation references] the note to Prop. ix. of this part.",
+     "where": "fulltext.md, Part III, Definitions of the Emotions I (explicitly cross-references Prop. IX note)"
+    }
+   ]
+  },
+  {
+   "id": "harman2018objectoriented#1",
+   "cited_as": "[38]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "(Matsui [63] also borrows breakdown, via Harman [38], but to disclose the agent's withdrawn being; this paper uses it to disclose the human's noticing of its own ceded agency.) Reversibility is already in play here: what has withdrawn can be reclaimed only if first noticed, which is exactly what a withdrawn reliance makes hard.",
+   "quotes": [
+    {
+     "quote": "This withdrawal or withholding of things from direct access is the central principle of OOO.",
+     "where": "fulltext.md, Ch.1(OOO 核心原則的定義段)"
+    }
+   ]
+  },
+  {
+   "id": "parfit1984reasons#1",
+   "cited_as": "[75]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "This paper takes the question up through narrative and action rather than the metaphysics of personal identity (Parfit [75]): Ricoeur's idem/ipse [82], sameness of traits against the self-constancy that underwrites promising, acting, and answering; and Arendt's who/what [5], the unique \"who\" disclosed in action, effaced when reduced to a type.",
+   "quotes": [
+    {
+     "quote": "Part Three Personal Identity...The Physical Criterion of Personal Identity...Personal Identity and Rationality...Personal Identity and Morality",
+     "where": "fulltext.md(目錄+正文,Part Three 標題與各章)"
+    }
+   ]
+  },
+  {
+   "id": "ricoeur1990oneself#1",
+   "cited_as": "[82]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "This paper takes the question up through narrative and action rather than the metaphysics of personal identity (Parfit [75]): Ricoeur's idem/ipse [82], sameness of traits against the self-constancy that underwrites promising, acting, and answering; and Arendt's who/what [5], the unique \"who\" disclosed in action, effaced when reduced to a type.",
+   "quotes": [
+    {
+     "quote": "sonal identity in the manner of a specific mediator between the pole of character, where idem and ipse tend to coincide, and the pole of self-maintenance, where selfhood frees itself from sameness.",
+     "where": "fulltext.md(Blamey 譯,idem/ipse 區分主論述段)"
+    },
+    {
+     "quote": "Existentially, \"Self-constancy\" signifies nothing other than anticipatory resoluteness (ibid., p. 369).",
+     "where": "fulltext.md(註 10,Ricoeur 引 Heidegger 界定 self-constancy)"
+    },
+    {
+     "quote": "Was not this intersecting dialectic of oneself and the other than self anticipated in the analysis of the promise? If another were not counting on me, would I be capable of keeping my word, of maintaining myself?",
+     "where": "fulltext.md(結論部,self-constancy 與 promising/answerability 直接扣連處)"
+    }
+   ]
+  },
+  {
+   "id": "arendt1958human#1",
+   "cited_as": "[5]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "This paper takes the question up through narrative and action rather than the metaphysics of personal identity (Parfit [75]): Ricoeur's idem/ipse [82], sameness of traits against the self-constancy that underwrites promising, acting, and answering; and Arendt's who/what [5], the unique \"who\" disclosed in action, effaced when reduced to a type.",
+   "quotes": [
+    {
+     "quote": "This disclosure of who somebody is, is implicit in both his words and his deeds",
+     "where": "fulltext.md, Ch. V \"Action\", p.200 of the UChicago 2nd ed. pagination embedded in OCR"
+    }
+   ]
+  },
+  {
+   "id": "svanaes 2013#1",
+   "cited_as": "[98]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "In an encyclopedia entry titled \"Philosophy of Interaction\" [98], he sets out from a plain definition, interaction as the interplay between the state of an environment and the action of an actor, and analyzes it through several paradigms at once: formal logic, cognitive science, phenomenology, and the arts.",
+   "quotes": [
+    {
+     "quote": "interaction design has emerged as a design discipline alongside traditional design disciplines such as graphics design and furniture design...I will analyse interactivity and the interactive user experience from a number of perspectives, including formal logic, cognitive science, phenomenology, and media and art studies.",
+     "where": "fulltext.md(開篇兩段;IxDF 網頁版,Readability 清洗重排)"
+    }
+   ]
+  },
+  {
+   "id": "kasap 2016#1",
+   "cited_as": "[51]",
+   "role": "load-bearing",
+   "label": "misread",
+   "claim": "Kasap [51], under the same title \"Philosophy of interaction,\" opens from almost the same starting point Svanæs does, the contrast with furniture design, the turn to Merleau-Ponty, and treats interactivity through the phenomenology of perception, again toward the interactive experience rather than toward the constitution of the human.",
+   "quotes": [
+    {
+     "quote": "interaction design has risen as a configuration discipline close by design disciplines, for example, graphic design...I will approach the question of interactivity from Maurice Merleau-Ponty's phenomenological approach to perception.",
+     "where": "fulltext.md, 開篇(Ch.7 開頭兩段)"
+    }
+   ]
+  },
+  {
+   "id": "mccarthy1979ascribing#1",
+   "cited_as": "[66]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "One follows the philosophy of mind and asks after the mental attributes of machines, the consciousness or moral standing of the model [66].",
+   "quotes": [
+    {
+     "quote": "To ascribe certain beliefs, knowledge, free will, intentions, consciousness, abilities or wants to a machine...It might be necessary to consider the machine as imbedded in some kind of society in order to ascribe morality to its actions...machines to which rights might legitimately be ascribed",
+     "where": "fulltext.md §1 Introduction + §5.5(morality/rights 討論段)"
+    }
+   ]
+  },
+  {
+   "id": "dourish2001where#1",
+   "cited_as": "[23]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "Embodied interaction [23,98] places interaction's ground in the human's situated action; soma design [44,46] centers the living, sensing body-subject and speaks plainly of perception, action, and meaning as constituted through bodily engagement, already a forerunner, within HCI, of this paper's term.",
+   "quotes": [
+    {
+     "quote": "that tangible and social computing have a common basis; that embodiment is the core element they have in common; that embodiment is not a new idea, but has been a primary topic for phenomenology; and that phenomenology...can provide material for developing a foundation for embodied interaction.",
+     "where": "fulltext.md, 開篇四段式假設(embodied interaction 的定義性論旨)"
+    }
+   ]
+  },
+  {
+   "id": "hook2018designing#1",
+   "cited_as": "[44]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "Embodied interaction [23,98] places interaction's ground in the human's situated action; soma design [44,46] centers the living, sensing body-subject and speaks plainly of perception, action, and meaning as constituted through bodily engagement, already a forerunner, within HCI, of this paper's term.",
+   "quotes": [
+    {
+     "quote": "I will discuss soma design - a process that allows designers to 'examine' and improve on connections between sensation, feeling, emotion, subjective understanding and values. Soma design engages with bodily rhythms, touch, proprioception, bodily playfulness, but also with our values, meaning-making processes, emotions, ethics and ways of engaging with the world.",
+     "where": "fulltext.md abstract (this 1-page invited-talk abstract is the whole document)"
+    }
+   ]
+  },
+  {
+   "id": "ellul1964technological#1",
+   "cited_as": "[27]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "The first, classical philosophy of technology [41,27], asks after the essence of technology from an ontological vantage, technology as a mode of revealing and of domination (Gestell), transcendental rather than empirical.",
+   "quotes": [
+    {
+     "quote": "the autonomous technique...The Totalitarian State(章名)",
+     "where": "fulltext.md(全書核心論旨「autonomous technique」+ 專章 The Totalitarian State)"
+    }
+   ]
+  },
+  {
+   "id": "lee2026agentic#1",
+   "cited_as": "[55]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "Lee [55] likewise centers the constitution of the actor by designed interactional relations.",
+   "quotes": [
+    {
+     "quote": "agent identity design functions not merely as a user interface convention, but as a collaboration interface—structuring how users perceive, approach, and engage with each agent",
+     "where": "fulltext.md(Abstract)"
+    }
+   ]
+  },
+  {
+   "id": "ahman2025grounding#1",
+   "cited_as": "[2]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "That framework marks how far the line has reached and where it stops: its register is existential psychology, the themes a human confronts and design can support, not an ontology of what interaction constitutes; and a review of the field since still finds its theoretical framework wanting [2], a gap the axis proposed here may help fill.",
+   "quotes": [
+    {
+     "quote": "Three research gaps emerged: (1) a focus on individualized spirituality over tangible religious practices, (2) broad discussions on technology's impact rather than detailed analyses of specific tools, and (3) a lack of theoretical frameworks.",
+     "where": "fulltext.md(Abstract, Ahman & Thoren 2025)"
+    }
+   ]
+  },
+  {
+   "id": "barad2007meeting#1",
+   "cited_as": "[7]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "Two constitutive accounts sit close enough in wording to invite conflation: Barad's agential realism [7], in which entities do not precede their relations but are cut out, symmetrically, within intra-action, no prior subject and none prioritized; and Stiegler's originary technicity [96], in which the human is invented through the exteriorization of technics, the \"what\" and the \"who\" co-original.",
+   "quotes": [
+    {
+     "quote": "Individuals do not preexist their interactions; rather, individuals emerge through and as part of their entangled intra-relating.",
+     "where": "fulltext.md(Acknowledgments/Preface)"
+    },
+    {
+     "quote": "in contrast to the usual \"interaction,\" which assumes that there are separate individual agencies that precede their interaction, the notion of intra-action recognizes that distinct agencies do not precede, but rather emerge through, their intra-action... \"distinct\" agencies are only distinct in a relational, not an absolute, sense",
+     "where": "fulltext.md(Introduction, definition of intra-action)"
+    }
+   ]
+  },
+  {
+   "id": "appiah2026ai#1",
+   "cited_as": "[4]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "The nearest naming from within this site is Appiah's \"constitutive de-skilling\" [4], the wearing away of the capacities on which being human itself rests; it names a closely related phenomenon, but locates its normative stakes in Millian autonomy and the wrong of moral deference, where the present account locates them in the structure of the interaction itself — independent of whether the eroded",
+   "quotes": [
+    {
+     "quote": "Of greatest concern is what I've called constitutive de-skilling, the erosion of the capacities that make us human in the first place.",
+     "where": "fulltext.md(近結尾段落)"
+    },
+    {
+     "quote": "Mill espoused a broader ideal in which autonomy, individuality and the active cultivation of one's faculties are constituents of a good human life... philosophers have rightly been suspicious of \"moral deference\"",
+     "where": "fulltext.md(正文中段,Mill/autonomy/moral deference 討論)"
+    }
+   ]
+  },
+  {
+   "id": "gadamer2004truth#1",
+   "cited_as": "[32]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "The Bildung tradition too has the human's formation at its core, and may be referred to here [32]; and whether a discipline can grow a philosophy of its own, this paper treats separately in the conclusion (§9).",
+   "quotes": [
+    {
+     "quote": "Gadamer defines Bildung as \"the properly human way of developing one's natural talents and capacities.\"... The concept of Bildung most clearly indicates the profound intellectual change...",
+     "where": "fulltext.md(譯者前言 + Part I, \"(i) Bildung (Culture)\" 章)"
+    }
+   ]
+  },
+  {
+   "id": "tang2026ai#1",
+   "cited_as": "[99]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "The convergence is visible outside philosophy as well: practitioners closest to the governance of deployed AI have begun naming the same worry in their own vocabulary — that the deeper danger is not machines imitating humans, but humans adapting themselves to what machines can score [99].",
+   "quotes": [
+    {
+     "quote": "That is the true danger of dehumanization: human conformity to machine legibility.",
+     "where": "fulltext.md(\"Not everything worth saving is manual\" 節)"
+    }
+   ]
+  },
+  {
+   "id": "may1969love#1",
+   "cited_as": "[65]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "Rollo May [65] wrote of the human as the being who, with will and concern, brings what is not yet into being; the point to carry back to HCI is narrower than his humanism and belongs to its own site.",
+   "quotes": [
+    {
+     "quote": "Will is the capacity to organize one's self so that movement in a certain direction or toward a certain goal may take place.",
+     "where": "love-and-will--may1969love/fulltext.md(Will 的定義段)"
+    },
+    {
+     "quote": "## CARE IN LOVE AND WILL(章節標題,「care/concern」為本書與 will 並列的核心主題)",
+     "where": "love-and-will--may1969love/fulltext.md"
+    },
+    {
+     "quote": "the process of bringing something new into being",
+     "where": "the-courage-to-create--may1975courage/fulltext.md(creativity 的定義句,即本文「brings what is not yet into being」的直接出處)"
+    }
+   ]
+  },
+  {
+   "id": "messeri2024artificial#1",
+   "cited_as": "[68]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "And a neighboring site supplies a mechanism this paper transposes, and owns the transposition: in scientific research, reliance on AI has been shown to breed illusions of understanding, the researcher believing they grasp more than they do [68].",
+   "quotes": [
+    {
+     "quote": "individuals who trust AI tools to overcome their own cognitive limitations become susceptible to illusions of understanding... in which they believe that they understand more about the world than they actually do",
+     "where": "fulltext.md(Abstract/Introduction)"
+    }
+   ]
+  },
+  {
+   "id": "risko2016cognitive#1",
+   "cited_as": "[83]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "The cognitive-offloading literature maps the delegation itself, where memory and judgment are placed into the environment [83]; its question is the efficiency of the trade, not what sustained delegation makes of the delegator.",
+   "quotes": [
+    {
+     "quote": "cognitive offloading: the use of physical action to alter the information processing requirements of a task so as to reduce cognitive demand",
+     "where": "fulltext.md(Abstract)"
+    }
+   ]
+  },
+  {
+   "id": "hong2023metagpt#1",
+   "cited_as": "[43]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "One seeks efficiency and output: orchestration frameworks, token optimization, the decomposition of tasks across agents [43], and, among industry adopters, [71].",
+   "quotes": [
+    {
+     "quote": "MetaGPT is a meta-programming framework for LLM-based multi-agent systems... role specialization, workflow and structured communication... Cost: (1) running time, (2) token usage, and (3) expenses",
+     "where": "fulltext.md(§3 Framework overview; §4 Evaluation, Table 1 token usage)"
+    }
+   ]
+  },
+  {
+   "id": "naik2025designing#1",
+   "cited_as": "[71]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "One seeks efficiency and output: orchestration frameworks, token optimization, the decomposition of tasks across agents [43], and, among industry adopters, [71].",
+   "quotes": [
+    {
+     "quote": "Designing with Multi-Agent Generative AI: Insights from Industry Early Adopters",
+     "where": "fulltext.md(標題)"
+    }
+   ]
+  },
+  {
+   "id": "brailsford2025responsibility#1",
+   "cited_as": "[12]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "Read ontologically, a growing part of it asks, beneath the engineering vocabulary, how designed human–agent interaction constitutes the human's agency, responsibility, and attachment: how a sense of agency shifts as decisions are shared or delegated; how responsibility and ownership are attributed in everyday dealings with AI [12]; how attachment forms in companion AI; how the human delegates, ove",
+   "quotes": [
+    {
+     "quote": "How do individuals perceive AI systems as responsible entities in everyday collaborations between humans and AI? Drawing on psychological literature from attribution theory, praise-blame asymmetries and negativity bias, this study investigated the effects of perspective (actor vs observer) and outcome favorability (positive vs negative) on how participants (N=321) attributed responsibility for outcomes resulting from shared human-AI decision-making. Both Bayesian modelling and reflexive thematic analysis of results revealed that, overall, participants were more likely to attribute greater responsibility to the AI systems. When the outcome was positive, participants were more likely to ascribe shared responsibility to both Human and AI systems, rather than either separately. When the outcome was negative, participants were more likely to attribute responsibility to a single entity, but not consistently towards the human or the AI. These results build on the understanding of how individuals cast blame and praise for shared interactions involving AI systems.",
+     "where": "abstract (OpenAlex 自動取得,未裁剪)"
+    }
+   ]
+  },
+  {
+   "id": "schombs2025from#1",
+   "cited_as": "[89]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "Read ontologically, a growing part of it asks, beneath the engineering vocabulary, how designed human–agent interaction constitutes the human's agency, responsibility, and attachment: how a sense of agency shifts as decisions are shared or delegated; how responsibility and ownership are attributed in everyday dealings with AI [12]; how attachment forms in companion AI; how the human delegates, ove",
+   "quotes": [
+    {
+     "quote": "Recent advances in multi-agentic systems (e.g., AutoGen, OpenAI Agents) allow users to interact with a group of specialised AI agents rather than a single general-purpose agent. Despite the promise of this new paradigm, the HCI community has yet to fully examine the opportunities, risks, and user-centred challenges it introduces. We contribute to research on multi-agentic systems by exploring their architectures and key features through a human-centred lens. While literature and use cases are still emerging, we build on existing tools and frameworks available to developers to identify a set of overarching challenges, e.g., orchestration and conflict resolution, that can guide future research in HCI. We illustrate these challenges through examples, present potential design considerations, and provide research opportunities to spark interdisciplinary conversation. Our work lays the groundwork for future exploration and offers a research agenda focused on user-centred design in multi-agentic systems.",
+     "where": "abstract (OpenAlex 自動取得,未裁剪)"
+    }
+   ]
+  },
+  {
+   "id": "ye2025interaction#1",
+   "cited_as": "[108]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "One is the \"interaction as intelligence\" line [108], which holds that intelligence emerges in interaction and resists reducing the human to an external operator who merely prompts and consumes.",
+   "quotes": [
+    {
+     "quote": "intelligence emerges through real-time interaction rather than autonomous processing... This paradigm positions humans as external operators who provide initial prompts and consume final outputs while remaining excluded from the cognitive process itself... We contend that this assumption fundamentally mischaracterizes the nature of intelligence itself.",
+     "where": "fulltext.md(Abstract/Introduction, Figure 2 caption)"
+    }
+   ]
+  },
+  {
+   "id": "liu2024find#1",
+   "cited_as": "[60]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "This line treats multi-agent coordination, human–agent teams, and agentic workflows: how the human's relation to agents shifts from one-to-one to one-to-many, with responsibility distributed by level of autonomy [80]; the modeling of delegation dynamics [60]; the design challenges of multi-agent interaction with a human present [89]; and the tension of oversight and accountability [91].",
+   "quotes": [
+    {
+     "quote": "A HIDDEN MARKOV MODEL OF HUMAN-AI DELEGATION DYNAMICS...we employed a hidden Markov model in a longitudinal study of the dynamic delegation decision-making process involving 875 store managers...managers' continuous performance appraisal of AI shapes their dynamic delegation willingness",
+     "where": "fulltext.md(全文,2026-09-22 補核逐段;取代先前僅比對標題+摘要)"
+    }
+   ]
+  },
+  {
+   "id": "shi2026human#1",
+   "cited_as": "[91]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "This line treats multi-agent coordination, human–agent teams, and agentic workflows: how the human's relation to agents shifts from one-to-one to one-to-many, with responsibility distributed by level of autonomy [80]; the modeling of delegation dynamics [60]; the design challenges of multi-agent interaction with a human present [89]; and the tension of oversight and accountability [91].",
+   "quotes": [
+    {
+     "quote": "Human Control Is the Anchor, Not the Answer: Early Divergence of Oversight in Agentic AI Communities...early communities begin negotiating oversight concerns: control, boundaries, and accountability, almost immediately, yet without converging on a shared understanding...oversight expectations crystallize early and diverge by sociotechnical role",
+     "where": "fulltext.md(全文,2026-09-22 補核逐段;取代先前僅比對標題+摘要)"
+    }
+   ]
+  },
+  {
+   "id": "piumsomboon2026self#1",
+   "cited_as": "[77]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "Some design orientations have touched the question on their own: Self++ [77], a blueprint for human–AI symbiosis in XR, is avowedly aimed at preserving human authorship and warns that ostensibly helpful assistance may slide into overdependence, hidden persuasion, and blurred responsibility.",
+   "quotes": [
+    {
+     "quote": "Self++ is a conceptual design framework for human-AI symbiosis in extended reality (XR) that preserves human authorship... apparently 'helpful' assistance can drift into over-reliance, covert persuasion, and blurred responsibility.",
+     "where": "fulltext.md(Abstract)"
+    }
+   ]
+  },
+  {
+   "id": "cheng2023reality#1",
+   "cited_as": "[18]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "Second, a non-AI contrast, and a different temporality: Reality Rifts [18].",
+   "quotes": [
+    {
+     "quote": "Reality Rifts are interfaces between the physical and the virtual reality, where incoherent observations of physical behavior lead users to imagine comprehensive and plausible end-to-end dynamics. Reality Rifts emerge in interactive physical systems that lack one or more components that are central to their operation, yet where the physical end-to-end interaction persists with plausible outcomes. Even in the presence of a Reality Rift, users can still interact with a system—much like they would with the unaltered and complete counterpart—leading them to implicitly infer the existence and imagine the behavior of the lacking components from observable phenomena and outcomes. Therefore, dynamic systems with Reality Rifts trigger doubt, curiosity, and rumination—a sense of wonder that users experience when observing a Reality Rift due to their innate curiosity.",
+     "where": "abstract (OpenAlex 自動取得,未裁剪)"
+    },
+    {
+     "quote": "\"I feel like I just entered a space mixed with logic and fantasy...,\" P45 said. / \"The discovering and inferring process enabled stronger connections between users and the environment...,\" P44 said.",
+     "where": "fulltext.md §5(Results,50 位受試者的半結構式訪談逐字引述,P1–P50、B2/B6 等編號齊全)"
+    }
+   ]
+  },
+  {
+   "id": "suchman1987plans#1",
+   "cited_as": "[97]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "That situated action always exceeds its plan is long established [97]; what the post-designed names is not that excess, but the migration of constitutive control into the runtime relation itself: an agent that holds state, adapts, and re-arranges the interaction as it runs.",
+   "quotes": [
+    {
+     "quote": "artifacts built on the planning model confuse plans with situated actions... plans as such neither determine the actual course of situated action nor adequately reconstruct it",
+     "where": "fulltext.md(Introduction/Ch.1)"
+    }
+   ]
+  },
+  {
+   "id": "winograd1986understanding#1",
+   "cited_as": "[105]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "The strand has an early and telling ancestor: Winograd and Flores [105] brought Heidegger's readiness-to-hand into computing to argue that every system rests on an ontology its builders did not choose, and where they landed is announced in their own subtitle, a new foundation for design: the ontological layer disclosed, then turned to the service of building better tools, the very pattern §3 finds",
+   "quotes": [
+    {
+     "quote": "objects and properties are not inherent in the world, but arise only in an event of breaking down... readiness-to-hand... the designer of a computer tool must work in the domain generated by the space of potential breakdowns",
+     "where": "fulltext.md(§3.4 Breaking down and readiness-to-hand; Ch.12 討論設計)"
+    },
+    {
+     "quote": "A New Foundation for Design",
+     "where": "fulltext.md(封面/副標題)"
+    }
+   ]
+  },
+  {
+   "id": "dorrestijn2012technical#1",
+   "cited_as": "[22]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "The line's fullest development is Dorrestijn's tracing of subjectivation through technology use [22], the nearest prior work to this paper's third act; what the analysis of subjectivation does not carry is the bounded unit and the reversibility test that make the question analytical here.",
+   "quotes": [
+    {
+     "quote": "This view on \"subjectivation through technology use\" offers on the one hand an alternative to the opposition between a technical and a genuine human sphere",
+     "where": "fulltext.md(Introduction)"
+    }
+   ]
+  },
+  {
+   "id": "rebensky2022teammates#1",
+   "cited_as": "[80]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "This line treats multi-agent coordination, human–agent teams, and agentic workflows: how the human's relation to agents shifts from one-to-one to one-to-many, with responsibility distributed by level of autonomy [80]; the modeling of delegation dynamics [60]; the design challenges of multi-agent interaction with a human present [89]; and the tension of oversight and accountability [91].",
+   "quotes": [
+    {
+     "quote": "Impacts of Level of Autonomy on... Human-Agent Teaming Dynamics... Agent responsibilities / Human involvement varying by Level of autonomy condition",
+     "where": "fulltext.md(標題頁;Table 2 Level of autonomy conditions)"
+    }
+   ]
+  },
+  {
+   "id": "leonardi2025homo#1",
+   "cited_as": "[56]",
+   "role": "load-bearing",
+   "label": "misread",
+   "claim": "And the human is not wholly passive here: research also records users' \"deliberate reassertion of agency\": reversing the attributions formed in earlier delegation to AI, and reclaiming ownership of the decision [3] (drawing on Leonardi's \"human agency loop\" [56]), which is just the resisting facet, within a designed environment, of the plenitude the first act names (§2.1).",
+   "quotes": [
+    {
+     "quote": "attributions of agency shift dynamically throughout socio-technical systems, creating what I term \"agency loops\"—recursive patterns where responsibility for action circulates among human and non-human actors",
+     "where": "fulltext.md(Abstract/§3, 原文用詞逐一核對)"
+    }
+   ]
+  },
+  {
+   "id": "bode2021meaningless#1",
+   "cited_as": "[9]",
+   "role": "load-bearing",
+   "label": "misread",
+   "claim": "Human oversight, it is reported, tends to decay into a rubber stamp, the person confirming outputs they cannot genuinely examine, for want of time, of access to the system's reasoning, or of an institutional culture that rewards checking over speed [9].",
+   "quotes": [
+    {
+     "quote": "Lack of time for deliberation. The current engagement window of air defence systems provides human operators only a few seconds to make decisions.",
+     "where": "fulltext.md(Concluding recommendations, \"Lack of time for deliberation\")"
+    },
+    {
+     "quote": "the human operator can lack a sufficient understanding of the decision-making process, leading to over-trust in the system",
+     "where": "fulltext.md(§ Concluding remarks / automation bias 討論)"
+    }
+   ]
+  },
+  {
+   "id": "rossmy2023point#1",
+   "cited_as": "[84]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "And it has long handled the reversibility of actions and states — undo, recovery, rollback are settled design ground, and even the deliberate embrace of irreversible acts has been explored as a design strategy [84].",
+   "quotes": [
+    {
+     "quote": "Despite irreversibility being omnipresent in the lifeworld, research on interactions making use of irreversibility in computing systems is still in the early stages. User freedom – provided by the undo functionality – is considered to be a pillar of “usable” computer systems, overcoming irreversibility. Within this paper, we set up a thought experiment, challenging the “undo feature” and instead take advantage of irreversibility in the interaction with physical computing systems (tangibles, robots, etc). First, we present three material speculations, each inherently utilizing irreversibility. Second, we elaborate on the concept of irreversible interactions by contextualizing our work with critical HCI discourses and deducing three design strategies. Finally, we discuss irreversibility as a design element for self-reflection, meaningful acting, and a sustainable relationship with technology. While previously individual aspects of irreversibility have been explored, we contribute a comprehensive discussion of irreversible interactions in HCI presenting artifacts, a conceptualization, design strategies, and application purposes.",
+     "where": "abstract (OpenAlex 自動取得,未裁剪)"
+    }
+   ]
+  },
+  {
+   "id": "wallace2026revenge#1",
+   "cited_as": "[103]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "There is real and admirable effort already bringing philosophy into engineering practice [103,25], and nothing here disputes its value.",
+   "quotes": [
+    {
+     "quote": "A.I. labs are hiring contrarian, chin-stroking, finger-steeling sages...Mr. Long and Jeff Sebo...soon collaborated to write \"Taking A.I. Welfare Seriously\"",
+     "where": "fulltext.md(全文,NYT 報導)"
+    }
+   ]
+  },
+  {
+   "id": "economist2026why#1",
+   "cited_as": "[25]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "There is real and admirable effort already bringing philosophy into engineering practice [103,25], and nothing here disputes its value.",
+   "quotes": [
+    {
+     "quote": "Why big AI labs are hiring so many philosophers... Some of the lessons that philosophy can offer AI researchers are ancient... Philosophy can help with safety, too.",
+     "where": "fulltext.md(全文)"
+    }
+   ]
+  },
+  {
+   "id": "sartre1943letre#1",
+   "cited_as": "[85]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "The human \"is what it is not, and is not what it is\" (Sartre [85]); its way of being is to be unfinished, on the way to becoming.",
+   "quotes": [
+    {
+     "quote": "We have to deal with human reality as a being which is what it is not and which is not what it is.",
+     "where": "fulltext.md (Barnes trans., Part Two/Three, discussion of temporality/disintegration)"
+    }
+   ]
+  },
+  {
+   "id": "merleauponty1945phenomenologie#1",
+   "cited_as": "[67]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "Heidegger's ready-to-hand [40], read ontologically rather than as a usability principle, holds that the human is already immersed in concernful dealing, its presence taking shape there; Merleau-Ponty [67] gives the account its body: perception and agency dwell in the world through the body schema and its \"I can\" (this paper takes the early body-subject, which keeps a continuous subject, not the la",
+   "quotes": [
+    {
+     "quote": "Consciousness is in the first place not a matter of 'I think that' but of 'I can'.",
+     "where": "fulltext.md(Colin Smith 譯,Part I 論身體圖式/motility 一節,直接使用 \"I can\" 一詞)"
+    },
+    {
+     "quote": "It is, as we shall see, an annex of our 'bodily schema', the immanent meaning of a shift of 'gaze'.",
+     "where": "fulltext.md(同節,body schema 用語出處)"
+    }
+   ]
+  },
+  {
+   "id": "li2025we#1",
+   "cited_as": "[58]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "This is measured, not conjectured: sustained conversation with a personality-bearing AI drifts users' self-concepts toward the AI and homogenizes them across users [57], converging with broader evidence of human alignment toward AI through social influence [58].",
+   "quotes": [
+    {
+     "quote": "humans can also be subject to social influence in their interactions with AI, leading them to align with AI in cognitive, emotional, and behavioral aspects",
+     "where": "fulltext.md(Introduction)"
+    }
+   ]
+  },
+  {
+   "id": "pavanini2024postphenomenology#1",
+   "cited_as": "[76]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "On the HCI side, work using Foucault's \"care of the self\" treats how the human's self is constituted and self-transformed within technological relations [53], its keyword already \"existential HCI.\" On the philosophy-of-technology side, work from postphenomenology asks how the advance of AI constitutes and challenges the human's self-understanding [76] (the phrase there is \"constitutive technicity\"",
+   "quotes": [
+    {
+     "quote": "I label as human constitutive technicity... How Advances in AI Challenge Our Self-Understanding",
+     "where": "fulltext.md(Abstract/副標題)"
+    }
+   ]
+  },
+  {
+   "id": "kaptelinin2016making#1",
+   "cited_as": "[49]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "These forerunners, existential HCI especially, mostly treat existential themes within the design site, how to design so as to support the human in facing meaning, authenticity, or death; their landing is a design orientation with a clear founding: Kaptelinin argued that HCI's mainstream, improving user practices through iterative design, cannot grasp how technology shapes the human's experience of",
+   "quotes": [
+    {
+     "quote": "the overall research perspective, adopted in most of the studies — namely, conducting empirical analyses of user practices and trying to improve the practices through iterative cycles of design and evaluation — is not fully appropriate for understanding the impact of technology on how people experience their own mortality",
+     "where": "fulltext.md(Abstract)"
+    }
+   ]
+  },
+  {
+   "id": "haraway1991cyborg#1",
+   "cited_as": "[37]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "This paper's humanism, its re-centering of the human against the confluence [7,37,11] that would dissolve it, is not a metaphysical dogma that the human is ontologically prior to all else.",
+   "quotes": [
+    {
+     "quote": "By the late twentieth century, our time, a mythic time, we are all chimeras, theorized and fabricated hybrids of machine and organism—in short, cyborgs. The cyborg is our ontology; it gives us our politics.",
+     "where": "fulltext.md(開篇)"
+    }
+   ]
+  },
+  {
+   "id": "braidotti2013posthuman#1",
+   "cited_as": "[11]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "This paper's humanism, its re-centering of the human against the confluence [7,37,11] that would dissolve it, is not a metaphysical dogma that the human is ontologically prior to all else.",
+   "quotes": [
+    {
+     "quote": "At the start of it all there is He: the classical ideal of 'Man'... Humanism as a doctrine that combines the biological, discursive and moral expansion of human capabilities into an idea of teleologically ordained, rational progress.",
+     "where": "fulltext.md(Ch.1 \"Post-Humanism: Life beyond the Self\")"
+    }
+   ]
+  },
+  {
+   "id": "ziheng2025humancentric#1",
+   "cited_as": "[111]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "On this reversal there is kin within the philosophy of mind itself: the argument that, given the deep uncertainty of machine consciousness, priority should go to the concrete human situation rather than to speculative machine welfare [111] runs in this paper's direction.",
+   "quotes": [
+    {
+     "quote": "We provide the necessary derivation chains to defend human priority against emerging critiques...AI systems may soon possess feelings or require welfare considerations [Bengio...]",
+     "where": "fulltext.md(Abstract/Introduction)"
+    }
+   ]
+  },
+  {
+   "id": "feng2025levels#1",
+   "cited_as": "[30]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "First, autonomy itself has been recognized as a design dimension and not a capability property: research grades an agent's autonomy into five levels (from \"operator,\" the human commanding and the agent executing subtasks, to \"observer,\" the agent running fully autonomously and the human only watching), and notes that autonomy and agency are two independent design axes [30], which chimes with this",
+   "quotes": [
+    {
+     "quote": "we define five levels of escalating agent autonomy, characterized by the roles a user can take when interacting with an agent: operator, collaborator, consultant, approver, and observer...an agent's level of autonomy can be treated as a deliberate design decision, separate from its capability and operational environment",
+     "where": "fulltext.md(Abstract)"
+    }
+   ]
+  },
+  {
+   "id": "heidegger1927sein#1",
+   "cited_as": "[40]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "Heidegger's ready-to-hand [40], read ontologically rather than as a usability principle, holds that the human is already immersed in concernful dealing, its presence taking shape there; Merleau-Ponty [67] gives the account its body: perception and agency dwell in the world through the body schema and its \"I can\" (this paper takes the early body-subject, which keeps a continuous subject, not the la",
+   "quotes": [
+    {
+     "quote": "In conspicuousness, obtrusiveness, and obstinacy, that which is ready-to-hand loses its readiness-to-hand in a certain way. But in our dealings with what is ready-to-hand, this readiness-to-hand is itself understood, though not thematically. It does not vanish simply, but takes its farewell, as it were, in the conspicuousness of the unusable.",
+     "where": "fulltext.md(Macquarrie & Robinson 譯,§16,ready-to-hand 於故障中「告別/withdraw」一節)"
+    },
+    {
+     "quote": "The readiness-to-hand which belongs to any such region beforehand has the character of inconspicuous familiarity",
+     "where": "fulltext.md(§15/§16 相接處,「不顯眼的熟悉」即論文所稱「沉入背景/immersed」)"
+    }
+   ]
+  },
+  {
+   "id": "hook2021unpacking#1",
+   "cited_as": "[46]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "Embodied interaction [23,98] places interaction's ground in the human's situated action; soma design [44,46] centers the living, sensing body-subject and speaks plainly of perception, action, and meaning as constituted through bodily engagement, already a forerunner, within HCI, of this paper's term.",
+   "quotes": [
+    {
+     "quote": "We report on a somaesthetic design workshop...demystify what is entailed in a non-dualistic design stance on embodied interaction...dissolving or traversing dichotomies between inside and outside; individual and social; body and technology...soma design becomes a process of designing with and through kinesthetic experience",
+     "where": "fulltext.md(全文,§1 開篇)"
+    }
+   ]
+  },
+  {
+   "id": "hornbk2017what#1",
+   "cited_as": "[47]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "The shift runs from how interaction is construed [47], or how technology mediates the human's intentionality toward the world (postphenomenology), to how designed interaction constitutes the human.",
+   "quotes": [
+    {
+     "quote": "What is interaction? This essay analyzes the concept from a pragmatic perspective of problem-solving... this section extracts seven concepts of interaction by examining the literature of HCI",
+     "where": "fulltext.md(Abstract/Introduction)"
+    }
+   ]
+  },
+  {
+   "id": "kou2019turn#1",
+   "cited_as": "[53]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "On the HCI side, work using Foucault's \"care of the self\" treats how the human's self is constituted and self-transformed within technological relations [53], its keyword already \"existential HCI.\" On the philosophy-of-technology side, work from postphenomenology asks how the advance of AI constitutes and challenges the human's self-understanding [76] (the phrase there is \"constitutive technicity\"",
+   "quotes": [
+    {
+     "quote": "Everyday life is increasingly mediated by technology...how the self—the totality of internal qualities such as consciousness and agency—plays out in relation to the technology-mediated external world...Michel Foucault's ethics of \"care of the self,\"...how the self is constituted through conscious and reflective work on self-transformation.",
+     "where": "fulltext.md(Abstract;Keywords 亦含 \"existential HCI\")"
+    }
+   ]
+  },
+  {
+   "id": "willis2006ontological#1",
+   "cited_as": "[104]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "Willis's \"ontological designing\" [104] — the thesis, descending from Winograd and Flores, that \"we design our world, while our world acts back on us and designs us\" — is the closest prior naming of design's back-formation of the human, and this paper stands downstream of the same Heideggerian source.",
+   "quotes": [
+    {
+     "quote": "that this adds up to a double movement — we design our world, while our world acts back on us and designs us",
+     "where": "fulltext.md(Abstract/開篇定義)"
+    },
+    {
+     "quote": "in particular Tony Fry and the collaborative pair Fernando Flores and Terry Winograd",
+     "where": "fulltext.md(開篇,系譜溯源)"
+    }
+   ]
+  },
+  {
+   "id": "yee2009proteus#1",
+   "cited_as": "[110]",
+   "role": "load-bearing",
+   "label": "ok",
+   "claim": "A follow-up by the same authors tested exactly this outside the lab [110]: participants who had worn taller avatars were more likely to claim the larger share on their first offer in a subsequent face-to-face negotiation, though not on the second offer or final acceptance — a \"mixed\" result their own dissipation account could not fully explain.",
+   "quotes": [
+    {
+     "quote": "In the repeated measures ANOVA with the first offer as the dependent variable, there was a significant main effect of Height Condition (F[1,41] = 4.75, p = .04) […] In the repeated measures ANOVA with the second offer as the dependent variable, the main effect of Height Condition was not significant […] Height was not a significant predictor of acceptance.",
+     "where": "fulltext.md, Results (Study 2, negotiation task)"
+    },
+    {
+     "quote": "In sum, the effect of height was significant on the first split but not the second split or the final acceptance. This unexpected finding may suggest that a self perception effect is present, but that it quickly dissipates. […] a dissipation explanation does not fully explain why the effect emerges again during the first split in the negotiation task outside of VR. […] We will consider this mixed finding in more detail in the Discussion section.",
+     "where": "fulltext.md, Results, ¶ \"In sum\""
+    }
+   ]
+  },
+  {
+   "id": "matthias2004responsibility#1",
+   "cited_as": "[64]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "Matthias [64] named the structural root two decades ago a responsibility gap: autonomous, learning systems can come to act in ways their operators can neither predict nor fully control, so the traditional condition for holding anyone responsible — that the person have knowledge and control of the outcome — is undercut at the source.",
+   "quotes": [
+    {
+     "quote": "there is an increasing class of machine actions, where the traditional ways of responsibility ascription are not compatible with our sense of justice and the moral framework of society because nobody has enough control over the machine's actions to be able to assume the responsibility for them. These cases constitute what we will call the responsibility gap.",
+     "where": "fulltext.md, §\"The responsibility gap\" (definitional passage)"
+    }
+   ]
+  },
+  {
+   "id": "hook2012strong#1",
+   "cited_as": "[45]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "design-oriented HCI research has argued for an intermediate design-knowledge form, Höök and Löwgren's strong concepts [45], generative and abstracted above particular instances without aspiring to the scope of a general theory.",
+   "quotes": [
+    {
+     "quote": "We propose an intermediate design knowledge form that we name strong concepts that has the following properties: is generative and carries a core design idea, cutting across particular use situations and even application domains... and finally, resides on an abstraction level above particular instances.",
+     "where": "fulltext.md, Abstract"
+    }
+   ]
+  },
+  {
+   "id": "fischli2026agents#1",
+   "cited_as": "[31]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "how autonomy, once chosen as an alignment target, splits into conflicting senses an agent must be built to weigh [31]",
+   "quotes": [
+    {
+     "quote": "while there is general agreement on the concept's broad contours, its components can be specified in a number of conflicting ways, making it difficult to decide how an autonomy-enhancing agent should act. In response, we introduce three strategies for dealing with disagreements about interpretations of autonomy.",
+     "where": "card.md abstract"
+    },
+    {
+     "quote": "we present three strategies that target different dimensions of human autonomy... and offers novel pathways to navigating the trade-offs between different interpretations of the concept",
+     "where": "p.9, §4 (fulltext p.1-10 of 24, read directly by 鏡, not abstract)"
+    }
+   ]
+  },
+  {
+   "id": "hofmann2026artificial#1",
+   "cited_as": "[42]",
+   "role": "supporting",
+   "label": "ok",
+   "claim": "how an AI system's apparent autonomy can erode the human's own understanding, decision-making competence, and voluntariness — a hazard the line itself names and seeks to guard against [42]",
+   "quotes": [
+    {
+     "quote": "This article examines how AI can influence three core preconditions of autonomy - understanding, decision-making competence, and voluntariness. ... identifying artificial autonomy and algorithmic paternalism and their mechanisms is crucial for preserving human autonomy.",
+     "where": "card.md abstract"
+    },
+    {
+     "quote": "AI systems have a transformative and disruptive potential – they may not only change our behavior and lifeworld but also who we are as autonomous human beings",
+     "where": "p.10, Discussion (fulltext, read directly by 鏡, not abstract) — closest approach to this paper's register found in either full text; flagged and addressed in §5.0, not hidden"
+    }
+   ]
+  }
+ ]
+}

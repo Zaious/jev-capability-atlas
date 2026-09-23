@@ -1,0 +1,17 @@
+# 釘住用的參數——以這份為準。/ Pinned parameters -- this file is authoritative.
+model: jev-latest
+repeats: 3
+cases: 69                        # 66 ok, 3 misread; frozen in data/cases.json before any run
+excluded: 3                      # listed in cases.json with reasons
+labels: verdicts from the paper's citation-audit ledger, made against the cited sources' full texts
+arms:
+  A_audit_jev: paper-source-audit/scripts/audit-jev.py v0.1 wording verbatim; one request per quote; one Choice
+  B_three: one request per claim with all its quotes and the citation number; three Noul questions
+primary: B uncovered_detail, threshold 0.5          # fixed before running
+rules:
+  A_flag: any quote whose choice is not supports, or confidence < 0.8 (audit-jev's own rule); majority of 3 runs
+  A_score: 1 - max over quotes of mean P(supports)
+  B_scores: uncovered_detail P; supports_all 1-P; overclaim P
+reported: ok flagged of 66, misread flagged of 3, misread ranks among 69, AUC
+source: philosophy-of-interaction-reversibility-2026 ledger.yaml in the maintainer's private chronicle-lex repo (commit recorded in cases.json)
+data_license: claim sentences = excerpts of the maintainer's manuscript (published with permission); quotes = short attributed excerpts of cited works, eight of them full abstracts retrieved from OpenAlex; not MIT
