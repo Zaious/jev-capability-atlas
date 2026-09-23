@@ -31,6 +31,8 @@ Split into two sections: **public benchmarks** are results published by others t
 | [Jev as an agent judge (LangChain)](#jev-as-an-agent-judge-langchain) | Self-contained (the trace and evidence are in the state) | Matched the human on all five pass/fail items, 92–913× lower score variance than three LLM judges, $0.00035 per call; but five items, one reviewer, and the control group's sampling was never turned off | 📚 |
 | [An agent's small internal decisions](#an-agents-small-internal-decisions-routing-skill-selection-action-choice-hermes-jev-skills) | Self-contained (the candidates are on the screen, in the catalog, in this turn's text) | A verification step turned 2 confident-wrong skill picks (0.94-0.96) into 0; the single 0.65 action floor gave zero wrong actions across five runs | 📚 |
 | [Compaction and handoffs: measured, then Jev removed](#compaction-and-handoffs-measured-then-jev-was-removed-hermes-jev-skills) | Wrong shape (the state was complete and the judgement was good; picking turns is what lost) | The Jev arm scored 37.5% against 48.1% for a plain tail (4 questions won, 15 lost); what shipped drops Jev and scores 58.7% | 📚 |
+| [HA-Jev: question-writing rules from a Home Assistant integration](#ha-jev-question-writing-rules-measured-against-the-live-api-in-a-home-assistant-integration) | Self-contained (provided the threshold is in the question, or code does the comparison first) | Separation +0.21 on readings alone, +0.60/+0.69 with the rule in the question or the comparison pre-computed; 97 more questions cost 24 ms; structured option definitions 12/15 vs 12/15, no gain | 📚 |
+| [jev-mcp (blakestone-x): definitions, ordering, calibration](#jev-mcp-blakestone-x-definitions-ordering-and-calibration-on-production-data) | Self-contained | Bare label names to a one-line definition: 64.5% to 81.0%; reversing option order flipped 32 of 200, flipped items averaged 0.42 confidence; data not public | 📚 |
 | Praise vs. sarcasm (dedicated public benchmark) | — | None found as of this writing — an open slot you could fill | — |
 | [Citation support-checking](#citation-support-checking) | Self-contained | 9/12 supports, 0 contradicts, low confidence correctly tracked hard cases | 🔬 |
 | [Sarcasm detection, same-clause/cross-turn](#sarcasm-detection) | Self-contained | 12/12, 10/10 correct, including a correctly-low-confidence case | 🔬 |
@@ -268,6 +270,30 @@ Source: [`translations/hermes-jev-skills-zh/`](translations/hermes-jev-skills-zh
 **What this means**: this is the map's first instance of a third party measuring Jev on a task and then removing it — and its failure mode differs from the one we had already recorded. In [`translations/jev-context-compaction-debate-zh/`](translations/jev-context-compaction-debate-zh/) the state carried only length placeholders, so the content was never exposed. Here the state was complete and **Jev's judgement really was good**: given the same number of marks, its picks beat recency 11 questions to 4. What lost is the shape of the question — a kept turn still survives only as its first 400 characters, while five of the seven sessions average 1,400-7,400 characters a turn, so **no choice of turns recovers what clipping throws away**. The lesson: after rewriting a task into a shape Jev can answer, ask once more whether that shape can still do the original job. Quote the per-question 4-won-15-lost rather than the two averages — the author measured that prompt wording alone moves about 7.7 points, and these two percentages differ by 10.6. Full write-up and caveats: [`translations/hermes-jev-skills-zh/`](translations/hermes-jev-skills-zh/).
 
 Source: [`translations/hermes-jev-skills-zh/`](translations/hermes-jev-skills-zh/)
+
+---
+
+### HA-Jev: question-writing rules measured against the live API in a Home Assistant integration
+
+**What was done**: [AboveColin/HA-Jev](https://github.com/AboveColin/HA-Jev) (MIT) wires Jev into Home Assistant, and its author measured question wording, latency, batching and cost against the live API — opening with the noise floor: repeated runs of a cell wander by about 0.15, so "treat the gaps as the finding rather than the digits."
+
+**Results**: asking whether the laundry is finished, the power reading alone gave +0.21 separation; putting "under 5 W means idle" in the question's background raised it to +0.60; letting the template do the comparison and hand over only "it's idle" gave +0.69; both together +0.68 — they don't stack. The same rule sentence placed in the state instead of the question was worth about half. Three questions in one request took 712 ms, a hundred took 714. Structured option definitions matched flat strings at 12/15 on five ambiguous cases × three runs. Two real failures besides: with several questions answered at once, the code trusted the 0.41 answer over the 1.00 one and turned on every light in the house; offered a room with nothing controllable in it, the model answered the question right at 0.98 and named a place the agent couldn't act.
+
+**What this means**: it's quantitative evidence for the core axis in a second independent domain — the chess finding that code-computed facts in the state matter most had one source; this measures the same thing on sensor readings and sizes it at roughly triple the separation. Its latency (250–580 ms warm, 700–900 ms cold) also independently matches our own latency suite. But no raw responses are published, samples are small, and it's one author. Full write-up: [`translations/ha-jev-home-assistant-zh/`](translations/ha-jev-home-assistant-zh/).
+
+Source: [`translations/ha-jev-home-assistant-zh/`](translations/ha-jev-home-assistant-zh/)
+
+---
+
+### jev-mcp (blakestone-x): definitions, ordering and calibration on production data
+
+**What was done**: [blakestone-x/jev-mcp](https://github.com/blakestone-x/jev-mcp) (MIT; not the same project as the jkudish/jev-mcp in [`browser-automation.en.md`](browser-automation.en.md), despite the name) wraps Jev as an MCP server, and its author measured option definitions, ordering, calibration and comparison on a field-service company's production data.
+
+**Results**: bare label names 64.5%, a one-line definition per label 81.0%, adding "not for" and examples 84.5% (tokens 1,689 to 4,745). Reversing the option order flipped 32 of 200 answers; flipped items averaged 0.42 confidence, stable ones 0.81. On clean labels, confidence 0.8–1.0 agreed 95% and below 0.6 was near a coin flip; one label set that was wrong as often as the judgment flattened the calibration curve. With both amounts in the state and the question "which is larger," 64 of 64.
+
+**What this means**: "no definition to one sentence: +16.5 points" is the most direct evidence we have that **you have to define the thing before Jev can judge it**, with further detail only a marginal gain (consistent with HA-Jev's "structured definitions made no difference"). It doesn't contradict HA-Jev's "it won't apply a threshold": it can compare two values in front of it; don't expect it to apply a threshold the question never states. Option-order bias is new to the map in quantitative form, and the flips concentrate in low confidence, so a confidence gate already catches most of them. But the data isn't public and label quality isn't described. Full write-up: [`translations/blakestone-jev-mcp-zh/`](translations/blakestone-jev-mcp-zh/).
+
+Source: [`translations/blakestone-jev-mcp-zh/`](translations/blakestone-jev-mcp-zh/)
 
 ---
 

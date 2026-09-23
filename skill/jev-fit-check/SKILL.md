@@ -95,18 +95,28 @@ whether risk words appear). Two things that are easy to miss:
   (deciding which model answers this turn, say), an instruction telling the
   agent not to send customer data has no effect on it.
 
-## Writing the question: requirement vs preferences
+## Writing the question: define it, compute first, separate requirement from preference
 
-Jev scores your options against your state and cannot tell which line of
-that state is the binding one, so an attribute you meant as a bonus gets
-applied as a hard filter. Name the deciding attribute, then name the
-tie-breakers explicitly — an unlabelled second attribute reads as required.
-A `Noul` with an unstated "and also" is two questions; ask the requirement,
-and ask the preferences separately or not at all. Don't lower a confidence
-threshold to compensate for a question answering two things: the threshold
-was calibrated against one. (A vendor self-report puts this at 16/44 versus
-33/44 on the same set, same model, same code path — n=44 and second-hand,
-so treat it as a default worth measuring on your own data, not a law.)
+Two third-party integrations measured this against the live API (self-reported,
+not re-run):
+
+- **Define the thing being judged.** Bare label names 64.5%, one sentence of
+  definition per label 81.0%, adding "not for" and examples 84.5% at 2.8x the
+  tokens. Structured definitions made no difference on 15 ambiguous cases. Write
+  one sentence; add detail only to pairs that get confused.
+- **It judges; it doesn't apply thresholds.** A reading with the rule buried in
+  prose gave +0.21 separation; the rule in the question, or code comparing first
+  and handing over only the conclusion, gave +0.6 to +0.7. Two values side by side
+  ("which is larger") were right 64 of 64. Leave arithmetic to code.
+- **Rules belong in the question**: the same sentence in the state was worth half.
+- **Option order changes answers**: reversing it flipped 32 of 200, all at low
+  confidence (0.42 vs 0.81). For consequential gates, ask twice in two orders.
+- **Offer only options you can act on**, and when several questions return at
+  once, let confidence decide which to trust — not the order your code reads them.
+- **Separate requirement from preferences**: an unlabelled second attribute reads
+  as required (a second-hand vendor report puts this at 16/44 vs 33/44).
+
+Don't lower a confidence threshold to compensate for a badly written question.
 
 ## Minimum verification flow before integrating a candidate
 
