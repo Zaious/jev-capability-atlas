@@ -78,6 +78,38 @@
 
 `felt` 對客観共識，門檻 0.7 時覆蓋率 0.562、被覆蓋的準確率 **0.742**——**高於人類彼此的 0.722**。也就是說：讓它在有把握的那 56% 上回答，剩下的交給預設或給人，它在那一段的表現跟一位人類標註者同級。ECE 0.122 也是四列裡最好的。
 
+### 五、那到底為什麼日文比較弱？把缺口拆開
+
+以下全部從既有收據重算，沒有再打 API（`analysis/why-japanese.py` 與 `analysis/tokens-per-char.py`）。
+
+**先講一件我們證不出來的事：我們沒有證據說「日文比繁體中文弱」。** 繁中那組拿到 0.807，但**那份語料沒有人類天花板**——我們不知道人在那批句子上能拿幾分。這裡日文是 0.594／天花板 0.722＝**81%**，排除兩個非表情類別後是 **86%**。如果繁中那份語料的人類天花板在 0.95 附近（很可能，它混有 AI 生成、標籤不含糊），那 Jev 在繁中也就是八成多——**跟日文一樣**。兩個原始準確率是在難度不同的題目上量的，不能對接。
+
+站得住的說法只有一句：**在這批日文句子上，它明顯低於人類**（跟任一位標註者一致 0.459，人與人 0.722）。
+
+把這個缺口拆開，至少三塊：
+
+| 來源 | 證據 | 佔多少 |
+|---|---|---|
+| **標籤集不是表情選單** | 排除「期待」「信頼」後，felt／天花板從 0.81 升到 **0.86**；只看那兩類是 0.72 | 約三分之一 |
+| **我們自己的題目措辭** | 退場條款值 11 分（見上一節）。而且它**最常見的錯誤就是「期待 → 平静」（82 次）**，人類幾乎不會這樣（平静／期待 的分歧只有 9 次） | 可觀 |
+| **剩下的才像語言本身** | 貼文帶顏文字／`！！`／`。。。`／`www` 這類表面標記時，felt／天花板 **0.91**；沒有時 **0.79** | 剩下的 |
+
+💭 第三塊的解讀：**它很吃表面的情緒標記**。而日文有大量情緒是靠**終助詞、語氣形式（〜たい／〜といいな）、敬體與常體的落差、長音**承載的，不是靠情緒詞——「期待」正是這種，語感在語法裡不在詞彙裡。它在「期待」上把答案丟進「平静」，跟這條解釋一致。另外短貼文反而做得好（16 字以內 0.88），長的差（0.76–0.77），所以不像是讀不懂長句，比較像是缺少可抓的標記時就退場。
+
+**順手證偽一個最流行的解釋：不是 tokenizer。** 用收據裡的 `input_tokens` 對字元數做最小平方擬合（`tokens = 固定開銷 + b × 字數`）：
+
+| | 每字 tokens | 相對英文 |
+|---|---|---|
+| 英文（MELD 單句） | 0.254 | 1.00x |
+| 繁體中文（單句） | 1.064 | 4.19x |
+| **日文（WRIME 貼文）** | **0.983** | **3.87x** |
+
+**日文每個字比繁中還便宜一點（0.92x）**，所以 token 效率解釋不了「日文 vs 中文」。它只支持「CJK vs 英文」那一層，而那一層也要打折：一個漢字承載的內容比一個英文字母多，同樣意思的句子 CJK 大約貴 1.5 到 2 倍，不是 4 倍。
+
+**真正的機制，外面的人證不了。** TypeSafe 沒有公開架構、參數量或訓練語料比例 📖，所以「因為日文資料少」這類說法——包括我們自己可能想講的——都是猜測，不是證據。我們能量的只有行為。
+
+**要真的回答「哪個語言比較弱」，需要的是同一批句子翻成多種語言、同一組選項、同一個標準答案的同輸入對照**（就像 [`suites/laya-head-to-head/`](../laya-head-to-head/) 對模型做的那樣）。那需要人工翻譯與重新標註，我們還沒做。
+
 ## 限制
 
 - **WRIME 是 SNS 貼文，不是台詞**。虛擬人讀的是劇本或對話，句子的形狀不一樣，這裡的數字不能直接搬過去。
@@ -190,6 +222,38 @@ An **11-point** gap. The per-class breakdown explains it: nearly every class's m
 ### 4. A confidence threshold genuinely helps here
 
 For `felt` against the reader consensus, a 0.7 threshold covers 56.2% of items at **0.742** accuracy on what it covers — **above the 0.722 humans manage with each other**. Let it answer only where it is confident and hand the rest to a default or a person, and on that portion it performs at the level of one human annotator. Its ECE of 0.122 is also the best of the four rows.
+
+### 5. So why is Japanese weaker? Decomposing the gap
+
+Everything below is recomputed from the existing receipts, with no further API calls (`analysis/why-japanese.py` and `analysis/tokens-per-char.py`).
+
+**First, something we cannot show: we have no evidence that Japanese is weaker than Traditional Chinese.** The Chinese suite scored 0.807, but **that corpus has no human ceiling** — we don't know what people would score on those sentences. Here Japanese is 0.594 against a 0.722 ceiling = **81%**, or **86%** once the two non-facial classes are excluded. If the Chinese corpus's human ceiling sits near 0.95 (quite likely: it mixes in AI-generated lines and its labels are unambiguous), then Jev is at roughly four-fifths of ceiling there too — **the same as Japanese**. The two raw accuracies were measured on tasks of different difficulty and don't connect.
+
+The defensible statement is narrower: **on these Japanese sentences it is clearly below human level** (0.459 agreement with any single annotator, against 0.722 between annotators).
+
+That gap decomposes into at least three parts:
+
+| Source | Evidence | Share |
+|---|---|---|
+| **The label set is not an expression menu** | Excluding 期待 (anticipation) and 信頼 (trust), felt-over-ceiling rises from 0.81 to **0.86**; on those two classes alone it is 0.72 | About a third |
+| **Our own question wording** | The abstention clause is worth 11 points (previous section), and its single most common error is **期待 → 平静, 82 times**, which humans almost never do (they disagree over 平静/期待 only 9 times) | Substantial |
+| **What's left looks like the language** | On posts carrying surface markers (kaomoji, `！！`, `。。。`, `www`), felt-over-ceiling is **0.91**; without them, **0.79** | The remainder |
+
+💭 Reading the third row: **it leans heavily on surface affect markers.** A lot of Japanese emotion is carried by sentence-final particles, modality (〜たい, 〜といいな), the gap between polite and plain register, and elongation — not by emotion words. Anticipation is exactly that kind: the feeling lives in the grammar, not the vocabulary. Its habit of dumping 期待 into 平静 fits that explanation. Short posts also do *better* (0.88 within 16 characters) and long ones worse (0.76–0.77), so this doesn't look like failing to parse long sentences; it looks like taking the exit when there's no marker to grab.
+
+**And one popular explanation falsified in passing: it isn't the tokenizer.** Least-squares fit of `input_tokens` against character count (`tokens = overhead + b × chars`):
+
+| | Tokens per character | Relative to English |
+|---|---|---|
+| English (MELD, line only) | 0.254 | 1.00x |
+| Traditional Chinese (line only) | 1.064 | 4.19x |
+| **Japanese (WRIME posts)** | **0.983** | **3.87x** |
+
+**Japanese costs slightly *less* per character than Traditional Chinese (0.92x)**, so token efficiency cannot explain a Japanese-versus-Chinese difference. It supports only the CJK-versus-English layer, and even that needs discounting: a Han character carries more content than a Latin letter, so for sentences of comparable content CJK costs roughly 1.5–2× more tokens, not 4×.
+
+**The actual mechanism is not knowable from outside.** TypeSafe publishes neither the architecture, the parameter count, nor the training-data mix 📖, so "there was less Japanese data" — including any version of it we might be tempted to write — is a guess, not evidence. Behaviour is all we can measure.
+
+**Answering "which language is weaker" properly needs an identical-input comparison**: the same sentences translated into several languages, with the same options and the same gold labels, the way [`suites/laya-head-to-head/`](../laya-head-to-head/) does it across models. That needs human translation and re-annotation, and we haven't done it.
 
 ## Limitations
 
