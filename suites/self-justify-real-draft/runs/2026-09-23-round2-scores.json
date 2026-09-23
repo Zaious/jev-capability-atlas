@@ -1,0 +1,521 @@
+{
+ "run": "2026-09-23-round2.json",
+ "models": [
+  "jev-1.13.0"
+ ],
+ "calls": 102,
+ "errors": 0,
+ "input_tokens": 236583,
+ "dimensions": {
+  "repeated": {
+   "direction": 1,
+   "auc_cut_vs_lookalike": 0.4898,
+   "auc_cut_vs_all_kept": 0.463,
+   "mean": {
+    "cut": 0.2848,
+    "kept_lookalike": 0.2852,
+    "unchanged": 0.318
+   },
+   "flagged_at_0.5": {
+    "cut": "1/7",
+    "kept_lookalike": "1/7",
+    "unchanged": "3/20"
+   }
+  },
+  "needed_later": {
+   "direction": -1,
+   "auc_cut_vs_lookalike": 0.6939,
+   "auc_cut_vs_all_kept": 0.8466,
+   "mean": {
+    "cut": 0.65,
+    "kept_lookalike": 0.5124,
+    "unchanged": 0.4205
+   },
+   "flagged_at_0.5": {
+    "cut": "7/7",
+    "kept_lookalike": "4/7",
+    "unchanged": "7/20"
+   }
+  },
+  "about_author": {
+   "direction": 1,
+   "auc_cut_vs_lookalike": 0.5408,
+   "auc_cut_vs_all_kept": 0.8757,
+   "mean": {
+    "cut": 0.6638,
+    "kept_lookalike": 0.6233,
+    "unchanged": 0.1298
+   },
+   "flagged_at_0.5": {
+    "cut": "6/7",
+    "kept_lookalike": "4/7",
+    "unchanged": "0/20"
+   }
+  },
+  "reader_knows": {
+   "direction": 1,
+   "auc_cut_vs_lookalike": 0.4898,
+   "auc_cut_vs_all_kept": 0.3122,
+   "mean": {
+    "cut": 0.3638,
+    "kept_lookalike": 0.3576,
+    "unchanged": 0.4755
+   },
+   "flagged_at_0.5": {
+    "cut": "0/7",
+    "kept_lookalike": "0/7",
+    "unchanged": "9/20"
+   }
+  },
+  "preempt": {
+   "direction": 1,
+   "auc_cut_vs_lookalike": 0.6633,
+   "auc_cut_vs_all_kept": 0.9021,
+   "mean": {
+    "cut": 0.8929,
+    "kept_lookalike": 0.7962,
+    "unchanged": 0.2617
+   },
+   "flagged_at_0.5": {
+    "cut": "7/7",
+    "kept_lookalike": "6/7",
+    "unchanged": "3/20"
+   }
+  },
+  "guides_reading": {
+   "direction": -1,
+   "auc_cut_vs_lookalike": 0.5306,
+   "auc_cut_vs_all_kept": 0.1905,
+   "mean": {
+    "cut": 0.21,
+    "kept_lookalike": 0.239,
+    "unchanged": 0.4463
+   },
+   "flagged_at_0.5": {
+    "cut": "0/7",
+    "kept_lookalike": "1/7",
+    "unchanged": "8/20"
+   }
+  },
+  "process": {
+   "direction": 1,
+   "auc_cut_vs_lookalike": 0.5306,
+   "auc_cut_vs_all_kept": 0.8439,
+   "mean": {
+    "cut": 0.5219,
+    "kept_lookalike": 0.4829,
+    "unchanged": 0.1323
+   },
+   "flagged_at_0.5": {
+    "cut": "3/7",
+    "kept_lookalike": "4/7",
+    "unchanged": "0/20"
+   }
+  },
+  "overall": {
+   "direction": 1,
+   "auc_cut_vs_lookalike": 0.898,
+   "auc_cut_vs_all_kept": 0.9656,
+   "mean": {
+    "cut": 0.4038,
+    "kept_lookalike": 0.3276,
+    "unchanged": 0.2973
+   },
+   "flagged_at_0.5": {
+    "cut": "1/7",
+    "kept_lookalike": "0/7",
+    "unchanged": "0/20"
+   }
+  }
+ },
+ "combo": {
+  "auc_cut_vs_lookalike": 0.6735,
+  "auc_cut_vs_all_kept": 0.9153,
+  "mean": {
+   "cut": 0.4989,
+   "kept_lookalike": 0.453,
+   "unchanged": 0.3102
+  },
+  "flagged_at_0.5": {
+   "cut": "3/7",
+   "kept_lookalike": "2/7",
+   "unchanged": "0/20"
+  }
+ },
+ "per_case_aligned": {
+  "H1": {
+   "repeated": 0.0967,
+   "needed_later": 0.7533,
+   "about_author": 0.92,
+   "reader_knows": 0.36,
+   "preempt": 0.96,
+   "guides_reading": 0.0967,
+   "process": 0.8367,
+   "overall": 0.38,
+   "combo": 0.5504
+  },
+  "H2": {
+   "repeated": 0.2233,
+   "needed_later": 0.6267,
+   "about_author": 0.3367,
+   "reader_knows": 0.4867,
+   "preempt": 0.96,
+   "guides_reading": 0.11,
+   "process": 0.2067,
+   "overall": 0.34,
+   "combo": 0.4113
+  },
+  "H3": {
+   "repeated": 0.6533,
+   "needed_later": 0.47,
+   "about_author": 0.3267,
+   "reader_knows": 0.27,
+   "preempt": 0.8267,
+   "guides_reading": 0.12,
+   "process": 0.3233,
+   "overall": 0.2533,
+   "combo": 0.4054
+  },
+  "H4": {
+   "repeated": 0.26,
+   "needed_later": 0.3867,
+   "about_author": 0.8233,
+   "reader_knows": 0.4433,
+   "preempt": 0.7233,
+   "guides_reading": 0.2967,
+   "process": 0.61,
+   "overall": 0.3033,
+   "combo": 0.4808
+  },
+  "H5": {
+   "repeated": 0.3,
+   "needed_later": 0.6267,
+   "about_author": 0.9033,
+   "reader_knows": 0.47,
+   "preempt": 0.89,
+   "guides_reading": 0.5467,
+   "process": 0.6667,
+   "overall": 0.3167,
+   "combo": 0.59
+  },
+  "H6": {
+   "repeated": 0.39,
+   "needed_later": 0.5433,
+   "about_author": 0.3733,
+   "reader_knows": 0.2933,
+   "preempt": 0.7933,
+   "guides_reading": 0.21,
+   "process": 0.23,
+   "overall": 0.35,
+   "combo": 0.3979
+  },
+  "H7": {
+   "repeated": 0.0733,
+   "needed_later": 0.18,
+   "about_author": 0.68,
+   "reader_knows": 0.18,
+   "preempt": 0.42,
+   "guides_reading": 0.2933,
+   "process": 0.5067,
+   "overall": 0.35,
+   "combo": 0.3354
+  },
+  "N01": {
+   "repeated": 0.4333,
+   "needed_later": 0.1533,
+   "about_author": 0.2167,
+   "reader_knows": 0.2567,
+   "preempt": 0.2,
+   "guides_reading": 0.4667,
+   "process": 0.21,
+   "overall": 0.2333,
+   "combo": 0.2712
+  },
+  "N02": {
+   "repeated": 0.3,
+   "needed_later": 0.6767,
+   "about_author": 0.1433,
+   "reader_knows": 0.59,
+   "preempt": 0.56,
+   "guides_reading": 0.61,
+   "process": 0.1467,
+   "overall": 0.3333,
+   "combo": 0.42
+  },
+  "N03": {
+   "repeated": 0.1067,
+   "needed_later": 0.1567,
+   "about_author": 0.1033,
+   "reader_knows": 0.76,
+   "preempt": 0.1233,
+   "guides_reading": 0.4867,
+   "process": 0.07,
+   "overall": 0.2267,
+   "combo": 0.2542
+  },
+  "N04": {
+   "repeated": 0.1833,
+   "needed_later": 0.53,
+   "about_author": 0.09,
+   "reader_knows": 0.47,
+   "preempt": 0.2067,
+   "guides_reading": 0.5267,
+   "process": 0.1033,
+   "overall": 0.31,
+   "combo": 0.3025
+  },
+  "N05": {
+   "repeated": 0.49,
+   "needed_later": 0.2733,
+   "about_author": 0.1067,
+   "reader_knows": 0.7567,
+   "preempt": 0.1,
+   "guides_reading": 0.5433,
+   "process": 0.06,
+   "overall": 0.3067,
+   "combo": 0.3296
+  },
+  "N06": {
+   "repeated": 0.4167,
+   "needed_later": 0.3333,
+   "about_author": 0.1233,
+   "reader_knows": 0.43,
+   "preempt": 0.15,
+   "guides_reading": 0.5233,
+   "process": 0.2733,
+   "overall": 0.2467,
+   "combo": 0.3121
+  },
+  "N07": {
+   "repeated": 0.16,
+   "needed_later": 0.4367,
+   "about_author": 0.1,
+   "reader_knows": 0.45,
+   "preempt": 0.1767,
+   "guides_reading": 0.6367,
+   "process": 0.1,
+   "overall": 0.3,
+   "combo": 0.295
+  },
+  "N08": {
+   "repeated": 0.1267,
+   "needed_later": 0.5867,
+   "about_author": 0.1133,
+   "reader_knows": 0.5333,
+   "preempt": 0.24,
+   "guides_reading": 0.4967,
+   "process": 0.1167,
+   "overall": 0.3533,
+   "combo": 0.3208
+  },
+  "N09": {
+   "repeated": 0.11,
+   "needed_later": 0.46,
+   "about_author": 0.1467,
+   "reader_knows": 0.5633,
+   "preempt": 0.12,
+   "guides_reading": 0.7033,
+   "process": 0.1133,
+   "overall": 0.3333,
+   "combo": 0.3187
+  },
+  "N10": {
+   "repeated": 0.25,
+   "needed_later": 0.5633,
+   "about_author": 0.0867,
+   "reader_knows": 0.5133,
+   "preempt": 0.1367,
+   "guides_reading": 0.57,
+   "process": 0.1267,
+   "overall": 0.3133,
+   "combo": 0.32
+  },
+  "N11": {
+   "repeated": 0.07,
+   "needed_later": 0.2333,
+   "about_author": 0.06,
+   "reader_knows": 0.6033,
+   "preempt": 0.1467,
+   "guides_reading": 0.67,
+   "process": 0.0867,
+   "overall": 0.34,
+   "combo": 0.2762
+  },
+  "N12": {
+   "repeated": 0.3033,
+   "needed_later": 0.5767,
+   "about_author": 0.09,
+   "reader_knows": 0.5033,
+   "preempt": 0.1933,
+   "guides_reading": 0.35,
+   "process": 0.0767,
+   "overall": 0.3133,
+   "combo": 0.3008
+  },
+  "N13": {
+   "repeated": 0.2167,
+   "needed_later": 0.3733,
+   "about_author": 0.2567,
+   "reader_knows": 0.24,
+   "preempt": 0.8733,
+   "guides_reading": 0.1967,
+   "process": 0.1767,
+   "overall": 0.2533,
+   "combo": 0.3233
+  },
+  "N14": {
+   "repeated": 0.64,
+   "needed_later": 0.23,
+   "about_author": 0.1067,
+   "reader_knows": 0.3467,
+   "preempt": 0.2267,
+   "guides_reading": 0.2067,
+   "process": 0.0767,
+   "overall": 0.2933,
+   "combo": 0.2658
+  },
+  "N15": {
+   "repeated": 0.2133,
+   "needed_later": 0.4233,
+   "about_author": 0.15,
+   "reader_knows": 0.4867,
+   "preempt": 0.1167,
+   "guides_reading": 0.3367,
+   "process": 0.1867,
+   "overall": 0.3133,
+   "combo": 0.2783
+  },
+  "N16": {
+   "repeated": 0.16,
+   "needed_later": 0.3733,
+   "about_author": 0.14,
+   "reader_knows": 0.3567,
+   "preempt": 0.7367,
+   "guides_reading": 0.2867,
+   "process": 0.1167,
+   "overall": 0.2833,
+   "combo": 0.3067
+  },
+  "N17": {
+   "repeated": 0.66,
+   "needed_later": 0.6233,
+   "about_author": 0.14,
+   "reader_knows": 0.3633,
+   "preempt": 0.14,
+   "guides_reading": 0.4267,
+   "process": 0.1567,
+   "overall": 0.2767,
+   "combo": 0.3483
+  },
+  "N18": {
+   "repeated": 0.3733,
+   "needed_later": 0.49,
+   "about_author": 0.12,
+   "reader_knows": 0.68,
+   "preempt": 0.1267,
+   "guides_reading": 0.3533,
+   "process": 0.16,
+   "overall": 0.3233,
+   "combo": 0.3283
+  },
+  "N19": {
+   "repeated": 0.4467,
+   "needed_later": 0.4,
+   "about_author": 0.2167,
+   "reader_knows": 0.26,
+   "preempt": 0.4933,
+   "guides_reading": 0.28,
+   "process": 0.1967,
+   "overall": 0.2767,
+   "combo": 0.3212
+  },
+  "N20": {
+   "repeated": 0.7,
+   "needed_later": 0.5167,
+   "about_author": 0.0867,
+   "reader_knows": 0.3467,
+   "preempt": 0.1667,
+   "guides_reading": 0.2567,
+   "process": 0.0933,
+   "overall": 0.3167,
+   "combo": 0.3104
+  },
+  "P1": {
+   "repeated": 0.12,
+   "needed_later": 0.6,
+   "about_author": 0.91,
+   "reader_knows": 0.3867,
+   "preempt": 0.8533,
+   "guides_reading": 0.14,
+   "process": 0.83,
+   "overall": 0.4467,
+   "combo": 0.5358
+  },
+  "P2": {
+   "repeated": 0.1833,
+   "needed_later": 0.7,
+   "about_author": 0.92,
+   "reader_knows": 0.4267,
+   "preempt": 0.83,
+   "guides_reading": 0.3167,
+   "process": 0.9167,
+   "overall": 0.5067,
+   "combo": 0.6
+  },
+  "P3": {
+   "repeated": 0.1833,
+   "needed_later": 0.74,
+   "about_author": 0.6967,
+   "reader_knows": 0.3967,
+   "preempt": 0.93,
+   "guides_reading": 0.2733,
+   "process": 0.4767,
+   "overall": 0.4233,
+   "combo": 0.515
+  },
+  "P4": {
+   "repeated": 0.18,
+   "needed_later": 0.5933,
+   "about_author": 0.7,
+   "reader_knows": 0.34,
+   "preempt": 0.9133,
+   "guides_reading": 0.2333,
+   "process": 0.5233,
+   "overall": 0.3467,
+   "combo": 0.4788
+  },
+  "P5": {
+   "repeated": 0.3033,
+   "needed_later": 0.54,
+   "about_author": 0.58,
+   "reader_knows": 0.3533,
+   "preempt": 0.94,
+   "guides_reading": 0.1767,
+   "process": 0.3533,
+   "overall": 0.39,
+   "combo": 0.4546
+  },
+  "P6": {
+   "repeated": 0.2933,
+   "needed_later": 0.56,
+   "about_author": 0.62,
+   "reader_knows": 0.3033,
+   "preempt": 0.8933,
+   "guides_reading": 0.15,
+   "process": 0.3967,
+   "overall": 0.36,
+   "combo": 0.4471
+  },
+  "P7": {
+   "repeated": 0.73,
+   "needed_later": 0.8167,
+   "about_author": 0.22,
+   "reader_knows": 0.34,
+   "preempt": 0.89,
+   "guides_reading": 0.18,
+   "process": 0.1567,
+   "overall": 0.3533,
+   "combo": 0.4608
+  }
+ }
+}

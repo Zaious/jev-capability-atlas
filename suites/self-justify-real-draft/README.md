@@ -2,7 +2,7 @@
 
 # 真實稿件裡的「替作者辯護」：先導測試
 
-> **這是先導測試**：正例只有 7 個，只能看方向，不能下結論。
+> **這是先導測試**：正例只有 7 個，只能看方向，不能下結論。第二輪（整節＋讀者設定）的結果見[下方](#第二輪整節內文讀者設定八個維度)。
 
 ## 這組測什麼
 
@@ -56,6 +56,33 @@
 
 **掃描器在真實稿件上一處都沒抓到**，包括「免得看起來像……」這種明顯的一句——它的五種形狀是從一封信反推出來的，沒涵蓋這篇的寫法。
 
+## 第二輪：整節內文＋讀者設定＋八個維度
+
+**為什麼**：第一輪只給 Jev 一段。「這個解釋是否多餘」的答案大多不在那一段裡——要看讀者是誰、前文說過什麼、這句在幫哪個主張。第二輪把這些放進 state：**整節內文（要判斷的句子用【【】】標出）＋一行讀者設定**（ACGCT 2026 的審稿人與與會者：熟動漫遊戲與角色設計、不一定熟 AI 代理）。一次請求問八個維度，同樣 34 題、各三次。**不做兩版比較**：實際辨識時手上只有一份稿。
+
+**事先凍結**（commit `f16087e`）：讀者設定、八題問法、**組合規則（八維方向對齊後等權平均，不在這 34 題上擬合任何權重）**，以及每題輸入的 sha256。整節內文加起來接近整篇論文，超出作者同意公開的「部分段落」，所以第二輪的收據**不存內文**，只存節名、來源 commit 與雜湊；`run_round2.py` 重建的輸入跟雜湊對不上就拒跑。
+
+收據：`runs/2026-09-23-round2.json`（102 次呼叫、0 失敗，`jev-1.13.0`，236,583 input tokens）；評分：`runs/2026-09-23-round2-scores.json`（`score_round2.py --check` 可重算）。
+
+| 維度 | 刪掉的 vs 保留的相似句（AUC）| 刪掉的 vs 全部保留的（AUC）| 平均：刪／相似／未動 |
+|---|---|---|---|
+| **overall：以這位讀者來看是不必要的解釋** | **0.898** | **0.966** | 0.40／0.33／0.30 |
+| needed_later（反向）：刪掉後文會看不懂 | 0.694 | 0.847 | |
+| preempt：預先澄清作者不是那個意思 | 0.663 | 0.902 | 0.89／0.80／0.26 |
+| about_author：在談作者自己 | 0.541 | 0.876 | 0.66／0.62／0.13 |
+| process：在交代寫作過程 | 0.531 | 0.844 | |
+| guides_reading（反向）／repeated／reader_knows | 0.49–0.53 | 0.19–0.46 | |
+| **事先寫死的等權組合** | **0.674** | **0.915** | |
+
+- **`overall` 在有整節與讀者設定後，把刪與留分開了**：34 句依分數排序，**前四名全是作者刪掉的**（「免得看起來像把好幾套理論硬疊在一起」0.51、「我把界線劃清楚了……讀者可以自行判斷」0.45、「不是他讀過這篇論文後的回應」0.42、「不是真的在猜測時間旅行」0.39），第五名才是保留的「這不是一篇要證明……的文章」0.38；所有未動句都在 0.36 以下。第一輪漏掉的那句「我把界線劃清楚了」從 0.40 升到第二名。三次重問的標準差中位 0.005，排序是穩的。
+- **但分數整體偏低、擠在一起**（0.25–0.51），門檻 0.5 只會標出 1 句。它提供的是**排序**，不是可以直接設門檻的機率。
+- **`preempt`（預先澄清）照樣是形狀偵測器**：刪掉的 7/7、保留的 6/7 都過 0.5——跟第一輪一樣，它認得「不是 X」的形狀，不認得功能。
+- **事先寫死的等權組合只有 0.674**：幾個維度沒有資訊（repeated、reader_knows 在 0.49 左右），甚至反向（guides_reading 對一般句子給得更高），把組合拖了下來。
+
+💭 **這一輪能說的**：給足上下文之後，**直接問「以這位讀者來看是不是不必要」**比拆成子題更有用——跟我們原本的建議（拆成原子題再用程式組合）相反。實務上的用法是**排序**：「列出這篇最可能不必要的前幾句給作者看」；在這篇稿子上，前五名有四句是作者真的刪掉的。
+
+**但這是八個維度裡最好的一個**，而事先寫死的是組合；從八個裡挑出最好的那一個再報，本身就會高估。`overall` 的 0.898 要在新的稿子上重現才算數——這正是改寫存底要累積的資料。
+
 ## 限制
 
 1. **正例只有 7 個、相似反例 7 個**，AUC 的差別在這個樣本量下沒有意義。這組只說方向。
@@ -82,7 +109,7 @@ CHRONICLE_LEX=<path> python data/build_cases.py   # 重建題目，需要作者�
 
 # "Defending the author" in a real draft: a pilot (English)
 
-> **This is a pilot**: seven positives only. Direction, not conclusions.
+> **This is a pilot**: seven positives only. Direction, not conclusions. Round 2 (whole section + reader profile) is [below](#round-2-whole-section--reader-profile--eight-dimensions).
 
 ## What this tests
 
@@ -135,6 +162,33 @@ Case by case, author vs reader:
 💭 **It does work as a first filter.** With the author-vs-reader wording at 0.5, 34 sentences narrow to 10 for a person to review, catching 5 of the 7 cuts with no false alarms among ordinary sentences. The criterion wording can't do even that (9 false alarms among ordinary sentences).
 
 **The scanner caught nothing in the real draft**, not even the obvious "so it doesn't look like..." — its five shapes were reverse-engineered from one letter and don't cover how this paper was written.
+
+## Round 2: whole section + reader profile + eight dimensions
+
+**Why**: round 1 gave Jev one paragraph. Whether an explanation is unnecessary mostly isn't answerable from that paragraph — it depends on who the reader is, what the section has already said, and which claim the sentence serves. Round 2 puts those in the state: **the whole section (the sentence marked with 【【】】) plus a one-line reader profile** (ACGCT 2026 reviewers and attendees: know ACG and character design, not necessarily AI agents). Eight dimensions in one request, same 34 cases, three repeats. **No two-version comparison**: in real use there is only one draft.
+
+**Frozen beforehand** (commit `f16087e`): the reader profile, the eight questions, **the combination rule (direction-aligned equal-weight mean of the eight, no weights fitted on these 34 cases)**, and each input's sha256. The sections together come close to the whole paper, beyond the "partial paragraphs" the author agreed to publish, so round-2 receipts **store no text**, only section, source commit and hash; `run_round2.py` refuses to run if a rebuilt input doesn't match.
+
+Receipts: `runs/2026-09-23-round2.json` (102 calls, 0 failures, `jev-1.13.0`, 236,583 input tokens); scores: `runs/2026-09-23-round2-scores.json` (`score_round2.py --check` recomputes).
+
+| Dimension | Cut vs kept look-alikes (AUC) | Cut vs all kept (AUC) | Mean: cut / look-alike / unchanged |
+|---|---|---|---|
+| **overall: unnecessary for this reader** | **0.898** | **0.966** | 0.40 / 0.33 / 0.30 |
+| needed_later (reversed): later text breaks without it | 0.694 | 0.847 | |
+| preempt: pre-empting that the author meant something else | 0.663 | 0.902 | 0.89 / 0.80 / 0.26 |
+| about_author: about the author, not the argument | 0.541 | 0.876 | 0.66 / 0.62 / 0.13 |
+| process: recounting the writing process | 0.531 | 0.844 | |
+| guides_reading (reversed) / repeated / reader_knows | 0.49–0.53 | 0.19–0.46 | |
+| **Pre-registered equal-weight combination** | **0.674** | **0.915** | |
+
+- **With the whole section and a reader profile, `overall` separates cut from kept**: ranking all 34 sentences by it, **the top four are all sentences the author cut** ("so it doesn't look like several theories piled together" 0.51, "I've drawn the line clearly... readers can judge" 0.45, "not a response to him having read this paper" 0.42, "not really speculating about time travel" 0.39); fifth is the kept "This is not an article trying to prove..." 0.38; every unchanged sentence is under 0.36. The round-1 miss "I've drawn the line clearly" rises from 0.40 to second place. The median standard deviation across three repeats is 0.005; the ordering is stable.
+- **But the scores are low and compressed** (0.25–0.51); a 0.5 threshold flags one sentence. What it gives is a **ranking**, not a probability you can threshold directly.
+- **`preempt` is still a shape detector**: 7/7 cut and 6/7 kept over 0.5 — as in round 1, it recognises the "this is not X" shape, not the function.
+- **The pre-registered equal-weight combination is only 0.674**: several dimensions carry no information (repeated, reader_knows around 0.49) or point the wrong way (guides_reading scores ordinary sentences higher), and they drag the combination down.
+
+💭 **What this round supports**: once the context is there, **asking directly "is this unnecessary for this reader"** works better than splitting it into sub-questions — the opposite of what we had suggested (atomic questions combined in code). In practice the use is **ranking**: "list the sentences in this draft most likely to be unnecessary, for the author to look at"; on this draft, four of the top five are sentences the author actually cut.
+
+**But it is the best of eight dimensions**, and what was pre-registered was the combination; reporting the best of eight overstates it by construction. `overall`'s 0.898 only counts once it replicates on new drafts — which is what the rewrite ledger is now accumulating.
 
 ## Limitations
 

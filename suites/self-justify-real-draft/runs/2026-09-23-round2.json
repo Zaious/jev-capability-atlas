@@ -1,0 +1,1854 @@
+{
+ "meta": {
+  "suite": "self-justify-real-draft",
+  "round": 2,
+  "date": "2026-09-23",
+  "requested_model": "jev-latest",
+  "response_models": [
+   "jev-1.13.0"
+  ],
+  "calls": 102,
+  "errors": 0,
+  "input_tokens": 236583,
+  "warmup_ms_excluded": 370.3,
+  "manifest_sha256": "38cf20602231c99c5f6de31f2761574adec1f7d787a947f6e558a69e05de421c"
+ },
+ "rows": [
+  {
+   "id": "P1",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.12,
+    "needed_later": 0.4,
+    "about_author": 0.91,
+    "reader_knows": 0.38,
+    "preempt": 0.85,
+    "guides_reading": 0.86,
+    "process": 0.84,
+    "overall": 0.45
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2792,
+   "latency_ms": 217.2,
+   "state_sha256": "bc30292e50edf48f092aa808b22aa4156c70404b75e1122b92df7b62e331d124"
+  },
+  {
+   "id": "P2",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.18,
+    "needed_later": 0.29,
+    "about_author": 0.92,
+    "reader_knows": 0.43,
+    "preempt": 0.83,
+    "guides_reading": 0.69,
+    "process": 0.91,
+    "overall": 0.51
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2832,
+   "latency_ms": 243.8,
+   "state_sha256": "aab73acdfe842bdf2d9868a9da1dc81a88f38692e44398497f8065c3c517ab6a"
+  },
+  {
+   "id": "P3",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.17,
+    "needed_later": 0.26,
+    "about_author": 0.68,
+    "reader_knows": 0.4,
+    "preempt": 0.93,
+    "guides_reading": 0.72,
+    "process": 0.49,
+    "overall": 0.42
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1757,
+   "latency_ms": 239.7,
+   "state_sha256": "105eecea63bdf62c3910872ce0d629dcf967b1d4aeb25cf47ff7a3f3696c5c6d"
+  },
+  {
+   "id": "P4",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.18,
+    "needed_later": 0.4,
+    "about_author": 0.71,
+    "reader_knows": 0.35,
+    "preempt": 0.91,
+    "guides_reading": 0.75,
+    "process": 0.56,
+    "overall": 0.35
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1919,
+   "latency_ms": 251.0,
+   "state_sha256": "7fdeb487c7d9bee102b34da9d02f8d6449a263d2d73c28edaa3450d7a943c623"
+  },
+  {
+   "id": "P5",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.31,
+    "needed_later": 0.48,
+    "about_author": 0.59,
+    "reader_knows": 0.35,
+    "preempt": 0.94,
+    "guides_reading": 0.82,
+    "process": 0.37,
+    "overall": 0.39
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2727,
+   "latency_ms": 227.2,
+   "state_sha256": "58c5ad12d385ddba943a2fdd83f48945c92b084ba4f7e987538d7d61827d295a"
+  },
+  {
+   "id": "P6",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.3,
+    "needed_later": 0.43,
+    "about_author": 0.61,
+    "reader_knows": 0.3,
+    "preempt": 0.9,
+    "guides_reading": 0.85,
+    "process": 0.4,
+    "overall": 0.37
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2718,
+   "latency_ms": 256.3,
+   "state_sha256": "59d98dff28da39d4b33031801de418c24b090ea9c630c3805e92770c534df806"
+  },
+  {
+   "id": "P7",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.73,
+    "needed_later": 0.19,
+    "about_author": 0.23,
+    "reader_knows": 0.34,
+    "preempt": 0.89,
+    "guides_reading": 0.82,
+    "process": 0.16,
+    "overall": 0.35
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2953,
+   "latency_ms": 350.8,
+   "state_sha256": "822b4bc0895883d2cbf08bf14f70e655b917e0c26a6946ad0b154d404f0ddb8d"
+  },
+  {
+   "id": "H1",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.1,
+    "needed_later": 0.26,
+    "about_author": 0.92,
+    "reader_knows": 0.37,
+    "preempt": 0.96,
+    "guides_reading": 0.9,
+    "process": 0.83,
+    "overall": 0.38
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1371,
+   "latency_ms": 281.2,
+   "state_sha256": "bc8483cdc92da523f561cebeafc6698240a4d294bf5ac303b7713547c2bd5fa7"
+  },
+  {
+   "id": "H2",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.22,
+    "needed_later": 0.36,
+    "about_author": 0.33,
+    "reader_knows": 0.49,
+    "preempt": 0.96,
+    "guides_reading": 0.89,
+    "process": 0.2,
+    "overall": 0.35
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2842,
+   "latency_ms": 225.5,
+   "state_sha256": "7499f359d6f51c07ad333551634c37104e4690ec3663dc5360d999259eff3abd"
+  },
+  {
+   "id": "H3",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.66,
+    "needed_later": 0.51,
+    "about_author": 0.32,
+    "reader_knows": 0.27,
+    "preempt": 0.82,
+    "guides_reading": 0.88,
+    "process": 0.32,
+    "overall": 0.26
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2877,
+   "latency_ms": 252.4,
+   "state_sha256": "ede8f5c6d960197eacaa36165517dac7c6a3df1ddffc7a7e9ab4413c07b661e7"
+  },
+  {
+   "id": "H4",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.27,
+    "needed_later": 0.63,
+    "about_author": 0.82,
+    "reader_knows": 0.42,
+    "preempt": 0.73,
+    "guides_reading": 0.72,
+    "process": 0.62,
+    "overall": 0.31
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2683,
+   "latency_ms": 260.0,
+   "state_sha256": "93ecc16c8725291419d5e24e47c7d6cd53dda9dcda7047ec15240c901090c270"
+  },
+  {
+   "id": "H5",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.28,
+    "needed_later": 0.38,
+    "about_author": 0.91,
+    "reader_knows": 0.46,
+    "preempt": 0.89,
+    "guides_reading": 0.42,
+    "process": 0.68,
+    "overall": 0.31
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1069,
+   "latency_ms": 243.7,
+   "state_sha256": "7eabacf9371b74e0b5e85e5ecacf2ad0ffcf3ca20feb5a516ab4826e70e6749c"
+  },
+  {
+   "id": "H6",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.41,
+    "needed_later": 0.46,
+    "about_author": 0.37,
+    "reader_knows": 0.29,
+    "preempt": 0.79,
+    "guides_reading": 0.8,
+    "process": 0.23,
+    "overall": 0.36
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2739,
+   "latency_ms": 239.9,
+   "state_sha256": "53cd24147d827c00952c9ed3ed9917e54d1cbc76fc53169b67c5e7a3d0b2a499"
+  },
+  {
+   "id": "H7",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.08,
+    "needed_later": 0.81,
+    "about_author": 0.69,
+    "reader_knows": 0.18,
+    "preempt": 0.42,
+    "guides_reading": 0.72,
+    "process": 0.5,
+    "overall": 0.34
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2258,
+   "latency_ms": 256.7,
+   "state_sha256": "662573bb0a33b28f1e1799ac2ef4eea4bb732bb91ef6a05ff79522a191985839"
+  },
+  {
+   "id": "N01",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.45,
+    "needed_later": 0.85,
+    "about_author": 0.21,
+    "reader_knows": 0.26,
+    "preempt": 0.2,
+    "guides_reading": 0.52,
+    "process": 0.21,
+    "overall": 0.23
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2711,
+   "latency_ms": 250.4,
+   "state_sha256": "accc7b2722a24cbabe58a05ae2c369f01233ec0395177661812177763ca01c90"
+  },
+  {
+   "id": "N02",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.31,
+    "needed_later": 0.32,
+    "about_author": 0.15,
+    "reader_knows": 0.6,
+    "preempt": 0.57,
+    "guides_reading": 0.39,
+    "process": 0.15,
+    "overall": 0.33
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2200,
+   "latency_ms": 229.6,
+   "state_sha256": "c16b5a08d2188269d4f7148a31be84ea9229031f0fa4c89b844a6c70f2e9e89d"
+  },
+  {
+   "id": "N03",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.11,
+    "needed_later": 0.84,
+    "about_author": 0.1,
+    "reader_knows": 0.76,
+    "preempt": 0.13,
+    "guides_reading": 0.51,
+    "process": 0.07,
+    "overall": 0.23
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1908,
+   "latency_ms": 224.6,
+   "state_sha256": "24579cf478a38195c139a7674968636a92973ae17ab32f2f3fba3d51555830bf"
+  },
+  {
+   "id": "N04",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.19,
+    "needed_later": 0.47,
+    "about_author": 0.09,
+    "reader_knows": 0.47,
+    "preempt": 0.21,
+    "guides_reading": 0.48,
+    "process": 0.11,
+    "overall": 0.31
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2155,
+   "latency_ms": 208.8,
+   "state_sha256": "a72919ff3dbe159b81398048810241ff632c41600f5af005bf8df4ed702cdcf4"
+  },
+  {
+   "id": "N05",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.46,
+    "needed_later": 0.75,
+    "about_author": 0.1,
+    "reader_knows": 0.76,
+    "preempt": 0.1,
+    "guides_reading": 0.47,
+    "process": 0.06,
+    "overall": 0.29
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1895,
+   "latency_ms": 266.4,
+   "state_sha256": "329f9f787e72500476e12e32d1c7448b87c822817fffde1a8bd34c2767a03586"
+  },
+  {
+   "id": "N06",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.42,
+    "needed_later": 0.69,
+    "about_author": 0.12,
+    "reader_knows": 0.44,
+    "preempt": 0.15,
+    "guides_reading": 0.48,
+    "process": 0.27,
+    "overall": 0.25
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2231,
+   "latency_ms": 281.1,
+   "state_sha256": "3c8e63cd7ff70beedd092e93ab18e934d5aaab1c7d684f7cd82342cb8dec1b70"
+  },
+  {
+   "id": "N07",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.16,
+    "needed_later": 0.57,
+    "about_author": 0.1,
+    "reader_knows": 0.46,
+    "preempt": 0.18,
+    "guides_reading": 0.33,
+    "process": 0.1,
+    "overall": 0.3
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2167,
+   "latency_ms": 233.6,
+   "state_sha256": "53db0844502cc65d477077179de7a58529698c18a4e88b5a43eb702746f1014b"
+  },
+  {
+   "id": "N08",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.12,
+    "needed_later": 0.4,
+    "about_author": 0.11,
+    "reader_knows": 0.55,
+    "preempt": 0.24,
+    "guides_reading": 0.49,
+    "process": 0.12,
+    "overall": 0.36
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2168,
+   "latency_ms": 216.5,
+   "state_sha256": "da2173acbd471fe7798fed27210fbace63d456b6e8f2b7093c9e12cf05afea4f"
+  },
+  {
+   "id": "N09",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.11,
+    "needed_later": 0.57,
+    "about_author": 0.16,
+    "reader_knows": 0.58,
+    "preempt": 0.12,
+    "guides_reading": 0.28,
+    "process": 0.11,
+    "overall": 0.33
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2222,
+   "latency_ms": 238.6,
+   "state_sha256": "a4f7be25ee0dfca7df867de9636ac2cd6cfe8abded2b81e0da21ec03b659d654"
+  },
+  {
+   "id": "N10",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.26,
+    "needed_later": 0.43,
+    "about_author": 0.09,
+    "reader_knows": 0.52,
+    "preempt": 0.14,
+    "guides_reading": 0.43,
+    "process": 0.13,
+    "overall": 0.31
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2200,
+   "latency_ms": 252.9,
+   "state_sha256": "9e2e9111fd357b2cd6e6093187c224b117fbcabe342fe43207ea421054805a7c"
+  },
+  {
+   "id": "N11",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.07,
+    "needed_later": 0.77,
+    "about_author": 0.06,
+    "reader_knows": 0.58,
+    "preempt": 0.15,
+    "guides_reading": 0.32,
+    "process": 0.09,
+    "overall": 0.34
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1963,
+   "latency_ms": 251.5,
+   "state_sha256": "2aeea9a2bc938a560f093653db16de2b653e117cbb4c9ff42e12232468d22ad4"
+  },
+  {
+   "id": "N12",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.29,
+    "needed_later": 0.4,
+    "about_author": 0.09,
+    "reader_knows": 0.5,
+    "preempt": 0.19,
+    "guides_reading": 0.65,
+    "process": 0.08,
+    "overall": 0.33
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2750,
+   "latency_ms": 264.7,
+   "state_sha256": "6a55c0b95388a6bcf420cde70436f2285a1b3ae9b6103eb8c5ee0aa017435064"
+  },
+  {
+   "id": "N13",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.23,
+    "needed_later": 0.62,
+    "about_author": 0.26,
+    "reader_knows": 0.23,
+    "preempt": 0.86,
+    "guides_reading": 0.8,
+    "process": 0.17,
+    "overall": 0.26
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2716,
+   "latency_ms": 249.1,
+   "state_sha256": "7de553e8a52188989d8d8aa7325be4565f935c295e4c9544c2b761e745460a13"
+  },
+  {
+   "id": "N14",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.65,
+    "needed_later": 0.74,
+    "about_author": 0.11,
+    "reader_knows": 0.35,
+    "preempt": 0.23,
+    "guides_reading": 0.8,
+    "process": 0.08,
+    "overall": 0.29
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2695,
+   "latency_ms": 243.8,
+   "state_sha256": "01eec23e08ac952922e626a3d30530766872d7d284a75331a8c648adf79a8ec6"
+  },
+  {
+   "id": "N15",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.21,
+    "needed_later": 0.56,
+    "about_author": 0.15,
+    "reader_knows": 0.49,
+    "preempt": 0.12,
+    "guides_reading": 0.66,
+    "process": 0.21,
+    "overall": 0.31
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1884,
+   "latency_ms": 298.1,
+   "state_sha256": "0b4ca94bea8799b546a85d4075f460e4c6bccf1138dd46d4074f6ea1d2144740"
+  },
+  {
+   "id": "N16",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.15,
+    "needed_later": 0.61,
+    "about_author": 0.14,
+    "reader_knows": 0.35,
+    "preempt": 0.74,
+    "guides_reading": 0.71,
+    "process": 0.11,
+    "overall": 0.29
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1874,
+   "latency_ms": 283.4,
+   "state_sha256": "0180feadb7710e89c3c4b6711e23a59789662422b08a82afe9ee106cdf55679a"
+  },
+  {
+   "id": "N17",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.67,
+    "needed_later": 0.38,
+    "about_author": 0.14,
+    "reader_knows": 0.37,
+    "preempt": 0.14,
+    "guides_reading": 0.57,
+    "process": 0.15,
+    "overall": 0.27
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2168,
+   "latency_ms": 228.4,
+   "state_sha256": "2f5a3047cf6da714f0781f1d88818254395fcc443f7bd338ef4949841f4d0b7d"
+  },
+  {
+   "id": "N18",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.37,
+    "needed_later": 0.51,
+    "about_author": 0.12,
+    "reader_knows": 0.68,
+    "preempt": 0.13,
+    "guides_reading": 0.65,
+    "process": 0.15,
+    "overall": 0.33
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1994,
+   "latency_ms": 235.9,
+   "state_sha256": "eb9473bc83aae3b1ce43dcb195243a3b1844874cab19345000a4eafa480a3b5b"
+  },
+  {
+   "id": "N19",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.44,
+    "needed_later": 0.6,
+    "about_author": 0.23,
+    "reader_knows": 0.26,
+    "preempt": 0.49,
+    "guides_reading": 0.72,
+    "process": 0.2,
+    "overall": 0.28
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2718,
+   "latency_ms": 243.3,
+   "state_sha256": "a2935de6d1dcd3470da10edacd26c534e767953459e3ec3d5b193aa20877c25a"
+  },
+  {
+   "id": "N20",
+   "repeat": 0,
+   "p": {
+    "repeated": 0.7,
+    "needed_later": 0.48,
+    "about_author": 0.09,
+    "reader_knows": 0.34,
+    "preempt": 0.16,
+    "guides_reading": 0.74,
+    "process": 0.09,
+    "overall": 0.32
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2705,
+   "latency_ms": 267.8,
+   "state_sha256": "204562c88da7a336e71ba80653970fa28a05658b2c4fe788060f02075371ed92"
+  },
+  {
+   "id": "P1",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.12,
+    "needed_later": 0.38,
+    "about_author": 0.91,
+    "reader_knows": 0.39,
+    "preempt": 0.85,
+    "guides_reading": 0.86,
+    "process": 0.83,
+    "overall": 0.44
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2792,
+   "latency_ms": 247.5,
+   "state_sha256": "bc30292e50edf48f092aa808b22aa4156c70404b75e1122b92df7b62e331d124"
+  },
+  {
+   "id": "P2",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.18,
+    "needed_later": 0.3,
+    "about_author": 0.92,
+    "reader_knows": 0.44,
+    "preempt": 0.83,
+    "guides_reading": 0.69,
+    "process": 0.92,
+    "overall": 0.5
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2832,
+   "latency_ms": 213.3,
+   "state_sha256": "aab73acdfe842bdf2d9868a9da1dc81a88f38692e44398497f8065c3c517ab6a"
+  },
+  {
+   "id": "P3",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.17,
+    "needed_later": 0.26,
+    "about_author": 0.7,
+    "reader_knows": 0.39,
+    "preempt": 0.93,
+    "guides_reading": 0.74,
+    "process": 0.49,
+    "overall": 0.43
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1757,
+   "latency_ms": 276.9,
+   "state_sha256": "105eecea63bdf62c3910872ce0d629dcf967b1d4aeb25cf47ff7a3f3696c5c6d"
+  },
+  {
+   "id": "P4",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.17,
+    "needed_later": 0.42,
+    "about_author": 0.71,
+    "reader_knows": 0.34,
+    "preempt": 0.92,
+    "guides_reading": 0.76,
+    "process": 0.51,
+    "overall": 0.34
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1919,
+   "latency_ms": 277.1,
+   "state_sha256": "7fdeb487c7d9bee102b34da9d02f8d6449a263d2d73c28edaa3450d7a943c623"
+  },
+  {
+   "id": "P5",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.31,
+    "needed_later": 0.44,
+    "about_author": 0.55,
+    "reader_knows": 0.36,
+    "preempt": 0.94,
+    "guides_reading": 0.82,
+    "process": 0.36,
+    "overall": 0.39
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2727,
+   "latency_ms": 201.6,
+   "state_sha256": "58c5ad12d385ddba943a2fdd83f48945c92b084ba4f7e987538d7d61827d295a"
+  },
+  {
+   "id": "P6",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.31,
+    "needed_later": 0.44,
+    "about_author": 0.61,
+    "reader_knows": 0.31,
+    "preempt": 0.89,
+    "guides_reading": 0.85,
+    "process": 0.4,
+    "overall": 0.35
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2718,
+   "latency_ms": 220.3,
+   "state_sha256": "59d98dff28da39d4b33031801de418c24b090ea9c630c3805e92770c534df806"
+  },
+  {
+   "id": "P7",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.73,
+    "needed_later": 0.18,
+    "about_author": 0.21,
+    "reader_knows": 0.35,
+    "preempt": 0.89,
+    "guides_reading": 0.81,
+    "process": 0.15,
+    "overall": 0.36
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2953,
+   "latency_ms": 241.0,
+   "state_sha256": "822b4bc0895883d2cbf08bf14f70e655b917e0c26a6946ad0b154d404f0ddb8d"
+  },
+  {
+   "id": "H1",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.09,
+    "needed_later": 0.24,
+    "about_author": 0.92,
+    "reader_knows": 0.36,
+    "preempt": 0.96,
+    "guides_reading": 0.9,
+    "process": 0.83,
+    "overall": 0.38
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1371,
+   "latency_ms": 270.8,
+   "state_sha256": "bc8483cdc92da523f561cebeafc6698240a4d294bf5ac303b7713547c2bd5fa7"
+  },
+  {
+   "id": "H2",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.23,
+    "needed_later": 0.38,
+    "about_author": 0.34,
+    "reader_knows": 0.48,
+    "preempt": 0.96,
+    "guides_reading": 0.89,
+    "process": 0.22,
+    "overall": 0.33
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2842,
+   "latency_ms": 233.5,
+   "state_sha256": "7499f359d6f51c07ad333551634c37104e4690ec3663dc5360d999259eff3abd"
+  },
+  {
+   "id": "H3",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.66,
+    "needed_later": 0.55,
+    "about_author": 0.32,
+    "reader_knows": 0.27,
+    "preempt": 0.83,
+    "guides_reading": 0.89,
+    "process": 0.32,
+    "overall": 0.25
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2877,
+   "latency_ms": 343.2,
+   "state_sha256": "ede8f5c6d960197eacaa36165517dac7c6a3df1ddffc7a7e9ab4413c07b661e7"
+  },
+  {
+   "id": "H4",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.26,
+    "needed_later": 0.63,
+    "about_author": 0.82,
+    "reader_knows": 0.46,
+    "preempt": 0.74,
+    "guides_reading": 0.7,
+    "process": 0.62,
+    "overall": 0.3
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2683,
+   "latency_ms": 240.2,
+   "state_sha256": "93ecc16c8725291419d5e24e47c7d6cd53dda9dcda7047ec15240c901090c270"
+  },
+  {
+   "id": "H5",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.32,
+    "needed_later": 0.37,
+    "about_author": 0.9,
+    "reader_knows": 0.49,
+    "preempt": 0.89,
+    "guides_reading": 0.48,
+    "process": 0.65,
+    "overall": 0.32
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1069,
+   "latency_ms": 242.4,
+   "state_sha256": "7eabacf9371b74e0b5e85e5ecacf2ad0ffcf3ca20feb5a516ab4826e70e6749c"
+  },
+  {
+   "id": "H6",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.39,
+    "needed_later": 0.46,
+    "about_author": 0.38,
+    "reader_knows": 0.3,
+    "preempt": 0.8,
+    "guides_reading": 0.78,
+    "process": 0.23,
+    "overall": 0.34
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2739,
+   "latency_ms": 242.6,
+   "state_sha256": "53cd24147d827c00952c9ed3ed9917e54d1cbc76fc53169b67c5e7a3d0b2a499"
+  },
+  {
+   "id": "H7",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.07,
+    "needed_later": 0.82,
+    "about_author": 0.68,
+    "reader_knows": 0.18,
+    "preempt": 0.42,
+    "guides_reading": 0.69,
+    "process": 0.51,
+    "overall": 0.36
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2258,
+   "latency_ms": 199.0,
+   "state_sha256": "662573bb0a33b28f1e1799ac2ef4eea4bb732bb91ef6a05ff79522a191985839"
+  },
+  {
+   "id": "N01",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.43,
+    "needed_later": 0.84,
+    "about_author": 0.22,
+    "reader_knows": 0.25,
+    "preempt": 0.2,
+    "guides_reading": 0.54,
+    "process": 0.21,
+    "overall": 0.23
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2711,
+   "latency_ms": 241.8,
+   "state_sha256": "accc7b2722a24cbabe58a05ae2c369f01233ec0395177661812177763ca01c90"
+  },
+  {
+   "id": "N02",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.3,
+    "needed_later": 0.33,
+    "about_author": 0.14,
+    "reader_knows": 0.58,
+    "preempt": 0.55,
+    "guides_reading": 0.4,
+    "process": 0.14,
+    "overall": 0.34
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2200,
+   "latency_ms": 248.5,
+   "state_sha256": "c16b5a08d2188269d4f7148a31be84ea9229031f0fa4c89b844a6c70f2e9e89d"
+  },
+  {
+   "id": "N03",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.11,
+    "needed_later": 0.85,
+    "about_author": 0.11,
+    "reader_knows": 0.77,
+    "preempt": 0.12,
+    "guides_reading": 0.54,
+    "process": 0.07,
+    "overall": 0.22
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1908,
+   "latency_ms": 227.2,
+   "state_sha256": "24579cf478a38195c139a7674968636a92973ae17ab32f2f3fba3d51555830bf"
+  },
+  {
+   "id": "N04",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.18,
+    "needed_later": 0.47,
+    "about_author": 0.09,
+    "reader_knows": 0.47,
+    "preempt": 0.21,
+    "guides_reading": 0.48,
+    "process": 0.1,
+    "overall": 0.31
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2155,
+   "latency_ms": 248.3,
+   "state_sha256": "a72919ff3dbe159b81398048810241ff632c41600f5af005bf8df4ed702cdcf4"
+  },
+  {
+   "id": "N05",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.5,
+    "needed_later": 0.73,
+    "about_author": 0.11,
+    "reader_knows": 0.76,
+    "preempt": 0.1,
+    "guides_reading": 0.46,
+    "process": 0.06,
+    "overall": 0.31
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1895,
+   "latency_ms": 226.2,
+   "state_sha256": "329f9f787e72500476e12e32d1c7448b87c822817fffde1a8bd34c2767a03586"
+  },
+  {
+   "id": "N06",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.42,
+    "needed_later": 0.66,
+    "about_author": 0.13,
+    "reader_knows": 0.41,
+    "preempt": 0.15,
+    "guides_reading": 0.48,
+    "process": 0.27,
+    "overall": 0.24
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2231,
+   "latency_ms": 248.4,
+   "state_sha256": "3c8e63cd7ff70beedd092e93ab18e934d5aaab1c7d684f7cd82342cb8dec1b70"
+  },
+  {
+   "id": "N07",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.16,
+    "needed_later": 0.54,
+    "about_author": 0.1,
+    "reader_knows": 0.45,
+    "preempt": 0.17,
+    "guides_reading": 0.38,
+    "process": 0.1,
+    "overall": 0.31
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2167,
+   "latency_ms": 203.5,
+   "state_sha256": "53db0844502cc65d477077179de7a58529698c18a4e88b5a43eb702746f1014b"
+  },
+  {
+   "id": "N08",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.13,
+    "needed_later": 0.42,
+    "about_author": 0.11,
+    "reader_knows": 0.53,
+    "preempt": 0.24,
+    "guides_reading": 0.51,
+    "process": 0.12,
+    "overall": 0.35
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2168,
+   "latency_ms": 262.5,
+   "state_sha256": "da2173acbd471fe7798fed27210fbace63d456b6e8f2b7093c9e12cf05afea4f"
+  },
+  {
+   "id": "N09",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.11,
+    "needed_later": 0.53,
+    "about_author": 0.14,
+    "reader_knows": 0.55,
+    "preempt": 0.12,
+    "guides_reading": 0.3,
+    "process": 0.12,
+    "overall": 0.33
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2222,
+   "latency_ms": 227.5,
+   "state_sha256": "a4f7be25ee0dfca7df867de9636ac2cd6cfe8abded2b81e0da21ec03b659d654"
+  },
+  {
+   "id": "N10",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.24,
+    "needed_later": 0.45,
+    "about_author": 0.09,
+    "reader_knows": 0.51,
+    "preempt": 0.14,
+    "guides_reading": 0.44,
+    "process": 0.13,
+    "overall": 0.32
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2200,
+   "latency_ms": 248.3,
+   "state_sha256": "9e2e9111fd357b2cd6e6093187c224b117fbcabe342fe43207ea421054805a7c"
+  },
+  {
+   "id": "N11",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.07,
+    "needed_later": 0.75,
+    "about_author": 0.06,
+    "reader_knows": 0.61,
+    "preempt": 0.15,
+    "guides_reading": 0.33,
+    "process": 0.08,
+    "overall": 0.35
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1963,
+   "latency_ms": 226.5,
+   "state_sha256": "2aeea9a2bc938a560f093653db16de2b653e117cbb4c9ff42e12232468d22ad4"
+  },
+  {
+   "id": "N12",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.3,
+    "needed_later": 0.44,
+    "about_author": 0.09,
+    "reader_knows": 0.5,
+    "preempt": 0.19,
+    "guides_reading": 0.65,
+    "process": 0.07,
+    "overall": 0.3
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2750,
+   "latency_ms": 224.2,
+   "state_sha256": "6a55c0b95388a6bcf420cde70436f2285a1b3ae9b6103eb8c5ee0aa017435064"
+  },
+  {
+   "id": "N13",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.21,
+    "needed_later": 0.62,
+    "about_author": 0.25,
+    "reader_knows": 0.25,
+    "preempt": 0.87,
+    "guides_reading": 0.81,
+    "process": 0.18,
+    "overall": 0.24
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2716,
+   "latency_ms": 213.2,
+   "state_sha256": "7de553e8a52188989d8d8aa7325be4565f935c295e4c9544c2b761e745460a13"
+  },
+  {
+   "id": "N14",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.64,
+    "needed_later": 0.78,
+    "about_author": 0.11,
+    "reader_knows": 0.35,
+    "preempt": 0.22,
+    "guides_reading": 0.78,
+    "process": 0.08,
+    "overall": 0.3
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2695,
+   "latency_ms": 240.5,
+   "state_sha256": "01eec23e08ac952922e626a3d30530766872d7d284a75331a8c648adf79a8ec6"
+  },
+  {
+   "id": "N15",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.22,
+    "needed_later": 0.59,
+    "about_author": 0.15,
+    "reader_knows": 0.48,
+    "preempt": 0.11,
+    "guides_reading": 0.66,
+    "process": 0.18,
+    "overall": 0.33
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1884,
+   "latency_ms": 250.3,
+   "state_sha256": "0b4ca94bea8799b546a85d4075f460e4c6bccf1138dd46d4074f6ea1d2144740"
+  },
+  {
+   "id": "N16",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.16,
+    "needed_later": 0.61,
+    "about_author": 0.14,
+    "reader_knows": 0.36,
+    "preempt": 0.74,
+    "guides_reading": 0.71,
+    "process": 0.12,
+    "overall": 0.28
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1874,
+   "latency_ms": 262.4,
+   "state_sha256": "0180feadb7710e89c3c4b6711e23a59789662422b08a82afe9ee106cdf55679a"
+  },
+  {
+   "id": "N17",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.66,
+    "needed_later": 0.34,
+    "about_author": 0.14,
+    "reader_knows": 0.35,
+    "preempt": 0.14,
+    "guides_reading": 0.57,
+    "process": 0.15,
+    "overall": 0.28
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2168,
+   "latency_ms": 210.8,
+   "state_sha256": "2f5a3047cf6da714f0781f1d88818254395fcc443f7bd338ef4949841f4d0b7d"
+  },
+  {
+   "id": "N18",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.37,
+    "needed_later": 0.54,
+    "about_author": 0.12,
+    "reader_knows": 0.67,
+    "preempt": 0.12,
+    "guides_reading": 0.64,
+    "process": 0.16,
+    "overall": 0.32
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1994,
+   "latency_ms": 223.8,
+   "state_sha256": "eb9473bc83aae3b1ce43dcb195243a3b1844874cab19345000a4eafa480a3b5b"
+  },
+  {
+   "id": "N19",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.44,
+    "needed_later": 0.59,
+    "about_author": 0.21,
+    "reader_knows": 0.26,
+    "preempt": 0.49,
+    "guides_reading": 0.72,
+    "process": 0.2,
+    "overall": 0.28
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2718,
+   "latency_ms": 256.7,
+   "state_sha256": "a2935de6d1dcd3470da10edacd26c534e767953459e3ec3d5b193aa20877c25a"
+  },
+  {
+   "id": "N20",
+   "repeat": 1,
+   "p": {
+    "repeated": 0.7,
+    "needed_later": 0.48,
+    "about_author": 0.08,
+    "reader_knows": 0.35,
+    "preempt": 0.17,
+    "guides_reading": 0.75,
+    "process": 0.09,
+    "overall": 0.32
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2705,
+   "latency_ms": 234.7,
+   "state_sha256": "204562c88da7a336e71ba80653970fa28a05658b2c4fe788060f02075371ed92"
+  },
+  {
+   "id": "P1",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.12,
+    "needed_later": 0.42,
+    "about_author": 0.91,
+    "reader_knows": 0.39,
+    "preempt": 0.86,
+    "guides_reading": 0.86,
+    "process": 0.82,
+    "overall": 0.45
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2792,
+   "latency_ms": 245.1,
+   "state_sha256": "bc30292e50edf48f092aa808b22aa4156c70404b75e1122b92df7b62e331d124"
+  },
+  {
+   "id": "P2",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.19,
+    "needed_later": 0.31,
+    "about_author": 0.92,
+    "reader_knows": 0.41,
+    "preempt": 0.83,
+    "guides_reading": 0.67,
+    "process": 0.92,
+    "overall": 0.51
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2832,
+   "latency_ms": 209.3,
+   "state_sha256": "aab73acdfe842bdf2d9868a9da1dc81a88f38692e44398497f8065c3c517ab6a"
+  },
+  {
+   "id": "P3",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.21,
+    "needed_later": 0.26,
+    "about_author": 0.71,
+    "reader_knows": 0.4,
+    "preempt": 0.93,
+    "guides_reading": 0.72,
+    "process": 0.45,
+    "overall": 0.42
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1757,
+   "latency_ms": 198.5,
+   "state_sha256": "105eecea63bdf62c3910872ce0d629dcf967b1d4aeb25cf47ff7a3f3696c5c6d"
+  },
+  {
+   "id": "P4",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.19,
+    "needed_later": 0.4,
+    "about_author": 0.68,
+    "reader_knows": 0.33,
+    "preempt": 0.91,
+    "guides_reading": 0.79,
+    "process": 0.5,
+    "overall": 0.35
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1919,
+   "latency_ms": 220.3,
+   "state_sha256": "7fdeb487c7d9bee102b34da9d02f8d6449a263d2d73c28edaa3450d7a943c623"
+  },
+  {
+   "id": "P5",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.29,
+    "needed_later": 0.46,
+    "about_author": 0.6,
+    "reader_knows": 0.35,
+    "preempt": 0.94,
+    "guides_reading": 0.83,
+    "process": 0.33,
+    "overall": 0.39
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2727,
+   "latency_ms": 254.7,
+   "state_sha256": "58c5ad12d385ddba943a2fdd83f48945c92b084ba4f7e987538d7d61827d295a"
+  },
+  {
+   "id": "P6",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.27,
+    "needed_later": 0.45,
+    "about_author": 0.64,
+    "reader_knows": 0.3,
+    "preempt": 0.89,
+    "guides_reading": 0.85,
+    "process": 0.39,
+    "overall": 0.36
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2718,
+   "latency_ms": 234.9,
+   "state_sha256": "59d98dff28da39d4b33031801de418c24b090ea9c630c3805e92770c534df806"
+  },
+  {
+   "id": "P7",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.73,
+    "needed_later": 0.18,
+    "about_author": 0.22,
+    "reader_knows": 0.33,
+    "preempt": 0.89,
+    "guides_reading": 0.83,
+    "process": 0.16,
+    "overall": 0.35
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2953,
+   "latency_ms": 309.9,
+   "state_sha256": "822b4bc0895883d2cbf08bf14f70e655b917e0c26a6946ad0b154d404f0ddb8d"
+  },
+  {
+   "id": "H1",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.1,
+    "needed_later": 0.24,
+    "about_author": 0.92,
+    "reader_knows": 0.35,
+    "preempt": 0.96,
+    "guides_reading": 0.91,
+    "process": 0.85,
+    "overall": 0.38
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1371,
+   "latency_ms": 276.3,
+   "state_sha256": "bc8483cdc92da523f561cebeafc6698240a4d294bf5ac303b7713547c2bd5fa7"
+  },
+  {
+   "id": "H2",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.22,
+    "needed_later": 0.38,
+    "about_author": 0.34,
+    "reader_knows": 0.49,
+    "preempt": 0.96,
+    "guides_reading": 0.89,
+    "process": 0.2,
+    "overall": 0.34
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2842,
+   "latency_ms": 326.8,
+   "state_sha256": "7499f359d6f51c07ad333551634c37104e4690ec3663dc5360d999259eff3abd"
+  },
+  {
+   "id": "H3",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.64,
+    "needed_later": 0.53,
+    "about_author": 0.34,
+    "reader_knows": 0.27,
+    "preempt": 0.83,
+    "guides_reading": 0.87,
+    "process": 0.33,
+    "overall": 0.25
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2877,
+   "latency_ms": 224.4,
+   "state_sha256": "ede8f5c6d960197eacaa36165517dac7c6a3df1ddffc7a7e9ab4413c07b661e7"
+  },
+  {
+   "id": "H4",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.25,
+    "needed_later": 0.58,
+    "about_author": 0.83,
+    "reader_knows": 0.45,
+    "preempt": 0.7,
+    "guides_reading": 0.69,
+    "process": 0.59,
+    "overall": 0.3
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2683,
+   "latency_ms": 199.2,
+   "state_sha256": "93ecc16c8725291419d5e24e47c7d6cd53dda9dcda7047ec15240c901090c270"
+  },
+  {
+   "id": "H5",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.3,
+    "needed_later": 0.37,
+    "about_author": 0.9,
+    "reader_knows": 0.46,
+    "preempt": 0.89,
+    "guides_reading": 0.46,
+    "process": 0.67,
+    "overall": 0.32
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1069,
+   "latency_ms": 234.5,
+   "state_sha256": "7eabacf9371b74e0b5e85e5ecacf2ad0ffcf3ca20feb5a516ab4826e70e6749c"
+  },
+  {
+   "id": "H6",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.37,
+    "needed_later": 0.45,
+    "about_author": 0.37,
+    "reader_knows": 0.29,
+    "preempt": 0.79,
+    "guides_reading": 0.79,
+    "process": 0.23,
+    "overall": 0.35
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2739,
+   "latency_ms": 264.9,
+   "state_sha256": "53cd24147d827c00952c9ed3ed9917e54d1cbc76fc53169b67c5e7a3d0b2a499"
+  },
+  {
+   "id": "H7",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.07,
+    "needed_later": 0.83,
+    "about_author": 0.67,
+    "reader_knows": 0.18,
+    "preempt": 0.42,
+    "guides_reading": 0.71,
+    "process": 0.51,
+    "overall": 0.35
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2258,
+   "latency_ms": 221.6,
+   "state_sha256": "662573bb0a33b28f1e1799ac2ef4eea4bb732bb91ef6a05ff79522a191985839"
+  },
+  {
+   "id": "N01",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.42,
+    "needed_later": 0.85,
+    "about_author": 0.22,
+    "reader_knows": 0.26,
+    "preempt": 0.2,
+    "guides_reading": 0.54,
+    "process": 0.21,
+    "overall": 0.24
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2711,
+   "latency_ms": 229.4,
+   "state_sha256": "accc7b2722a24cbabe58a05ae2c369f01233ec0395177661812177763ca01c90"
+  },
+  {
+   "id": "N02",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.29,
+    "needed_later": 0.32,
+    "about_author": 0.14,
+    "reader_knows": 0.59,
+    "preempt": 0.56,
+    "guides_reading": 0.38,
+    "process": 0.15,
+    "overall": 0.33
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2200,
+   "latency_ms": 234.5,
+   "state_sha256": "c16b5a08d2188269d4f7148a31be84ea9229031f0fa4c89b844a6c70f2e9e89d"
+  },
+  {
+   "id": "N03",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.1,
+    "needed_later": 0.84,
+    "about_author": 0.1,
+    "reader_knows": 0.75,
+    "preempt": 0.12,
+    "guides_reading": 0.49,
+    "process": 0.07,
+    "overall": 0.23
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1908,
+   "latency_ms": 260.0,
+   "state_sha256": "24579cf478a38195c139a7674968636a92973ae17ab32f2f3fba3d51555830bf"
+  },
+  {
+   "id": "N04",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.18,
+    "needed_later": 0.47,
+    "about_author": 0.09,
+    "reader_knows": 0.47,
+    "preempt": 0.2,
+    "guides_reading": 0.46,
+    "process": 0.1,
+    "overall": 0.31
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2155,
+   "latency_ms": 252.4,
+   "state_sha256": "a72919ff3dbe159b81398048810241ff632c41600f5af005bf8df4ed702cdcf4"
+  },
+  {
+   "id": "N05",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.51,
+    "needed_later": 0.7,
+    "about_author": 0.11,
+    "reader_knows": 0.75,
+    "preempt": 0.1,
+    "guides_reading": 0.44,
+    "process": 0.06,
+    "overall": 0.32
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1895,
+   "latency_ms": 221.8,
+   "state_sha256": "329f9f787e72500476e12e32d1c7448b87c822817fffde1a8bd34c2767a03586"
+  },
+  {
+   "id": "N06",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.41,
+    "needed_later": 0.65,
+    "about_author": 0.12,
+    "reader_knows": 0.44,
+    "preempt": 0.15,
+    "guides_reading": 0.47,
+    "process": 0.28,
+    "overall": 0.25
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2231,
+   "latency_ms": 249.2,
+   "state_sha256": "3c8e63cd7ff70beedd092e93ab18e934d5aaab1c7d684f7cd82342cb8dec1b70"
+  },
+  {
+   "id": "N07",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.16,
+    "needed_later": 0.58,
+    "about_author": 0.1,
+    "reader_knows": 0.44,
+    "preempt": 0.18,
+    "guides_reading": 0.38,
+    "process": 0.1,
+    "overall": 0.29
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2167,
+   "latency_ms": 199.2,
+   "state_sha256": "53db0844502cc65d477077179de7a58529698c18a4e88b5a43eb702746f1014b"
+  },
+  {
+   "id": "N08",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.13,
+    "needed_later": 0.42,
+    "about_author": 0.12,
+    "reader_knows": 0.52,
+    "preempt": 0.24,
+    "guides_reading": 0.51,
+    "process": 0.11,
+    "overall": 0.35
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2168,
+   "latency_ms": 241.1,
+   "state_sha256": "da2173acbd471fe7798fed27210fbace63d456b6e8f2b7093c9e12cf05afea4f"
+  },
+  {
+   "id": "N09",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.11,
+    "needed_later": 0.52,
+    "about_author": 0.14,
+    "reader_knows": 0.56,
+    "preempt": 0.12,
+    "guides_reading": 0.31,
+    "process": 0.11,
+    "overall": 0.34
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2222,
+   "latency_ms": 229.1,
+   "state_sha256": "a4f7be25ee0dfca7df867de9636ac2cd6cfe8abded2b81e0da21ec03b659d654"
+  },
+  {
+   "id": "N10",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.25,
+    "needed_later": 0.43,
+    "about_author": 0.08,
+    "reader_knows": 0.51,
+    "preempt": 0.13,
+    "guides_reading": 0.42,
+    "process": 0.12,
+    "overall": 0.31
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2200,
+   "latency_ms": 228.5,
+   "state_sha256": "9e2e9111fd357b2cd6e6093187c224b117fbcabe342fe43207ea421054805a7c"
+  },
+  {
+   "id": "N11",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.07,
+    "needed_later": 0.78,
+    "about_author": 0.06,
+    "reader_knows": 0.62,
+    "preempt": 0.14,
+    "guides_reading": 0.34,
+    "process": 0.09,
+    "overall": 0.33
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1963,
+   "latency_ms": 240.6,
+   "state_sha256": "2aeea9a2bc938a560f093653db16de2b653e117cbb4c9ff42e12232468d22ad4"
+  },
+  {
+   "id": "N12",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.32,
+    "needed_later": 0.43,
+    "about_author": 0.09,
+    "reader_knows": 0.51,
+    "preempt": 0.2,
+    "guides_reading": 0.65,
+    "process": 0.08,
+    "overall": 0.31
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2750,
+   "latency_ms": 231.2,
+   "state_sha256": "6a55c0b95388a6bcf420cde70436f2285a1b3ae9b6103eb8c5ee0aa017435064"
+  },
+  {
+   "id": "N13",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.21,
+    "needed_later": 0.64,
+    "about_author": 0.26,
+    "reader_knows": 0.24,
+    "preempt": 0.89,
+    "guides_reading": 0.8,
+    "process": 0.18,
+    "overall": 0.26
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2716,
+   "latency_ms": 223.1,
+   "state_sha256": "7de553e8a52188989d8d8aa7325be4565f935c295e4c9544c2b761e745460a13"
+  },
+  {
+   "id": "N14",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.63,
+    "needed_later": 0.79,
+    "about_author": 0.1,
+    "reader_knows": 0.34,
+    "preempt": 0.23,
+    "guides_reading": 0.8,
+    "process": 0.07,
+    "overall": 0.29
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2695,
+   "latency_ms": 249.0,
+   "state_sha256": "01eec23e08ac952922e626a3d30530766872d7d284a75331a8c648adf79a8ec6"
+  },
+  {
+   "id": "N15",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.21,
+    "needed_later": 0.58,
+    "about_author": 0.15,
+    "reader_knows": 0.49,
+    "preempt": 0.12,
+    "guides_reading": 0.67,
+    "process": 0.17,
+    "overall": 0.3
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1884,
+   "latency_ms": 264.3,
+   "state_sha256": "0b4ca94bea8799b546a85d4075f460e4c6bccf1138dd46d4074f6ea1d2144740"
+  },
+  {
+   "id": "N16",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.17,
+    "needed_later": 0.66,
+    "about_author": 0.14,
+    "reader_knows": 0.36,
+    "preempt": 0.73,
+    "guides_reading": 0.72,
+    "process": 0.12,
+    "overall": 0.28
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1874,
+   "latency_ms": 267.1,
+   "state_sha256": "0180feadb7710e89c3c4b6711e23a59789662422b08a82afe9ee106cdf55679a"
+  },
+  {
+   "id": "N17",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.65,
+    "needed_later": 0.41,
+    "about_author": 0.14,
+    "reader_knows": 0.37,
+    "preempt": 0.14,
+    "guides_reading": 0.58,
+    "process": 0.17,
+    "overall": 0.28
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2168,
+   "latency_ms": 263.8,
+   "state_sha256": "2f5a3047cf6da714f0781f1d88818254395fcc443f7bd338ef4949841f4d0b7d"
+  },
+  {
+   "id": "N18",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.38,
+    "needed_later": 0.48,
+    "about_author": 0.12,
+    "reader_knows": 0.69,
+    "preempt": 0.13,
+    "guides_reading": 0.65,
+    "process": 0.17,
+    "overall": 0.32
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 1994,
+   "latency_ms": 197.6,
+   "state_sha256": "eb9473bc83aae3b1ce43dcb195243a3b1844874cab19345000a4eafa480a3b5b"
+  },
+  {
+   "id": "N19",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.46,
+    "needed_later": 0.61,
+    "about_author": 0.21,
+    "reader_knows": 0.26,
+    "preempt": 0.5,
+    "guides_reading": 0.72,
+    "process": 0.19,
+    "overall": 0.27
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2718,
+   "latency_ms": 209.5,
+   "state_sha256": "a2935de6d1dcd3470da10edacd26c534e767953459e3ec3d5b193aa20877c25a"
+  },
+  {
+   "id": "N20",
+   "repeat": 2,
+   "p": {
+    "repeated": 0.7,
+    "needed_later": 0.49,
+    "about_author": 0.09,
+    "reader_knows": 0.35,
+    "preempt": 0.17,
+    "guides_reading": 0.74,
+    "process": 0.1,
+    "overall": 0.31
+   },
+   "model": "jev-1.13.0",
+   "input_tokens": 2705,
+   "latency_ms": 260.9,
+   "state_sha256": "204562c88da7a336e71ba80653970fa28a05658b2c4fe788060f02075371ed92"
+  }
+ ]
+}
