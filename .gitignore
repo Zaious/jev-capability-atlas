@@ -12,4 +12,5 @@ suites/*/data/cases.debug.json
 suites/expression-selection/data/cases.json
 suites/expression-in-dialogue/data/cases.json
 suites/expression-japanese/data/cases.json
+suites/speech-act-classification/data/cases.json
 suites/*/data/_cache/

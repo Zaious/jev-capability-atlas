@@ -50,7 +50,18 @@ def get_client(timeout: float = 60.0):
         )
         sys.exit(1)
     from typesafe_sdk import TypeSafeClient
-    return TypeSafeClient(api_key=key, timeout=timeout)
+    # 只要 gzip，不要 br。2026-09-23 撞到：伺服器改回 brotli 之後，httpx2 2.13.0 的
+    # brotli 路徑會呼叫 `decompressor.process(data, output_buffer_limit=...)`，而
+    # `brotli` 1.1.0 的 process() 不吃關鍵字參數，於是**每一次呼叫**都死在
+    # `TypeError: process() takes no keyword arguments`——看起來像 API 掛了，其實是
+    # 用戶端解壓縮壞掉。不宣告 br 就繞開整條路徑，代價只是回應大一點。
+    # Ask for gzip only. Hit on 2026-09-23: with brotli-encoded responses, httpx2 2.13.0
+    # calls `decompressor.process(data, output_buffer_limit=...)` while brotli 1.1.0's
+    # process() takes no keyword arguments, so every call dies with
+    # `TypeError: process() takes no keyword arguments`. It looks like an API outage and
+    # is actually a client-side decoder mismatch. Not advertising br avoids that path.
+    return TypeSafeClient(api_key=key, timeout=timeout,
+                          headers={"Accept-Encoding": "gzip"})
 
 
 if __name__ == "__main__":

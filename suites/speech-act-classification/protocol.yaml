@@ -1,0 +1,37 @@
+# 釘住用的參數，為了能重現——以這份為準，不要在 README.md 裡再寫一次。
+model: jev-latest        # answered by jev-1.13.0 on the run date
+question_type: choice    # one Choice; 4 options, NO abstention option (see note)
+arms:
+  act_no_context: 500    # the utterance alone
+  act_context: 500       # the utterance plus up to 4 preceding turns
+repeats: 3
+workers: 8
+items: 500               # natural distribution, sampled from utterances that have a prior turn
+context_turns: 4
+seed: 41
+bins: 15
+thresholds_reported: [0.5, 0.7, 0.9]
+bootstrap: 2000          # paired resampling over items, seed 43
+run_date: "2026-09-23"
+no_abstention_note: >
+  The four acts are exhaustive, so no "unclear" option is offered. suites/expression-japanese/
+  measured an 11-point cost for handing the model an escape hatch the oracle never uses.
+key_baseline: >
+  The number that matters is NOT overall accuracy. A pure punctuation rule -- "ends with a
+  question mark: question, otherwise inform" -- already scores 0.708 on this sample. The real
+  test is the 355 of 500 utterances that carry no question mark, where always-inform scores
+  0.6394. Both are computed offline by data/build_cases.py --stats with no API calls.
+human_ceiling: >
+  None available. DailyDialog publishes one label per utterance, not per annotator, so unlike
+  suites/expression-japanese/ there is no way to say how far from a person this lands.
+data_source: >
+  DailyDialog test split via Hugging Face roskoN/dailydialog
+  @ 5214b2a66405abf87fd229e5c1007985501ffe3e (test.zip, the original
+  dialogues_test.txt / dialogues_act_test.txt format). Acts: 1 inform, 2 question,
+  3 directive, 4 commissive. Li et al., "DailyDialog: A Manually Labelled Multi-turn
+  Dialogue Dataset", IJCNLP 2017.
+data_license: >
+  CC BY-NC-SA 4.0. The text is not committed: cases.json and data/_cache/ are gitignored and
+  the receipts store the SHA-256 of each state. The NonCommercial and ShareAlike terms bind
+  whoever downloads the corpus by running this suite, not this repository's MIT-licensed code.
+  Audit with `python data/build_cases.py --verify runs/<date>.json`.
