@@ -1,0 +1,18 @@
+# 釘住用的參數——以這份為準。/ Pinned parameters -- this file is authoritative.
+model: jev-latest
+question_type: noul            # one Noul per request; the two wordings are separate requests
+repeats: 3
+arms:
+  criterion: babel-antiai's SELF-JUSTIFY test, verbatim (as in suites/self-justify-detection)
+  reader_vs_author: the distinction the author confirmed after seeing these cases -- written in-sample
+state: "段落：<paragraph>\n\n要判斷的句子：<sentence>"
+thresholds_reported: [0.5, 0.7]
+cases: 34                      # frozen in data/cases.json before any run
+groups:
+  cut: 7                       # sentences/clauses the author actually cut, pre-cut version
+  kept_lookalike: 7            # similar-looking sentences the author kept after sentence-by-sentence review
+  unchanged: 20                # untouched from the AI-assisted draft to the submitted version, seed 29
+labels: from the author's edits in git, not from a later judgment
+source: danganronpa-persona-2026 in the maintainer's private chronicle-lex repo, draft 644b3c5 -> submitted 27c775c
+data_license: excerpts of the author's own manuscript, published with permission; not MIT
+scanner_arm: babel-antiai ai-quality-scan.sh on the target sentence only; sentences under its length floor are recorded as skipped (13 of 34 are under ~40 CJK characters)

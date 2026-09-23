@@ -44,3 +44,6 @@ virtual-character-expressions.en.md	平静
 virtual-character-expressions.en.md	内心
 virtual-character-expressions.en.md	判断
 virtual-character-expressions.en.md	本当
+# self-justify-real-draft 引的論文段落含小高和剛貼文的日文原句（未来 是日文）
+# the self-justify-real-draft cases quote Kodaka's post in Japanese (未来 is Japanese)
+suites/self-justify-real-draft/data/cases.json	未来でも
