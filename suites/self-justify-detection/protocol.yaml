@@ -1,0 +1,25 @@
+# 釘住用的參數，為了能重現——以這份為準，不要在 README.md 裡再寫一次。
+# Pin these for reproducibility -- treat this file as authoritative,
+# don't re-state values in README.md that could drift out of sync.
+model: jev-latest              # the answering version is recorded in each receipt
+question_type: noul            # one Noul per request; the two arms are separate requests
+repeats: 3                     # every (case, arm) asked three times
+arms:
+  J1_criterion: criterion only (wording fixed in run.py, verbatim from babel-antiai's SELF-JUSTIFY section)
+  J2_with_exceptions: J1 plus one sentence naming three legitimate kinds of explanation
+  scanner: babel-antiai ai-quality-scan.sh --lang zh, SELF-JUSTIFY count > 0 (run locally; code not public)
+decision_threshold: 0.5        # on the mean of the three repeats; 0.3 and 0.7 also reported
+cases: 60                      # frozen in data/cases.json before any scanner or Jev run
+strata:
+  S1: 15   # self-justifying, one of the five grammatical shapes (3 each), label true
+  S2: 15   # self-justifying, no lexical marker (3 kinds x 5), label true
+  S3: 10   # legitimate explanation using one of the five shapes (2 each), label false
+  S4: 10   # legitimate explanation, no shape, label false
+  S5: 10   # plain paragraph, label false
+annotators: 1                  # the maintainer wrote and labelled every case; the criterion's author reviews a sample afterwards
+label_changes_after_freeze: recorded in README with before/after scores, never silent
+data_source: written for this suite by this repo's maintainer
+data_license: MIT (ours)
+scanner_source: >
+  babel-antiai (the maintainer's private skill), ai-quality-scan.sh. Only its per-case
+  SELF-JUSTIFY verdicts and the script's sha256 are published; the script itself is not.
